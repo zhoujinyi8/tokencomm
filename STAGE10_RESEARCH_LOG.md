@@ -110,3 +110,9 @@ GitHub 仓库只提交源码、配置、轻量 JSON/CSV 指标、图表和 Markd
 为检验 TaiChi/TokenCom 路线中 BAN 与 KAN 的实际贡献，已冻结 `STAGE11_ABLATION_PROTOCOL.json`，依次训练三种结构：BAN+KAN、BAN+MLP、Concat+MLP。三者共同使用8,000张训练图、固定100张十类均衡开发图、随机种子9901、800优化步、有效批量8、相同Qwen2.5-0.5B冻结主干和rank-8 LoRA，以及896→64→896语义信道。选择规则固定为先取最低开发损失，再取最高完整回答准确率。
 
 BAN+KAN官方实验已启动，完成后 `run_stage11_remaining.ps1` 会验证 `status.json`，再自动接力另外两种结构。`snapshot_stage11.ps1` 与 `report_stage11.py` 每四小时生成一次 `STAGE11_PROGRESS.md`、JSON快照和进度图；三组全部完成后生成 `STAGE11_ABLATION_REPORT.md`。Windows任务计划名称为 `TokenCom-Stage11-4Hour-Progress`。Stage-10最终测试集不会在该消融中读取或用于结构选择。
+
+## 10. 统一通信开销口径
+
+`communication_budget.py`现在把三种单位分开核算：离散token源码比特、加入逐包CRC/卷积码后的编码比特，以及真正进入信道的复符号数。公开VQGAN规格的256个、1024码本token对应2,560源比特，即0.0390625 bpp；按当前每包4 token、CRC-16、6终止位、码率1/2卷积码和16-QAM参考链路计算，共7,936编码比特与1,984个复符号。解析结果由测试与`digital_link.py`的无噪声实际统计逐项核对。
+
+Stage-10/11 TaiChi发送16×64=1,024个实数，按I/Q配对为512个复符号。由于这些是连续值，未指定量化、熵编码和数字调制/FEC时不能换算为比特率或bpp。TokCom执行图像重建，当前TaiChi执行十分类问答，因此符号数比值只用于描述工程资源，不能单独证明哪条链路更高效。详见`COMMUNICATION_BUDGET_REPORT.md`。
