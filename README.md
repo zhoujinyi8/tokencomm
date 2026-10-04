@@ -1,5 +1,7 @@
 # TokCom 与 TaiChi：复现工程
 
+**第十一阶段等预算融合消融正在运行：** 已冻结BAN+KAN、BAN+MLP、Concat+MLP三组公平对比协议，每组使用同一8,000张训练图、固定100张均衡开发图、800步和有效批量8。后台脚本会在每组完成后自动接力下一组；Windows计划任务每四小时更新[STAGE11_PROGRESS.md](STAGE11_PROGRESS.md)与`figures/stage11/progress.png`，全部完成后自动生成`STAGE11_ABLATION_REPORT.md`。本阶段不读取已经消费的Stage-10最终测试集。
+
 **第十阶段8,000张图强化训练及预注册最终测试已完成：** Qwen2.5-0.5B双视觉语义通信模型从第400步继续训练到第2,400步，有效批量8。开发验证在第2,200步达到100%完整回答准确率、0.000164损失。冻结协议后一次性开启150张独立测试图：AWGN四个SNR三种子均值为99.33%–99.56%，Rayleigh为99.78%–100%；最终消融为正确特征100%、错配特征0%、零特征10%。测试集现已用于最终评价，禁止再据此调参。详见[STAGE10_FINAL_TEST_REPORT.md](STAGE10_FINAL_TEST_REPORT.md)、[STAGE10_REPORT.md](STAGE10_REPORT.md)、[STAGE10_CHANNEL_REPORT.md](STAGE10_CHANNEL_REPORT.md)和[STAGE10_RESEARCH_LOG.md](STAGE10_RESEARCH_LOG.md)。
 
 **第九阶段大模型训练已完成：** 新增约5亿参数的Qwen2.5-0.5B-Instruct语言主干，基础权重冻结，注意力层使用LoRA；ViT-B/16与ConvNeXt-Tiny视觉特征经BAN、KAN和语义信道形成16个视觉前缀token。模型共496,264,896个参数，其中2,232,128个可训练（0.45%）。修正缩减验证集的类别偏置后，从第100步检查点恢复并完成400步CPU训练；固定十类别均衡验证的完整回答准确率由第200步31.25%提高到第400步48.44%。第400步在独立信道种子的视觉消融中，正确特征56.25%、错配特征0%、零特征10.94%。检查点位于`runs/stage9_qwen_dual_taichi_balanced/`，Stage-7测试集仍未打开。详见[STAGE9_REPORT.md](STAGE9_REPORT.md)。

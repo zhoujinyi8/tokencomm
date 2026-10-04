@@ -68,3 +68,9 @@ foreach ($variant in $variants) {
     Write-StageLog "$variant completed."
 }
 Write-StageLog 'All Stage-11 variants completed.'
+& powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'snapshot_stage11.ps1')
+if ($LASTEXITCODE -ne 0) {
+    Write-StageLog "Final Stage-11 report generation failed with exit code $LASTEXITCODE."
+    exit $LASTEXITCODE
+}
+Write-StageLog 'Stage-11 final report generated.'
