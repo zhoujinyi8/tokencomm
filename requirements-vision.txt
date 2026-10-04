@@ -1,0 +1,3 @@
+-r requirements-training.txt
+# Install a torchvision build compatible with your torch version/platform.
+torchvision>=0.20,<1
