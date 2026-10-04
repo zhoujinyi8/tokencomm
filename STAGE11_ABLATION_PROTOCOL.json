@@ -1,0 +1,46 @@
+{
+  "protocol": "Stage-11 equal-budget fusion ablation",
+  "frozen_at": "2026-10-04 Asia/Shanghai",
+  "purpose": "Measure the development-set contribution of BAN and KAN under equal training budgets.",
+  "variants": [
+    {
+      "name": "ban_kan",
+      "fusion": "BAN followed by two B-spline KAN layers"
+    },
+    {
+      "name": "ban_mlp",
+      "fusion": "BAN followed by a two-layer width-128 MLP"
+    },
+    {
+      "name": "concat_mlp",
+      "fusion": "4x4-aligned ViT/ConvNeXt concatenation, 1x1 convolution, and a two-layer width-128 MLP"
+    }
+  ],
+  "shared_configuration": {
+    "train_cache": "data/imagenette_stage10/dual_vision_features/train.pt",
+    "validation_cache": "data/imagenette_stage10/dual_vision_features/val.pt",
+    "train_images": 8000,
+    "validation_subset": "100 deterministic class-balanced development images",
+    "steps": 800,
+    "batch_size": 4,
+    "gradient_accumulation": 2,
+    "effective_batch_size": 8,
+    "evaluation_interval": 200,
+    "seed": 9901,
+    "optimizer": "AdamW lr=2e-4 weight_decay=0.01",
+    "schedule": "cosine decay to 2e-5",
+    "channel_training": "AWGN; 120 dB through step 50, then uniform 0-15 dB",
+    "llm": "Qwen2.5-0.5B-Instruct frozen base with rank-8 q/k/v/o LoRA",
+    "semantic_channel_dimension": 64,
+    "checkpoint_selection": "minimum validation loss, then maximum exact match"
+  },
+  "comparison_metrics": [
+    "best validation loss",
+    "best exact-match accuracy",
+    "correct/wrong-class/zero visual controls",
+    "trainable parameter count",
+    "training wall time"
+  ],
+  "test_policy": "The Stage-10 held-out test set is already consumed and must not be used for Stage-11 architecture selection. Stage-11 is development-only unless a new holdout is created and preregistered.",
+  "reporting_rule": "Report all three variants, including failed or weaker runs, without changing their budgets after observing validation results."
+}
