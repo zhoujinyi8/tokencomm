@@ -54,13 +54,14 @@ def main():
     p.add_argument('--batch-size',type=int,default=2); p.add_argument('--accumulate',type=int,default=8)
     p.add_argument('--eval-every',type=int,default=100); p.add_argument('--eval-n',type=int,default=64)
     p.add_argument('--lora-rank',type=int,default=8); p.add_argument('--resume'); p.add_argument('--reset-best',action='store_true')
+    p.add_argument('--fusion-variant',choices=['ban_kan','ban_mlp','concat_mlp'],default='ban_kan')
     p.add_argument('--weights-only-resume',action='store_true',help='Load trainable weights and global step but start a fresh optimizer/schedule')
     p.add_argument('--threads',type=int,default=12,help='CPU intra-op threads (ignored by CUDA kernels)')
     a=p.parse_args(); torch.set_num_threads(a.threads); torch.manual_seed(9901)
     root=Path(a.data); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
     train=torch.load(root/'train.pt',weights_only=True); val=torch.load(root/'val.pt',weights_only=True)
     if train['identity']!=val['identity'] or train['identity'].get('test_opened') is not False: raise ValueError('Data/test-lock mismatch')
-    model=QwenDualTaiChi(a.llm,lora_rank=a.lora_rank); summary=model.trainable_parameter_summary()
+    model=QwenDualTaiChi(a.llm,lora_rank=a.lora_rank,fusion_variant=a.fusion_variant); summary=model.trainable_parameter_summary()
     opt=torch.optim.AdamW((x for x in model.parameters() if x.requires_grad),lr=2e-4,weight_decay=.01)
     start_step=0; best=(float('inf'),0.); ck=None
     if a.resume:

@@ -8,7 +8,7 @@ from models import BAN, SplineKAN, Channel
 
 
 class QwenDualTaiChi(nn.Module):
-    def __init__(self, llm_path, visual_dim=64, channel_dim=64, lora_rank=8):
+    def __init__(self, llm_path, visual_dim=64, channel_dim=64, lora_rank=8, fusion_variant='ban_kan'):
         super().__init__()
         self.llm_path = str(llm_path)
         self.tokenizer = AutoTokenizer.from_pretrained(self.llm_path, local_files_only=True)
@@ -22,21 +22,36 @@ class QwenDualTaiChi(nn.Module):
         hidden = int(base.config.hidden_size)
         self.vit_adapter = nn.Sequential(nn.Conv2d(768, visual_dim, 1), nn.GroupNorm(1, visual_dim))
         self.conv_adapter = nn.Sequential(nn.Conv2d(768, visual_dim, 1), nn.GroupNorm(1, visual_dim))
-        self.ban = BAN(visual_dim)
-        self.kan = nn.Sequential(nn.LayerNorm(visual_dim), SplineKAN(visual_dim, visual_dim), SplineKAN(visual_dim, visual_dim))
+        if fusion_variant not in ('ban_kan','ban_mlp','concat_mlp'):
+            raise ValueError(f'Unknown fusion variant: {fusion_variant}')
+        self.fusion_variant=fusion_variant
+        if fusion_variant in ('ban_kan','ban_mlp'):
+            self.ban = BAN(visual_dim)
+        if fusion_variant=='ban_kan':
+            self.kan = nn.Sequential(nn.LayerNorm(visual_dim), SplineKAN(visual_dim, visual_dim), SplineKAN(visual_dim, visual_dim))
+        elif fusion_variant=='ban_mlp':
+            self.kan = nn.Sequential(nn.LayerNorm(visual_dim),nn.Linear(visual_dim,2*visual_dim),nn.GELU(),nn.Linear(2*visual_dim,visual_dim))
+        else:
+            self.concat_fusion=nn.Sequential(nn.Conv2d(2*visual_dim,visual_dim,1),nn.GroupNorm(1,visual_dim),nn.GELU())
+            self.kan=nn.Sequential(nn.LayerNorm(visual_dim),nn.Linear(visual_dim,2*visual_dim),nn.GELU(),nn.Linear(2*visual_dim,visual_dim))
         self.visual_to_llm = nn.Sequential(nn.LayerNorm(visual_dim), nn.Linear(visual_dim, hidden))
         self.channel_encoder = nn.Sequential(nn.Linear(hidden, hidden//2), nn.GELU(), nn.Linear(hidden//2, channel_dim))
         self.channel = Channel()
         self.channel_decoder = nn.Sequential(nn.Linear(channel_dim, hidden//2), nn.GELU(), nn.Linear(hidden//2, hidden))
         self.visual_tokens = 16
-        self.model_config = {'visual_dim':visual_dim,'channel_dim':channel_dim,'lora_rank':lora_rank,
+        self.model_config = {'visual_dim':visual_dim,'channel_dim':channel_dim,'lora_rank':lora_rank,'fusion_variant':fusion_variant,
                              'llm_hidden':hidden,'visual_tokens':self.visual_tokens}
 
     def visual_prefix(self, image, snr_db=10., kind='awgn'):
         vit, conv = image
         if vit.shape[1:] != (768,4,4) or conv.shape[1:] != (768,7,7):
             raise ValueError('Expected ViT [B,768,4,4] and ConvNeXt [B,768,7,7] cached features')
-        x = self.kan(self.ban(self.vit_adapter(vit), self.conv_adapter(conv)).flatten(2).transpose(1,2))
+        v=self.vit_adapter(vit); c=self.conv_adapter(conv)
+        if self.fusion_variant in ('ban_kan','ban_mlp'):
+            x=self.ban(v,c).flatten(2).transpose(1,2)
+        else:
+            c=nn.functional.adaptive_avg_pool2d(c,(4,4)); x=self.concat_fusion(torch.cat([v,c],1)).flatten(2).transpose(1,2)
+        x=self.kan(x)
         x = self.visual_to_llm(x)
         if kind != 'none':
             x = self.channel_decoder(self.channel(self.channel_encoder(x), snr_db, kind))
