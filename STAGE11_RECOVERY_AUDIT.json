@@ -1,0 +1,71 @@
+{
+  "all_passed": true,
+  "variants": [
+    {
+      "variant": "ban_kan",
+      "passed": true,
+      "raw_rows": 805,
+      "unique_steps": 800,
+      "missing_steps": [],
+      "extra_steps": [],
+      "duplicate_step_count": 5,
+      "duplicate_row_count": 5,
+      "duplicate_step_range": [
+        701,
+        705
+      ],
+      "max_duplicate_loss_spread": 0.0,
+      "duplicate_validation_steps": [],
+      "validation_steps": [
+        200,
+        400,
+        600,
+        800
+      ],
+      "test_accessed": false
+    },
+    {
+      "variant": "ban_mlp",
+      "passed": true,
+      "raw_rows": 857,
+      "unique_steps": 800,
+      "missing_steps": [],
+      "extra_steps": [],
+      "duplicate_step_count": 30,
+      "duplicate_row_count": 57,
+      "duplicate_step_range": [
+        401,
+        430
+      ],
+      "max_duplicate_loss_spread": 0.0,
+      "duplicate_validation_steps": [],
+      "validation_steps": [
+        200,
+        400,
+        600,
+        800
+      ],
+      "test_accessed": false
+    },
+    {
+      "variant": "concat_mlp",
+      "passed": true,
+      "raw_rows": 800,
+      "unique_steps": 800,
+      "missing_steps": [],
+      "extra_steps": [],
+      "duplicate_step_count": 0,
+      "duplicate_row_count": 0,
+      "duplicate_step_range": null,
+      "max_duplicate_loss_spread": 0.0,
+      "duplicate_validation_steps": [],
+      "validation_steps": [
+        200,
+        400,
+        600,
+        800
+      ],
+      "test_accessed": false
+    }
+  ]
+}
