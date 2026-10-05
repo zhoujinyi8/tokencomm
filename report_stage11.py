@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 from datetime import datetime
 from pathlib import Path
@@ -44,12 +45,19 @@ def read_history(path: Path):
     return [by_step[step] for step in sorted(by_step)]
 
 
+def read_raw_history(path: Path):
+    if not path.exists():
+        return []
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
 def collect():
     variants = []
     for key, label in VARIANTS:
         run = RUNS / f"stage11_ablation_{key}"
         cfg_path, status_path, results_path = run / "config.json", run / "status.json", run / "results.json"
         latest_validation_path = run / "latest_validation.json"
+        raw_hist = read_raw_history(run / "history.jsonl")
         hist = read_history(run / "history.jsonl")
         checks = [row for row in hist if "validation" in row]
         cfg = read_json(cfg_path) if cfg_path.exists() else None
@@ -69,6 +77,7 @@ def collect():
                 "elapsed_seconds": hist[-1].get("seconds") if hist else None,
                 "config": cfg,
                 "history": hist,
+                "raw_history": raw_hist,
                 "validations": checks,
                 "status": status,
                 "results": results,
@@ -217,7 +226,7 @@ def write_progress(variants, now, diagnostics):
     (ROOT / "STAGE11_PROGRESS.md").write_text(body.rstrip() + "\n", encoding="utf-8")
     serializable = []
     for item in variants:
-        serializable.append({k: v for k, v in item.items() if k not in ("history", "config", "results")})
+        serializable.append({k: v for k, v in item.items() if k not in ("history", "raw_history", "config", "results")})
     snapshot = {"generated_at": now, "protocol": "STAGE11_ABLATION_PROTOCOL.json", "variants": serializable,
                 "latest_diagnostics": diagnostics}
     (OUT / "latest_snapshot.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -262,9 +271,97 @@ def plot_progress(variants):
     plt.close(fig)
 
 
+def recovery_audit(variants):
+    audited = []
+    for item in variants:
+        groups = collections.defaultdict(list)
+        for row in item["raw_history"]:
+            groups[int(row["step"])].append(row)
+        expected = set(range(1, item["target_steps"] + 1))
+        missing = sorted(expected - set(groups))
+        extra = sorted(set(groups) - expected)
+        duplicates = {step: rows for step, rows in groups.items() if len(rows) > 1}
+        spreads = {
+            step: max(row["loss"] for row in rows) - min(row["loss"] for row in rows)
+            for step, rows in duplicates.items()
+        }
+        duplicate_validation_steps = [
+            step for step, rows in duplicates.items() if sum("validation" in row for row in rows) > 1
+        ]
+        validation_steps = [row["step"] for row in item["validations"]]
+        expected_validations = list(range(200, item["target_steps"] + 1, 200))
+        passed = (
+            not missing and not extra and len(groups) == item["target_steps"]
+            and max(spreads.values(), default=0.0) == 0.0
+            and not duplicate_validation_steps and validation_steps == expected_validations
+            and item["completed"] and item["results"] and item["results"].get("test_accessed") is False
+        )
+        audited.append(
+            {
+                "variant": item["key"],
+                "passed": passed,
+                "raw_rows": len(item["raw_history"]),
+                "unique_steps": len(groups),
+                "missing_steps": missing,
+                "extra_steps": extra,
+                "duplicate_step_count": len(duplicates),
+                "duplicate_row_count": sum(len(rows) - 1 for rows in duplicates.values()),
+                "duplicate_step_range": [min(duplicates), max(duplicates)] if duplicates else None,
+                "max_duplicate_loss_spread": max(spreads.values(), default=0.0),
+                "duplicate_validation_steps": duplicate_validation_steps,
+                "validation_steps": validation_steps,
+                "test_accessed": item["results"].get("test_accessed") if item["results"] else None,
+            }
+        )
+    return {"all_passed": all(row["passed"] for row in audited), "variants": audited}
+
+
+def plot_final_comparison(variants):
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    labels = [item["label"] for item in variants]
+    colors = ["#4c72b0", "#dd8452", "#55a868"]
+    best = [best_validation(item["validations"])["validation"] for item in variants]
+    controls = [
+        {row["variant"]: row for row in item["results"]["validation_controls"]}
+        for item in variants
+    ]
+    fig, axes = plt.subplots(1, 3, figsize=(16, 5), layout="constrained")
+    bars = axes[0].bar(labels, [row["loss"] for row in best], color=colors)
+    axes[0].bar_label(bars, fmt="%.4f")
+    axes[0].set(title="最佳开发验证损失", ylabel="回答损失", yscale="log")
+    axes[0].grid(axis="y", alpha=0.2)
+    bars = axes[1].bar(labels, [100 * row["exact_match"] for row in best], color=colors)
+    axes[1].bar_label(bars, fmt="%.1f%%")
+    axes[1].set(title="最佳完整回答准确率", ylabel="准确率（%）", ylim=(90, 101.5))
+    axes[1].grid(axis="y", alpha=0.2)
+    x = list(range(len(labels)))
+    width = 0.24
+    for offset, key, name, color in [(-width, "correct", "正确特征", "#4c72b0"),
+                                      (0, "wrong_class", "错配特征", "#dd8452"),
+                                      (width, "zero", "零特征", "#999999")]:
+        values = [100 * control[key]["exact_match"] for control in controls]
+        axes[2].bar([value + offset for value in x], values, width, label=name, color=color)
+    axes[2].set_xticks(x, labels)
+    axes[2].set(title="最佳检查点视觉依赖控制", ylabel="准确率（%）", ylim=(0, 105))
+    axes[2].legend()
+    axes[2].grid(axis="y", alpha=0.2)
+    for axis in axes:
+        axis.tick_params(axis="x", rotation=15)
+    fig.suptitle("Stage-11 等预算融合消融最终比较", fontsize=15)
+    fig.savefig(FIGURES / "final_comparison.png", dpi=170)
+    plt.close(fig)
+
+
 def write_final(variants):
     if not all(item["completed"] and item["results"] for item in variants):
         return False
+    audit = recovery_audit(variants)
+    if not audit["all_passed"]:
+        raise RuntimeError("Stage-11 recovery audit failed; refusing final report")
+    (ROOT / "STAGE11_RECOVERY_AUDIT.json").write_text(
+        json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    plot_final_comparison(variants)
     summary_rows, control_rows = [], []
     for item in variants:
         best = best_validation(item["validations"])
@@ -281,6 +378,19 @@ def write_final(variants):
             [item["label"]]
             + [f'{100 * controls[key]["exact_match"]:.2f}%' for key in ("correct", "wrong_class", "zero")]
         )
+    winner = min(variants, key=lambda item: (
+        best_validation(item["validations"])["validation"]["loss"],
+        -best_validation(item["validations"])["validation"]["exact_match"],
+    ))
+    winner_best = best_validation(winner["validations"])["validation"]
+    audit_rows = [
+        [
+            next(item["label"] for item in variants if item["key"] == row["variant"]),
+            row["raw_rows"], row["unique_steps"], row["duplicate_row_count"],
+            f'{row["max_duplicate_loss_spread"]:.1f}', "通过" if row["passed"] else "失败",
+        ]
+        for row in audit["variants"]
+    ]
     report = f"""# Stage-11：双视觉融合模块的等预算消融
 
 ## 实验问题
@@ -293,20 +403,33 @@ def write_final(variants):
 
 {markdown_table(['结构', '最佳步数', '最佳验证损失', '完整回答准确率', '可训练参数', '训练耗时'], summary_rows)}
 
+![最终融合消融比较](figures/stage11/final_comparison.png)
+
+按预先冻结的“最低验证损失，其次最高完整回答准确率”规则，胜出结构为**{winner['label']}**：第{winner['results']['best_step']}步验证损失{winner_best['loss']:.6f}、准确率{100 * winner_best['exact_match']:.2f}%。相较BAN+MLP，它增加{winner['config']['parameters']['trainable_parameters'] - variants[1]['config']['parameters']['trainable_parameters']:,}个可训练参数；相较Concat+MLP增加{winner['config']['parameters']['trainable_parameters'] - variants[2]['config']['parameters']['trainable_parameters']:,}个。
+
 ## 视觉依赖控制
 
 {markdown_table(['结构', '正确视觉特征', '错配类别特征', '零视觉特征'], control_rows)}
 
 正确特征高、错配特征与零特征低，才能说明回答依赖视觉输入，而不是只由问题模板或语言先验决定。具体预测和目标保留在各运行目录的 `results.json` 中。
 
+## 恢复轨迹审计
+
+{markdown_table(['结构', '原始日志行', '唯一训练步', '重算行', '重算损失最大差异', '结论'], audit_rows)}
+
+BAN+KAN和BAN+MLP在任务计划恢复时重算了最近检查点之后的少量步骤；所有重算步损失逐值一致，验证点没有重复，去重后均完整覆盖1–800。Concat+MLP没有重复步骤。详细机器可读证据见`STAGE11_RECOVERY_AUDIT.json`。
+
 ## 结论边界
 
-Stage-11 是开发集消融，不能当成新的盲测结果。Stage-10 最终测试集已被消费，本阶段没有再次读取它，也不使用它选择结构。视觉编码器使用 ImageNet 预训练权重，Imagenette 属于 ImageNet 子集，因此这些结果不能支持“视觉主干从未见过同分布数据”的说法。实现是论文结构的独立近似复现，不是作者权重或私有训练流程的精确回放。
+Stage-11 是开发集消融，不能当成新的盲测结果。三种结构只运行一个训练随机种子，且开发集只有100张图；1个百分点的准确率差异不足以单独支持统计显著性结论。较低验证损失支持在当前配置下选择BAN+KAN，但不能证明BAN或KAN在其他任务、数据和信道中必然更优。Stage-10最终测试集已被消费，本阶段没有再次读取它，也不使用它选择结构。视觉编码器使用ImageNet预训练权重，Imagenette属于ImageNet子集，因此这些结果不能支持“视觉主干从未见过同分布数据”的说法。实现是论文结构的独立近似复现，不是作者权重或私有训练流程的精确回放。
 """
     (ROOT / "STAGE11_ABLATION_REPORT.md").write_text(report, encoding="utf-8")
     final = {
         "protocol": "STAGE11_ABLATION_PROTOCOL.json",
         "all_completed": True,
+        "selected_variant": winner["key"],
+        "selection_rule": "minimum validation loss, then maximum exact match",
+        "recovery_audit": audit,
         "test_accessed": False,
         "variants": [
             {
