@@ -35,6 +35,20 @@ try {
             continue
         }
 
+        # Task Scheduler can terminate this PowerShell parent while leaving a
+        # Start-Process child alive. Never launch a second writer for the same
+        # run directory; a later invocation will recheck after the child exits.
+        $outArgument = "--out runs/stage11_ablation_$variant"
+        $existing = Get-CimInstance Win32_Process | Where-Object {
+            $_.Name -match '^python' -and
+            $_.CommandLine -match 'train_qwen_dual_taichi\.py' -and
+            $_.CommandLine.Contains($outArgument)
+        }
+        if ($existing) {
+            Write-StageLog "$variant already has Python PID(s) $($existing.ProcessId -join ','); refusing duplicate launch."
+            exit 0
+        }
+
         $resumeArgs = @()
         if (Test-Path -LiteralPath $out) {
             if (Test-Path -LiteralPath $checkpoint) {
