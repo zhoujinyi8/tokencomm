@@ -12,7 +12,7 @@ New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 $log = Join-Path $logDir 'orchestrator.log'
 
 function Write-StageLog([string]$Message) {
-    Add-Content -LiteralPath $log -Value ('{0:o} {1}' -f (Get-Date), $Message)
+    Add-Content -LiteralPath $log -Encoding UTF8 -Value ('{0:o} {1}' -f (Get-Date), $Message)
 }
 
 function Get-Completion([string]$Path) {
@@ -39,7 +39,7 @@ try {
         if (Test-Path -LiteralPath $out) {
             if (Test-Path -LiteralPath $checkpoint) {
                 Write-StageLog "Resuming $variant from last.pt."
-                $resumeArgs = @('--resume', $checkpoint)
+                $resumeArgs = @('--resume', "runs/stage11_ablation_$variant/last.pt")
             }
             else {
                 $resolvedRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'runs'))
@@ -69,10 +69,18 @@ try {
             '--fusion-variant', $variant,
             '--threads', '4'
         ) + $resumeArgs
-        & python @arguments 2>&1 | Tee-Object -FilePath (Join-Path $logDir "$variant.log") -Append
-        if ($LASTEXITCODE -ne 0) {
-            Write-StageLog "$variant failed with exit code $LASTEXITCODE; a later scheduled invocation will resume it."
-            exit $LASTEXITCODE
+        # Windows PowerShell 5.1 can turn ordinary native stderr warnings into
+        # terminating NativeCommandError records when ErrorActionPreference is
+        # Stop. Redirect the two streams separately and trust the process code.
+        $attempt = Get-Date -Format 'yyyyMMdd_HHmmss'
+        $stdout = Join-Path $logDir "$variant-$attempt.stdout.log"
+        $stderr = Join-Path $logDir "$variant-$attempt.stderr.log"
+        $python = (Get-Command python).Source
+        $process = Start-Process -FilePath $python -ArgumentList $arguments -NoNewWindow -Wait -PassThru `
+            -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+        if ($process.ExitCode -ne 0) {
+            Write-StageLog "$variant failed with exit code $($process.ExitCode); stdout=$stdout stderr=$stderr; a later scheduled invocation will resume it."
+            exit $process.ExitCode
         }
         if (-not (Get-Completion $statusPath)) {
             Write-StageLog "$variant exited without a completed status; stopping."
