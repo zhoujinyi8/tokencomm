@@ -109,7 +109,7 @@ GitHub 仓库只提交源码、配置、轻量 JSON/CSV 指标、图表和 Markd
 
 为检验 TaiChi/TokenCom 路线中 BAN 与 KAN 的实际贡献，已冻结 `STAGE11_ABLATION_PROTOCOL.json`，依次训练三种结构：BAN+KAN、BAN+MLP、Concat+MLP。三者共同使用8,000张训练图、固定100张十类均衡开发图、随机种子9901、800优化步、有效批量8、相同Qwen2.5-0.5B冻结主干和rank-8 LoRA，以及896→64→896语义信道。选择规则固定为先取最低开发损失，再取最高完整回答准确率。
 
-BAN+KAN官方实验已启动，完成后 `run_stage11_remaining.ps1` 会验证 `status.json`，再自动接力另外两种结构。`snapshot_stage11.ps1` 与 `report_stage11.py` 每四小时生成一次 `STAGE11_PROGRESS.md`、JSON快照和进度图；三组全部完成后生成 `STAGE11_ABLATION_REPORT.md`。Windows任务计划名称为 `TokenCom-Stage11-4Hour-Progress`。Stage-10最终测试集不会在该消融中读取或用于结构选择。
+首次BAN+KAN运行到第102步时训练进程与旧接力进程终止，且尚未到第200步验证，也没有可恢复检查点。该运行作为中断诊断归档，不计入正式比较。恢复协议在看到任何正式验证结果之前加入每50步恢复检查点，保存优化器、调度器、随机数状态和可训练权重；优化、验证、选择规则与800步预算均保持不变。`run_stage11_all.ps1`由Windows任务计划托管，防止Codex会话结束带走长训练，并在异常退出后从最近检查点继续三种结构。`snapshot_stage11.ps1`与`report_stage11.py`每四小时生成一次`STAGE11_PROGRESS.md`、JSON快照和进度图；三组全部完成后生成`STAGE11_ABLATION_REPORT.md`。Stage-10最终测试集不会在该消融中读取或用于结构选择。
 
 ## 10. 统一通信开销口径
 

@@ -53,6 +53,8 @@ def main():
     p.add_argument('--out',default='runs/stage9_qwen_dual_taichi'); p.add_argument('--steps',type=int,default=400)
     p.add_argument('--batch-size',type=int,default=2); p.add_argument('--accumulate',type=int,default=8)
     p.add_argument('--eval-every',type=int,default=100); p.add_argument('--eval-n',type=int,default=64)
+    p.add_argument('--checkpoint-every',type=int,default=0,
+                   help='Save resumable last.pt at this interval without running validation; 0 disables extra saves')
     p.add_argument('--lora-rank',type=int,default=8); p.add_argument('--resume'); p.add_argument('--reset-best',action='store_true')
     p.add_argument('--fusion-variant',choices=['ban_kan','ban_mlp','concat_mlp'],default='ban_kan')
     p.add_argument('--weights-only-resume',action='store_true',help='Load trainable weights and global step but start a fresh optimizer/schedule')
@@ -71,6 +73,7 @@ def main():
         start_step=ck['step']; best=(float('inf'),0.) if (a.reset_best or a.weights_only_resume) else tuple(ck['best'])
     elif any(out.iterdir()): p.error('Use an empty output directory unless --resume is provided')
     if a.steps<=start_step: p.error('--steps must exceed the resumed global step')
+    if a.checkpoint_every<0: p.error('--checkpoint-every must be nonnegative')
     sch=torch.optim.lr_scheduler.CosineAnnealingLR(opt,a.steps-start_step,eta_min=2e-5)
     if ck is not None and not a.weights_only_resume:
         opt.load_state_dict(ck['optimizer']); sch.load_state_dict(ck['scheduler']); torch.set_rng_state(ck['rng'])
@@ -82,7 +85,16 @@ def main():
     def save(step,name):
         trainable={n:p.detach().cpu() for n,p in model.named_parameters() if p.requires_grad}
         torch.save({'model':'qwen_dual_taichi','trainable_state':trainable,'optimizer':opt.state_dict(),'scheduler':sch.state_dict(),'rng':torch.get_rng_state(),'step':step,'best':best,'config':cfg},out/name)
-    started=time.monotonic()
+    # Preserve cumulative successful-run time when resuming in the same output
+    # directory. Rows beyond the saved checkpoint came from lost work and are
+    # intentionally not included; they are superseded when those steps rerun.
+    elapsed_before=0.
+    history_path=out/'history.jsonl'
+    if start_step and history_path.exists():
+        prior=[json.loads(line) for line in history_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+        eligible=[float(row.get('seconds',0.)) for row in prior if int(row['step'])<=start_step]
+        elapsed_before=max(eligible,default=0.)
+    started=time.monotonic()-elapsed_before
     with (out/'history.jsonl').open('a' if start_step else 'w',encoding='utf-8',buffering=1) as log:
         for step in range(start_step+1,a.steps+1):
             model.train(); opt.zero_grad(set_to_none=True); total=0.
@@ -101,6 +113,8 @@ def main():
                 key=(metrics['loss'],-metrics['exact_match'])
                 if key<best: best=key; save(step,'best.pt')
                 save(step,'last.pt'); (out/'latest_validation.json').write_text(json.dumps(metrics,indent=2),encoding='utf-8'); print(row,flush=True)
+            elif a.checkpoint_every and step%a.checkpoint_every==0:
+                save(step,'last.pt')
             log.write(json.dumps(row)+'\n')
     chosen=torch.load(out/'best.pt',map_location='cpu',weights_only=True); named=dict(model.named_parameters())
     for name,value in chosen['trainable_state'].items(): named[name].data.copy_(value.to(named[name].device))

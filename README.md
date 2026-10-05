@@ -1,6 +1,6 @@
 # TokCom 与 TaiChi：复现工程
 
-**第十一阶段等预算融合消融正在运行：** 已冻结BAN+KAN、BAN+MLP、Concat+MLP三组公平对比协议，每组使用同一8,000张训练图、固定100张均衡开发图、800步和有效批量8。后台脚本会在每组完成后自动接力下一组；Windows计划任务每四小时更新[STAGE11_PROGRESS.md](STAGE11_PROGRESS.md)与`figures/stage11/progress.png`，全部完成后自动生成`STAGE11_ABLATION_REPORT.md`。本阶段不读取已经消费的Stage-10最终测试集。
+**第十一阶段等预算融合消融正在运行：** 已冻结BAN+KAN、BAN+MLP、Concat+MLP三组公平对比协议，每组使用同一8,000张训练图、固定100张均衡开发图、800步和有效批量8。首次BAN+KAN运行在产生正式验证与检查点之前意外停止，已作为中断诊断归档并排除出比较。恢复版每50步保存优化器、调度器、RNG和可训练权重，由Windows任务计划程序托管并在异常退出后从最近检查点继续；每200步验证的科学协议和总预算不变。四小时任务更新[STAGE11_PROGRESS.md](STAGE11_PROGRESS.md)与`figures/stage11/progress.png`，三组完成后生成`STAGE11_ABLATION_REPORT.md`。本阶段不读取已经消费的Stage-10最终测试集。
 
 **统一通信开销已完成可执行核算：** [COMMUNICATION_BUDGET_REPORT.md](COMMUNICATION_BUDGET_REPORT.md)分别报告离散token源码率、CRC/FEC后的编码比特和复信道符号，并明确连续TaiChi语义向量在没有量化器时不能换算为bpp。公开VQGAN规格配合当前参考数字链路为2,560源比特、7,936编码比特和1,984个复符号；Stage-10/11 TaiChi为1,024个实信道值，即512个复符号。两条链路任务不同，该数值只用于工程核算，不作为性能优劣结论。
 

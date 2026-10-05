@@ -26,6 +26,7 @@
     "gradient_accumulation": 2,
     "effective_batch_size": 8,
     "evaluation_interval": 200,
+    "recovery_checkpoint_interval": 50,
     "seed": 9901,
     "optimizer": "AdamW lr=2e-4 weight_decay=0.01",
     "schedule": "cosine decay to 2e-5",
@@ -42,5 +43,6 @@
     "training wall time"
   ],
   "test_policy": "The Stage-10 held-out test set is already consumed and must not be used for Stage-11 architecture selection. Stage-11 is development-only unless a new holdout is created and preregistered.",
-  "reporting_rule": "Report all three variants, including failed or weaker runs, without changing their budgets after observing validation results."
+  "reporting_rule": "Report all three variants, including failed or weaker runs, without changing their budgets after observing validation results.",
+  "operational_amendment": "Added 2026-10-05 before any official validation result existed: save optimizer, scheduler, RNG, and trainable state every 50 steps for crash recovery. This does not change optimization, evaluation, selection, or the 800-step budget. The first BAN+KAN attempt ended at step 102 without a checkpoint or validation and is archived as an interrupted run; its values are excluded from the official comparison."
 }
