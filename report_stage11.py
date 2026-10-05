@@ -49,11 +49,13 @@ def collect():
     for key, label in VARIANTS:
         run = RUNS / f"stage11_ablation_{key}"
         cfg_path, status_path, results_path = run / "config.json", run / "status.json", run / "results.json"
+        latest_validation_path = run / "latest_validation.json"
         hist = read_history(run / "history.jsonl")
         checks = [row for row in hist if "validation" in row]
         cfg = read_json(cfg_path) if cfg_path.exists() else None
         status = read_json(status_path) if status_path.exists() else None
         results = read_json(results_path) if results_path.exists() else None
+        latest_validation = read_json(latest_validation_path) if latest_validation_path.exists() else None
         variants.append(
             {
                 "key": key,
@@ -70,6 +72,8 @@ def collect():
                 "validations": checks,
                 "status": status,
                 "results": results,
+                "latest_validation": latest_validation,
+                "latest_validation_mtime": latest_validation_path.stat().st_mtime if latest_validation_path.exists() else None,
             }
         )
     return variants
@@ -87,7 +91,73 @@ def markdown_table(headers, rows):
     )
 
 
-def write_progress(variants, now):
+def validation_diagnostics(variants):
+    candidates = [item for item in variants if item["latest_validation"] and item["validations"]]
+    if not candidates:
+        return None
+    item = max(candidates, key=lambda row: row["latest_validation_mtime"])
+    metrics = item["latest_validation"]
+    manifest = read_json(ROOT / "data" / "imagenette_stage10" / "manifest.json")
+    classes = [name.lower() for name in manifest["class_names"]]
+    index = {name: i for i, name in enumerate(classes)}
+    matrix = [[0 for _ in range(len(classes) + 1)] for _ in classes]
+    for prediction, target in zip(metrics["predictions"], metrics["targets"]):
+        target_index = index[target.lower()]
+        prediction_index = index.get(prediction.lower(), len(classes))
+        matrix[target_index][prediction_index] += 1
+    per_class = []
+    for i, name in enumerate(classes):
+        count = sum(matrix[i])
+        correct = matrix[i][i]
+        per_class.append({"class": name, "count": count, "correct": correct, "accuracy": correct / count if count else 0.0})
+    return {
+        "variant": item["key"],
+        "label": item["label"],
+        "step": item["validations"][-1]["step"],
+        "loss": metrics["loss"],
+        "exact_match": metrics["exact_match"],
+        "classes": classes,
+        "matrix": matrix,
+        "per_class": per_class,
+    }
+
+
+def plot_diagnostics(diagnostics):
+    if diagnostics is None:
+        return
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    classes = diagnostics["classes"]
+    short = [name.replace("english ", "").replace("cassette ", "cassette\n") for name in classes]
+    accuracies = [100 * row["accuracy"] for row in diagnostics["per_class"]]
+    matrix = diagnostics["matrix"]
+    include_other = any(row[-1] for row in matrix)
+    shown = [row if include_other else row[:-1] for row in matrix]
+    predicted = short + (["其他"] if include_other else [])
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5.5), layout="constrained")
+    bars = axes[0].bar(short, accuracies, color="#4c72b0")
+    axes[0].bar_label(bars, fmt="%.0f%%")
+    axes[0].tick_params(axis="x", rotation=35)
+    axes[0].set(ylabel="完整回答准确率（%）", ylim=(0, 108), title="逐类别准确率")
+    axes[0].grid(axis="y", alpha=0.2)
+    image = axes[1].imshow(shown, cmap="Blues", vmin=0)
+    axes[1].set_xticks(range(len(predicted)), predicted, rotation=45, ha="right")
+    axes[1].set_yticks(range(len(short)), short)
+    axes[1].set(xlabel="预测类别", ylabel="真实类别", title="回答混淆矩阵（计数）")
+    for row in range(len(shown)):
+        for col in range(len(shown[row])):
+            value = shown[row][col]
+            if value:
+                axes[1].text(col, row, str(value), ha="center", va="center", color="white" if value > 5 else "black")
+    fig.colorbar(image, ax=axes[1], shrink=0.8)
+    fig.suptitle(
+        f"Stage-11 {diagnostics['label']} 第{diagnostics['step']}步："
+        f"{100 * diagnostics['exact_match']:.1f}% / loss {diagnostics['loss']:.4f}", fontsize=14,
+    )
+    fig.savefig(FIGURES / "latest_diagnostics.png", dpi=170)
+    plt.close(fig)
+
+
+def write_progress(variants, now, diagnostics):
     OUT.mkdir(parents=True, exist_ok=True)
     rows = []
     for item in variants:
@@ -116,6 +186,21 @@ def write_progress(variants, now):
         action = f'等待后台接力启动 {waiting[0]}。'
     else:
         action = "三组实验已结束，生成最终公平消融报告。"
+    diagnostic_section = ""
+    if diagnostics:
+        class_rows = [
+            [row["class"], row["correct"], row["count"], f'{100 * row["accuracy"]:.1f}%']
+            for row in diagnostics["per_class"]
+        ]
+        diagnostic_section = f"""
+## 最近一次固定开发验证
+
+结构：{diagnostics['label']}；步数：{diagnostics['step']}；损失：{diagnostics['loss']:.6f}；完整回答准确率：{100 * diagnostics['exact_match']:.2f}%。
+
+{markdown_table(['类别', '正确', '样本', '准确率'], class_rows)}
+
+![逐类别准确率与混淆矩阵](figures/stage11/latest_diagnostics.png)
+"""
     body = f"""# Stage-11 四小时推进快照
 
 - 生成时间：{now}
@@ -127,12 +212,14 @@ def write_progress(variants, now):
 下一动作：{action}
 
 该快照是运行状态证据。只有 `status.json` 中 `completed=true` 才计为该结构完成；训练中间结果不用于提前改变冻结预算。
+{diagnostic_section}
 """
-    (ROOT / "STAGE11_PROGRESS.md").write_text(body, encoding="utf-8")
+    (ROOT / "STAGE11_PROGRESS.md").write_text(body.rstrip() + "\n", encoding="utf-8")
     serializable = []
     for item in variants:
         serializable.append({k: v for k, v in item.items() if k not in ("history", "config", "results")})
-    snapshot = {"generated_at": now, "protocol": "STAGE11_ABLATION_PROTOCOL.json", "variants": serializable}
+    snapshot = {"generated_at": now, "protocol": "STAGE11_ABLATION_PROTOCOL.json", "variants": serializable,
+                "latest_diagnostics": diagnostics}
     (OUT / "latest_snapshot.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
     with (OUT / "snapshots.jsonl").open("a", encoding="utf-8") as stream:
         stream.write(json.dumps(snapshot, ensure_ascii=False) + "\n")
@@ -243,7 +330,9 @@ def main():
     args = parser.parse_args()
     now = args.timestamp or datetime.now().astimezone().isoformat(timespec="seconds")
     variants = collect()
-    write_progress(variants, now)
+    diagnostics = validation_diagnostics(variants)
+    plot_diagnostics(diagnostics)
+    write_progress(variants, now, diagnostics)
     plot_progress(variants)
     final = write_final(variants)
     print(json.dumps({"generated_at": now, "steps": {x["key"]: x["step"] for x in variants}, "final": final}))
