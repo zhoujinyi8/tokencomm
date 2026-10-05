@@ -1,0 +1,89 @@
+{
+  "unit_policy": {
+    "source_bpp": "discrete source-token bits divided by source-image pixels",
+    "complex_channel_symbols": "complex modulation symbols or complex analog channel uses",
+    "no_cross_task_efficiency_claim": "TokCom reconstructs an image while the current TaiChi run answers an Imagenette classification question; raw symbol counts alone do not establish superiority."
+  },
+  "configurations": {
+    "tokcom_public_vqgan_reference_link": {
+      "path": "tokcom_digital",
+      "task_unit": "one image",
+      "num_tokens": 256,
+      "codebook_size": 1024,
+      "token_bits": 10,
+      "source_bits": 2560,
+      "source_bits_per_pixel": 0.0390625,
+      "packet_tokens": 4,
+      "packets": 64,
+      "crc_bits_per_packet": 16,
+      "termination_bits_per_packet": 6,
+      "coded_bits_per_input_bit": 2,
+      "coded_bits": 7936,
+      "qam_padding_bits": 0,
+      "modulation_bits_per_symbol": 4,
+      "complex_channel_symbols": 1984,
+      "complex_symbols_per_pixel": 0.0302734375,
+      "coded_bits_per_source_bit": 3.1,
+      "source_bits_per_complex_symbol": 1.2903225806451613,
+      "image_pixels": 65536,
+      "excluded_overhead": [
+        "packet headers",
+        "interleaver signaling",
+        "synchronization",
+        "pilots and channel estimation",
+        "retransmissions"
+      ]
+    },
+    "tokcom_tiny_baseline": {
+      "path": "tokcom_digital",
+      "task_unit": "one image",
+      "num_tokens": 64,
+      "codebook_size": 64,
+      "token_bits": 6,
+      "source_bits": 384,
+      "source_bits_per_pixel": 0.375,
+      "packet_tokens": 4,
+      "packets": 16,
+      "crc_bits_per_packet": 16,
+      "termination_bits_per_packet": 6,
+      "coded_bits_per_input_bit": 2,
+      "coded_bits": 1472,
+      "qam_padding_bits": 0,
+      "modulation_bits_per_symbol": 4,
+      "complex_channel_symbols": 368,
+      "complex_symbols_per_pixel": 0.359375,
+      "coded_bits_per_source_bit": 3.8333333333333335,
+      "source_bits_per_complex_symbol": 1.0434782608695652,
+      "image_pixels": 1024,
+      "excluded_overhead": [
+        "packet headers",
+        "interleaver signaling",
+        "synchronization",
+        "pilots and channel estimation",
+        "retransmissions"
+      ]
+    },
+    "taichi_stage10_stage11": {
+      "path": "taichi_analog_semantic",
+      "task_unit": "one image/question inference",
+      "visual_tokens": 16,
+      "real_channel_dimension_per_token": 64,
+      "real_channel_values": 1024,
+      "complex_channel_symbols": 512,
+      "complex_symbols_per_pixel": 0.01020408163265306,
+      "image_pixels": 50176,
+      "bit_rate": null,
+      "bit_rate_reason": "The learned channel values are continuous. A bit count requires a separately specified quantizer, entropy code, framing scheme, and digital modulation/FEC stack.",
+      "excluded_overhead": [
+        "question/text delivery",
+        "synchronization",
+        "pilots and channel estimation",
+        "model delivery and computation"
+      ]
+    }
+  },
+  "descriptive_symbol_ratio": {
+    "tokcom_reference_over_taichi": 3.875,
+    "interpretation": "descriptive only because image reconstruction and classification/VQA are different tasks"
+  }
+}

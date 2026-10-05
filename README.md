@@ -164,4 +164,3 @@ python run.py tokcom --data data/train.jsonl --eval-data data/val.jsonl --vq-ste
 建议扩展顺序：先确认这两条轻量链路 → 换成真实数据做过拟合检查 → 接入匹配的预训练模型 → 校准物理层与通信开销 → 最后复现论文评测。完整复现还需要作者未明确给出的超参数、数据划分、训练细节与适配代码，不能仅凭这两份 PDF 保证数值一致。
 
 PyTorch 的 padding mask 约定参考官方说明：<https://docs.pytorch.org/tutorials/intermediate/transformer_building_blocks.html>。本工程对 padding 使用 True 表示忽略，并通过测试检查 padding 不影响解码结果。
-

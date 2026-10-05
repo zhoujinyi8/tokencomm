@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+runs/
+data/
+pretrained/
+work/
+*.pt
+*.pth
+*.safetensors
+*.part
+*.zip
+*.tar
+*.tar.gz
+*.parquet
+*.log
+.vscode/

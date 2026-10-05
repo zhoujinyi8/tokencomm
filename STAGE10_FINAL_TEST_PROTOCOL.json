@@ -1,0 +1,23 @@
+{
+  "protocol": "Stage-10 one-time final held-out evaluation",
+  "frozen_at": "2026-10-04 Asia/Shanghai",
+  "model": "QwenDualTaiChi ViT-B/16 + ConvNeXt-Tiny + BAN + KAN + 64D semantic channel + Qwen2.5-0.5B LoRA rank 8",
+  "checkpoint": "runs/stage10_qwen_strong/best.pt",
+  "checkpoint_step": 2200,
+  "checkpoint_sha256": "F4918E8D697BF8C4561DF3E2C4475957849E6B4AC089AC16BBFC3636C6C26465",
+  "test_source": "data/imagenette_stage7/test.jsonl",
+  "expected_test_images": 150,
+  "class_balance": "15 images per each of 10 classes",
+  "channels": ["awgn", "rayleigh"],
+  "snr_db": [0, 5, 10, 20],
+  "seeds": [4101, 4102, 4103],
+  "metrics": ["exact_match", "cross_entropy_loss", "per_class_accuracy", "mean", "population_standard_deviation"],
+  "controls": [
+    {"variant": "correct", "channel": "awgn", "snr_db": 10, "seed": 4199},
+    {"variant": "wrong_class", "channel": "awgn", "snr_db": 10, "seed": 4199},
+    {"variant": "zero", "channel": "awgn", "snr_db": 10, "seed": 4199}
+  ],
+  "selection_rule": "No checkpoint or hyperparameter selection uses final-test outcomes.",
+  "post_test_rule": "Report all preregistered conditions. Do not retrain, retune, or replace the model using these final-test results.",
+  "test_opened_before_protocol": false
+}
