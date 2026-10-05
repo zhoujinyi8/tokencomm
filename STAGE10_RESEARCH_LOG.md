@@ -118,3 +118,9 @@ GitHub 仓库只提交源码、配置、轻量 JSON/CSV 指标、图表和 Markd
 `communication_budget.py`现在把三种单位分开核算：离散token源码比特、加入逐包CRC/卷积码后的编码比特，以及真正进入信道的复符号数。公开VQGAN规格的256个、1024码本token对应2,560源比特，即0.0390625 bpp；按当前每包4 token、CRC-16、6终止位、码率1/2卷积码和16-QAM参考链路计算，共7,936编码比特与1,984个复符号。解析结果由测试与`digital_link.py`的无噪声实际统计逐项核对。
 
 Stage-10/11 TaiChi发送16×64=1,024个实数，按I/Q配对为512个复符号。由于这些是连续值，未指定量化、熵编码和数字调制/FEC时不能换算为比特率或bpp。TokCom执行图像重建，当前TaiChi执行十分类问答，因此符号数比值只用于描述工程资源，不能单独证明哪条链路更高效。详见`COMMUNICATION_BUDGET_REPORT.md`。
+
+## 11. Stage-12新留出集封存计划
+
+由于Stage-10最终测试已经消费，Stage-11胜出结构如需新的最终指标，必须使用从未参与历史训练、开发验证或测试的新图片。`STAGE12_HOLDOUT_PLAN.md`与`prepare_stage12_holdout.py`已经建立失败关闭的准备流程：只有Stage-11最终汇总显示三组全部完成、冻结协议指定唯一结构和检查点SHA-256、上游验证Parquet与所有排除清单哈希都匹配时，才允许物化新留出集。排除规则同时比较压缩文件哈希和解码像素哈希。
+
+当前没有`STAGE12_FINAL_TEST_PROTOCOL.json`、没有`data/stage12_final_holdout`、没有新测试特征缓存，因此新留出集仍未打开。公开Imagenette 320px验证源的历史已知SHA-256为`fa51906de9c2847cd058d9896d6b76e97a4499e4e07efca14fdffb3ae2661847`；正式冻结后会重新校验，而不是相信文件名或下载地址。

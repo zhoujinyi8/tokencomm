@@ -4,6 +4,8 @@
 
 **统一通信开销已完成可执行核算：** [COMMUNICATION_BUDGET_REPORT.md](COMMUNICATION_BUDGET_REPORT.md)分别报告离散token源码率、CRC/FEC后的编码比特和复信道符号，并明确连续TaiChi语义向量在没有量化器时不能换算为bpp。公开VQGAN规格配合当前参考数字链路为2,560源比特、7,936编码比特和1,984个复符号；Stage-10/11 TaiChi为1,024个实信道值，即512个复符号。两条链路任务不同，该数值只用于工程核算，不作为性能优劣结论。
 
+**下一次最终盲测仍保持封存：** [STAGE12_HOLDOUT_PLAN.md](STAGE12_HOLDOUT_PLAN.md)规定只有Stage-11三组实验全部完成、唯一模型与检查点哈希冻结并提交正式协议后，`prepare_stage12_holdout.py`才允许打开公开Imagenette验证源。准备器会同时排除历次训练、验证和测试图的文件哈希与解码像素哈希；当前正式协议、留出图片和特征缓存均不存在。
+
 **第十阶段8,000张图强化训练及预注册最终测试已完成：** Qwen2.5-0.5B双视觉语义通信模型从第400步继续训练到第2,400步，有效批量8。开发验证在第2,200步达到100%完整回答准确率、0.000164损失。冻结协议后一次性开启150张独立测试图：AWGN四个SNR三种子均值为99.33%–99.56%，Rayleigh为99.78%–100%；最终消融为正确特征100%、错配特征0%、零特征10%。测试集现已用于最终评价，禁止再据此调参。详见[STAGE10_FINAL_TEST_REPORT.md](STAGE10_FINAL_TEST_REPORT.md)、[STAGE10_REPORT.md](STAGE10_REPORT.md)、[STAGE10_CHANNEL_REPORT.md](STAGE10_CHANNEL_REPORT.md)和[STAGE10_RESEARCH_LOG.md](STAGE10_RESEARCH_LOG.md)。
 
 **第九阶段大模型训练已完成：** 新增约5亿参数的Qwen2.5-0.5B-Instruct语言主干，基础权重冻结，注意力层使用LoRA；ViT-B/16与ConvNeXt-Tiny视觉特征经BAN、KAN和语义信道形成16个视觉前缀token。模型共496,264,896个参数，其中2,232,128个可训练（0.45%）。修正缩减验证集的类别偏置后，从第100步检查点恢复并完成400步CPU训练；固定十类别均衡验证的完整回答准确率由第200步31.25%提高到第400步48.44%。第400步在独立信道种子的视觉消融中，正确特征56.25%、错配特征0%、零特征10.94%。检查点位于`runs/stage9_qwen_dual_taichi_balanced/`，Stage-7测试集仍未打开。详见[STAGE9_REPORT.md](STAGE9_REPORT.md)。
