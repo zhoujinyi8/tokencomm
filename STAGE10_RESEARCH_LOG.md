@@ -115,6 +115,8 @@ GitHub 仓库只提交源码、配置、轻量 JSON/CSV 指标、图表和 Markd
 
 BAN+KAN在第200步完成首个冻结协议开发验证：100张十类均衡图上损失0.356773、完整回答准确率68.00%。逐类别准确率为tench 100%、English springer 70%、cassette player 100%、chain saw 90%、church 50%、French horn 70%、garbage truck 40%、gas pump 60%、golf ball 30%、parachute 70%。`best.pt`与`last.pt`均确认来自第200步，调度器轮次也是200；`best.pt` SHA-256为`9258e47788a34ccca65cd4769a139ba474c0d53c502156ce9438a480c58681c6`。该结果不会触发提前停止或改变后续600步预算。
 
+第400步固定开发验证提高到99.00%，损失降至0.009316；十类中只有church为9/10，其余九类均为10/10。第400步成为新的最佳检查点，`best.pt` SHA-256为`32805bd7ca35fd17e78d3204a15fe915c24ccab7349dbbb2a826665c22f915a6`。200→400步的提升说明当前800步预算并非多余，但该结果仍是参与模型选择的开发验证，不是新盲测。
+
 ## 10. 统一通信开销口径
 
 `communication_budget.py`现在把三种单位分开核算：离散token源码比特、加入逐包CRC/卷积码后的编码比特，以及真正进入信道的复符号数。公开VQGAN规格的256个、1024码本token对应2,560源比特，即0.0390625 bpp；按当前每包4 token、CRC-16、6终止位、码率1/2卷积码和16-QAM参考链路计算，共7,936编码比特与1,984个复符号。解析结果由测试与`digital_link.py`的无噪声实际统计逐项核对。
