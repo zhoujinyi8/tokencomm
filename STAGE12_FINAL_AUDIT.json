@@ -1,0 +1,23 @@
+{
+  "audit_passed": true,
+  "protocol_sha256": "7b9f05b85096555f94a5158cece18d1649dfb4d57dd025b0078d9c074ff970c1",
+  "checkpoint_sha256": "c41dbb7ff24616ff8d1d2fe387714b2265e7968aa6ebbec39d0948b40dd6831e",
+  "test_manifest_sha256": "9860f383bdb439b649e63829273244d21792504fa4bc4b7409166ae11bea63ed",
+  "source_validation_sha256": "fa51906de9c2847cd058d9896d6b76e97a4499e4e07efca14fdffb3ae2661847",
+  "planned_conditions": 27,
+  "completed_conditions": 27,
+  "unique_condition_keys": 27,
+  "correct_channel_conditions": 24,
+  "control_conditions": 3,
+  "test_images": 300,
+  "per_class": 30,
+  "cross_history_file_or_pixel_overlap": 0,
+  "test_accessed": true,
+  "used_for_training": false,
+  "unit_tests_passed": 11,
+  "figure_files": [
+    "figures/stage12_final/channel_sweep.png",
+    "figures/stage12_final/controls.png",
+    "figures/stage12_final/per_class.png"
+  ]
+}

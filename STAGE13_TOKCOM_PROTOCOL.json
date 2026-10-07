@@ -1,0 +1,47 @@
+{
+  "stage": 13,
+  "purpose": "Large-data development training for the TokCom no-CMI ContextMaskGIT receiver",
+  "frozen_at": "2026-10-07T12:20:00+08:00",
+  "test_accessed": false,
+  "selection_data": "data/imagenette_stage10/val.jsonl",
+  "data": {
+    "manifest_sha256": "7bc301915b6d156b17ba83e459badc65a310b03baee50169bc51302b59b261b2",
+    "train_jsonl_sha256": "3a9bdb0da77748f92f4ba23ae808419e3edffa767d51d219a509806b0df666c1",
+    "val_jsonl_sha256": "70f774c00c735d6c4605a9f7efc9267569f4bed9800bb8c0ebec088804d02921",
+    "training_images": 8000,
+    "validation_images": 150,
+    "test_policy": "No test split is read, cached, or evaluated in Stage 13"
+  },
+  "tokenizer": {
+    "name": "public MaskGIT VQGAN ImageNet f16 256",
+    "sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+    "codebook_size": 1024,
+    "tokens_per_image": 256
+  },
+  "model": {
+    "name": "ContextMaskGITv2",
+    "condition": "none",
+    "width": 128,
+    "transformer_layers": 4,
+    "local_blocks": 2,
+    "initialization": "random"
+  },
+  "training": {
+    "seed": 20261007,
+    "steps": 6000,
+    "batch_size": 16,
+    "learning_rate": 0.0005,
+    "minimum_learning_rate": 0.00005,
+    "weight_decay": 0.01,
+    "packet_tokens": 4,
+    "per_choices": [0.1, 0.3, 0.5],
+    "checkpoint_every": 100,
+    "validation_every": 500
+  },
+  "validation": {
+    "per": 0.3,
+    "seeds": [13101, 13102, 13103],
+    "recovery_steps": 8,
+    "selection_rule": "minimum mean masked-token cross entropy; ties use maximum mean exact token recovery"
+  }
+}
