@@ -51,6 +51,13 @@ def read_history(path: Path, completed_step: int) -> list[dict]:
     return kept
 
 
+def build_model(protocol: dict) -> ContextMaskGITv2:
+    """Construct the frozen architecture after seeding its initialization."""
+    torch.manual_seed(protocol["training"]["seed"])
+    model = protocol["model"]
+    return ContextMaskGITv2(model["width"], model["transformer_layers"], model["local_blocks"])
+
+
 @torch.inference_mode()
 def evaluate(model, data, per: float, seed: int, recovery_steps: int = 8, controls: bool = False, batch_size: int = 24):
     model.eval()
@@ -100,9 +107,8 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     recovery_path = OUT / "recovery.pt"
     history_path = OUT / "history.jsonl"
-    m = protocol["model"]
-    model = ContextMaskGITv2(m["width"], m["transformer_layers"], m["local_blocks"])
     t = protocol["training"]
+    model = build_model(protocol)
     optimizer = torch.optim.AdamW(model.parameters(), lr=t["learning_rate"], weight_decay=t["weight_decay"])
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, t["steps"], eta_min=t["minimum_learning_rate"])
     start_step = 0
@@ -110,7 +116,6 @@ def main() -> None:
     best_ce = float("inf")
     best_accuracy = -1.0
     elapsed_before = 0.0
-    torch.manual_seed(t["seed"])
     if recovery_path.exists():
         checkpoint = torch.load(recovery_path, weights_only=True)
         if checkpoint["protocol_sha256"] != sha256(PROTOCOL_PATH):
