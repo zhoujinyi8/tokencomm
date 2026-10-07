@@ -40,10 +40,15 @@ def main():
             path=root/row['image']
             if sha256(path)!=row['sha256']: raise ValueError('Image contents changed: '+str(path))
             cached=out/(row['sha256']+'.npy')
-            if cached.exists(): ids=np.load(cached,allow_pickle=False)
-            else:
+            try:
+                ids=np.load(cached,allow_pickle=False) if cached.exists() else None
+                if ids is not None and (ids.shape!=(256,) or ids.min()<0 or ids.max()>=1024): ids=None
+            except (OSError,ValueError): ids=None
+            if ids is None:
                 ids=model.encode(load_image(path)[None].to(a.device))[0].cpu().numpy().astype(np.int16)
-                np.save(cached,ids,allow_pickle=False)
+                temporary=cached.with_suffix(cached.suffix+'.tmp')
+                with temporary.open('wb') as stream: np.save(stream,ids,allow_pickle=False)
+                temporary.replace(cached)
             if ids.shape!=(256,) or ids.min()<0 or ids.max()>=1024: raise ValueError('Invalid token cache')
             tokens.append(torch.tensor(ids,dtype=torch.long)); count+=1
             if i%10==0 or i==len(records)-1:
