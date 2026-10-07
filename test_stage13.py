@@ -6,6 +6,7 @@ from pathlib import Path
 import torch
 
 from train_stage13_tokcom import ROOT, build_model, read_history, sha256
+from report_stage13 import load_completed
 
 
 class Stage13Tests(unittest.TestCase):
@@ -32,6 +33,23 @@ class Stage13Tests(unittest.TestCase):
         torch.rand(7)
         second = build_model(protocol)
         self.assertTrue(all(torch.equal(a, b) for a, b in zip(first.state_dict().values(), second.state_dict().values())))
+
+    def test_report_refuses_incomplete_run(self):
+        if not (ROOT / "runs/stage13_tokcom_large/status.json").exists():
+            with self.assertRaises(FileNotFoundError):
+                load_completed()
+
+    def test_cache_cli_exposes_bounded_chunk_mode(self):
+        source = (ROOT / "cache_real_tokens.py").read_text(encoding="utf-8")
+        self.assertIn("--max-seconds", source)
+        self.assertIn("SystemExit(75)", source)
+        self.assertIn("aggregate already complete", source)
+
+    def test_trainer_exposes_bounded_recovery_mode(self):
+        source = (ROOT / "train_stage13_tokcom.py").read_text(encoding="utf-8")
+        self.assertIn('"--max-seconds"', source)
+        self.assertIn('"TRAIN_CHUNK_COMPLETE"', source)
+        self.assertIn("raise SystemExit(75)", source)
 
 
 if __name__ == "__main__":
