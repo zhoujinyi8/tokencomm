@@ -22,12 +22,19 @@ try {
     $cacheRoot = Join-Path $PSScriptRoot 'data/imagenette_stage10/token_cache'
     if (-not (Test-Path (Join-Path $cacheRoot 'train.pt')) -or -not (Test-Path (Join-Path $cacheRoot 'val.pt'))) {
         Write-Log 'Starting/resuming VQGAN token cache for 8,150 development images.'
-        & python cache_real_tokens.py --data data/imagenette_stage10 --device cpu --threads 4 --splits train val *>> (Join-Path $logDir 'cache.log')
+        & python cache_real_tokens.py --data data/imagenette_stage10 --device cpu --threads 4 --max-seconds 45 --splits train val *>> (Join-Path $logDir 'cache.log')
+        if ($LASTEXITCODE -eq 75) { Write-Log 'Bounded token-cache chunk completed; next scheduled run will resume.'; exit 0 }
         if ($LASTEXITCODE -ne 0) { throw "Token cache exited with $LASTEXITCODE" }
+        if (-not (Test-Path (Join-Path $cacheRoot 'train.pt')) -or -not (Test-Path (Join-Path $cacheRoot 'val.pt'))) {
+            throw 'Token cache returned success without both aggregate files'
+        }
     }
     Write-Log 'Starting/resuming 6,000-step ContextMaskGIT training.'
-    & python train_stage13_tokcom.py *>> (Join-Path $logDir 'training.log')
+    & python train_stage13_tokcom.py --max-seconds 45 *>> (Join-Path $logDir 'training.log')
+    if ($LASTEXITCODE -eq 75) { Write-Log 'Bounded training chunk completed; next scheduled run will resume.'; exit 0 }
     if ($LASTEXITCODE -ne 0) { throw "Stage-13 trainer exited with $LASTEXITCODE" }
+    & python report_stage13.py *>> (Join-Path $logDir 'report.log')
+    if ($LASTEXITCODE -ne 0) { throw "Stage-13 reporter exited with $LASTEXITCODE" }
     & python snapshot_stage13.py
     Disable-ScheduledTask -TaskName 'TokenCom-Stage13-Orchestrator' -ErrorAction SilentlyContinue | Out-Null
     Write-Log 'Stage-13 completed.'

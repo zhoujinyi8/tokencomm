@@ -1,10 +1,14 @@
 # TokCom 与 TaiChi：复现工程
 
+**第十三阶段TokCom大数据训练正在运行：** 第一篇论文路线现使用公开MaskGIT VQGAN的1024码本、256个图像token，在8,000张训练图和150张固定开发图上训练无CMI的ContextMaskGIT v2。冻结预算为6,000步、batch 16，并在PER 10%/30%/50%间做混合课程。缓存与训练均采用45秒原子分段、单写者后台调度和完整优化器/RNG恢复；每500步进行三种子验证，测试集保持未读。当前状态见[STAGE13_PROGRESS.md](STAGE13_PROGRESS.md)，冻结配置见[STAGE13_TOKCOM_PROTOCOL.json](STAGE13_TOKCOM_PROTOCOL.json)。
+
+Stage-13训练完成后，`evaluate_stage13_physical.py`会自动冻结最佳检查点哈希，并在同一开发集上执行CRC-16、卷积码、16-QAM、软Viterbi的AWGN/Rayleigh物理链路扫描。该扫描报告PER、BER、未检出错误和端到端token准确率；由于使用模型选择开发集，它只作工程诊断，不作盲测结论。
+
+**第十二阶段新留出集最终测试已完成：** Stage-11胜出的BAN+KAN第800步模型在300张新独立图上完成24个AWGN/Rayleigh信道条件和3个视觉控制。AWGN 0–20 dB为98.22%–98.67%，Rayleigh 0 dB为89.78%，5–20 dB为98.22%–98.67%；正确、错配和全零视觉控制分别为98.67%、0%和10%。27/27条件、数据零交集和`used_for_training=false`均已审计。详见[STAGE12_FINAL_TEST_REPORT.md](STAGE12_FINAL_TEST_REPORT.md)与[STAGE12_FINAL_AUDIT.json](STAGE12_FINAL_AUDIT.json)。
+
 **第十一阶段等预算融合消融已完成：** BAN+KAN、BAN+MLP、Concat+MLP均使用同一8,000张训练图、100张均衡开发图、800步和有效批量8。按冻结的最低验证损失规则，BAN+KAN以0.001940和100%胜出；BAN+MLP为0.007914/99%，Concat+MLP为0.010666/99%。三者错配视觉特征均为0%，零特征为8%–10%。恢复审计证明三组都完整覆盖1–800步，重算步损失逐值一致，Stage-10最终测试集未读取。详见[STAGE11_ABLATION_REPORT.md](STAGE11_ABLATION_REPORT.md)、[STAGE11_RECOVERY_AUDIT.json](STAGE11_RECOVERY_AUDIT.json)和[STAGE11_PROGRESS.md](STAGE11_PROGRESS.md)。
 
 **统一通信开销已完成可执行核算：** [COMMUNICATION_BUDGET_REPORT.md](COMMUNICATION_BUDGET_REPORT.md)分别报告离散token源码率、CRC/FEC后的编码比特和复信道符号，并明确连续TaiChi语义向量在没有量化器时不能换算为bpp。公开VQGAN规格配合当前参考数字链路为2,560源比特、7,936编码比特和1,984个复符号；Stage-10/11 TaiChi为1,024个实信道值，即512个复符号。两条链路任务不同，该数值只用于工程核算，不作为性能优劣结论。
-
-**下一次最终盲测仍保持封存：** [STAGE12_HOLDOUT_PLAN.md](STAGE12_HOLDOUT_PLAN.md)规定只有唯一模型、检查点哈希、数据选择和全部评价条件冻结并提交正式协议后，`prepare_stage12_holdout.py`才允许打开公开Imagenette验证源。准备器会排除历次训练、验证和测试图的文件哈希与解码像素哈希；缓存器、可恢复评价器和报告器已在协议冻结前实现并通过失败关闭测试。当前正式协议、留出图片和特征缓存均不存在。
 
 **第十阶段8,000张图强化训练及预注册最终测试已完成：** Qwen2.5-0.5B双视觉语义通信模型从第400步继续训练到第2,400步，有效批量8。开发验证在第2,200步达到100%完整回答准确率、0.000164损失。冻结协议后一次性开启150张独立测试图：AWGN四个SNR三种子均值为99.33%–99.56%，Rayleigh为99.78%–100%；最终消融为正确特征100%、错配特征0%、零特征10%。测试集现已用于最终评价，禁止再据此调参。详见[STAGE10_FINAL_TEST_REPORT.md](STAGE10_FINAL_TEST_REPORT.md)、[STAGE10_REPORT.md](STAGE10_REPORT.md)、[STAGE10_CHANNEL_REPORT.md](STAGE10_CHANNEL_REPORT.md)和[STAGE10_RESEARCH_LOG.md](STAGE10_RESEARCH_LOG.md)。
 

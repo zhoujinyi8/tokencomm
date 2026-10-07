@@ -1,6 +1,7 @@
 """Resumable large-data Stage-13 ContextMaskGIT development training."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -92,6 +93,9 @@ def evaluate(model, data, per: float, seed: int, recovery_steps: int = 8, contro
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--max-seconds", type=float, default=0.0, help="Save a recovery checkpoint and exit 75 after a bounded training chunk")
+    args = parser.parse_args()
     torch.set_num_threads(4)
     protocol = json.loads(PROTOCOL_PATH.read_text(encoding="utf-8"))
     for name, expected in (("manifest.json", protocol["data"]["manifest_sha256"]), ("train.jsonl", protocol["data"]["train_jsonl_sha256"]), ("val.jsonl", protocol["data"]["val_jsonl_sha256"])):
@@ -165,6 +169,11 @@ def main() -> None:
             if step % t["checkpoint_every"] == 0 or step == t["steps"]:
                 atomic_save(checkpoint(step), recovery_path)
                 atomic_save(checkpoint(step), OUT / "last.pt")
+            if args.max_seconds > 0 and time.monotonic() - started >= args.max_seconds and step < t["steps"]:
+                atomic_save(checkpoint(step), recovery_path)
+                atomic_save(checkpoint(step), OUT / "last.pt")
+                print(json.dumps({"event": "TRAIN_CHUNK_COMPLETE", "step": step, "elapsed_seconds": time.monotonic() - started}), flush=True)
+                raise SystemExit(75)
 
     best = torch.load(OUT / "best.pt", weights_only=True)
     selected = load_context_maskgit_v2(best)

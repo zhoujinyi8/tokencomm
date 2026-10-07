@@ -6,6 +6,8 @@ from pathlib import Path
 import torch
 
 from train_stage13_tokcom import ROOT, build_model, read_history, sha256
+from report_stage13 import load_completed
+from evaluate_stage13_physical import evaluate_one, key, plan
 
 
 class Stage13Tests(unittest.TestCase):
@@ -32,6 +34,47 @@ class Stage13Tests(unittest.TestCase):
         torch.rand(7)
         second = build_model(protocol)
         self.assertTrue(all(torch.equal(a, b) for a, b in zip(first.state_dict().values(), second.state_dict().values())))
+
+    def test_report_refuses_incomplete_run(self):
+        if not (ROOT / "runs/stage13_tokcom_large/status.json").exists():
+            with self.assertRaises(FileNotFoundError):
+                load_completed()
+
+    def test_cache_cli_exposes_bounded_chunk_mode(self):
+        source = (ROOT / "cache_real_tokens.py").read_text(encoding="utf-8")
+        self.assertIn("--max-seconds", source)
+        self.assertIn("SystemExit(75)", source)
+        self.assertIn("aggregate already complete", source)
+
+    def test_trainer_exposes_bounded_recovery_mode(self):
+        source = (ROOT / "train_stage13_tokcom.py").read_text(encoding="utf-8")
+        self.assertIn('"--max-seconds"', source)
+        self.assertIn('"TRAIN_CHUNK_COMPLETE"', source)
+        self.assertIn("raise SystemExit(75)", source)
+
+    def test_dispatcher_uses_hidden_single_writer_workers(self):
+        source = (ROOT / "dispatch_stage13.ps1").read_text(encoding="utf-8")
+        self.assertIn("-WindowStyle Hidden", source)
+        self.assertIn("Worker already active", source)
+        self.assertIn("--max-seconds", source)
+
+    def test_physical_plan_is_unique_and_development_only(self):
+        rows = plan()
+        self.assertEqual(len(rows), 30)
+        self.assertEqual(len({key(row) for row in rows}), 30)
+        self.assertEqual({row["channel"] for row in rows}, {"awgn", "rayleigh"})
+        self.assertEqual({row["snr_esn0_db"] for row in rows}, {0.0, 4.0, 8.0, 12.0, 16.0})
+
+    def test_noiseless_physical_path_preserves_all_tokens(self):
+        from context_maskgit_v2 import ContextMaskGITv2
+
+        model = ContextMaskGITv2(d=16, layers=1, local_blocks=1).eval()
+        data = {"ids": torch.randint(0, 1024, (2, 256))}
+        row = evaluate_one(model, data, {"channel": "noiseless", "snr_esn0_db": 100.0, "seed": 4})
+        self.assertEqual(row["missing_tokens"], 0)
+        self.assertEqual(row["received_all_token_accuracy"], 1.0)
+        self.assertEqual(row["recovered_all_token_accuracy"], 1.0)
+        self.assertIsNone(row["maskgit_missing_accuracy"])
 
 
 if __name__ == "__main__":

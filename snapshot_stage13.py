@@ -19,6 +19,10 @@ def main():
     cache_summary = json.loads((CACHE / "summary.json").read_text(encoding="utf-8")) if (CACHE / "summary.json").exists() else None
     cached_files = len(list(CACHE.glob("*.npy"))) if CACHE.exists() else 0
     complete = (RUN / "status.json").exists() and json.loads((RUN / "status.json").read_text(encoding="utf-8"))["completed"]
+    if complete and not (ROOT / "STAGE13_TOKCOM_REPORT.md").exists():
+        from report_stage13 import main as write_final_report
+
+        write_final_report()
     lines = [
         "# Stage-13 TokCom 大规模训练推进快照", "",
         f"- 生成时间：{datetime.now().astimezone().isoformat(timespec='seconds')}",

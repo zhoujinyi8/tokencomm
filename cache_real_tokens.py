@@ -24,6 +24,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--data',default='data/imagenette_pilot'); p.add_argument('--device',default='cpu')
     p.add_argument('--threads',type=int,default=4)
+    p.add_argument('--max-seconds',type=float,default=0.,help='Exit 75 after a resumable bounded cache chunk; zero runs to completion')
     p.add_argument('--splits',nargs='+',choices=['train','val','test'],default=['train','val','test'])
     a=p.parse_args(); torch.set_num_threads(a.threads)
     root=Path(a.data); out=root/'token_cache'; out.mkdir(exist_ok=True)
@@ -36,6 +37,12 @@ def main():
     model=PretrainedVQGAN().to(a.device); start=time.monotonic(); count=0
     for split in a.splits:
         records=read_records(root,split); tokens=[]
+        aggregate=out/f'{split}.pt'
+        if aggregate.exists():
+            existing=torch.load(aggregate,weights_only=True)
+            if existing.get('identity')!=identity or len(existing.get('ids',()))!=len(records):
+                raise ValueError('Completed token aggregate identity/count mismatch: '+split)
+            count+=len(records);print(f'{split} aggregate already complete ({len(records)})',flush=True);continue
         for i,row in enumerate(records):
             path=root/row['image']
             if sha256(path)!=row['sha256']: raise ValueError('Image contents changed: '+str(path))
@@ -53,10 +60,16 @@ def main():
             tokens.append(torch.tensor(ids,dtype=torch.long)); count+=1
             if i%10==0 or i==len(records)-1:
                 print(f'{split} {i+1}/{len(records)} elapsed={time.monotonic()-start:.1f}s',flush=True)
+            if a.max_seconds>0 and time.monotonic()-start>=a.max_seconds and i<len(records)-1:
+                progress={'complete':False,'split':split,'visited_in_chunk':i+1,'cached_files':len(list(out.glob('*.npy'))),'elapsed_seconds':time.monotonic()-start}
+                (out/'progress.json').write_text(json.dumps(progress,indent=2),encoding='utf-8')
+                print('CACHE_CHUNK_COMPLETE '+json.dumps(progress),flush=True)
+                raise SystemExit(75)
         torch.save({'ids':torch.stack(tokens),'labels':torch.tensor([r['label'] for r in records]),
-                    'records':records,'class_names':meta['class_names'],'identity':identity},out/f'{split}.pt')
+                    'records':records,'class_names':meta['class_names'],'identity':identity},aggregate)
     (out/'summary.json').write_text(json.dumps({'images':count,'splits':a.splits,'test_opened':'test' in a.splits,'elapsed_seconds':time.monotonic()-start,
         'torch':str(torch.__version__),'device':a.device,'identity':identity},indent=2),encoding='utf-8')
+    (out/'progress.json').write_text(json.dumps({'complete':True,'cached_files':len(list(out.glob('*.npy')))},indent=2),encoding='utf-8')
 
 
 if __name__=='__main__': main()
