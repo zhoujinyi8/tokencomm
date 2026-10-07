@@ -51,6 +51,12 @@ class Stage13Tests(unittest.TestCase):
         self.assertIn('"TRAIN_CHUNK_COMPLETE"', source)
         self.assertIn("raise SystemExit(75)", source)
 
+    def test_dispatcher_uses_hidden_single_writer_workers(self):
+        source = (ROOT / "dispatch_stage13.ps1").read_text(encoding="utf-8")
+        self.assertIn("-WindowStyle Hidden", source)
+        self.assertIn("Worker already active", source)
+        self.assertIn("--max-seconds", source)
+
 
 if __name__ == "__main__":
     unittest.main()
