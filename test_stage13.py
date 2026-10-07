@@ -3,7 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from train_stage13_tokcom import ROOT, read_history, sha256
+import torch
+
+from train_stage13_tokcom import ROOT, build_model, read_history, sha256
 
 
 class Stage13Tests(unittest.TestCase):
@@ -23,6 +25,13 @@ class Stage13Tests(unittest.TestCase):
             kept = read_history(path, 2)
             self.assertEqual([row["step"] for row in kept], [1, 2])
             self.assertEqual(len(path.read_text(encoding="utf-8").splitlines()), 2)
+
+    def test_frozen_seed_controls_initial_weights(self):
+        protocol = json.loads((ROOT / "STAGE13_TOKCOM_PROTOCOL.json").read_text(encoding="utf-8"))
+        first = build_model(protocol)
+        torch.rand(7)
+        second = build_model(protocol)
+        self.assertTrue(all(torch.equal(a, b) for a, b in zip(first.state_dict().values(), second.state_dict().values())))
 
 
 if __name__ == "__main__":
