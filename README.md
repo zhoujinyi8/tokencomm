@@ -2,6 +2,8 @@
 
 **第十三阶段TokCom大数据训练正在运行：** 第一篇论文路线现使用公开MaskGIT VQGAN的1024码本、256个图像token，在8,000张训练图和150张固定开发图上训练无CMI的ContextMaskGIT v2。冻结预算为6,000步、batch 16，并在PER 10%/30%/50%间做混合课程。缓存与训练均采用45秒原子分段、单写者后台调度和完整优化器/RNG恢复；每500步进行三种子验证，测试集保持未读。当前状态见[STAGE13_PROGRESS.md](STAGE13_PROGRESS.md)，冻结配置见[STAGE13_TOKCOM_PROTOCOL.json](STAGE13_TOKCOM_PROTOCOL.json)。
 
+Stage-13训练完成后，`evaluate_stage13_physical.py`会自动冻结最佳检查点哈希，并在同一开发集上执行CRC-16、卷积码、16-QAM、软Viterbi的AWGN/Rayleigh物理链路扫描。该扫描报告PER、BER、未检出错误和端到端token准确率；由于使用模型选择开发集，它只作工程诊断，不作盲测结论。
+
 **第十二阶段新留出集最终测试已完成：** Stage-11胜出的BAN+KAN第800步模型在300张新独立图上完成24个AWGN/Rayleigh信道条件和3个视觉控制。AWGN 0–20 dB为98.22%–98.67%，Rayleigh 0 dB为89.78%，5–20 dB为98.22%–98.67%；正确、错配和全零视觉控制分别为98.67%、0%和10%。27/27条件、数据零交集和`used_for_training=false`均已审计。详见[STAGE12_FINAL_TEST_REPORT.md](STAGE12_FINAL_TEST_REPORT.md)与[STAGE12_FINAL_AUDIT.json](STAGE12_FINAL_AUDIT.json)。
 
 **第十一阶段等预算融合消融已完成：** BAN+KAN、BAN+MLP、Concat+MLP均使用同一8,000张训练图、100张均衡开发图、800步和有效批量8。按冻结的最低验证损失规则，BAN+KAN以0.001940和100%胜出；BAN+MLP为0.007914/99%，Concat+MLP为0.010666/99%。三者错配视觉特征均为0%，零特征为8%–10%。恢复审计证明三组都完整覆盖1–800步，重算步损失逐值一致，Stage-10最终测试集未读取。详见[STAGE11_ABLATION_REPORT.md](STAGE11_ABLATION_REPORT.md)、[STAGE11_RECOVERY_AUDIT.json](STAGE11_RECOVERY_AUDIT.json)和[STAGE11_PROGRESS.md](STAGE11_PROGRESS.md)。

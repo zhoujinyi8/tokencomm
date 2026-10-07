@@ -153,3 +153,5 @@ TaiChi/BAN/KAN路线完成融合消融和第二次预注册测试后，当前工
 Windows任务的同步子进程会被桌面环境周期性发送Ctrl+C，因此编排方式已改为一分钟触发的短生命周期调度器：调度器检查单写者后启动隐藏的45秒缓存或训练worker并立即返回0；worker在退出前原子写入逐图token或包含模型、AdamW、调度器和PyTorch RNG的恢复检查点。实测缓存段从4,673推进到4,783并正常交棒，随后跨计划触发保持任一时刻只有一个worker。缓存文件随机抽查50个，形状均为`[256]`且token范围在0–1023。
 
 `report_stage13.py`已在结果产生前完成。它只接受严格覆盖1–6000步、12个固定验证点、9个PER×种子条件和正确/错配/全遮蔽/空间填补四种控制的结果；未完成运行会失败关闭。完成后将生成训练曲线、PER扫描、控制图、`STAGE13_TOKCOM_REPORT.md`和`STAGE13_AUDIT.json`。这仍是匹配公开VQGAN码本的自训练接收端，并非TokCom作者或Google原始MaskGIT Transformer权重；CLIP、LPIPS、TCE和重传策略仍未实现。
+
+训练后的显式数字链路开发扫描也已在结果产生前实现。`evaluate_stage13_physical.py`会先冻结最佳检查点、训练协议和验证token缓存的SHA-256，然后分30个可恢复条件评价AWGN/Rayleigh、Es/N0为0/4/8/12/16 dB及三个种子。每个条件逐包执行CRC-16、K=7 `(171,133)`码率1/2卷积码、六零终止、Gray 16-QAM和软Viterbi，报告实测PER、载荷BER、CRC未检出错误、擦除位置MaskGIT/空间填补恢复率及全token端到端准确率。该扫描复用模型选择开发集，明确不作为盲测或泛化估计。
