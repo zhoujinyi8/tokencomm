@@ -1,0 +1,19 @@
+{
+  "shared_channels": [
+    "awgn",
+    "rayleigh"
+  ],
+  "shared_snr_definition": "Es/N0 with unit mean complex-symbol energy",
+  "shared_snr_db": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "seeds_per_condition": 3,
+  "tokcom_complex_symbols": 1984,
+  "taichi_complex_channel_uses": 512,
+  "ratio_descriptive_only": 3.875,
+  "metrics_not_interchangeable": true,
+  "data_evidence_not_equal": true
+}
