@@ -104,7 +104,7 @@ if (-not (Test-Path (Join-Path $cacheRoot 'train.pt')) -or -not (Test-Path (Join
     $kind = 'cache'
 }
 else {
-    $arguments = @('train_stage13_tokcom.py', '--max-seconds', '45')
+    $arguments = @('train_stage13_tokcom.py', '--max-seconds', '240')
     $kind = 'train'
 }
 $process = Start-Process -FilePath (Get-Command python).Source -ArgumentList $arguments -WorkingDirectory $PSScriptRoot `

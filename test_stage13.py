@@ -57,6 +57,7 @@ class Stage13Tests(unittest.TestCase):
         self.assertIn("-WindowStyle Hidden", source)
         self.assertIn("Worker already active", source)
         self.assertIn("--max-seconds", source)
+        self.assertIn("'240'", source)
         self.assertIn("report_fair_comparison.py", source)
         self.assertIn("TOKCOM_TAICHI_FAIR_COMPARISON.md", source)
 

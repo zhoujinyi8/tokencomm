@@ -1,6 +1,6 @@
 # TokCom 与 TaiChi：复现工程
 
-**第十三阶段TokCom大数据训练正在运行：** 第一篇论文路线现使用公开MaskGIT VQGAN的1024码本、256个图像token，在8,000张训练图和150张固定开发图上训练无CMI的ContextMaskGIT v2。冻结预算为6,000步、batch 16，并在PER 10%/30%/50%间做混合课程。缓存与训练均采用45秒原子分段、单写者后台调度和完整优化器/RNG恢复；每500步进行三种子验证，测试集保持未读。当前状态见[STAGE13_PROGRESS.md](STAGE13_PROGRESS.md)，冻结配置见[STAGE13_TOKCOM_PROTOCOL.json](STAGE13_TOKCOM_PROTOCOL.json)。
+**第十三阶段TokCom大数据训练正在运行：** 第一篇论文路线现使用公开MaskGIT VQGAN的1024码本、256个图像token，在8,000张训练图和150张固定开发图上训练无CMI的ContextMaskGIT v2。冻结预算为6,000步、batch 16，并在PER 10%/30%/50%间做混合课程。缓存采用45秒可恢复片段；训练在完成跨片段恢复验证后采用最长240秒片段，并保留每100步原子检查点、单写者后台调度和完整优化器/RNG恢复。每500步进行三种子验证，测试集保持未读。当前状态见[STAGE13_PROGRESS.md](STAGE13_PROGRESS.md)，冻结配置见[STAGE13_TOKCOM_PROTOCOL.json](STAGE13_TOKCOM_PROTOCOL.json)。
 
 Stage-13训练完成后，`evaluate_stage13_physical.py`会自动冻结最佳检查点哈希，并在同一开发集上执行CRC-16、卷积码、16-QAM、软Viterbi的AWGN/Rayleigh物理链路扫描。冻结网格为0/5/10/20 dB、每条件三个种子，共24个条件；该扫描报告PER、BER、未检出错误和端到端token准确率。`report_fair_comparison.py`随后按共同的信道与Es/N0标签生成资源和鲁棒性并排报告，同时把两条路线不同的任务指标和不同证据等级明确分开。由于TokCom扫描使用模型选择开发集，它只作工程诊断，不作盲测结论。
 
