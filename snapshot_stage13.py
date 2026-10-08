@@ -19,6 +19,10 @@ def main():
     cache_summary = json.loads((CACHE / "summary.json").read_text(encoding="utf-8")) if (CACHE / "summary.json").exists() else None
     cached_files = len(list(CACHE.glob("*.npy"))) if CACHE.exists() else 0
     complete = (RUN / "status.json").exists() and json.loads((RUN / "status.json").read_text(encoding="utf-8"))["completed"]
+    stage14_protocol = (ROOT / "STAGE14_TOKCOM_FINAL_PROTOCOL.json").exists()
+    stage14_materialized = (ROOT / "data/stage14_tokcom_final_holdout/identity.json").exists()
+    stage14_status_path = ROOT / "runs/stage14_tokcom_final/status.json"
+    stage14_complete = stage14_status_path.exists() and json.loads(stage14_status_path.read_text(encoding="utf-8"))["completed"]
     if complete and not (ROOT / "STAGE13_TOKCOM_REPORT.md").exists():
         from report_stage13 import main as write_final_report
 
@@ -33,7 +37,10 @@ def main():
         f"- 已完成训练步：{latest['step'] if latest else 0}/{protocol['training']['steps']}",
         f"- 正式验证次数：{len(validations)}",
         f"- 最终完成：{'是' if complete else '否'}",
-        "- 测试集访问：否", "",
+        "- Stage-13测试集访问：否",
+        f"- Stage-14盲测协议冻结：{'是' if stage14_protocol else '否'}",
+        f"- Stage-14新留出集物化：{'是' if stage14_materialized else '否'}",
+        f"- Stage-14最终评价完成：{'是' if stage14_complete else '否'}", "",
     ]
     if latest:
         lines.extend(["## 最新训练状态", "", f"- loss：{latest['loss']:.6f}", f"- PER：{latest['per']}", f"- 学习率：{latest['lr']:.8f}", f"- 累计训练秒数：{latest['elapsed_seconds']:.1f}", ""])
