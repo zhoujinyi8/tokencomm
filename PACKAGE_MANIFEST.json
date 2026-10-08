@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-10-08T19:16:46.940634+08:00",
+  "source_root": "D:\\新建文件夹 (2)\\2026-09-21\\ban\\outputs\\tokencom_reproduction",
+  "archive_target": "D:\\TokenCom_TaiChi_Reproduction_Paused_20261008_191643.zip",
+  "pause_state": {
+    "scheduled_tasks_disabled": [
+      "TokenCom-Stage13-Orchestrator",
+      "TokenCom-Stage13-4Hour-Progress"
+    ],
+    "related_training_workers_running": 0
+  },
+  "research_state": {
+    "stage13_training": "completed 6000/6000",
+    "stage13_best_step": 6000,
+    "stage13_best_checkpoint_sha256": "f8b8c0ab73177b048d6bb33522b257d07e8c6c48cecfc092d8a183e1152bd919",
+    "stage13_physical_dev": "paused after 1/24 conditions",
+    "stage14_protocol_frozen": false,
+    "stage14_holdout_materialized": false,
+    "stage14_test_accessed": false
+  },
+  "included": [
+    "source code and project metadata",
+    "reports, protocols, audits, and figures",
+    "runs/ checkpoints and lightweight results",
+    "pretrained/ weights required for resumption",
+    "third_party/ source dependencies",
+    "data/ manifests and aggregate feature/token tensors",
+    "work/stage12_source/validation-00000-of-00001.parquet"
+  ],
+  "excluded_recreatable_or_transient": [
+    ".git metadata and Python/tool caches",
+    "public raw images under data/**/images",
+    "per-image data/**/token_cache/*.npy files",
+    "transient logs, temporary files, and other work/ content"
+  ],
+  "resume_instructions": "PAUSE_AND_RESUME_STATUS.md"
+}

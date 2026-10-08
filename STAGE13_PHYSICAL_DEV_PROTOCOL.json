@@ -1,0 +1,144 @@
+{
+  "purpose": "Stage-13 development-only explicit digital-link evaluation",
+  "selection_warning": "The same 150-image development split selected the checkpoint; these are not blind-test estimates.",
+  "checkpoint": "runs/stage13_tokcom_large/best.pt",
+  "checkpoint_sha256": "f8b8c0ab73177b048d6bb33522b257d07e8c6c48cecfc092d8a183e1152bd919",
+  "training_protocol_sha256": "21b813d5655b0186863291ab5ea74a87a6a2283e2eff134cfed170f114fdc3c7",
+  "validation_cache_sha256": "3c23638d0defff85adf49e2dd7303b341445a8d6a6f4cb734db03a69d64a2e66",
+  "tokenizer_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "images": 150,
+  "conditions": [
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 0.0,
+      "seed": 13201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 0.0,
+      "seed": 13202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 0.0,
+      "seed": 13203
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 13201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 13202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 13203
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 10.0,
+      "seed": 13201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 10.0,
+      "seed": 13202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 10.0,
+      "seed": 13203
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 20.0,
+      "seed": 13201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 20.0,
+      "seed": 13202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 20.0,
+      "seed": 13203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 0.0,
+      "seed": 13201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 0.0,
+      "seed": 13202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 0.0,
+      "seed": 13203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 5.0,
+      "seed": 13201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 5.0,
+      "seed": 13202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 5.0,
+      "seed": 13203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 13201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 13202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 13203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 20.0,
+      "seed": 13201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 20.0,
+      "seed": 13202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 20.0,
+      "seed": 13203
+    }
+  ],
+  "link": {
+    "packet_tokens": 4,
+    "token_bits": 10,
+    "crc": "CRC-16/CCITT-FALSE",
+    "fec": "K=7 convolutional code, octal (171,133), rate 1/2, six zero termination bits",
+    "modulation": "unit-average-energy Gray 16-QAM",
+    "decoder": "max-log soft-input terminated Viterbi",
+    "rayleigh": "iid per complex symbol with perfect receiver CSI",
+    "snr_definition": "Es/N0"
+  },
+  "test_accessed": false,
+  "used_for_training": false
+}

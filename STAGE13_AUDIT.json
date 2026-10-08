@@ -1,0 +1,29 @@
+{
+  "audit_passed": true,
+  "protocol_sha256": "21b813d5655b0186863291ab5ea74a87a6a2283e2eff134cfed170f114fdc3c7",
+  "history_steps": 6000,
+  "unique_steps": 6000,
+  "validation_steps": [
+    500,
+    1000,
+    1500,
+    2000,
+    2500,
+    3000,
+    3500,
+    4000,
+    4500,
+    5000,
+    5500,
+    6000
+  ],
+  "sweep_conditions": 9,
+  "controls": [
+    "correct",
+    "wrong",
+    "none",
+    "spatial"
+  ],
+  "test_accessed": false,
+  "used_for_training": false
+}
