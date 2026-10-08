@@ -61,6 +61,17 @@ class Stage13Tests(unittest.TestCase):
         self.assertIn("report_fair_comparison.py", source)
         self.assertIn("TOKCOM_TAICHI_FAIR_COMPARISON.md", source)
 
+    def test_scheduled_task_wrappers_are_console_free(self):
+        for name, target in [
+            ("dispatch_stage13_hidden.vbs", "dispatch_stage13.ps1"),
+            ("snapshot_stage13_hidden.vbs", "snapshot_stage13.ps1"),
+        ]:
+            source = (ROOT / name).read_text(encoding="utf-8")
+            self.assertIn(target, source)
+            self.assertIn("-WindowStyle Hidden", source)
+            self.assertIn("-NonInteractive", source)
+            self.assertIn("shell.Run command, 0, False", source)
+
     def test_physical_plan_is_unique_and_development_only(self):
         rows = plan()
         self.assertEqual(len(rows), 24)
