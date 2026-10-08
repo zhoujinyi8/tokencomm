@@ -57,13 +57,36 @@ class Stage13Tests(unittest.TestCase):
         self.assertIn("-WindowStyle Hidden", source)
         self.assertIn("Worker already active", source)
         self.assertIn("--max-seconds", source)
+        self.assertIn("report_fair_comparison.py", source)
+        self.assertIn("TOKCOM_TAICHI_FAIR_COMPARISON.md", source)
 
     def test_physical_plan_is_unique_and_development_only(self):
         rows = plan()
-        self.assertEqual(len(rows), 30)
-        self.assertEqual(len({key(row) for row in rows}), 30)
+        self.assertEqual(len(rows), 24)
+        self.assertEqual(len({key(row) for row in rows}), 24)
         self.assertEqual({row["channel"] for row in rows}, {"awgn", "rayleigh"})
-        self.assertEqual({row["snr_esn0_db"] for row in rows}, {0.0, 4.0, 8.0, 12.0, 16.0})
+        self.assertEqual({row["snr_esn0_db"] for row in rows}, {0.0, 5.0, 10.0, 20.0})
+
+    def test_fair_comparison_grid_validation_fails_closed(self):
+        from report_fair_comparison import validate_shared_grid
+
+        tok = [
+            {"channel": channel, "snr_esn0_db": float(snr), "seeds": 3}
+            for channel in ["awgn", "rayleigh"] for snr in [0, 5, 10, 20]
+        ]
+        tai = [
+            {"kind": channel, "snr_db": float(snr), "seeds": 3}
+            for channel in ["awgn", "rayleigh"] for snr in [0, 5, 10, 20]
+        ]
+        tok_map, tai_map = validate_shared_grid(tok, tai)
+        self.assertEqual(len(tok_map), 8)
+        self.assertEqual(len(tai_map), 8)
+        with self.assertRaises(ValueError):
+            validate_shared_grid(tok[:-1], tai)
+        bad_seeds = [dict(row) for row in tai]
+        bad_seeds[0]["seeds"] = 2
+        with self.assertRaises(ValueError):
+            validate_shared_grid(tok, bad_seeds)
 
     def test_noiseless_physical_path_preserves_all_tokens(self):
         from context_maskgit_v2 import ContextMaskGITv2

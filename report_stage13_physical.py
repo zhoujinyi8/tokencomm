@@ -34,8 +34,8 @@ def main():
         group = [row for row in data["summary"] if row["channel"] == channel]
         axes[0].errorbar([row["snr_esn0_db"] for row in group], [100 * row["measured_per_mean"] for row in group], yerr=[100 * row["measured_per_std"] for row in group], marker="o", capsize=4, label=channel.upper(), color=colors[channel])
         axes[1].errorbar([row["snr_esn0_db"] for row in group], [100 * row["recovered_all_token_accuracy_mean"] for row in group], yerr=[100 * row["recovered_all_token_accuracy_std"] for row in group], marker="o", capsize=4, label=channel.upper(), color=colors[channel])
-    axes[0].set(title="CRC测得分组丢包率", xlabel="SNR Es/N0（dB）", ylabel="PER（%）", xticks=[0, 4, 8, 12, 16])
-    axes[1].set(title="MaskGIT恢复后的全图token准确率", xlabel="SNR Es/N0（dB）", ylabel="全部token准确率（%）", xticks=[0, 4, 8, 12, 16])
+    axes[0].set(title="CRC测得分组丢包率", xlabel="SNR Es/N0（dB）", ylabel="PER（%）", xticks=[0, 5, 10, 20])
+    axes[1].set(title="MaskGIT恢复后的全图token准确率", xlabel="SNR Es/N0（dB）", ylabel="全部token准确率（%）", xticks=[0, 5, 10, 20])
     for axis in axes:
         axis.grid(alpha=0.25)
         axis.legend()

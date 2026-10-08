@@ -154,4 +154,6 @@ Windows任务的同步子进程会被桌面环境周期性发送Ctrl+C，因此�
 
 `report_stage13.py`已在结果产生前完成。它只接受严格覆盖1–6000步、12个固定验证点、9个PER×种子条件和正确/错配/全遮蔽/空间填补四种控制的结果；未完成运行会失败关闭。完成后将生成训练曲线、PER扫描、控制图、`STAGE13_TOKCOM_REPORT.md`和`STAGE13_AUDIT.json`。这仍是匹配公开VQGAN码本的自训练接收端，并非TokCom作者或Google原始MaskGIT Transformer权重；CLIP、LPIPS、TCE和重传策略仍未实现。
 
-训练后的显式数字链路开发扫描也已在结果产生前实现。`evaluate_stage13_physical.py`会先冻结最佳检查点、训练协议和验证token缓存的SHA-256，然后分30个可恢复条件评价AWGN/Rayleigh、Es/N0为0/4/8/12/16 dB及三个种子。每个条件逐包执行CRC-16、K=7 `(171,133)`码率1/2卷积码、六零终止、Gray 16-QAM和软Viterbi，报告实测PER、载荷BER、CRC未检出错误、擦除位置MaskGIT/空间填补恢复率及全token端到端准确率。该扫描复用模型选择开发集，明确不作为盲测或泛化估计。
+训练后的显式数字链路开发扫描也已在结果产生前实现。`evaluate_stage13_physical.py`会先冻结最佳检查点、训练协议和验证token缓存的SHA-256，然后分24个可恢复条件评价AWGN/Rayleigh、Es/N0为0/5/10/20 dB及三个种子。这个网格与Stage-12 TaiChi最终信道扫描一致，便于在相同信道标签下并排审计。每个条件逐包执行CRC-16、K=7 `(171,133)`码率1/2卷积码、六零终止、Gray 16-QAM和软Viterbi，报告实测PER、载荷BER、CRC未检出错误、擦除位置MaskGIT/空间填补恢复率及全token端到端准确率。该扫描复用模型选择开发集，明确不作为盲测或泛化估计。
+
+`report_fair_comparison.py`已在Stage-13结果产生前写定。它只接受两条路线共同的AWGN/Rayleigh与0/5/10/20 dB网格，将TokCom参考数字链路的1,984个复符号与TaiChi连续语义信道的512个复信道使用并列，并把TaiChi完整回答准确率和TokCom全图token准确率放在不同图轴和不同表列。报告会明确标注两者任务、效用指标和证据等级不同：Stage-12 TaiChi使用300张预注册新留出图，Stage-13 TokCom物理扫描使用150张模型选择开发图。因此3.875倍仅是当前参考配置的资源计数，不能解释为端到端性能或频谱效率优劣。

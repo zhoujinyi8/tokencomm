@@ -33,7 +33,7 @@ def plan():
     return [
         {"channel": channel, "snr_esn0_db": float(snr), "seed": seed}
         for channel in ["awgn", "rayleigh"]
-        for snr in [0, 4, 8, 12, 16]
+        for snr in [0, 5, 10, 20]
         for seed in [13201, 13202, 13203]
     ]
 
@@ -115,7 +115,7 @@ def evaluate_one(model, data, condition):
 def summarize(rows):
     groups = []
     for channel in ["awgn", "rayleigh"]:
-        for snr in [0, 4, 8, 12, 16]:
+        for snr in [0, 5, 10, 20]:
             chosen = [row for row in rows if row["channel"] == channel and row["snr_esn0_db"] == snr]
             groups.append({
                 "channel": channel,
