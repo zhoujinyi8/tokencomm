@@ -1,0 +1,243 @@
+{
+  "protocol": "Stage-14 preregistered TokCom blind test on a new disjoint Imagenette holdout",
+  "status": "frozen",
+  "frozen_at": "2026-10-08T19:40:25+08:00",
+  "implementation_commit": "dc62f8bae763ea6a6bc4269fc8510c952f39f575",
+  "development_protocol_sha256": "21b813d5655b0186863291ab5ea74a87a6a2283e2eff134cfed170f114fdc3c7",
+  "holdout_plan_sha256": "aae7a446c40a2196fcbec93dc607e8c2051ef94c71606fbcfd84b31ebf5df5d2",
+  "development_audit_sha256": "e406b147a4bf1b686304f681070304e699c75dc49b60b3f01eea9961ee4583ef",
+  "physical_development_protocol_sha256": "1757c29b3654fbc6af99ba2b60266fb8f3a6ddeb1777682875454c69cb4c2a49",
+  "selection_rule": "Stage-13 frozen minimum development cross-entropy rule; no post-test model selection",
+  "checkpoint": "runs/stage13_tokcom_large/best.pt",
+  "checkpoint_sha256": "f8b8c0ab73177b048d6bb33522b257d07e8c6c48cecfc092d8a183e1152bd919",
+  "tokenizer_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "source": "ShaomuTan/imagenette 320px validation parquet",
+  "source_validation_sha256": "fa51906de9c2847cd058d9896d6b76e97a4499e4e07efca14fdffb3ae2661847",
+  "selection_seed": 20261008,
+  "per_class": 30,
+  "expected_test_images": 300,
+  "class_names": [
+    "tench",
+    "English springer",
+    "cassette player",
+    "chain saw",
+    "church",
+    "French horn",
+    "garbage truck",
+    "gas pump",
+    "golf ball",
+    "parachute"
+  ],
+  "exclusion_manifests": [
+    {
+      "path": "data/imagenette_pilot/train.jsonl",
+      "sha256": "e0f005029778283e4094b4970cb8c67d7ac8a16794ea71194417ea3fabfd3b7a"
+    },
+    {
+      "path": "data/imagenette_pilot/val.jsonl",
+      "sha256": "b80a6658fe2df1a5c4dd7b0bc915da6a9a875026907a4621da6c3c6927f32c79"
+    },
+    {
+      "path": "data/imagenette_pilot/test.jsonl",
+      "sha256": "29f2a4310d0b588b0d18b9b977ac8f9a9752ac2a1967bb528818be146cb9f1a7"
+    },
+    {
+      "path": "data/imagenette_stage5/train.jsonl",
+      "sha256": "9895ed5f77c4b5af9e95252c4b80e9e2b7f5453607b55afb90c326287ca46243"
+    },
+    {
+      "path": "data/imagenette_stage5/val.jsonl",
+      "sha256": "0c2b11e0fdb7fd8925f75f9686632aa578982f835a81081295e0137d1c41dfdb"
+    },
+    {
+      "path": "data/imagenette_stage5/test.jsonl",
+      "sha256": "1c2924121111c85fa5544b9f355bccf272d428dbf162112a660589eeca79b24b"
+    },
+    {
+      "path": "data/imagenette_stage7/train.jsonl",
+      "sha256": "057be272a8643c86b0fe5e26356be55056b238c32bbc3410ce983bd47a448e1a"
+    },
+    {
+      "path": "data/imagenette_stage7/val.jsonl",
+      "sha256": "70f774c00c735d6c4605a9f7efc9267569f4bed9800bb8c0ebec088804d02921"
+    },
+    {
+      "path": "data/imagenette_stage7/test.jsonl",
+      "sha256": "e9771086ad272768596cb6b6222bba0e27e5af7ef40c865bc49199fd56956743"
+    },
+    {
+      "path": "data/imagenette_stage10/train.jsonl",
+      "sha256": "3a9bdb0da77748f92f4ba23ae808419e3edffa767d51d219a509806b0df666c1"
+    },
+    {
+      "path": "data/imagenette_stage10/val.jsonl",
+      "sha256": "70f774c00c735d6c4605a9f7efc9267569f4bed9800bb8c0ebec088804d02921"
+    },
+    {
+      "path": "data/stage12_final_holdout/test.jsonl",
+      "sha256": "9860f383bdb439b649e63829273244d21792504fa4bc4b7409166ae11bea63ed"
+    }
+  ],
+  "holdout_directory": "data/stage14_tokcom_final_holdout",
+  "token_cache": "data/stage14_tokcom_final_holdout/token_cache/test.pt",
+  "conditions": [
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 0.0,
+      "seed": 14201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 0.0,
+      "seed": 14202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 0.0,
+      "seed": 14203
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 14201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 14202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 14203
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 10.0,
+      "seed": 14201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 10.0,
+      "seed": 14202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 10.0,
+      "seed": 14203
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 20.0,
+      "seed": 14201
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 20.0,
+      "seed": 14202
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 20.0,
+      "seed": 14203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 0.0,
+      "seed": 14201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 0.0,
+      "seed": 14202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 0.0,
+      "seed": 14203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 5.0,
+      "seed": 14201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 5.0,
+      "seed": 14202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 5.0,
+      "seed": 14203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 14201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 14202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 14203
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 20.0,
+      "seed": 14201
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 20.0,
+      "seed": 14202
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 20.0,
+      "seed": 14203
+    }
+  ],
+  "recovery_steps": 8,
+  "evaluation_batch_size": 24,
+  "link": {
+    "packet_tokens": 4,
+    "token_bits": 10,
+    "crc": "CRC-16/CCITT-FALSE",
+    "fec": "K=7 convolutional code, octal (171,133), rate 1/2, six zero termination bits",
+    "modulation": "unit-average-energy Gray 16-QAM",
+    "decoder": "max-log soft-input terminated Viterbi",
+    "rayleigh": "iid per complex symbol with perfect receiver CSI",
+    "snr_definition": "Es/N0"
+  },
+  "metrics": [
+    "measured_per",
+    "payload_ber",
+    "recovered_all_token_accuracy",
+    "maskgit_missing_accuracy",
+    "spatial_missing_accuracy",
+    "per_class_all_token_accuracy",
+    "undetected_wrong_tokens",
+    "seed_mean",
+    "seed_population_std"
+  ],
+  "implementation_sha256": {
+    "freeze_stage14_protocol.py": "1e7459132660396d67bcee31dd28358ccd9b0ef88a21ecd5992ef817e8ba0369",
+    "prepare_stage14_holdout.py": "fd69fcb52298d13e8a86590abd69add820df4fb87fb1ee1bb9be64d121a44314",
+    "evaluate_stage14_final.py": "112e3351d5b4476b62a31ef2a1d4700f0b388f3a9a9b2968cb59bec81bd18f35",
+    "report_stage14_final.py": "f54d24be6d0d5047d9a64912a81be494d5a30f7453bcb1518bce28131b40807e",
+    "digital_link.py": "d0857c1fd71c1903c7e97cff784efafba98e98fa837a11f49c5a98f201e85810",
+    "context_maskgit_v2.py": "2c774ba1f03d0bca0310add04fbe4a578d1f7eabd670a59342982afd9f4b5a43",
+    "cache_real_tokens.py": "b32cb6759e9ecfc01c0e33352cb118f0f3f300e257522b0c7f09c2a8ed3620b0"
+  },
+  "candidate_source_semantics_accessed_at_freeze": false,
+  "source_container_hash_verified_at_freeze": true,
+  "test_accessed_at_freeze": false,
+  "used_for_training": false,
+  "reporting_rule": "Evaluate and report every frozen condition; do not tune, retrain, replace the checkpoint, alter the holdout, or omit weak conditions after holdout materialization.",
+  "pretraining_overlap": "The public VQGAN was pretrained on ImageNet and Imagenette is an ImageNet subset; this is a held-out downstream split, not an unseen-pretraining claim."
+}
