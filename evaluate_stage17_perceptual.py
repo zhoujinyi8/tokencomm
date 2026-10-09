@@ -35,7 +35,15 @@ def sha256(path: Path) -> str:
 def atomic_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    temporary.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+            default=lambda value: value.item() if isinstance(value, np.generic) else value.tolist(),
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     os.replace(temporary, path)
 
 
@@ -118,7 +126,8 @@ def mode_parameters(protocol: dict, condition: dict) -> tuple[dict, torch.Tensor
 @torch.inference_mode()
 def prepare_restored(protocol: dict, data: dict, condition: dict, directory: Path) -> None:
     target = directory / "restored.pt"
-    if target.exists():
+    communication_path = directory / "communication.json"
+    if target.exists() and communication_path.exists():
         return
     receiver = load_context_maskgit_v3(torch.load(ROOT / protocol["checkpoint"], weights_only=True)).eval()
     condition = dict(condition)
@@ -139,15 +148,15 @@ def prepare_restored(protocol: dict, data: dict, condition: dict, directory: Pat
         recovery_steps=int(protocol["recovery_steps"]),
         guidance_scale=guidance,
     )
-    payload = {
-        "restored": restored,
+    communication = {
         "remaining_erasure_count": int(missing.sum()),
         "communication_metrics": metrics,
         "condition": {key: value for key, value in condition.items() if key != "labels"},
     }
     temporary = target.with_suffix(".pt.tmp")
-    torch.save(payload, temporary)
+    torch.save(restored, temporary)
     os.replace(temporary, target)
+    atomic_json(communication_path, communication)
 
 
 def save_preview(path: Path, original: torch.Tensor, baseline: torch.Tensor, reconstructed: torch.Tensor) -> None:
@@ -163,8 +172,8 @@ def evaluate_condition(protocol: dict, data: dict, condition: dict, deadline: fl
     metric_dir.mkdir(parents=True, exist_ok=True)
     preview_dir.mkdir(parents=True, exist_ok=True)
     prepare_restored(protocol, data, condition, directory)
-    restored_payload = torch.load(directory / "restored.pt", weights_only=True)
-    restored = restored_payload["restored"]
+    restored = torch.load(directory / "restored.pt", weights_only=True)
+    communication_payload = json.loads((directory / "communication.json").read_text(encoding="utf-8"))
     tokenizer = None
     metrics = None
     preview_indices = set(protocol["preview_indices"])
@@ -200,7 +209,7 @@ def evaluate_condition(protocol: dict, data: dict, condition: dict, deadline: fl
         if time.monotonic() >= deadline:
             return False
     rows = [json.loads((metric_dir / f"{i:04d}.json").read_text(encoding="utf-8")) for i in range(protocol["images"])]
-    communication = restored_payload["communication_metrics"]
+    communication = communication_payload["communication_metrics"]
     summary = {
         "condition": condition,
         "images": len(rows),

@@ -1,7 +1,11 @@
 import unittest
 from pathlib import Path
+import json
+import tempfile
 
-from evaluate_stage17_perceptual import condition_key
+import numpy as np
+
+from evaluate_stage17_perceptual import atomic_json, condition_key
 from freeze_stage17_perceptual_protocol import choose_selective
 
 
@@ -32,6 +36,12 @@ class Stage17Tests(unittest.TestCase):
         self.assertIn("--max-seconds', '220", dispatch)
         self.assertIn("-WindowStyle Hidden", dispatch)
         self.assertIn("shell.Run command, 0, False", wrapper)
+
+    def test_atomic_json_converts_numpy_metrics(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "metrics.json"
+            atomic_json(path, {"scalar": np.float64(0.25), "array": np.array([1, 2])})
+            self.assertEqual(json.loads(path.read_text()), {"scalar": 0.25, "array": [1, 2]})
 
 
 if __name__ == "__main__":
