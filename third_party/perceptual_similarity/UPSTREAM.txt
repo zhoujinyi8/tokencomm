@@ -1,0 +1,5 @@
+Source: https://github.com/richzhang/PerceptualSimilarity
+Commit: 082bb24f84c091ea94de2867d34c4544f68e0963
+Retrieved: 2026-10-10
+Purpose: pinned official LPIPS implementation and learned linear weights.
+Local patch: omit the unused trainer import from lpips/__init__.py so inference does not require SciPy.

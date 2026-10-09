@@ -1,3 +1,5 @@
 -r requirements-training.txt
 # Install a torchvision build compatible with your torch version/platform.
 torchvision>=0.20,<1
+# LPIPS source and calibrated linear weights are pinned under third_party/.
+# Its SqueezeNet ImageNet trunk is downloaded and hash-checked by torchvision.
