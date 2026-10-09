@@ -153,8 +153,9 @@ def prepare_restored(protocol: dict, data: dict, condition: dict, directory: Pat
         "communication_metrics": metrics,
         "condition": {key: value for key, value in condition.items() if key != "labels"},
     }
+    restored_tensor = torch.from_numpy(restored).to(dtype=torch.long)
     temporary = target.with_suffix(".pt.tmp")
-    torch.save(restored, temporary)
+    torch.save(restored_tensor, temporary)
     os.replace(temporary, target)
     atomic_json(communication_path, communication)
 
