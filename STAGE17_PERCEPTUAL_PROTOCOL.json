@@ -4,7 +4,7 @@
   "purpose": "TokCom PSNR, LPIPS, CLIP, TER and TCE comparison on development data",
   "evidence_level": "development evaluation; not a new blind test",
   "implementation_sha256": {
-    "evaluate_stage17_perceptual.py": "b0baa00b6554dc8853a38ca382e53fc985301c85817b6d666a02a5bf836a642d",
+    "evaluate_stage17_perceptual.py": "9b01bd5d3915f89e6777e997227edbf8062e0c7ab5123080d34066ad119c38b8",
     "tokcom_image_metrics.py": "220e345f2b7623e0f3e70d529bc0e76923961614e299634160411799392232dc",
     "pretrained_vq.py": "1e1055c3cb63e044533265f60245ed6280070a994f7b341a331799e5be948d76",
     "tokcom_arq.py": "0f6190d7a3ef5d79f4bcc9b8aea8468866aed2ae89225f745b8e764f0552945d",
