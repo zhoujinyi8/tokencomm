@@ -1,0 +1,100 @@
+{
+  "stage": 15,
+  "purpose": "Train a cross-modal class-conditioned MaskGIT receiver and implement TokCom ARQ/TCE",
+  "status": "frozen",
+  "frozen_at": "2026-10-09T13:32:33+08:00",
+  "implementation_commit": "a21cc2a16c458f7f2b92dcb54a802dd7bbceb069",
+  "implementation_sha256": {
+    "context_maskgit_v3.py": "18ffeca41364d6a353641918dd6644fad3278a006f0cae2379fe012ccc79480b",
+    "tokcom_arq.py": "0f6190d7a3ef5d79f4bcc9b8aea8468866aed2ae89225f745b8e764f0552945d",
+    "train_stage15_contextual_tokcom.py": "959ade3a9b1d84508d1f842b01ae87b6afd8008b2dd77f3e92f65cf885b43313",
+    "context_maskgit_v2.py": "2c774ba1f03d0bca0310add04fbe4a578d1f7eabd670a59342982afd9f4b5a43",
+    "models.py": "fc263b99496f7fc58adeea9ba135d3ff2d4d33cd769385fc0ed1eda524081c0e",
+    "digital_link.py": "d0857c1fd71c1903c7e97cff784efafba98e98fa837a11f49c5a98f201e85810"
+  },
+  "data": {
+    "training_images": 8000,
+    "validation_images": 150,
+    "hashes": {
+      "data/imagenette_stage10/manifest.json": "7bc301915b6d156b17ba83e459badc65a310b03baee50169bc51302b59b261b2",
+      "data/imagenette_stage10/train.jsonl": "3a9bdb0da77748f92f4ba23ae808419e3edffa767d51d219a509806b0df666c1",
+      "data/imagenette_stage10/val.jsonl": "70f774c00c735d6c4605a9f7efc9267569f4bed9800bb8c0ebec088804d02921",
+      "data/imagenette_stage10/token_cache/train.pt": "8360d51f715b47982e24ca9bfc752ab3286b9446e61f698ce99a25951a2a1c5c",
+      "data/imagenette_stage10/token_cache/val.pt": "3c23638d0defff85adf49e2dd7303b341445a8d6a6f4cb734db03a69d64a2e66"
+    },
+    "selection_split": "data/imagenette_stage10/val.jsonl",
+    "stage14_holdout_used": false
+  },
+  "tokenizer_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "initialization": {
+    "checkpoint": "runs/stage13_tokcom_large/best.pt",
+    "checkpoint_sha256": "f8b8c0ab73177b048d6bb33522b257d07e8c6c48cecfc092d8a183e1152bd919",
+    "source_model": "ContextMaskGITv2 at Stage-13 step 6000",
+    "strategy": "copy every V2 weight; add a zero no-context embedding and small class embeddings"
+  },
+  "context": {
+    "source": "Imagenette ten-class label",
+    "classes": 10,
+    "minimum_label_bits": 4,
+    "reliability": "perfect receiver recovery assumed, matching the paper case-study assumption",
+    "paper_difference": "The paper uses a 7-bit ImageNet100 label; this dataset has ten classes."
+  },
+  "model": {
+    "name": "ContextMaskGITv3",
+    "width": 128,
+    "transformer_layers": 4,
+    "local_blocks": 2,
+    "classes": 10,
+    "context_dropout": 0.15,
+    "classifier_free_guidance": true
+  },
+  "training": {
+    "seed": 20261009,
+    "steps": 2000,
+    "batch_size": 16,
+    "learning_rate": 0.0002,
+    "minimum_learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "packet_tokens": 4,
+    "per_choices": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "checkpoint_every": 100,
+    "validation_every": 250
+  },
+  "validation": {
+    "per": 0.3,
+    "seeds": [
+      15101,
+      15102,
+      15103
+    ],
+    "recovery_steps": 8,
+    "guidance_scale": 1.0,
+    "guidance_sweep": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "controls": [
+      "correct context",
+      "wrong context",
+      "no context"
+    ],
+    "selection_rule": "minimum correct-context mean masked-token cross entropy; ties use exact recovery"
+  },
+  "arq": {
+    "analytical": "T=1/(1-PER); TCE=H*W/(T*N*log2(Q))",
+    "policies": [
+      "all_failed",
+      "confidence"
+    ],
+    "confidence_semantics": "retransmit CRC-failed packets whose mean predicted token likelihood is below threshold"
+  },
+  "test_accessed_for_training_or_selection": false,
+  "stage14_holdout_used_for_training_or_selection": false
+}
