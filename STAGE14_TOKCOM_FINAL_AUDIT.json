@@ -1,0 +1,19 @@
+{
+  "audit_passed": true,
+  "protocol_sha256": "c4f785b081984abad7c1a9b99b990f9d688b4f480fd64fe92bbddf69bbaf2e63",
+  "checkpoint_sha256": "f8b8c0ab73177b048d6bb33522b257d07e8c6c48cecfc092d8a183e1152bd919",
+  "test_manifest_sha256": "54a4dcfcc0b203721340f5afb297cdedf3afd4e0ab39a8ded0ba40e2a29db7a0",
+  "test_images": 300,
+  "conditions": 24,
+  "unique_conditions": 24,
+  "groups": 8,
+  "test_accessed": true,
+  "used_for_training": false,
+  "known_gaps": [
+    "author MaskGIT weights",
+    "cross-modal CMI",
+    "retransmission/TCE",
+    "full physical overhead",
+    "CLIP/LPIPS"
+  ]
+}
