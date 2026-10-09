@@ -5,6 +5,8 @@ runs/
 data/
 pretrained/
 work/
+STAGE15_PROGRESS.json
+STAGE16_PROGRESS.json
 *.pt
 *.pth
 !third_party/perceptual_similarity/lpips/weights/**/*.pth
