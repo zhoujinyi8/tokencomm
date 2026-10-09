@@ -1,0 +1,254 @@
+{
+  "stage": 16,
+  "purpose": "Compare semantic recovery, confidence-selective ARQ, and conventional CRC-ARQ",
+  "status": "frozen",
+  "frozen_at": "2026-10-10T00:29:36+08:00",
+  "implementation_commit": "9ad567c38c958ca4de39b22b685ac84bf5862e24",
+  "implementation_sha256": {
+    "evaluate_stage16_arq.py": "eeb548ddbddb4c338d673e94ba66347c1c3e80fa39a6ad86b517679c9e66ce39",
+    "tokcom_arq.py": "0f6190d7a3ef5d79f4bcc9b8aea8468866aed2ae89225f745b8e764f0552945d",
+    "context_maskgit_v3.py": "18ffeca41364d6a353641918dd6644fad3278a006f0cae2379fe012ccc79480b",
+    "digital_link.py": "d0857c1fd71c1903c7e97cff784efafba98e98fa837a11f49c5a98f201e85810"
+  },
+  "checkpoint": "runs/stage15_contextual_tokcom/best.pt",
+  "checkpoint_sha256": "24b8fa84db00e04c13b42ce1c064267bae61170b6c60d356dd0a3dbc26cc98a8",
+  "stage15_results_sha256": "5acc64b5fa60e980e2944214703ce55ac7a97217e4fc55fe45163a30b0a8ca48",
+  "validation_cache": "data/imagenette_stage10/token_cache/val.pt",
+  "validation_cache_sha256": "3c23638d0defff85adf49e2dd7303b341445a8d6a6f4cb734db03a69d64a2e66",
+  "tokenizer_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "images": 150,
+  "guidance_scale": 1.0,
+  "guidance_selection": "lowest correct-context development CE and highest exact recovery in frozen Stage-15 sweep",
+  "confidence_calibration": {
+    "split": "Stage-15 development only",
+    "token_max_probability_median": 0.01478590164333582,
+    "thresholds": [
+      0.01,
+      0.02,
+      0.04
+    ]
+  },
+  "max_rounds": 4,
+  "recovery_steps": 8,
+  "packet_tokens": 4,
+  "policies": {
+    "semantic_only": {
+      "implementation_policy": "confidence",
+      "confidence_threshold": 0.0
+    },
+    "selective_001": {
+      "implementation_policy": "confidence",
+      "confidence_threshold": 0.01
+    },
+    "selective_002": {
+      "implementation_policy": "confidence",
+      "confidence_threshold": 0.02
+    },
+    "selective_004": {
+      "implementation_policy": "confidence",
+      "confidence_threshold": 0.04
+    },
+    "full_arq": {
+      "implementation_policy": "all_failed",
+      "confidence_threshold": 1.0
+    }
+  },
+  "conditions": [
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "policy_name": "semantic_only"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "policy_name": "selective_001"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "policy_name": "selective_002"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "policy_name": "selective_004"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "policy_name": "full_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "policy_name": "semantic_only"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "policy_name": "selective_001"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "policy_name": "selective_002"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "policy_name": "selective_004"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "policy_name": "full_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "policy_name": "semantic_only"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "policy_name": "selective_001"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "policy_name": "selective_002"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "policy_name": "selective_004"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "policy_name": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "policy_name": "semantic_only"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "policy_name": "selective_001"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "policy_name": "selective_002"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "policy_name": "selective_004"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "policy_name": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "policy_name": "semantic_only"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "policy_name": "selective_001"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "policy_name": "selective_002"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "policy_name": "selective_004"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "policy_name": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "policy_name": "semantic_only"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "policy_name": "selective_001"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "policy_name": "selective_002"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "policy_name": "selective_004"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "policy_name": "full_arq"
+    }
+  ],
+  "metrics": [
+    "initial_per",
+    "packet_attempts",
+    "retransmission_packets",
+    "transmissions_per_packet",
+    "token_error_rate",
+    "recovered_token_accuracy",
+    "final_erasure_rate",
+    "tce_pixels_per_token_bit",
+    "paper_unbounded_arq_expected_transmissions",
+    "paper_unbounded_arq_tce",
+    "undetected_error_packets"
+  ],
+  "scope": "development comparison; no test or Stage-14 holdout access",
+  "test_accessed": false,
+  "stage14_holdout_used": false
+}
