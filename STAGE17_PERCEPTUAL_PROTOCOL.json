@@ -1,0 +1,267 @@
+{
+  "stage": 17,
+  "status": "frozen",
+  "purpose": "TokCom PSNR, LPIPS, CLIP, TER and TCE comparison on development data",
+  "evidence_level": "development evaluation; not a new blind test",
+  "implementation_sha256": {
+    "evaluate_stage17_perceptual.py": "2fbb777f063492af78ac0ada211739efb6183922ceb3b5ded6d0c6d450be9c23",
+    "tokcom_image_metrics.py": "220e345f2b7623e0f3e70d529bc0e76923961614e299634160411799392232dc",
+    "pretrained_vq.py": "1e1055c3cb63e044533265f60245ed6280070a994f7b341a331799e5be948d76",
+    "tokcom_arq.py": "0f6190d7a3ef5d79f4bcc9b8aea8468866aed2ae89225f745b8e764f0552945d",
+    "context_maskgit_v3.py": "18ffeca41364d6a353641918dd6644fad3278a006f0cae2379fe012ccc79480b",
+    "digital_link.py": "d0857c1fd71c1903c7e97cff784efafba98e98fa837a11f49c5a98f201e85810"
+  },
+  "checkpoint": "runs/stage15_contextual_tokcom/best.pt",
+  "checkpoint_sha256": "24b8fa84db00e04c13b42ce1c064267bae61170b6c60d356dd0a3dbc26cc98a8",
+  "validation_cache": "data/imagenette_stage10/token_cache/val.pt",
+  "validation_cache_sha256": "3c23638d0defff85adf49e2dd7303b341445a8d6a6f4cb734db03a69d64a2e66",
+  "dataset_root": "data/imagenette_stage10",
+  "clip_checkpoint": "pretrained/clip-vit-base-patch16-pytorch_model.bin",
+  "clip_checkpoint_sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+  "vqgan_checkpoint": "pretrained/maskgit-vqgan-imagenet-f16-256.bin",
+  "vqgan_checkpoint_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "images": 150,
+  "max_rounds": 4,
+  "recovery_steps": 8,
+  "selected_stage16_policy": "selective_002",
+  "selection_rule": "maximum mean harmonic balance of normalized token-accuracy gain and retained TCE across both channels",
+  "selection_scores": {
+    "selective_001": {
+      "channels": [
+        {
+          "channel": "awgn",
+          "accuracy_fraction": 0.09508866671531749,
+          "tce_fraction": 0.8530424881231627,
+          "harmonic": 0.17110432967676706
+        },
+        {
+          "channel": "rayleigh",
+          "accuracy_fraction": 0.04624161745570905,
+          "tce_fraction": 0.9510104221690237,
+          "harmonic": 0.08819487630204434
+        }
+      ],
+      "mean_harmonic": 0.1296496029894057
+    },
+    "selective_002": {
+      "channels": [
+        {
+          "channel": "awgn",
+          "accuracy_fraction": 0.4892602593106132,
+          "tce_fraction": 0.4051423896114588,
+          "harmonic": 0.443245714528948
+        },
+        {
+          "channel": "rayleigh",
+          "accuracy_fraction": 0.4190771694525072,
+          "tce_fraction": 0.5640192658060349,
+          "harmonic": 0.48086350220263524
+        }
+      ],
+      "mean_harmonic": 0.4620546083657916
+    },
+    "selective_004": {
+      "channels": [
+        {
+          "channel": "awgn",
+          "accuracy_fraction": 0.8100172711571673,
+          "tce_fraction": 0.12900883621855488,
+          "harmonic": 0.22256971270150974
+        },
+        {
+          "channel": "rayleigh",
+          "accuracy_fraction": 0.8001201080972867,
+          "tce_fraction": 0.19505756831697282,
+          "harmonic": 0.31365149429257017
+        }
+      ],
+      "mean_harmonic": 0.26811060349703997
+    }
+  },
+  "modes": {
+    "no_cmi": {
+      "context": "none",
+      "policy": "confidence",
+      "confidence_threshold": 0.0,
+      "guidance_scale": 0.0
+    },
+    "cmi_no_arq": {
+      "context": "class",
+      "policy": "confidence",
+      "confidence_threshold": 0.0,
+      "guidance_scale": 1.0
+    },
+    "cmi_selective": {
+      "context": "class",
+      "policy": "confidence",
+      "confidence_threshold": 0.02,
+      "guidance_scale": 1.0
+    },
+    "full_arq": {
+      "context": "class",
+      "policy": "all_failed",
+      "confidence_threshold": 1.0,
+      "guidance_scale": 1.0
+    }
+  },
+  "conditions": [
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "full_arq"
+    }
+  ],
+  "preview_indices": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90,
+    105,
+    120,
+    135
+  ],
+  "test_accessed": false,
+  "stage14_holdout_used": false
+}
