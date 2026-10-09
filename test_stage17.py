@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 from evaluate_stage17_perceptual import condition_key
 from freeze_stage17_perceptual_protocol import choose_selective
@@ -22,6 +23,15 @@ class Stage17Tests(unittest.TestCase):
         selected, scores = choose_selective(rows)
         self.assertEqual(selected, "selective_002")
         self.assertGreater(scores[selected]["mean_harmonic"], scores["selective_001"]["mean_harmonic"])
+
+    def test_hidden_dispatch_is_single_writer_and_bounded(self):
+        root = Path(__file__).resolve().parent
+        dispatch = (root / "dispatch_stage17.ps1").read_text(encoding="utf-8")
+        wrapper = (root / "dispatch_stage17_hidden.vbs").read_text(encoding="utf-8")
+        self.assertIn("evaluate_stage17_perceptual\\.py", dispatch)
+        self.assertIn("--max-seconds', '220", dispatch)
+        self.assertIn("-WindowStyle Hidden", dispatch)
+        self.assertIn("shell.Run command, 0, False", wrapper)
 
 
 if __name__ == "__main__":
