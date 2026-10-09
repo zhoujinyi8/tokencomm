@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 import torch
 
@@ -28,6 +29,15 @@ class Stage15Tests(unittest.TestCase):
         first = evaluate(model, data, 0.5, 123, recovery_steps=2, batch_size=3)
         second = evaluate(model, data, 0.5, 123, recovery_steps=2, batch_size=3)
         self.assertEqual(first, second)
+
+    def test_hidden_dispatch_is_single_writer_and_bounded(self):
+        root = Path(__file__).resolve().parent
+        dispatch = (root / "dispatch_stage15.ps1").read_text(encoding="utf-8")
+        wrapper = (root / "dispatch_stage15_hidden.vbs").read_text(encoding="utf-8")
+        self.assertIn("Worker already active", dispatch)
+        self.assertIn("--max-seconds", dispatch)
+        self.assertIn("-WindowStyle Hidden", dispatch)
+        self.assertIn("shell.Run command, 0, False", wrapper)
 
 
 if __name__ == "__main__":
