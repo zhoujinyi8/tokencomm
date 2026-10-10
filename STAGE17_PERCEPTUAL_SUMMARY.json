@@ -1,0 +1,129 @@
+{
+  "stage": 17,
+  "status": "completed",
+  "evidence_level": "development evaluation; not a new blind test",
+  "selected_stage16_policy": "selective_002",
+  "conditions": 24,
+  "images_per_condition": 150,
+  "summary": [
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "mode": "no_cmi",
+      "seeds": 3,
+      "token_accuracy_mean": 0.6124479166666666,
+      "psnr_mean": 13.782982407675851,
+      "clip_cosine_mean": 0.7184135691324869,
+      "lpips_mean": 0.29058002003365097,
+      "tce_mean": 25.600000000000005,
+      "transmissions_per_packet_mean": 1.0
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "mode": "cmi_no_arq",
+      "seeds": 3,
+      "token_accuracy_mean": 0.6124826388888889,
+      "psnr_mean": 13.792435316509673,
+      "clip_cosine_mean": 0.7193453707959917,
+      "lpips_mean": 0.2907575072348118,
+      "tce_mean": 25.600000000000005,
+      "transmissions_per_packet_mean": 1.0
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "mode": "cmi_selective",
+      "seeds": 3,
+      "token_accuracy_mean": 0.7870746527777778,
+      "psnr_mean": 15.550794834560818,
+      "clip_cosine_mean": 0.8102310787306891,
+      "lpips_mean": 0.196543650329113,
+      "tce_mean": 19.668307461828732,
+      "transmissions_per_packet_mean": 1.3016319444444442
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "mode": "full_arq",
+      "seeds": 3,
+      "token_accuracy_mean": 0.9693315972222223,
+      "psnr_mean": 17.45309253056844,
+      "clip_cosine_mean": 0.8605259715186225,
+      "lpips_mean": 0.14025877004696263,
+      "tce_mean": 15.628382532927693,
+      "transmissions_per_packet_mean": 1.6380555555555556
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "mode": "no_cmi",
+      "seeds": 3,
+      "token_accuracy_mean": 0.9131510416666666,
+      "psnr_mean": 16.817485296461317,
+      "clip_cosine_mean": 0.8465430670314364,
+      "lpips_mean": 0.1562999265309837,
+      "tce_mean": 25.600000000000005,
+      "transmissions_per_packet_mean": 1.0
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "mode": "cmi_no_arq",
+      "seeds": 3,
+      "token_accuracy_mean": 0.913185763888889,
+      "psnr_mean": 16.82299974017673,
+      "clip_cosine_mean": 0.8470220232009887,
+      "lpips_mean": 0.15595552418794897,
+      "tce_mean": 25.600000000000005,
+      "transmissions_per_packet_mean": 1.0
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "mode": "cmi_selective",
+      "seeds": 3,
+      "token_accuracy_mean": 0.94953125,
+      "psnr_mean": 17.22528535630968,
+      "clip_cosine_mean": 0.8563466723759969,
+      "lpips_mean": 0.14402781273755763,
+      "tce_mean": 24.599810083575196,
+      "transmissions_per_packet_mean": 1.0406597222222222
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "mode": "full_arq",
+      "seeds": 3,
+      "token_accuracy_mean": 0.9999131944444445,
+      "psnr_mean": 17.753130817413332,
+      "clip_cosine_mean": 0.8673648909727733,
+      "lpips_mean": 0.1331023818254471,
+      "tce_mean": 23.305885058719525,
+      "transmissions_per_packet_mean": 1.0984375
+    }
+  ],
+  "audit": {
+    "status": "passed",
+    "conditions": 24,
+    "images_per_condition": 150,
+    "per_image_rows": 3600,
+    "reference_images": 150,
+    "previews": 240,
+    "condition_keys_unique": true,
+    "metrics_finite": true,
+    "aggregates_recomputed": true,
+    "communication_accuracy_matches_per_image": true,
+    "vqgan_baseline_constant": true,
+    "test_accessed": false,
+    "stage14_holdout_used": false,
+    "protocol_sha256": "2cfc4629f2f73cbf6d383af0b702ee8849f7a574abb3832f17efe13afdb26d90",
+    "aggregate_summary_sha256": "74d402f62eb8e89ee08291ff6c4c1cc7c1a9a587517e8139416e1f659f260ac8",
+    "per_image_json_combined_sha256": "6865649ebaa10579b23cebed34383ce0a2e68ecdad6a2c3614c0342c4e419341"
+  },
+  "figures": [
+    "figures/stage17_perceptual_metrics.png",
+    "figures/stage17_tce_quality_tradeoff.png",
+    "figures/stage17_mode_comparison.png"
+  ]
+}

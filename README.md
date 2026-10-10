@@ -112,7 +112,7 @@ python run.py tokcom --resume runs/tokcom/checkpoint.pt --vq-steps 320 --steps 3
 - 原文使用预训练 VQGAN 和 MaskGIT，图像 256×256、256 个 token、码本 1024。`run.py tokcom` 保留 VQ-VAE 风格缩小后端；新增 `run_pretrained.py` 已接入匹配上述规格的公开预训练 VQGAN，但尚未接入匹配的预训练 MaskGIT Transformer。
 - `run.py` 默认仍直接输入 PER。新增 `digital_link.py` 与 `evaluate_physical.py` 已实现 CRC、1/2 卷积码、16-QAM、软输入 Viterbi，测量 SNR→PER；新增参数中论文未披露的部分采用明确的参考配置，不能宣称与作者物理层逐项一致。
 - 原文 256×10/256²≈0.0391 bpp 是源 token 开销。本工程 64×6/32²=0.375 bpp；均不能直接等同于包含 FEC/CRC/头部/侧信息的总传输开销。
-- 没有实现重传策略、TCE、CLIP/LPIPS 论文评测。当前只报告重建 MSE/PSNR 与丢失位置恢复准确率。
+- 轻量 `run.py` 入口仍只报告基础重建指标；Stage-16/17研究流水线已实现有限轮完整ARQ、语义置信度选择性ARQ、论文TCE公式，以及公开VQGAN解码后的PSNR、CLIP图像余弦和LPIPS v0.1评测。它们使用本工程参考物理层和开发集，不能解释为作者内部链路的精确复原。
 
 接入真实 VQGAN 时应替换 `VQTokenizer.encode(image)->[B,N]` 和 `decode(ids)->image`，同时用匹配的码本大小与 token 数重建 `MaskGIT` 并训练或加载对应权重。现有 64 类 token 的权重不能直接用于 1024 码本。
 
@@ -183,3 +183,11 @@ Stage-12 在打开数据前冻结模型、检查点哈希、300 张新留出图�
 | Rayleigh | 89.78% ± 0.31% | 98.22% ± 0.31% | 98.33% ± 0.00% | 98.67% ± 0.00% |
 
 在 AWGN 10 dB、固定种子 5299 下，正确视觉、跨类别错配视觉和全零视觉的准确率分别为 98.67%、0% 和 10%。完整协议、指标、图表和适用边界见 `STAGE12_FINAL_TEST_PROTOCOL.json` 与 `STAGE12_FINAL_TEST_REPORT.md`。测试集已经消费，后续训练不得据此调参，并必须创建新的最终留出集。
+
+## 8. Stage-15/16/17 上下文TokCom、选择性ARQ与感知指标
+
+Stage-15在Stage-13无CMI接收端上增加可靠类别上下文、15% classifier-free context dropout和logit guidance，使用8,000张训练图继续训练2,000步。冻结开发集选择得到guidance scale 1.0；该类别CMI只产生较弱增益，因此仍归类为近似的上下文实现，不等同于论文使用大模型获得的跨模态CMI。
+
+Stage-16在150张开发图、AWGN 5 dB和Rayleigh 10 dB、三个信道种子上比较无重传、三个置信度门限和最多四轮完整ARQ。AWGN下无重传、门限0.02和完整ARQ的token准确率/TCE分别为61.25%/25.60、78.71%/19.67和96.93%/15.63；Rayleigh对应为91.32%/25.60、94.95%/24.60和99.99%/23.31。30/30条件的CRC未检出错误均为0。
+
+Stage-17按冻结规则选择门限0.02，在同一开发集上完成无CMI、CMI无重传、CMI选择性ARQ和完整ARQ的24个条件、3,600次图像评价。AWGN下选择性ARQ相较无重传把CLIP余弦从约0.72提高到0.81、LPIPS从约0.29降低到0.20，同时TCE由25.60降至19.67；完整ARQ达到约0.86/0.14和15.63。Rayleigh 10 dB下信道本身较可靠，四种模式差距较小。结果属于开发评价，不是新的盲测；协议、审计和机器摘要见`STAGE17_PERCEPTUAL_PROTOCOL.json`、`STAGE17_AUDIT.json`与`STAGE17_PERCEPTUAL_SUMMARY.json`。
