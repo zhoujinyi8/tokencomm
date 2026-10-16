@@ -1,7 +1,7 @@
 {
   "status": "passed",
-  "tracked_files": 258,
-  "tracked_bytes": 6975084,
+  "tracked_files": 267,
+  "tracked_bytes": 6997128,
   "largest_tracked_file": {
     "path": "figures/stage17_mode_comparison.png",
     "bytes": 1140888,
