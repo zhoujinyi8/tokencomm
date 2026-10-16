@@ -1,5 +1,6 @@
 import json
 import unittest
+import hashlib
 from pathlib import Path
 
 import torch
@@ -22,6 +23,27 @@ class Stage19Tests(unittest.TestCase):
         self.assertEqual(len(set(keys)), 24)
         self.assertFalse(protocol["test_accessed"])
         self.assertFalse(protocol["stage14_holdout_used"])
+
+    def test_frozen_implementation_and_assets_match(self):
+        protocol = json.loads((ROOT / "STAGE19_V4_LINK_PROTOCOL.json").read_text(encoding="utf-8"))
+        digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+        for name, expected in protocol["implementation_sha256"].items():
+            self.assertEqual(digest(ROOT / name), expected, name)
+        for field, hash_field in (
+            ("checkpoint", "checkpoint_sha256"),
+            ("validation_cache", "validation_cache_sha256"),
+            ("clip_checkpoint", "clip_checkpoint_sha256"),
+            ("vqgan_checkpoint", "vqgan_checkpoint_sha256"),
+        ):
+            self.assertEqual(digest(ROOT / protocol[field]), protocol[hash_field], field)
+
+    def test_hidden_dispatch_is_bounded_and_single_writer(self):
+        dispatch = (ROOT / "dispatch_stage19.ps1").read_text(encoding="utf-8")
+        wrapper = (ROOT / "dispatch_stage19_hidden.vbs").read_text(encoding="utf-8")
+        self.assertIn("evaluate_stage19_v4_link\\.py", dispatch)
+        self.assertIn("--max-seconds', '220", dispatch)
+        self.assertIn("-WindowStyle Hidden", dispatch)
+        self.assertIn("shell.Run command, 0, False", wrapper)
 
 
 if __name__ == "__main__":
