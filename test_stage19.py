@@ -1,12 +1,14 @@
 import json
 import unittest
 import hashlib
+import tempfile
 from pathlib import Path
 
 import torch
 
 from context_maskgit_v4 import load_context_maskgit_v4
 from evaluate_stage19_v4_link import condition_key
+from snapshot_stage19 import paired_deltas
 
 
 ROOT = Path(__file__).resolve().parent
@@ -44,6 +46,22 @@ class Stage19Tests(unittest.TestCase):
         self.assertIn("--max-seconds', '900", dispatch)
         self.assertIn("-WindowStyle Hidden", dispatch)
         self.assertIn("shell.Run command, 0, False", wrapper)
+
+    def test_live_delta_requires_image_alignment(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            old = root / "old" / "per_image"
+            new = root / "new" / "per_image"
+            old.mkdir(parents=True)
+            new.mkdir(parents=True)
+            fields = {"token_accuracy": 0.5, "psnr": 10.0, "clip_cosine": 0.6, "lpips": 0.4, "vqgan_baseline_psnr": 20.0}
+            (old / "0000.json").write_text(json.dumps({"index": 0, "sha256": "abc", **fields}))
+            changed = dict(fields, token_accuracy=0.6, psnr=11.0, clip_cosine=0.7, lpips=0.3)
+            (new / "0000.json").write_text(json.dumps({"index": 0, "sha256": "abc", **changed}))
+            result = paired_deltas(root / "old", root / "new")
+            self.assertEqual(result["paired_images"], 1)
+            self.assertAlmostEqual(result["token_accuracy_delta_mean"], 0.1)
+            self.assertAlmostEqual(result["lpips_delta_mean"], -0.1)
 
 
 if __name__ == "__main__":
