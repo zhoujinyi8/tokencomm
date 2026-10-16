@@ -1,0 +1,216 @@
+{
+  "stage": 19,
+  "status": "frozen",
+  "purpose": "V4 stronger-CMI end-to-end digital-link, ARQ, VQGAN, CLIP and LPIPS evaluation",
+  "evidence_level": "development evaluation; direct same-condition comparison with Stage 17; not a blind test",
+  "implementation_sha256": {
+    "evaluate_stage19_v4_link.py": "f53f05d37dd3b59e1f2ff615bb1b885083a7e9ea83a62f2d404e23b6a829f9a0",
+    "tokcom_image_metrics.py": "220e345f2b7623e0f3e70d529bc0e76923961614e299634160411799392232dc",
+    "pretrained_vq.py": "1e1055c3cb63e044533265f60245ed6280070a994f7b341a331799e5be948d76",
+    "tokcom_arq.py": "0f6190d7a3ef5d79f4bcc9b8aea8468866aed2ae89225f745b8e764f0552945d",
+    "context_maskgit_v3.py": "18ffeca41364d6a353641918dd6644fad3278a006f0cae2379fe012ccc79480b",
+    "context_maskgit_v4.py": "842afc79bd7dddff4bdcb352a5ab5b1a23774bab55e63780015e0a73841810b5",
+    "digital_link.py": "d0857c1fd71c1903c7e97cff784efafba98e98fa837a11f49c5a98f201e85810"
+  },
+  "checkpoint": "runs/stage18_strong_cmi/best.pt",
+  "checkpoint_sha256": "4f4ca822121cd564b130a9c28bed4a64b525b9b2d668b926255a6b4f730bb35f",
+  "stage17_protocol_sha256": "2cfc4629f2f73cbf6d383af0b702ee8849f7a574abb3832f17efe13afdb26d90",
+  "stage17_summary_sha256": "6f7d29b557aa71656349237a9246acb0bee10957a4850ca2a8318bea4102caaf",
+  "validation_cache": "data/imagenette_stage10/token_cache/val.pt",
+  "validation_cache_sha256": "3c23638d0defff85adf49e2dd7303b341445a8d6a6f4cb734db03a69d64a2e66",
+  "dataset_root": "data/imagenette_stage10",
+  "clip_checkpoint": "pretrained/clip-vit-base-patch16-pytorch_model.bin",
+  "clip_checkpoint_sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+  "vqgan_checkpoint": "pretrained/maskgit-vqgan-imagenet-f16-256.bin",
+  "vqgan_checkpoint_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "images": 150,
+  "max_rounds": 4,
+  "recovery_steps": 8,
+  "selected_stage16_policy": "selective_002",
+  "modes": {
+    "no_cmi": {
+      "context": "none",
+      "policy": "confidence",
+      "confidence_threshold": 0.0,
+      "guidance_scale": 0.0
+    },
+    "cmi_no_arq": {
+      "context": "class",
+      "policy": "confidence",
+      "confidence_threshold": 0.0,
+      "guidance_scale": 1.0
+    },
+    "cmi_selective": {
+      "context": "class",
+      "policy": "confidence",
+      "confidence_threshold": 0.02,
+      "guidance_scale": 1.0
+    },
+    "full_arq": {
+      "context": "class",
+      "policy": "all_failed",
+      "confidence_threshold": 1.0,
+      "guidance_scale": 1.0
+    }
+  },
+  "conditions": [
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16101,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16102,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "awgn",
+      "snr_esn0_db": 5.0,
+      "seed": 16103,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16101,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16102,
+      "mode": "full_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "no_cmi"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "cmi_no_arq"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "cmi_selective"
+    },
+    {
+      "channel": "rayleigh",
+      "snr_esn0_db": 10.0,
+      "seed": 16103,
+      "mode": "full_arq"
+    }
+  ],
+  "preview_indices": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90,
+    105,
+    120,
+    135
+  ],
+  "test_accessed": false,
+  "stage14_holdout_used": false
+}
