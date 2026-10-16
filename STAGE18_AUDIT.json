@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "history_steps": 3000,
+  "history_continuous_unique": true,
+  "validation_steps": [
+    250,
+    500,
+    750,
+    1000,
+    1250,
+    1500,
+    1750,
+    2000,
+    2250,
+    2500,
+    2750,
+    3000
+  ],
+  "best_step": 3000,
+  "best_checkpoint_sha256": "4f4ca822121cd564b130a9c28bed4a64b525b9b2d668b926255a6b4f730bb35f",
+  "protocol_sha256": "69f7f9ad736bb0622d216ee689224ddac51e927228e41e84e96b86c9d7dc5de3",
+  "optimizer_scheduler_rng_recovery_present": true,
+  "test_accessed": false,
+  "stage14_holdout_used": false
+}
