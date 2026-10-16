@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "tracked_files": 258,
+  "tracked_bytes": 6975084,
+  "largest_tracked_file": {
+    "path": "figures/stage17_mode_comparison.png",
+    "bytes": 1140888,
+    "sha256": "41a880582f1743abe9577032c19bf0f596b56f4cef5dfed596723952e8a28b8b"
+  },
+  "allowed_third_party_weight_files": [
+    "third_party/perceptual_similarity/lpips/weights/v0.0/alex.pth",
+    "third_party/perceptual_similarity/lpips/weights/v0.0/squeeze.pth",
+    "third_party/perceptual_similarity/lpips/weights/v0.0/vgg.pth",
+    "third_party/perceptual_similarity/lpips/weights/v0.1/alex.pth",
+    "third_party/perceptual_similarity/lpips/weights/v0.1/squeeze.pth",
+    "third_party/perceptual_similarity/lpips/weights/v0.1/vgg.pth"
+  ],
+  "forbidden_roots": [
+    ".venv",
+    ".vscode",
+    "__pycache__",
+    "data",
+    "pretrained",
+    "runs",
+    "work"
+  ],
+  "forbidden_suffixes": [
+    ".gz",
+    ".log",
+    ".parquet",
+    ".part",
+    ".pt",
+    ".pth",
+    ".safetensors",
+    ".tar",
+    ".zip"
+  ],
+  "secret_patterns_checked": [
+    "generic_secret_assignment",
+    "github_token",
+    "private_key"
+  ],
+  "remote_lines": [
+    "origin\thttps://github.com/zhoujinyi8/Project43.git (fetch)",
+    "origin\thttps://github.com/zhoujinyi8/Project43.git (push)"
+  ],
+  "violations": []
+}
