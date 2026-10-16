@@ -41,7 +41,7 @@ class Stage19Tests(unittest.TestCase):
         dispatch = (ROOT / "dispatch_stage19.ps1").read_text(encoding="utf-8")
         wrapper = (ROOT / "dispatch_stage19_hidden.vbs").read_text(encoding="utf-8")
         self.assertIn("evaluate_stage19_v4_link\\.py", dispatch)
-        self.assertIn("--max-seconds', '220", dispatch)
+        self.assertIn("--max-seconds', '900", dispatch)
         self.assertIn("-WindowStyle Hidden", dispatch)
         self.assertIn("shell.Run command, 0, False", wrapper)
 

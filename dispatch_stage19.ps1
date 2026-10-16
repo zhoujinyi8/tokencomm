@@ -19,7 +19,7 @@ if (Test-Path -LiteralPath $statusPath) {
 }
 $stamp = Get-Date -Format 'yyyyMMdd_HHmmss'
 $process = Start-Process -FilePath (Get-Command python).Source `
-    -ArgumentList @('evaluate_stage19_v4_link.py', '--max-seconds', '220', '--threads', '4') `
+    -ArgumentList @('evaluate_stage19_v4_link.py', '--max-seconds', '900', '--threads', '4') `
     -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -PassThru `
     -RedirectStandardOutput (Join-Path $logDir "evaluate-$stamp.stdout.log") `
     -RedirectStandardError (Join-Path $logDir "evaluate-$stamp.stderr.log")
