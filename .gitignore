@@ -20,3 +20,4 @@ STAGE18_PROGRESS.json
 *.parquet
 *.log
 .vscode/
+STAGE19_PROGRESS.json
