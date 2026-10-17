@@ -57,7 +57,7 @@ def main() -> None:
     payload = {
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "cadence_hours": 5,
-        "active_minutes": 20,
+        "active_minutes": 30,
         "stage19_completed_conditions": stage19.get("completed_conditions", 0),
         "stage19_planned_conditions": stage19.get("planned_conditions", 24),
         "stage19_audit": stage19_audit.get("status", "pending"),

@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot
 $taskStarted = Get-Date
-$taskBudgetSeconds = 1200
+$taskBudgetSeconds = 1800
 python snapshot_stage19.py | Out-Null
 python snapshot_stage20_data.py | Out-Null
 $stage19Status = Join-Path $PSScriptRoot 'runs/stage19_v4_link/status.json'
@@ -17,7 +17,7 @@ if (Test-Path -LiteralPath $stage21Progress) {
     $stage21Complete = (Get-Content -LiteralPath $stage21Progress -Raw | ConvertFrom-Json).complete -eq $true
 }
 if ((Test-Path -LiteralPath $stage21Protocol) -and -not $stage21Complete) {
-    python cache_stage21_food101_tokens.py --device cpu --threads 4 --batch-size 2 --max-seconds 1050 | Out-Null
+    python cache_stage21_food101_tokens.py --device cpu --threads 4 --batch-size 2 --max-seconds 1650 | Out-Null
     $cacheExit = $LASTEXITCODE
     if ($cacheExit -ne 0 -and $cacheExit -ne 75) { throw "Stage-21 token cache exited with code $cacheExit" }
 }
