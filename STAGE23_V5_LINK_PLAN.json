@@ -1,0 +1,86 @@
+{
+  "stage": 23,
+  "status": "pre_registered",
+  "frozen_at": "2026-10-17T23:57:13+08:00",
+  "purpose": "Calibrate and evaluate V5 confidence-selective ARQ on held development tokens",
+  "evidence_level": "Food-101 development link evaluation; not the sealed official test",
+  "stage22_training_plan_sha256": "313a223084396f6ba01a7246b0912d60f3c80f24992c64e0196cc44a77bd8638",
+  "data": {
+    "dataset": "Food-101 development split",
+    "ranking_seed": 2026102201,
+    "stage22_model_selection_window_per_class": [
+      0,
+      10
+    ],
+    "threshold_calibration_window_per_class": [
+      10,
+      15
+    ],
+    "link_evaluation_window_per_class": [
+      15,
+      20
+    ],
+    "threshold_calibration_images": 505,
+    "link_evaluation_images": 505,
+    "classes": 101
+  },
+  "link": {
+    "channels": [
+      {
+        "channel": "awgn",
+        "snr_esn0_db": 5.0
+      },
+      {
+        "channel": "rayleigh",
+        "snr_esn0_db": 10.0
+      }
+    ],
+    "seeds": [
+      23101,
+      23102,
+      23103
+    ],
+    "packet_tokens": 4,
+    "max_rounds": 4,
+    "recovery_steps": 8,
+    "guidance_scale": 1.0,
+    "threshold_candidates": [
+      0.0025,
+      0.005,
+      0.01,
+      0.02,
+      0.04,
+      0.08
+    ],
+    "calibration_anchors": [
+      "semantic_only",
+      "full_arq"
+    ],
+    "evaluation_modes": [
+      "no_cmi",
+      "cmi_no_arq",
+      "cmi_selective",
+      "full_arq"
+    ]
+  },
+  "threshold_selection": {
+    "per_channel": true,
+    "target_recovery_fraction": 0.75,
+    "rule": "maximum mean TCE among thresholds closing at least 75% of the calibration token-error gap from semantic-only to full ARQ; ties use lower token error then lower threshold; if none qualify, minimum token error then maximum TCE",
+    "evaluation_subset_used_for_selection": false
+  },
+  "metrics": [
+    "initial_per",
+    "packet_attempts",
+    "retransmission_packets",
+    "transmissions_per_packet",
+    "token_error_rate",
+    "recovered_token_accuracy",
+    "final_erasure_rate",
+    "tce_pixels_per_token_bit",
+    "undetected_error_packets"
+  ],
+  "official_test_images_sealed": 25250,
+  "test_pixels_extracted": false,
+  "test_accessed": false
+}

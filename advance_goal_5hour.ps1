@@ -57,4 +57,26 @@ if ($stage22Complete -and -not (Test-Path -LiteralPath $stage22Audit) -and $rema
     python finalize_stage22.py | Out-Null
     if ($LASTEXITCODE -ne 0) { throw "Stage-22 final audit failed with code $LASTEXITCODE" }
 }
+$stage23Protocol = Join-Path $PSScriptRoot 'STAGE23_V5_LINK_PROTOCOL.json'
+if ((Test-Path -LiteralPath $stage22Audit) -and -not (Test-Path -LiteralPath $stage23Protocol)) {
+    python freeze_stage23_link_protocol.py | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw "Stage-23 link protocol freeze failed with code $LASTEXITCODE" }
+}
+$stage23Status = Join-Path $PSScriptRoot 'runs/stage23_v5_link/status.json'
+$stage23Complete = $false
+if (Test-Path -LiteralPath $stage23Status) {
+    $stage23Complete = (Get-Content -LiteralPath $stage23Status -Raw | ConvertFrom-Json).completed -eq $true
+}
+$remainingSeconds = [math]::Floor($taskBudgetSeconds - ((Get-Date) - $taskStarted).TotalSeconds)
+if ((Test-Path -LiteralPath $stage23Protocol) -and -not $stage23Complete -and $remainingSeconds -ge 180) {
+    $linkSeconds = $remainingSeconds - 120
+    python evaluate_stage23_v5_link.py --threads 4 --max-seconds $linkSeconds | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw "Stage-23 link evaluation failed with code $LASTEXITCODE" }
+}
+$stage23Audit = Join-Path $PSScriptRoot 'STAGE23_AUDIT.json'
+$remainingSeconds = [math]::Floor($taskBudgetSeconds - ((Get-Date) - $taskStarted).TotalSeconds)
+if ($stage23Complete -and -not (Test-Path -LiteralPath $stage23Audit) -and $remainingSeconds -ge 120) {
+    python finalize_stage23.py | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw "Stage-23 final audit failed with code $LASTEXITCODE" }
+}
 python goal_5hour_status.py | Out-Null

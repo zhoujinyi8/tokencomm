@@ -24,6 +24,10 @@ def main() -> None:
     stage22_status = read(ROOT / "runs/stage22_contextual_tokcom/status.json")
     stage22_audit = read(ROOT / "STAGE22_AUDIT.json")
     stage22_recovery = ROOT / "runs/stage22_contextual_tokcom/recovery.pt"
+    stage23_plan = read(ROOT / "STAGE23_V5_LINK_PLAN.json")
+    stage23_protocol = read(ROOT / "STAGE23_V5_LINK_PROTOCOL.json")
+    stage23_status = read(ROOT / "runs/stage23_v5_link/status.json")
+    stage23_audit = read(ROOT / "STAGE23_AUDIT.json")
     if not stage19.get("completed"):
         next_action = "continue Stage-19 frozen V4 link evaluation"
     elif stage19_audit.get("status") != "passed":
@@ -42,8 +46,14 @@ def main() -> None:
         next_action = "continue resumable 12,000-step ContextMaskGIT V5 training"
     elif stage22_audit.get("status") != "passed":
         next_action = "run fail-closed Stage-22 audit and figures"
+    elif stage23_protocol.get("status") != "frozen":
+        next_action = "freeze pre-registered V5 link calibration protocol"
+    elif not stage23_status.get("completed"):
+        next_action = "continue V5 confidence-threshold calibration and link evaluation"
+    elif stage23_audit.get("status") != "passed":
+        next_action = "run fail-closed Stage-23 link audit and figures"
     else:
-        next_action = "audit Stage-22 and freeze 101-class link evaluation"
+        next_action = "Stage-23 V5 development link evaluation completed"
     payload = {
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "cadence_hours": 5,
@@ -69,6 +79,10 @@ def main() -> None:
         "stage22_training_completed": stage22_status.get("completed", False),
         "stage22_audit": stage22_audit.get("status", "pending"),
         "stage22_recovery_present": stage22_recovery.exists(),
+        "stage23_plan_preregistered": stage23_plan.get("status") == "pre_registered",
+        "stage23_protocol_frozen": stage23_protocol.get("status") == "frozen",
+        "stage23_link_completed": stage23_status.get("completed", False),
+        "stage23_audit": stage23_audit.get("status", "pending"),
         "next_action": next_action,
     }
     (ROOT / "GOAL_5H_STATUS.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
