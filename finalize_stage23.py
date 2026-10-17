@@ -30,6 +30,16 @@ def audit() -> tuple[dict, list[dict], list[dict], dict, list[dict]]:
     for name, expected in protocol["implementation_sha256"].items():
         if sha256_file(ROOT / name) != expected:
             raise ValueError(f"Frozen Stage-23 implementation changed: {name}")
+    for path, hash_field in (
+        ("STAGE23_V5_LINK_PLAN.json", "pre_registered_plan_sha256"),
+        ("STAGE22_SUMMARY.json", "stage22_summary_sha256"),
+        ("STAGE22_AUDIT.json", "stage22_audit_sha256"),
+        (protocol["checkpoint"], "checkpoint_sha256"),
+        (protocol["development_cache"], "development_cache_sha256"),
+        (protocol["development_records"], "development_records_sha256"),
+    ):
+        if sha256_file(ROOT / path) != protocol[hash_field]:
+            raise ValueError(f"Frozen Stage-23 input changed: {path}")
     status = json.loads((RUN / "status.json").read_text(encoding="utf-8"))
     calibration = json.loads((RUN / "calibration_results.json").read_text(encoding="utf-8"))
     evaluation = json.loads((RUN / "evaluation_results.json").read_text(encoding="utf-8"))

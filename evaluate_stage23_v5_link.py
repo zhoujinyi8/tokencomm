@@ -51,11 +51,15 @@ def validate(protocol: dict) -> tuple[torch.nn.Module, dict, list[dict]]:
     for name, expected in protocol["implementation_sha256"].items():
         if sha256_file(ROOT / name) != expected:
             raise ValueError(f"Frozen Stage-23 implementation changed: {name}")
+    if sha256_file(ROOT / "STAGE23_V5_LINK_PLAN.json") != protocol["pre_registered_plan_sha256"]:
+        raise ValueError("Stage-23 pre-registered plan changed")
+    if sha256_file(ROOT / "STAGE22_SUMMARY.json") != protocol["stage22_summary_sha256"]:
+        raise ValueError("Stage-22 summary changed after Stage-23 freeze")
     for field, hash_field in (("checkpoint", "checkpoint_sha256"), ("development_cache", "development_cache_sha256"), ("development_records", "development_records_sha256")):
         if sha256_file(ROOT / protocol[field]) != protocol[hash_field]:
             raise ValueError(f"Frozen Stage-23 input changed: {field}")
     audit = json.loads((ROOT / "STAGE22_AUDIT.json").read_text(encoding="utf-8"))
-    if sha256_file(ROOT / "STAGE22_AUDIT.json") != protocol["stage22_audit_sha256"] or audit.get("status") != "passed" or audit.get("test_accessed"):
+    if sha256_file(ROOT / "STAGE22_AUDIT.json") != protocol["stage22_audit_sha256"] or audit.get("status") != "passed" or audit.get("test_accessed") or audit.get("test_pixels_extracted"):
         raise ValueError("Stage-22 audit identity or isolation failed")
     checkpoint = torch.load(ROOT / protocol["checkpoint"], map_location="cpu", weights_only=True)
     model = load_context_maskgit_v5(checkpoint).eval()
