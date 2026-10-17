@@ -18,6 +18,11 @@ def main() -> None:
     stage20_manifest = read(ROOT / "data/stage20_food101/manifest.json")
     stage21_embeddings = ROOT / "data/stage20_food101/clip_class_embeddings.pt"
     stage21_cache = read(ROOT / "data/stage20_food101/token_cache_stage21/progress.json")
+    stage21_summary = read(ROOT / "data/stage20_food101/token_cache_stage21/summary.json")
+    stage22_plan = read(ROOT / "STAGE22_TRAINING_PLAN.json")
+    stage22_protocol = read(ROOT / "STAGE22_CONTEXTUAL_TOKCOM_PROTOCOL.json")
+    stage22_status = read(ROOT / "runs/stage22_contextual_tokcom/status.json")
+    stage22_recovery = ROOT / "runs/stage22_contextual_tokcom/recovery.pt"
     if not stage19.get("completed"):
         next_action = "continue Stage-19 frozen V4 link evaluation"
     elif stage19_audit.get("status") != "passed":
@@ -28,8 +33,14 @@ def main() -> None:
         next_action = "build pinned CLIP class-name embeddings for ContextMaskGIT V5"
     elif not stage21_cache.get("complete"):
         next_action = "continue resumable Food-101 VQGAN token caching"
+    elif not stage21_summary.get("completed"):
+        next_action = "audit and aggregate Stage-21 VQGAN token shards"
+    elif stage22_protocol.get("status") != "frozen":
+        next_action = "freeze 101-class ContextMaskGIT V5 training protocol"
+    elif not stage22_status.get("completed"):
+        next_action = "continue resumable 12,000-step ContextMaskGIT V5 training"
     else:
-        next_action = "freeze and launch Stage-21 V5 token caching/training"
+        next_action = "audit Stage-22 and freeze 101-class link evaluation"
     payload = {
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "cadence_hours": 4,
@@ -48,6 +59,11 @@ def main() -> None:
         "stage21_cached_images": stage21_cache.get("cached_images", 0),
         "stage21_planned_images": stage21_cache.get("planned_images", 75750),
         "stage21_cache_percent": stage21_cache.get("percent", 0.0),
+        "stage21_aggregated": stage21_summary.get("completed", False),
+        "stage22_plan_preregistered": stage22_plan.get("status") == "pre_registered",
+        "stage22_protocol_frozen": stage22_protocol.get("status") == "frozen",
+        "stage22_training_completed": stage22_status.get("completed", False),
+        "stage22_recovery_present": stage22_recovery.exists(),
         "next_action": next_action,
     }
     (ROOT / "GOAL_4H_STATUS.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")

@@ -5,6 +5,7 @@ from pathlib import Path
 import torch
 
 from cache_stage21_food101_tokens import OUTPUT, expected_shards, validate_protocol, validate_shard
+from finalize_stage21_token_cache import finalize
 
 
 class Stage21TokenCacheTests(unittest.TestCase):
@@ -21,6 +22,10 @@ class Stage21TokenCacheTests(unittest.TestCase):
         self.assertFalse(protocol["test_accessed"])
         shard = torch.load(OUTPUT / "train/00000.pt", map_location="cpu", weights_only=True)
         validate_shard(shard, identity, "train", 0, 32)
+
+    def test_aggregate_is_fail_closed_while_cache_is_partial(self):
+        with self.assertRaises(RuntimeError):
+            finalize()
 
 
 if __name__ == "__main__":

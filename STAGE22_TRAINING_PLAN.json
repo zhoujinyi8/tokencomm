@@ -1,0 +1,90 @@
+{
+  "stage": 22,
+  "status": "pre_registered",
+  "frozen_at": "2026-10-17T19:21:55+08:00",
+  "purpose": "101-class CLIP-text-conditioned MaskGIT scale training",
+  "evidence_level": "public Food-101 development training; not ImageNet100 and not a final test",
+  "implementation_sha256": {
+    "context_maskgit_v5.py": "35bb1a8a44393f0edfcaafd9c65e24a7eee840f91861eaf823b5c6d7821319d3",
+    "context_maskgit_v4.py": "842afc79bd7dddff4bdcb352a5ab5b1a23774bab55e63780015e0a73841810b5",
+    "context_maskgit_v3.py": "18ffeca41364d6a353641918dd6644fad3278a006f0cae2379fe012ccc79480b",
+    "models.py": "fc263b99496f7fc58adeea9ba135d3ff2d4d33cd769385fc0ed1eda524081c0e",
+    "finalize_stage21_token_cache.py": "2c56c642141e7ccccc994e8ee181f87763378accb6733987c0f35ea7dae2cc1d",
+    "train_stage22_contextual_tokcom.py": "0f235b7291043b136ce449d86fbfd4a4da14ad0d1d6b43b4e3516448c057c842"
+  },
+  "stage21_token_cache_protocol_sha256": "11ab75d8cebe59093a8eb6328ab4c608acc641193247308a760af19f1d437b6e",
+  "initialization": {
+    "checkpoint": "runs/stage18_strong_cmi/best.pt",
+    "checkpoint_sha256": "4f4ca822121cd564b130a9c28bed4a64b525b9b2d668b926255a6b4f730bb35f",
+    "source_model": "Stage-18 ContextMaskGIT V4, 10-class Imagenette",
+    "strategy": "copy token receiver and trained FiLM/prior; replace class lookup with zero-init CLIP text adapter around V4 null context"
+  },
+  "model": {
+    "name": "ContextMaskGITV5",
+    "classes": 101,
+    "class_embeddings": "data/stage20_food101/clip_class_embeddings.pt",
+    "class_embedding_dim": 512,
+    "context_dropout": 0.15,
+    "context_prior_weight": 0.15
+  },
+  "data": {
+    "dataset": "Food-101",
+    "training_images": 70700,
+    "development_images": 5050,
+    "official_test_images_sealed": 25250,
+    "label_bits": 7
+  },
+  "training": {
+    "seed": 20261022,
+    "steps": 12000,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "packet_tokens": 4,
+    "per_choices": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "checkpoint_every": 250,
+    "validation_every": 1000,
+    "effective_sample_draws": 384000
+  },
+  "validation": {
+    "subset_seed": 2026102201,
+    "images_per_class": 10,
+    "images": 1010,
+    "chunk_images_per_class": 1,
+    "chunk_seed": 22100,
+    "per": 0.3,
+    "seeds": [
+      22101,
+      22102,
+      22103
+    ],
+    "batch_size": 32,
+    "controls": [
+      "correct class text",
+      "wrong class text",
+      "no class text"
+    ],
+    "selection_rule": "minimum correct-context mean masked CE; ties use one-pass missing-token accuracy"
+  },
+  "paper_alignment": {
+    "aligned": [
+      "101 classes",
+      "7-bit reliable class CMI",
+      "256 VQ tokens",
+      "1024-entry public MaskGIT VQGAN"
+    ],
+    "approximate": [
+      "Food-101 instead of ImageNet100",
+      "CLIP class-name text instead of paper internal large-model cross-modal context",
+      "trained receiver initialized from the engineering V4 approximation"
+    ]
+  },
+  "test_accessed": false,
+  "test_pixels_extracted": false
+}
