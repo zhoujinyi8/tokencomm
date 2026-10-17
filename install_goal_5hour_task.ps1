@@ -1,17 +1,18 @@
 param(
-    [datetime]$StartAt = (Get-Date).AddHours(4)
+    [datetime]$StartAt = (Get-Date).AddHours(5)
 )
 
 $ErrorActionPreference = 'Stop'
-$taskName = 'TokenCom-Goal-4Hour-Advance'
-$wrapper = Join-Path $PSScriptRoot 'advance_goal_4hour_hidden.vbs'
+$taskName = 'TokenCom-Goal-5Hour-Advance'
+$wrapper = Join-Path $PSScriptRoot 'advance_goal_5hour_hidden.vbs'
 if (-not (Test-Path -LiteralPath $wrapper)) { throw "Missing hidden launcher: $wrapper" }
 
 $action = New-ScheduledTaskAction -Execute "$env:WINDIR\System32\wscript.exe" -Argument "//B //Nologo `"$wrapper`""
-$trigger = New-ScheduledTaskTrigger -Once -At $StartAt -RepetitionInterval (New-TimeSpan -Hours 4)
+$trigger = New-ScheduledTaskTrigger -Once -At $StartAt -RepetitionInterval (New-TimeSpan -Hours 5)
 $settings = New-ScheduledTaskSettingsSet `
-    -ExecutionTimeLimit (New-TimeSpan -Hours 3 -Minutes 45) `
+    -ExecutionTimeLimit (New-TimeSpan -Minutes 25) `
     -MultipleInstances IgnoreNew `
+    -Priority 5 `
     -Hidden `
     -StartWhenAvailable `
     -Compatibility Win8
@@ -21,7 +22,7 @@ Register-ScheduledTask `
     -Action $action `
     -Trigger $trigger `
     -Settings $settings `
-    -Description 'Advance TokCom/TaiChi reproduction every four hours without a visible console.' `
+    -Description 'Advance TokCom/TaiChi reproduction for 20 minutes every five hours without a visible console.' `
     -Force | Out-Null
 
 $task = Get-ScheduledTask -TaskName $taskName
@@ -30,7 +31,8 @@ $info = Get-ScheduledTaskInfo -TaskName $taskName
     TaskName = $taskName
     Enabled = $task.Settings.Enabled
     Hidden = $task.Settings.Hidden
-    IntervalHours = 4
+    IntervalHours = 5
+    ActiveMinutes = 20
     ExecutionTimeLimit = $task.Settings.ExecutionTimeLimit
     NextRunTime = $info.NextRunTime
 }

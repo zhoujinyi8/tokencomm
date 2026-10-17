@@ -1,4 +1,4 @@
-"""Consolidate the four-hour TokCom/TaiChi reproduction state."""
+"""Consolidate the five-hour TokCom/TaiChi reproduction state."""
 import json
 from datetime import datetime
 from pathlib import Path
@@ -22,6 +22,7 @@ def main() -> None:
     stage22_plan = read(ROOT / "STAGE22_TRAINING_PLAN.json")
     stage22_protocol = read(ROOT / "STAGE22_CONTEXTUAL_TOKCOM_PROTOCOL.json")
     stage22_status = read(ROOT / "runs/stage22_contextual_tokcom/status.json")
+    stage22_audit = read(ROOT / "STAGE22_AUDIT.json")
     stage22_recovery = ROOT / "runs/stage22_contextual_tokcom/recovery.pt"
     if not stage19.get("completed"):
         next_action = "continue Stage-19 frozen V4 link evaluation"
@@ -39,11 +40,14 @@ def main() -> None:
         next_action = "freeze 101-class ContextMaskGIT V5 training protocol"
     elif not stage22_status.get("completed"):
         next_action = "continue resumable 12,000-step ContextMaskGIT V5 training"
+    elif stage22_audit.get("status") != "passed":
+        next_action = "run fail-closed Stage-22 audit and figures"
     else:
         next_action = "audit Stage-22 and freeze 101-class link evaluation"
     payload = {
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
-        "cadence_hours": 4,
+        "cadence_hours": 5,
+        "active_minutes": 20,
         "stage19_completed_conditions": stage19.get("completed_conditions", 0),
         "stage19_planned_conditions": stage19.get("planned_conditions", 24),
         "stage19_audit": stage19_audit.get("status", "pending"),
@@ -63,10 +67,11 @@ def main() -> None:
         "stage22_plan_preregistered": stage22_plan.get("status") == "pre_registered",
         "stage22_protocol_frozen": stage22_protocol.get("status") == "frozen",
         "stage22_training_completed": stage22_status.get("completed", False),
+        "stage22_audit": stage22_audit.get("status", "pending"),
         "stage22_recovery_present": stage22_recovery.exists(),
         "next_action": next_action,
     }
-    (ROOT / "GOAL_4H_STATUS.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "GOAL_5H_STATUS.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(payload))
 
 
