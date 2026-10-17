@@ -1,0 +1,27 @@
+{
+  "stage": 21,
+  "status": "frozen",
+  "frozen_at": "2026-10-17T19:14:01+08:00",
+  "purpose": "VQGAN token cache for 101-class ContextMaskGIT V5 scale training",
+  "input_sha256": {
+    "data/stage20_food101/manifest.json": "a760fed57a8d379aaead851908095acadd61e8d3d1a233a693f010001b4b4386",
+    "data/stage20_food101/train.jsonl": "5f06d26494ae43d735c7f69f6cb670fe271961fd1a69792491e64b04c74964b0",
+    "data/stage20_food101/dev.jsonl": "75162f62344a96772e13798fceb3cafbfdcca646f6302988a98e836e4b1aadc3",
+    "data/stage20_food101/clip_class_embeddings.pt": "28d38948af8d993e5dce39614d1f242f51e7afd5a35c3aed133ae4c77c27003b",
+    "STAGE21_CLIP_CONTEXT_MANIFEST.json": "bc2ed22dd2d57e5f1278df46e81e24fe5b44439fe371f348952d86dca14c4b7b",
+    "cache_stage21_food101_tokens.py": "93f2d90a0bad4585ba913ac943597b5078f334d461b3f19bb131c63bc98c465a",
+    "pretrained_vq.py": "1e1055c3cb63e044533265f60245ed6280070a994f7b341a331799e5be948d76"
+  },
+  "tokenizer": "public MaskGIT VQGAN f16 256, 1024 entries",
+  "tokenizer_sha256": "424e7f2b11d1d63691ae3fbab74cf6c417ecbe0d8f86187b71f3538c7b56f6d2",
+  "preprocessing": "PIL ImageOps.fit 256x256 LANCZOS RGB float32 [0,1]",
+  "splits": {
+    "train": 70700,
+    "dev": 5050
+  },
+  "shard_size": 32,
+  "official_test_images": 25250,
+  "official_test_policy": "pixels remain compressed and excluded from caching, training, and selection",
+  "test_accessed": false,
+  "test_pixels_extracted": false
+}

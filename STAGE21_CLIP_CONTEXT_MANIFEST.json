@@ -1,0 +1,31 @@
+{
+  "stage": 21,
+  "status": "prepared",
+  "purpose": "fixed CLIP text conditioning for ContextMaskGIT V5",
+  "source_data_manifest": "data/stage20_food101/manifest.json",
+  "classes": 101,
+  "class_names_sha256": "ab9db3a50d3f60ae967fecf60b375753e4412b53b9c675343c64fb0653e51430",
+  "prompt_template": "a photo of {}, a type of food",
+  "prompts_sha256": "c7791d153c8f4db05d804b0d2089b5b090025526be1dc4f9ac2f0c2123c8dc24",
+  "tokenizer_repository": "openai/clip-vit-base-patch16",
+  "tokenizer_revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "tokenizer_files_sha256": {
+    "merges.txt": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+    "tokenizer.json": "d656a0f8bc9d30a93ea9f2858ebf4f076b1ff914b8e79290ed9687721e7ac74a",
+    "tokenizer_config.json": "56a4b5995cf58a0641c4b913543816466e3ea620d3e00ce47f759437a9503ff5",
+    "vocab.json": "3f0c4f7d2086b61b38487075278ea9ed04edb53a03cbb045b86c27190fa8fb69"
+  },
+  "checkpoint": "pretrained/clip-vit-base-patch16-pytorch_model.bin",
+  "checkpoint_sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+  "embedding_file": "data/stage20_food101/clip_class_embeddings.pt",
+  "embedding_file_sha256": "28d38948af8d993e5dce39614d1f242f51e7afd5a35c3aed133ae4c77c27003b",
+  "embedding_tensor_sha256": "8a95f87fc663a0dedd6a70d4feb04d647a5ded2b52ea15ac9bad85b5d2892c29",
+  "embedding_shape": [
+    101,
+    512
+  ],
+  "embedding_dtype": "torch.float32",
+  "unit_norm_max_error": 1.7881393432617188e-07,
+  "test_pixels_extracted": false,
+  "test_accessed": false
+}
