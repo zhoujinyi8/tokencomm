@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "conditions": 24,
+  "images_per_condition": 150,
+  "per_image_rows": 3600,
+  "reference_images": 150,
+  "previews": 240,
+  "condition_keys_unique": true,
+  "metrics_finite": true,
+  "aggregates_recomputed": true,
+  "communication_accuracy_matches_per_image": true,
+  "vqgan_baseline_constant": true,
+  "test_accessed": false,
+  "stage14_holdout_used": false,
+  "protocol_sha256": "ba9ee2dfe4b309ca9fcd3e31fb3b6b7c14998869348cd8bb450364ef79847358",
+  "aggregate_summary_sha256": "e8ffb5a26200b317107f606bf4924b6a1cc933071624584a96d9ede2986d4e6b",
+  "per_image_json_combined_sha256": "8c1f6e81339ea143103e4ba390df8e6f01ef5f1d3b9fcebdfcc88335e6264fe0"
+}

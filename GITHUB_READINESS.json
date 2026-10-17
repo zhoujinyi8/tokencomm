@@ -1,11 +1,11 @@
 {
   "status": "passed",
-  "tracked_files": 267,
-  "tracked_bytes": 6997128,
+  "tracked_files": 274,
+  "tracked_bytes": 8417438,
   "largest_tracked_file": {
-    "path": "figures/stage17_mode_comparison.png",
-    "bytes": 1140888,
-    "sha256": "41a880582f1743abe9577032c19bf0f596b56f4cef5dfed596723952e8a28b8b"
+    "path": "figures/stage19_mode_comparison.png",
+    "bytes": 1151588,
+    "sha256": "112e42589674c7ceb5800881ff424f4b5798a82c9196c7d3081c5965589e38ad"
   },
   "allowed_third_party_weight_files": [
     "third_party/perceptual_similarity/lpips/weights/v0.0/alex.pth",
