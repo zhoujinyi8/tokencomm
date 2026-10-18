@@ -2,6 +2,13 @@ $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot
 $taskStarted = Get-Date
 $taskBudgetSeconds = 1800
+python goal_run_report.py start | Out-Null
+trap {
+    $env:TOKENCOM_RUN_ERROR = $_.Exception.Message
+    $nextRun = (Get-ScheduledTaskInfo -TaskName 'TokenCom-Goal-5Hour-Advance' -ErrorAction SilentlyContinue).NextRunTime.ToString('o')
+    python goal_run_report.py finish --status failed --exit-code 1 --next-run $nextRun --message-env TOKENCOM_RUN_ERROR | Out-Null
+    exit 1
+}
 python snapshot_stage19.py | Out-Null
 python snapshot_stage20_data.py | Out-Null
 $stage19Status = Join-Path $PSScriptRoot 'runs/stage19_v4_link/status.json'
@@ -80,3 +87,5 @@ if ($stage23Complete -and -not (Test-Path -LiteralPath $stage23Audit) -and $rema
     if ($LASTEXITCODE -ne 0) { throw "Stage-23 final audit failed with code $LASTEXITCODE" }
 }
 python goal_5hour_status.py | Out-Null
+$nextRun = (Get-ScheduledTaskInfo -TaskName 'TokenCom-Goal-5Hour-Advance' -ErrorAction SilentlyContinue).NextRunTime.ToString('o')
+python goal_run_report.py finish --status success --exit-code 0 --next-run $nextRun | Out-Null
