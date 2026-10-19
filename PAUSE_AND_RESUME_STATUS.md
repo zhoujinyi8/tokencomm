@@ -1,4 +1,6 @@
-# TokCom / TaiChi复现暂停与恢复状态
+# Stage-13历史暂停快照
+
+> 本文件记录2026-10-08的暂停点，不代表当前运行状态。当前阶段见[README.md](README.md)；本地动态状态见`GOAL_5H_STATUS.json`。
 
 - 暂停时间：2026-10-08 19:15（Asia/Shanghai）
 - 一分钟编排任务：已禁用

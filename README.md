@@ -1,38 +1,36 @@
-# TokCom 与 TaiChi：复现工程
+# TokCom 与 TaiChi 复现工程
 
-**第十三阶段TokCom大数据训练正在运行：** 第一篇论文路线现使用公开MaskGIT VQGAN的1024码本、256个图像token，在8,000张训练图和150张固定开发图上训练无CMI的ContextMaskGIT v2。冻结预算为6,000步、batch 16，并在PER 10%/30%/50%间做混合课程。缓存采用45秒可恢复片段；训练在完成跨片段恢复验证后采用最长240秒片段，并保留每100步原子检查点、单写者后台调度和完整优化器/RNG恢复。每500步进行三种子验证，测试集保持未读。当前状态见[STAGE13_PROGRESS.md](STAGE13_PROGRESS.md)，冻结配置见[STAGE13_TOKCOM_PROTOCOL.json](STAGE13_TOKCOM_PROTOCOL.json)。
+本仓库实现两条论文复现链路，并保存训练协议、检查点哈希、数据隔离记录、评价结果和恢复审计。代码属于独立实现；未使用作者代码或作者权重，现有结果不等同于论文指标。
 
-Stage-13训练完成后，`evaluate_stage13_physical.py`会自动冻结最佳检查点哈希，并在同一开发集上执行CRC-16、卷积码、16-QAM、软Viterbi的AWGN/Rayleigh物理链路扫描。冻结网格为0/5/10/20 dB、每条件三个种子，共24个条件；该扫描报告PER、BER、未检出错误和端到端token准确率。`report_fair_comparison.py`随后按共同的信道与Es/N0标签生成资源和鲁棒性并排报告，同时把两条路线不同的任务指标和不同证据等级明确分开。由于TokCom扫描使用模型选择开发集，它只作工程诊断，不作盲测结论。
+## 当前状态
 
-Stage-14盲测流水线也已在任何新测试图被选择前写定，完整预注册口径见[STAGE14_HOLDOUT_PLAN.md](STAGE14_HOLDOUT_PLAN.md)。它必须等Stage-13训练、开发扫描和公平比较全部完成，之后单独冻结最佳检查点、实现哈希、数据抽样种子和24个最终条件；下一次调度才会从公开Imagenette验证源中抽取300张与全部历史数据（含Stage-12留出集）文件哈希和像素哈希零重叠的新图。测试结果会单独生成`STAGE14_TOKCOM_FINAL_REPORT.md`与审计文件，且不再反馈到训练或模型选择。
+| 路线 | 已完成 | 当前执行点 | 后续冻结任务 |
+|---|---|---|---|
+| TokCom | 公开VQGAN、数字链路、ContextMaskGIT V4、选择性ARQ、CLIP/LPIPS/TCE评价 | Stage-21：为Food-101的70,700张训练图和5,050张开发图生成VQGAN token缓存 | Stage-22：V5文本上下文训练；Stage-23：门限校准与独立开发窗口评价 |
+| TaiChi | ViT-B/16＋ConvNeXt-Tiny、BAN、KAN、语义信道、Qwen2.5-0.5B LoRA、等预算消融 | Stage-12已完成，冻结模型为BAN+KAN第800步检查点 | 继续扩展需接入论文所用14B级语言模型、训练资源和任务数据 |
 
-**第十二阶段新留出集最终测试已完成：** Stage-11胜出的BAN+KAN第800步模型在300张新独立图上完成24个AWGN/Rayleigh信道条件和3个视觉控制。AWGN 0–20 dB为98.22%–98.67%，Rayleigh 0 dB为89.78%，5–20 dB为98.22%–98.67%；正确、错配和全零视觉控制分别为98.67%、0%和10%。27/27条件、数据零交集和`used_for_training=false`均已审计。详见[STAGE12_FINAL_TEST_REPORT.md](STAGE12_FINAL_TEST_REPORT.md)与[STAGE12_FINAL_AUDIT.json](STAGE12_FINAL_AUDIT.json)。
+Stage-21至Stage-23由隐藏任务`TokenCom-Goal-5Hour-Advance`每5小时运行30分钟。动态进度写入本地`GOAL_5H_STATUS.json`和`GOAL_5H_LATEST_RUN_REPORT.md/json`；这些文件不提交Git。任务窗口保持隐藏，允许电池供电运行，单轮硬上限35分钟。
 
-**第十一阶段等预算融合消融已完成：** BAN+KAN、BAN+MLP、Concat+MLP均使用同一8,000张训练图、100张均衡开发图、800步和有效批量8。按冻结的最低验证损失规则，BAN+KAN以0.001940和100%胜出；BAN+MLP为0.007914/99%，Concat+MLP为0.010666/99%。三者错配视觉特征均为0%，零特征为8%–10%。恢复审计证明三组都完整覆盖1–800步，重算步损失逐值一致，Stage-10最终测试集未读取。详见[STAGE11_ABLATION_REPORT.md](STAGE11_ABLATION_REPORT.md)、[STAGE11_RECOVERY_AUDIT.json](STAGE11_RECOVERY_AUDIT.json)和[STAGE11_PROGRESS.md](STAGE11_PROGRESS.md)。
+## 证据边界
 
-**统一通信开销已完成可执行核算：** [COMMUNICATION_BUDGET_REPORT.md](COMMUNICATION_BUDGET_REPORT.md)分别报告离散token源码率、CRC/FEC后的编码比特和复信道符号，并明确连续TaiChi语义向量在没有量化器时不能换算为bpp。公开VQGAN规格配合当前参考数字链路为2,560源比特、7,936编码比特和1,984个复符号；Stage-10/11 TaiChi为1,024个实信道值，即512个复符号。两条链路任务不同，该数值只用于工程核算，不作为性能优劣结论。
+| 结论类别 | 当前证据 |
+|---|---|
+| 已验证实现 | 单元测试、固定协议、检查点/数据哈希、恢复审计和可重算指标 |
+| 工程近似 | Food-101替代ImageNet100；CLIP类别文本替代论文内部CMI；参考CRC/FEC/16-QAM链路替代作者未公开物理层参数 |
+| 尚未复现 | 作者权重、ImageNet100受限数据、Gemma-2B/Qwen2.5-14B拆分、IDR/扩散生成、音视频输出和DeepSpeed多卡训练 |
 
-**第十阶段8,000张图强化训练及预注册最终测试已完成：** Qwen2.5-0.5B双视觉语义通信模型从第400步继续训练到第2,400步，有效批量8。开发验证在第2,200步达到100%完整回答准确率、0.000164损失。冻结协议后一次性开启150张独立测试图：AWGN四个SNR三种子均值为99.33%–99.56%，Rayleigh为99.78%–100%；最终消融为正确特征100%、错配特征0%、零特征10%。测试集现已用于最终评价，禁止再据此调参。详见[STAGE10_FINAL_TEST_REPORT.md](STAGE10_FINAL_TEST_REPORT.md)、[STAGE10_REPORT.md](STAGE10_REPORT.md)、[STAGE10_CHANNEL_REPORT.md](STAGE10_CHANNEL_REPORT.md)和[STAGE10_RESEARCH_LOG.md](STAGE10_RESEARCH_LOG.md)。
+## 主要结果与文件
 
-**第九阶段大模型训练已完成：** 新增约5亿参数的Qwen2.5-0.5B-Instruct语言主干，基础权重冻结，注意力层使用LoRA；ViT-B/16与ConvNeXt-Tiny视觉特征经BAN、KAN和语义信道形成16个视觉前缀token。模型共496,264,896个参数，其中2,232,128个可训练（0.45%）。修正缩减验证集的类别偏置后，从第100步检查点恢复并完成400步CPU训练；固定十类别均衡验证的完整回答准确率由第200步31.25%提高到第400步48.44%。第400步在独立信道种子的视觉消融中，正确特征56.25%、错配特征0%、零特征10.94%。检查点位于`runs/stage9_qwen_dual_taichi_balanced/`，Stage-7测试集仍未打开。详见[STAGE9_REPORT.md](STAGE9_REPORT.md)。
+| 阶段 | 结果 | 证据文件 |
+|---|---|---|
+| Stage-10 | Qwen2.5-0.5B双视觉模型完成2,400步训练；150张冻结测试图上AWGN为99.33%–99.56%，Rayleigh为99.78%–100% | [STAGE10_FINAL_TEST_REPORT.md](STAGE10_FINAL_TEST_REPORT.md)、[STAGE10_RESEARCH_LOG.md](STAGE10_RESEARCH_LOG.md) |
+| Stage-11/12 | BAN+KAN在等预算消融中按冻结规则胜出；300张新留出图的27个条件通过审计 | [STAGE11_ABLATION_REPORT.md](STAGE11_ABLATION_REPORT.md)、[STAGE12_FINAL_TEST_REPORT.md](STAGE12_FINAL_TEST_REPORT.md) |
+| Stage-13/14 | 无CMI TokCom训练、物理链路扫描和预注册留出评价已完成 | [STAGE13_PROGRESS.md](STAGE13_PROGRESS.md)、[STAGE14_TOKCOM_FINAL_REPORT.md](STAGE14_TOKCOM_FINAL_REPORT.md) |
+| Stage-15–19 | 类别上下文、完整/选择性ARQ、感知指标和V4链路评价已完成 | [STAGE17_PERCEPTUAL_SUMMARY.json](STAGE17_PERCEPTUAL_SUMMARY.json)、[STAGE19_V4_LINK_SUMMARY.json](STAGE19_V4_LINK_SUMMARY.json) |
+| Stage-20/21 | Food-101数据协议、101类CLIP文本向量和可恢复token缓存已建立 | [STAGE20_FOOD101_SCALE_PLAN.json](STAGE20_FOOD101_SCALE_PLAN.json)、[STAGE21_TOKEN_CACHE_PROTOCOL.json](STAGE21_TOKEN_CACHE_PROTOCOL.json) |
+| Stage-22/23 | 训练与链路评价方案在结果生成前冻结 | [STAGE22_TRAINING_PLAN.json](STAGE22_TRAINING_PLAN.json)、[STAGE23_V5_LINK_PLAN.json](STAGE23_V5_LINK_PLAN.json) |
 
-**第八阶段双独立视觉主干已完成：** 公开ImageNet预训练ViT-B/16与ConvNeXt-Tiny替换共享ResNet18双尺度特征，在1000/150训练验证图上完成1200步训练。150张验证图两个信道种子均值为AWGN10dB 98.67%、AWGN120dB 98.67%、Rayleigh10dB 90.00%；AWGN错配特征0%、零特征10%。缓存只含train/val，`test_opened=false`，训练记录`test_accessed=false`。详见[STAGE8_REPORT.html](STAGE8_REPORT.html)和[STAGE8_REPORT.md](STAGE8_REPORT.md)。
-
-**第六阶段独立测试与下一版MaskGIT接收端已完成：** 扩大数据模型在新的100张留出图上，TaiChi为AWGN10dB 81.8%、Rayleigh10dB 71.8%；MaskGIT仍低于空间填充。测试协议与结果见 [STAGE6_REPORT.html](STAGE6_REPORT.html)。新增 `context_maskgit_v2.py` 提供二维行列位置编码、局部深度可分卷积和全局Transformer的无CMI接收端；尚未用已测试的数据调参。
-
-**第五阶段扩大数据训练已完成：** 新建与旧pilot不重叠的800/100/100训练、验证、留出测试划分；新的测试集尚未缓存或读取。预训练视觉TaiChi验证集AWGN10dB达到84%，Rayleigh10dB为75%均值；无CMI MaskGIT验证恢复率提升至1.185%，但仍低于空间填充2.192%。详见 [STAGE5_REPORT.html](STAGE5_REPORT.html) 和 [STAGE5_REPORT.md](STAGE5_REPORT.md)。
-
-**第四阶段独立测试已完成：** 第三阶段检查点冻结后，首次开启40张保留测试图；测试协议预先保存，测试后未训练或改选模型。预训练视觉TaiChi在5个新信道种子下，AWGN10dB平均准确率60%，Rayleigh10dB为57.5%；MaskGIT仍弱于空间填充。详见 [STAGE4_REPORT.html](STAGE4_REPORT.html) 和 [STAGE4_REPORT.md](STAGE4_REPORT.md)。该测试集现已用于评价，后续调参应另建最终留出集。
-
-**第三阶段已完成：** MaskGIT每类4图、完全无类别标签训练1200步；预训练ResNet18双分辨率特征接入TaiChi并完成1200步训练。TaiChi最佳检查点在40张验证图、两个噪声种子下AWGN10dB平均准确率71.25%，错配特征为0%；这仍是验证结果，非最终测试或论文CLIP/LLM复现。报告：[STAGE3_REPORT.html](STAGE3_REPORT.html)、[STAGE3_REPORT.md](STAGE3_REPORT.md)。单图入口为infer_pretrained_taichi.py，新模型使用专用加载器，不能交给旧infer.py加载。
-
-**第二阶段诊断已完成：** 新增验证集图像消融、视觉梯度检查，以及两模型各800步的10图拟合实验。TaiChi能记住10张图但泛化仍弱；MaskGIT即使全部token擦除也能凭正确类别重建这10张训练图，说明该拟合设置存在类别模板记忆。详见 [STAGE2_REPORT.md](STAGE2_REPORT.md)。新诊断权重与第一阶段权重分别保存。
-
-**最新真实数据训练：** 两条链路已在 Imagenette 子集上分别完成 600 步训练（240 训练 / 40 验证 / 40 独立测试）。已训练的小型 MaskGIT 与公开 VQGAN 的 1024 码本匹配，并接入数字信道推理；TaiChi 完成自然图像分类问答微调。测试效果尚未达到有效语义恢复，详见 **[TRAINING_REPORT.md](TRAINING_REPORT.md)**。优先查看该报告中的真实数据命令；下文彩色方块入口仍保留用于模块演示。
-
-**2026-09-27 更新：** 已接入公开预训练 MaskGIT VQGAN（256×256、1024码本、256 tokens），并完成自然图片重建；新增 CRC＋卷积码＋16-QAM＋软判决 Viterbi 数字链路，以及小型 TaiChi 的 LoRA 联合信道训练。当前状态、命令和剩余差距见 **[REPRODUCTION_PROGRESS.md](REPRODUCTION_PROGRESS.md)**。
-
-本工程分别实现两条训练和推理链路，供理解结构、修改模块和继续研究使用。**这是独立实现的轻量基线，不是作者代码、作者权重或论文指标的完整复现。** 默认训练数据为自动生成的彩色方块，无需下载数据集或大模型。
+[REPRODUCTION_PROGRESS.md](REPRODUCTION_PROGRESS.md)记录模块覆盖情况，[COMMUNICATION_BUDGET_REPORT.md](COMMUNICATION_BUDGET_REPORT.md)记录源码率、编码比特和复信道符号。Stage报告保留当时的实验条件，当前执行状态以本节和本地调度状态文件为准。
 
 ## 1. 两篇论文的对应关系
 
@@ -52,13 +50,14 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -m unittest -v test_models.py
+python audit_engineering_language.py
 python run.py taichi --steps 80 --channel awgn --snr 10 --out runs/taichi
 python run.py tokcom --vq-steps 80 --steps 80 --per 0.3 --out runs/tokcom
 ```
 
 默认使用 CPU。安装与显卡匹配的 CUDA 版 PyTorch 后可增加 `--device cuda`；先执行 `python -c "import torch; print(torch.cuda.is_available())"` 检查。此次本机验证以 CPU 为准，不承诺当前安装包支持 CUDA。
 
-本机检测到 RTX 5060 Laptop、8151 MiB 显存。TaiChi 原文实验使用 8×A800 80 GB。新增 `fetch_pretrained.py` 下载并校验公开 VQGAN 和自然图像样例；Gemma/Qwen、CLIP 与完整数据集尚未下载。
+本机检测到 RTX 5060 Laptop、8151 MiB 显存。TaiChi 原文实验使用 8×A800 80 GB。工程已使用Qwen2.5-0.5B-Instruct、CLIP ViT-B/16、ConvNeXt-Tiny、公开MaskGIT VQGAN、Imagenette和Food-101；Gemma-2B、Qwen2.5-14B、作者权重和ImageNet100未接入。
 
 恢复模型继续训练（重新初始化优化器，不是逐步精确续训）：
 
@@ -140,11 +139,11 @@ python run.py tokcom --resume runs/tokcom/checkpoint.pt --vq-steps 320 --steps 3
 - 使用因果掩码、右移答案，交叉熵只计算回答且忽略 PAD。答案不进入发送端编码器；接收端训练时只得到历史答案 token。
 - 原文式(16)写法接近二元交叉熵且符号不统一，文本生成这里使用标准词表 categorical cross-entropy。
 - 原文使用 CLIP-ViT-L/14-336、CLIP-ConvNeXt large d320 和 Gemma-2B/Qwen2.5-14B。这里分别用随机初始化小 ViT/CNN 和 encoder-decoder Transformer 替代；UTF-8 字节词表也不是原文 LLM tokenizer。
-- 未实现真实 LLM 分层拆分、IDR/扩散生成、音视频输出与 DeepSpeed 多卡训练。新增 `train_lora.py` 在小型语言模块上实现了 LoRA 与 BAN/KAN/信道联合训练；尚未扩展到 Gemma/Qwen。当前模型不是具备通用知识的预训练 VLM。
+- `qwen_dual_taichi.py`与Stage-9至Stage-12训练脚本已接入Qwen2.5-0.5B-Instruct、LoRA、BAN/KAN和语义信道。尚未实现论文所用Gemma-2B/Qwen2.5-14B分层拆分、IDR/扩散生成、音视频输出与DeepSpeed多卡训练。
 
 `set_stage` 支持 `scratch/align/sft/joint`。默认 `scratch` 对所有模块从零训练，使合成数据闭环可验证。`align` 只解冻 BAN/KAN；`sft` 再解冻语言模块；`joint` 加入信道模块并全参数训练小语言模型。参数高效联合训练改用 `train_lora.py`；`infer.py/evaluate.py` 可自动加载 LoRA 检查点。非 scratch 阶段必须加载检查点；align/sft 需要 `--channel none`。
 
-接入原文大模型时，需要先将两个视觉后端统一到 BAN 的通道维度，再把 KAN 输出维度改为 LLM embedding size，并重写 `encode/decode` 以适配特定 LLM 的位置编码、因果掩码、KV cache 与拆分位置。本工程提供模块边界，不提供已经验证的大模型适配器。
+Qwen2.5-0.5B适配器将BAN/KAN输出映射为16个视觉前缀token，并冻结基础权重、训练rank-8 LoRA。迁移到论文所用模型时，需要按目标embedding维度调整投影，并重新验证位置编码、因果掩码、KV cache和模型拆分位置；现有0.5B检查点不能直接用于2B/14B模型。
 
 ## 5. 用自己的数据训练
 
