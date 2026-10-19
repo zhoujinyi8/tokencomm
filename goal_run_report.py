@@ -47,6 +47,7 @@ def snapshot(root: Path = ROOT) -> dict:
         "stage21_cached_images": int(cache.get("cached_images", 0)),
         "stage21_planned_images": int(cache.get("planned_images", 75750)),
         "stage21_complete": bool(cache.get("complete", False)),
+        "stage21_process_elapsed_seconds": float(cache.get("elapsed_this_run_seconds", 0.0)),
         "stage22_step": last_history_step(root / "runs/stage22_contextual_tokcom/history.jsonl"),
         "stage22_complete": bool(stage22.get("completed", False)),
         "stage23_calibration_conditions": json_rows(root / "runs/stage23_v5_link/calibration_results.json"),
@@ -64,12 +65,24 @@ def atomic_json(path: Path, payload: dict) -> None:
 
 
 def start() -> dict:
+    if ACTIVE.exists():
+        finish(
+            "interrupted",
+            1,
+            message="Previous worker ended without reaching its completion reporter; Task Scheduler or the host likely stopped the process externally.",
+        )
     payload = {"run_started_at": datetime.now().astimezone().isoformat(timespec="seconds"), "before": snapshot()}
     atomic_json(ACTIVE, payload)
     return payload
 
 
-def finish(status: str, exit_code: int, next_run: str | None = None, message: str | None = None) -> dict:
+def finish(
+    status: str,
+    exit_code: int,
+    next_run: str | None = None,
+    message: str | None = None,
+    duration_seconds: float | None = None,
+) -> dict:
     active = read_json(ACTIVE)
     if not active:
         active = {"run_started_at": None, "before": snapshot()}
@@ -77,7 +90,8 @@ def finish(status: str, exit_code: int, next_run: str | None = None, message: st
     before = active["before"]
     started = datetime.fromisoformat(active["run_started_at"]) if active.get("run_started_at") else None
     ended = datetime.fromisoformat(after["captured_at"])
-    duration = (ended - started).total_seconds() if started else None
+    observed_interval = (ended - started).total_seconds() if started else None
+    duration = duration_seconds if duration_seconds is not None else observed_interval
     deltas = {
         "stage21_cached_images": after["stage21_cached_images"] - before["stage21_cached_images"],
         "stage22_steps": after["stage22_step"] - before["stage22_step"],
@@ -88,6 +102,8 @@ def finish(status: str, exit_code: int, next_run: str | None = None, message: st
         "run_started_at": active.get("run_started_at"),
         "run_finished_at": after["captured_at"],
         "duration_seconds": duration,
+        "observed_start_to_report_seconds": observed_interval,
+        "duration_source": "explicit worker evidence" if duration_seconds is not None else "start-to-report interval",
         "status": status,
         "exit_code": int(exit_code),
         "message": message,
@@ -133,16 +149,17 @@ def main() -> None:
     subparsers = parser.add_subparsers(dest="action", required=True)
     subparsers.add_parser("start")
     end = subparsers.add_parser("finish")
-    end.add_argument("--status", choices=("success", "failed"), required=True)
+    end.add_argument("--status", choices=("success", "failed", "interrupted"), required=True)
     end.add_argument("--exit-code", type=int, required=True)
     end.add_argument("--next-run")
     end.add_argument("--message-env")
+    end.add_argument("--duration-seconds", type=float)
     args = parser.parse_args()
     if args.action == "start":
         print(json.dumps(start()))
     else:
         message = os.environ.get(args.message_env) if args.message_env else None
-        print(json.dumps(finish(args.status, args.exit_code, args.next_run, message)))
+        print(json.dumps(finish(args.status, args.exit_code, args.next_run, message, args.duration_seconds)))
 
 
 if __name__ == "__main__":

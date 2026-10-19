@@ -40,6 +40,9 @@ class GoalFiveHourTests(unittest.TestCase):
         self.assertIn("-RepetitionInterval (New-TimeSpan -Hours 5)", installer)
         self.assertIn("-ExecutionTimeLimit (New-TimeSpan -Minutes 35)", installer)
         self.assertIn("ActiveMinutes = 30", installer)
+        self.assertIn("-AllowStartIfOnBatteries", installer)
+        self.assertIn("-DontStopIfGoingOnBatteries", installer)
+        self.assertIn("goal_5h_scheduler", script)
         self.assertIn("-MultipleInstances IgnoreNew", installer)
         self.assertIn("-Priority 5", installer)
 

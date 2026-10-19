@@ -15,6 +15,8 @@ $settings = New-ScheduledTaskSettingsSet `
     -Priority 5 `
     -Hidden `
     -StartWhenAvailable `
+    -AllowStartIfOnBatteries `
+    -DontStopIfGoingOnBatteries `
     -Compatibility Win8
 
 Register-ScheduledTask `

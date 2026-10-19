@@ -2,11 +2,15 @@ $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot
 $taskStarted = Get-Date
 $taskBudgetSeconds = 1800
+$runLogDirectory = Join-Path $PSScriptRoot 'work/goal_5h_scheduler'
+New-Item -ItemType Directory -Force -Path $runLogDirectory | Out-Null
+$runStamp = (Get-Date).ToString('yyyyMMdd_HHmmss')
+$runStdout = Join-Path $runLogDirectory "$runStamp.stdout.log"
+$runStderr = Join-Path $runLogDirectory "$runStamp.stderr.log"
 python goal_run_report.py start | Out-Null
 trap {
     $env:TOKENCOM_RUN_ERROR = $_.Exception.Message
-    $nextRun = (Get-ScheduledTaskInfo -TaskName 'TokenCom-Goal-5Hour-Advance' -ErrorAction SilentlyContinue).NextRunTime.ToString('o')
-    python goal_run_report.py finish --status failed --exit-code 1 --next-run $nextRun --message-env TOKENCOM_RUN_ERROR | Out-Null
+    python goal_run_report.py finish --status failed --exit-code 1 --message-env TOKENCOM_RUN_ERROR | Out-Null
     exit 1
 }
 python snapshot_stage19.py | Out-Null
@@ -24,7 +28,7 @@ if (Test-Path -LiteralPath $stage21Progress) {
     $stage21Complete = (Get-Content -LiteralPath $stage21Progress -Raw | ConvertFrom-Json).complete -eq $true
 }
 if ((Test-Path -LiteralPath $stage21Protocol) -and -not $stage21Complete) {
-    python cache_stage21_food101_tokens.py --device cpu --threads 4 --batch-size 2 --max-seconds 1650 | Out-Null
+    python cache_stage21_food101_tokens.py --device cpu --threads 4 --batch-size 2 --max-seconds 1650 1>> $runStdout 2>> $runStderr
     $cacheExit = $LASTEXITCODE
     if ($cacheExit -ne 0 -and $cacheExit -ne 75) { throw "Stage-21 token cache exited with code $cacheExit" }
 }
@@ -50,7 +54,7 @@ if (Test-Path -LiteralPath $stage22Status) {
 $remainingSeconds = [math]::Floor($taskBudgetSeconds - ((Get-Date) - $taskStarted).TotalSeconds)
 if ((Test-Path -LiteralPath $stage22Protocol) -and -not $stage22Complete -and $remainingSeconds -ge 180) {
     $trainingSeconds = $remainingSeconds - 120
-    python train_stage22_contextual_tokcom.py --threads 4 --max-seconds $trainingSeconds | Out-Null
+    python train_stage22_contextual_tokcom.py --threads 4 --max-seconds $trainingSeconds 1>> $runStdout 2>> $runStderr
     $trainingExit = $LASTEXITCODE
     if ($trainingExit -ne 0 -and $trainingExit -ne 75) { throw "Stage-22 training exited with code $trainingExit" }
 }
@@ -77,7 +81,7 @@ if (Test-Path -LiteralPath $stage23Status) {
 $remainingSeconds = [math]::Floor($taskBudgetSeconds - ((Get-Date) - $taskStarted).TotalSeconds)
 if ((Test-Path -LiteralPath $stage23Protocol) -and -not $stage23Complete -and $remainingSeconds -ge 180) {
     $linkSeconds = $remainingSeconds - 120
-    python evaluate_stage23_v5_link.py --threads 4 --max-seconds $linkSeconds | Out-Null
+    python evaluate_stage23_v5_link.py --threads 4 --max-seconds $linkSeconds 1>> $runStdout 2>> $runStderr
     if ($LASTEXITCODE -ne 0) { throw "Stage-23 link evaluation failed with code $LASTEXITCODE" }
 }
 $stage23Audit = Join-Path $PSScriptRoot 'STAGE23_AUDIT.json'
