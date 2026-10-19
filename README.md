@@ -32,6 +32,8 @@ Stage-21至Stage-23由隐藏任务`TokenCom-Goal-5Hour-Advance`每5小时运行3
 
 [REPRODUCTION_PROGRESS.md](REPRODUCTION_PROGRESS.md)记录模块覆盖情况，[COMMUNICATION_BUDGET_REPORT.md](COMMUNICATION_BUDGET_REPORT.md)记录源码率、编码比特和复信道符号。Stage报告保留当时的实验条件，当前执行状态以本节和本地调度状态文件为准。
 
+Git仓库只保存Markdown、JSON和图表形式的报告证据。`STAGE*_REPORT.html`网页报告在本机生成并由`.gitignore`排除，不上传GitHub。
+
 ## 1. 两篇论文的对应关系
 
 | 用户提供的文档 | 本工程入口 | 核心结构 |

@@ -15,7 +15,16 @@ class GitHubReadinessTests(unittest.TestCase):
 
     def test_gitignore_covers_runtime_artifacts(self):
         ignore = (Path(__file__).resolve().parent / ".gitignore").read_text(encoding="utf-8").splitlines()
-        for entry in ("runs/", "data/", "pretrained/", "work/", "*.pt", "*.safetensors", "*.parquet"):
+        for entry in (
+            "runs/",
+            "data/",
+            "pretrained/",
+            "work/",
+            "*.pt",
+            "*.safetensors",
+            "*.parquet",
+            "STAGE*_REPORT.html",
+        ):
             self.assertIn(entry, ignore)
 
 

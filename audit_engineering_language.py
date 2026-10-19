@@ -1,4 +1,4 @@
-"""Check repository documentation for non-technical filler language."""
+"""Check repository Markdown for non-technical filler language."""
 
 from __future__ import annotations
 
@@ -27,8 +27,7 @@ EXCLUDED_DIRS = {".git", ".venv", "venv", "node_modules"}
 def document_files(root: Path) -> list[Path]:
     return sorted(
         path
-        for pattern in ("*.md", "*.html")
-        for path in root.rglob(pattern)
+        for path in root.rglob("*.md")
         if not any(part in EXCLUDED_DIRS for part in path.relative_to(root).parts)
     )
 
@@ -58,7 +57,7 @@ def main() -> int:
         for path, line_number, phrase, line in violations:
             print(f"{path}:{line_number}: 禁用短语 {phrase!r}: {line}")
         return 1
-    print(f"检查通过：{len(document_files(root))}个Markdown/HTML文档。")
+    print(f"检查通过：{len(document_files(root))}个Markdown文件。")
     return 0
 
 

@@ -20,6 +20,7 @@ STAGE18_PROGRESS.json
 *.parquet
 *.log
 .vscode/
+STAGE*_REPORT.html
 STAGE19_PROGRESS.json
 STAGE20_PROGRESS.json
 GOAL_4H_STATUS.json
