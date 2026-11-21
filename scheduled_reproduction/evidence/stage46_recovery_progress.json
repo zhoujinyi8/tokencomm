@@ -1,0 +1,9 @@
+{
+  "expected_images": 100,
+  "expected_receptions": 500,
+  "completed_recovery_cases": 0,
+  "complete_five_trial_images": 0,
+  "complete": false,
+  "metrics_aggregated": false,
+  "cases": []
+}

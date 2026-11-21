@@ -1,0 +1,1183 @@
+{
+  "pairs": 50,
+  "complete_five_trial_images": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "totals_over_saved_cases": {
+    "oracle_data_error": {
+      "repaired": 30,
+      "harmed": 509,
+      "harmed_in_data_error_packets": 509,
+      "harmed_outside_data_error_packets": 0,
+      "net_correct_change": -479
+    },
+    "receiver_crc_failure": {
+      "repaired": 34,
+      "harmed": 1358,
+      "harmed_in_data_error_packets": 523,
+      "harmed_outside_data_error_packets": 835,
+      "net_correct_change": -1324
+    }
+  },
+  "cases": [
+    {
+      "trial": 0,
+      "image_index": 0,
+      "class_name": "tench",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 10,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -9
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 2,
+          "harmed": 26,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 16,
+          "net_correct_change": -24
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 1,
+      "class_name": "English springer",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 17,
+          "harmed_in_data_error_packets": 17,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -17
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 20,
+          "harmed_in_data_error_packets": 17,
+          "harmed_outside_data_error_packets": 3,
+          "net_correct_change": -20
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 16,
+          "harmed_in_data_error_packets": 16,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -16
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 42,
+          "harmed_in_data_error_packets": 16,
+          "harmed_outside_data_error_packets": 26,
+          "net_correct_change": -42
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 14,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 6,
+          "net_correct_change": -14
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 4,
+      "class_name": "church",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 16,
+          "harmed_in_data_error_packets": 16,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -16
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 35,
+          "harmed_in_data_error_packets": 17,
+          "harmed_outside_data_error_packets": 18,
+          "net_correct_change": -35
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 5,
+      "class_name": "French horn",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 27,
+          "harmed_in_data_error_packets": 7,
+          "harmed_outside_data_error_packets": 20,
+          "net_correct_change": -27
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 6,
+          "harmed_in_data_error_packets": 6,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -6
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 15,
+          "harmed_in_data_error_packets": 6,
+          "harmed_outside_data_error_packets": 9,
+          "net_correct_change": -15
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 2,
+          "harmed_in_data_error_packets": 2,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -2
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 30,
+          "harmed_in_data_error_packets": 2,
+          "harmed_outside_data_error_packets": 28,
+          "net_correct_change": -30
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 15,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -15
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 2,
+          "harmed": 38,
+          "harmed_in_data_error_packets": 14,
+          "harmed_outside_data_error_packets": 24,
+          "net_correct_change": -36
+        }
+      ]
+    },
+    {
+      "trial": 0,
+      "image_index": 9,
+      "class_name": "parachute",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 3,
+          "harmed": 18,
+          "harmed_in_data_error_packets": 18,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -15
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 3,
+          "harmed": 41,
+          "harmed_in_data_error_packets": 20,
+          "harmed_outside_data_error_packets": 21,
+          "net_correct_change": -38
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 0,
+      "class_name": "tench",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 21,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 11,
+          "net_correct_change": -20
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 1,
+      "class_name": "English springer",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 10,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -10
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 14,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 4,
+          "net_correct_change": -13
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 12,
+          "harmed_in_data_error_packets": 12,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -11
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 17,
+          "harmed_in_data_error_packets": 12,
+          "harmed_outside_data_error_packets": 5,
+          "net_correct_change": -16
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 9,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 28,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 18,
+          "net_correct_change": -27
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 4,
+      "class_name": "church",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 11,
+          "harmed_in_data_error_packets": 11,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -10
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 26,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 16,
+          "net_correct_change": -25
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 5,
+      "class_name": "French horn",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 9,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 11,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 3,
+          "net_correct_change": -10
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 31,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 22,
+          "net_correct_change": -31
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 6,
+          "harmed_in_data_error_packets": 6,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -6
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 41,
+          "harmed_in_data_error_packets": 6,
+          "harmed_outside_data_error_packets": 35,
+          "net_correct_change": -41
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 9,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -9
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 25,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 16,
+          "net_correct_change": -24
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "image_index": 9,
+      "class_name": "parachute",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 12,
+          "harmed_in_data_error_packets": 12,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -11
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 17,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 7,
+          "net_correct_change": -16
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 0,
+      "class_name": "tench",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 15,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -15
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 24,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 9,
+          "net_correct_change": -24
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 1,
+      "class_name": "English springer",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 15,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -15
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 45,
+          "harmed_in_data_error_packets": 14,
+          "harmed_outside_data_error_packets": 31,
+          "net_correct_change": -45
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 7,
+          "harmed_in_data_error_packets": 7,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -7
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 30,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 22,
+          "net_correct_change": -30
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 9,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 18,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 9,
+          "net_correct_change": -17
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 4,
+      "class_name": "church",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 13,
+          "harmed_in_data_error_packets": 13,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -13
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 2,
+          "harmed": 30,
+          "harmed_in_data_error_packets": 14,
+          "harmed_outside_data_error_packets": 16,
+          "net_correct_change": -28
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 5,
+      "class_name": "French horn",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 2,
+          "harmed": 5,
+          "harmed_in_data_error_packets": 5,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -3
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 20,
+          "harmed_in_data_error_packets": 5,
+          "harmed_outside_data_error_packets": 15,
+          "net_correct_change": -20
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 15,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -15
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 33,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 18,
+          "net_correct_change": -33
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 12,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 4,
+          "net_correct_change": -12
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 16,
+          "harmed_in_data_error_packets": 16,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -16
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 26,
+          "harmed_in_data_error_packets": 17,
+          "harmed_outside_data_error_packets": 9,
+          "net_correct_change": -26
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "image_index": 9,
+      "class_name": "parachute",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 18,
+          "harmed_in_data_error_packets": 18,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -17
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 2,
+          "harmed": 39,
+          "harmed_in_data_error_packets": 17,
+          "harmed_outside_data_error_packets": 22,
+          "net_correct_change": -37
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 0,
+      "class_name": "tench",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 25,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 17,
+          "net_correct_change": -25
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 1,
+      "class_name": "English springer",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 23,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 14,
+          "net_correct_change": -23
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 6,
+          "harmed_in_data_error_packets": 6,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -6
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 33,
+          "harmed_in_data_error_packets": 7,
+          "harmed_outside_data_error_packets": 26,
+          "net_correct_change": -32
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -7
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 27,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 18,
+          "net_correct_change": -26
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 4,
+      "class_name": "church",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 9,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -9
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 17,
+          "harmed_in_data_error_packets": 11,
+          "harmed_outside_data_error_packets": 6,
+          "net_correct_change": -17
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 5,
+      "class_name": "French horn",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 3,
+          "harmed_in_data_error_packets": 3,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -2
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 12,
+          "harmed_in_data_error_packets": 1,
+          "harmed_outside_data_error_packets": 11,
+          "net_correct_change": -11
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 13,
+          "harmed_in_data_error_packets": 13,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -12
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 3,
+          "harmed": 30,
+          "harmed_in_data_error_packets": 15,
+          "harmed_outside_data_error_packets": 15,
+          "net_correct_change": -27
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 18,
+          "harmed_in_data_error_packets": 18,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -18
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 39,
+          "harmed_in_data_error_packets": 19,
+          "harmed_outside_data_error_packets": 20,
+          "net_correct_change": -38
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 1,
+          "harmed_in_data_error_packets": 1,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": 0
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 18,
+          "harmed_in_data_error_packets": 1,
+          "harmed_outside_data_error_packets": 17,
+          "net_correct_change": -18
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "image_index": 9,
+      "class_name": "parachute",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 3,
+          "harmed": 21,
+          "harmed_in_data_error_packets": 21,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -18
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 2,
+          "harmed": 37,
+          "harmed_in_data_error_packets": 20,
+          "harmed_outside_data_error_packets": 17,
+          "net_correct_change": -35
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 0,
+      "class_name": "tench",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 7,
+          "harmed_in_data_error_packets": 7,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -6
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 31,
+          "harmed_in_data_error_packets": 7,
+          "harmed_outside_data_error_packets": 24,
+          "net_correct_change": -31
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 1,
+      "class_name": "English springer",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 1,
+          "harmed_in_data_error_packets": 1,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -1
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 24,
+          "harmed_in_data_error_packets": 1,
+          "harmed_outside_data_error_packets": 23,
+          "net_correct_change": -24
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 9,
+          "harmed_in_data_error_packets": 9,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 29,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 19,
+          "net_correct_change": -29
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 2,
+          "harmed": 11,
+          "harmed_in_data_error_packets": 11,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -9
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 33,
+          "harmed_in_data_error_packets": 13,
+          "harmed_outside_data_error_packets": 20,
+          "net_correct_change": -32
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 4,
+      "class_name": "church",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 4,
+          "harmed_in_data_error_packets": 4,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -3
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 36,
+          "harmed_in_data_error_packets": 6,
+          "harmed_outside_data_error_packets": 30,
+          "net_correct_change": -36
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 5,
+      "class_name": "French horn",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 1,
+          "harmed": 10,
+          "harmed_in_data_error_packets": 10,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -9
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 1,
+          "harmed": 25,
+          "harmed_in_data_error_packets": 11,
+          "harmed_outside_data_error_packets": 14,
+          "net_correct_change": -24
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 4,
+          "harmed": 18,
+          "harmed_in_data_error_packets": 18,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -14
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 3,
+          "harmed": 34,
+          "harmed_in_data_error_packets": 19,
+          "harmed_outside_data_error_packets": 15,
+          "net_correct_change": -31
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 8,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -8
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 20,
+          "harmed_in_data_error_packets": 8,
+          "harmed_outside_data_error_packets": 12,
+          "net_correct_change": -20
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 3,
+          "harmed_in_data_error_packets": 3,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -3
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 16,
+          "harmed_in_data_error_packets": 2,
+          "harmed_outside_data_error_packets": 14,
+          "net_correct_change": -16
+        }
+      ]
+    },
+    {
+      "trial": 4,
+      "image_index": 9,
+      "class_name": "parachute",
+      "rows": [
+        {
+          "strategy": "oracle_data_error",
+          "repaired": 0,
+          "harmed": 12,
+          "harmed_in_data_error_packets": 12,
+          "harmed_outside_data_error_packets": 0,
+          "net_correct_change": -12
+        },
+        {
+          "strategy": "receiver_crc_failure",
+          "repaired": 0,
+          "harmed": 53,
+          "harmed_in_data_error_packets": 13,
+          "harmed_outside_data_error_packets": 40,
+          "net_correct_change": -53
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "count": 100,
+  "class_counts": {
+    "0": 10,
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 10,
+    "5": 10,
+    "6": 10,
+    "7": 10,
+    "8": 10,
+    "9": 10
+  },
+  "prior_unique_files": 1521,
+  "prior_unique_pixels": 1521,
+  "file_overlap": 0,
+  "pixel_overlap": 0,
+  "within_holdout_duplicates": 0,
+  "model_inference_performed": false,
+  "protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "test_jsonl_sha256": "dfea5458cd0b98ca0eb88c68bccbada742f5449bbe646d2c50e3dbf103d1a54a"
+}

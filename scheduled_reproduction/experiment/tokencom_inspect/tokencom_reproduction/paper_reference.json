@@ -1,0 +1,33 @@
+{
+  "purpose": "Documentation only. These are NOT executable full-size model presets.",
+  "tokcom_2025": {
+    "source": "IEEE Wireless Communications 2025, DOI 10.1109/MWC.001.2500084, pp.84-85",
+    "image_size": 256,
+    "image_token_count": 256,
+    "codebook_size": 1024,
+    "tokens_per_packet": 4,
+    "random_interleaving": true,
+    "cmi": "7-bit ImageNet100 class label, perfect receiver recovery assumed",
+    "channel_code_rate": 0.5,
+    "channel_code": "Convolutional code plus CRC; soft Viterbi decoding",
+    "modulation": "16-QAM",
+    "bandwidth_hz": 50000,
+    "unknown_implementation_details": ["CRC polynomial", "convolutional generator polynomials and termination", "exact pretrained model checkpoints and finetuning settings"]
+  },
+  "taichi_2026": {
+    "source": "TokenCom.pdf, arXiv:2603.00482v1, sections V-VI",
+    "lr_backbone": "CLIP-ViT-large-patch14-336",
+    "hr_backbone": "CLIP-ConvNeXt large d320",
+    "llm_choices": ["Gemma-2B-instruct", "Qwen-2.5-14B-instruct"],
+    "pretraining_lr": 0.001,
+    "sft_lr": 0.00002,
+    "pretraining_global_batch": 256,
+    "sft_global_batch": 128,
+    "epochs": 1,
+    "optimizer": "AdamW",
+    "scheduler": "cosine",
+    "training_hardware": "8 x NVIDIA A800 80GB",
+    "distributed": "DeepSpeed ZeRO-2",
+    "unknown_implementation_details": ["precise local BAN neighborhood", "KAN dimensions and grid details", "LLM transmitter/receiver layer split", "channel encoder architecture", "LoRA targets/rank", "exact data splits and mixture weights"]
+  }
+}

@@ -1,0 +1,477 @@
+{
+  "scope": "stage5 development images, saved AWGN 8 dB PHY receptions; repeated trials are paired within image",
+  "saved_pairs": 50,
+  "complete_images": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "complete_pairs": 50,
+  "mean_correct_per_image_trial": {
+    "oracle": 241.12,
+    "crc": 224.22
+  },
+  "mean_mse_per_image_trial": {
+    "oracle": 0.00300676169754297,
+    "crc": 0.006715581933967769
+  },
+  "rows": [
+    {
+      "trial": 0,
+      "image": 0,
+      "class_name": "tench",
+      "oracle_correct": 237,
+      "crc_correct": 222,
+      "oracle_mse": 0.0030017823446542025,
+      "crc_mse": 0.003499987768009305
+    },
+    {
+      "trial": 0,
+      "image": 1,
+      "class_name": "English springer",
+      "oracle_correct": 233,
+      "crc_correct": 230,
+      "oracle_mse": 0.0028515055309981108,
+      "crc_mse": 0.0030324116814881563
+    },
+    {
+      "trial": 0,
+      "image": 2,
+      "class_name": "cassette player",
+      "oracle_correct": 234,
+      "crc_correct": 208,
+      "oracle_mse": 0.005171844735741615,
+      "crc_mse": 0.008199815638363361
+    },
+    {
+      "trial": 0,
+      "image": 3,
+      "class_name": "chain saw",
+      "oracle_correct": 242,
+      "crc_correct": 236,
+      "oracle_mse": 0.001152366865426302,
+      "crc_mse": 0.002809658646583557
+    },
+    {
+      "trial": 0,
+      "image": 4,
+      "class_name": "church",
+      "oracle_correct": 234,
+      "crc_correct": 215,
+      "oracle_mse": 0.0059105269610881805,
+      "crc_mse": 0.012006615288555622
+    },
+    {
+      "trial": 0,
+      "image": 5,
+      "class_name": "French horn",
+      "oracle_correct": 245,
+      "crc_correct": 226,
+      "oracle_mse": 0.0013225543079897761,
+      "crc_mse": 0.008433517068624496
+    },
+    {
+      "trial": 0,
+      "image": 6,
+      "class_name": "garbage truck",
+      "oracle_correct": 248,
+      "crc_correct": 239,
+      "oracle_mse": 0.0012088363291695714,
+      "crc_mse": 0.0034446900244802237
+    },
+    {
+      "trial": 0,
+      "image": 7,
+      "class_name": "gas pump",
+      "oracle_correct": 252,
+      "crc_correct": 224,
+      "oracle_mse": 0.002168505685403943,
+      "crc_mse": 0.01466679573059082
+    },
+    {
+      "trial": 0,
+      "image": 8,
+      "class_name": "golf ball",
+      "oracle_correct": 233,
+      "crc_correct": 212,
+      "oracle_mse": 0.0047595202922821045,
+      "crc_mse": 0.008819027803838253
+    },
+    {
+      "trial": 0,
+      "image": 9,
+      "class_name": "parachute",
+      "oracle_correct": 231,
+      "crc_correct": 208,
+      "oracle_mse": 0.0029800720512866974,
+      "crc_mse": 0.010044948197901249
+    },
+    {
+      "trial": 1,
+      "image": 0,
+      "class_name": "tench",
+      "oracle_correct": 240,
+      "crc_correct": 228,
+      "oracle_mse": 0.0028024911880493164,
+      "crc_mse": 0.00326133263297379
+    },
+    {
+      "trial": 1,
+      "image": 1,
+      "class_name": "English springer",
+      "oracle_correct": 241,
+      "crc_correct": 238,
+      "oracle_mse": 0.0006464236066676676,
+      "crc_mse": 0.001708496012724936
+    },
+    {
+      "trial": 1,
+      "image": 2,
+      "class_name": "cassette player",
+      "oracle_correct": 241,
+      "crc_correct": 236,
+      "oracle_mse": 0.0017015185439959168,
+      "crc_mse": 0.002204838441684842
+    },
+    {
+      "trial": 1,
+      "image": 3,
+      "class_name": "chain saw",
+      "oracle_correct": 242,
+      "crc_correct": 223,
+      "oracle_mse": 0.0021678076591342688,
+      "crc_mse": 0.008825482800602913
+    },
+    {
+      "trial": 1,
+      "image": 4,
+      "class_name": "church",
+      "oracle_correct": 241,
+      "crc_correct": 226,
+      "oracle_mse": 0.004702589474618435,
+      "crc_mse": 0.007416758686304092
+    },
+    {
+      "trial": 1,
+      "image": 5,
+      "class_name": "French horn",
+      "oracle_correct": 243,
+      "crc_correct": 241,
+      "oracle_mse": 0.002047700807452202,
+      "crc_mse": 0.0022583110257983208
+    },
+    {
+      "trial": 1,
+      "image": 6,
+      "class_name": "garbage truck",
+      "oracle_correct": 244,
+      "crc_correct": 221,
+      "oracle_mse": 0.0031797948759049177,
+      "crc_mse": 0.007146833930164576
+    },
+    {
+      "trial": 1,
+      "image": 7,
+      "class_name": "gas pump",
+      "oracle_correct": 248,
+      "crc_correct": 213,
+      "oracle_mse": 0.003961275331676006,
+      "crc_mse": 0.022256165742874146
+    },
+    {
+      "trial": 1,
+      "image": 8,
+      "class_name": "golf ball",
+      "oracle_correct": 242,
+      "crc_correct": 227,
+      "oracle_mse": 0.0027851692866533995,
+      "crc_mse": 0.005385844502598047
+    },
+    {
+      "trial": 1,
+      "image": 9,
+      "class_name": "parachute",
+      "oracle_correct": 240,
+      "crc_correct": 235,
+      "oracle_mse": 0.004180273041129112,
+      "crc_mse": 0.003993484657257795
+    },
+    {
+      "trial": 2,
+      "image": 0,
+      "class_name": "tench",
+      "oracle_correct": 231,
+      "crc_correct": 222,
+      "oracle_mse": 0.002378985285758972,
+      "crc_mse": 0.0026846379041671753
+    },
+    {
+      "trial": 2,
+      "image": 1,
+      "class_name": "English springer",
+      "oracle_correct": 233,
+      "crc_correct": 203,
+      "oracle_mse": 0.0022528183180838823,
+      "crc_mse": 0.006506672129034996
+    },
+    {
+      "trial": 2,
+      "image": 2,
+      "class_name": "cassette player",
+      "oracle_correct": 243,
+      "crc_correct": 220,
+      "oracle_mse": 0.001016066293232143,
+      "crc_mse": 0.004419200588017702
+    },
+    {
+      "trial": 2,
+      "image": 3,
+      "class_name": "chain saw",
+      "oracle_correct": 243,
+      "crc_correct": 234,
+      "oracle_mse": 0.001825669314712286,
+      "crc_mse": 0.0029872357845306396
+    },
+    {
+      "trial": 2,
+      "image": 4,
+      "class_name": "church",
+      "oracle_correct": 238,
+      "crc_correct": 223,
+      "oracle_mse": 0.005204993765801191,
+      "crc_mse": 0.010200259275734425
+    },
+    {
+      "trial": 2,
+      "image": 5,
+      "class_name": "French horn",
+      "oracle_correct": 247,
+      "crc_correct": 230,
+      "oracle_mse": 0.0013272588839754462,
+      "crc_mse": 0.005539897363632917
+    },
+    {
+      "trial": 2,
+      "image": 6,
+      "class_name": "garbage truck",
+      "oracle_correct": 235,
+      "crc_correct": 217,
+      "oracle_mse": 0.007638014853000641,
+      "crc_mse": 0.008532735519111156
+    },
+    {
+      "trial": 2,
+      "image": 7,
+      "class_name": "gas pump",
+      "oracle_correct": 244,
+      "crc_correct": 240,
+      "oracle_mse": 0.005661431699991226,
+      "crc_mse": 0.007780455518513918
+    },
+    {
+      "trial": 2,
+      "image": 8,
+      "class_name": "golf ball",
+      "oracle_correct": 234,
+      "crc_correct": 224,
+      "oracle_mse": 0.005054123234003782,
+      "crc_mse": 0.00394942332059145
+    },
+    {
+      "trial": 2,
+      "image": 9,
+      "class_name": "parachute",
+      "oracle_correct": 233,
+      "crc_correct": 213,
+      "oracle_mse": 0.003042258322238922,
+      "crc_mse": 0.007153104990720749
+    },
+    {
+      "trial": 3,
+      "image": 0,
+      "class_name": "tench",
+      "oracle_correct": 245,
+      "crc_correct": 228,
+      "oracle_mse": 0.0014468124136328697,
+      "crc_mse": 0.0019000041065737605
+    },
+    {
+      "trial": 3,
+      "image": 1,
+      "class_name": "English springer",
+      "oracle_correct": 245,
+      "crc_correct": 230,
+      "oracle_mse": 0.0022804075852036476,
+      "crc_mse": 0.005120964255183935
+    },
+    {
+      "trial": 3,
+      "image": 2,
+      "class_name": "cassette player",
+      "oracle_correct": 245,
+      "crc_correct": 219,
+      "oracle_mse": 0.0009295525378547609,
+      "crc_mse": 0.005478408187627792
+    },
+    {
+      "trial": 3,
+      "image": 3,
+      "class_name": "chain saw",
+      "oracle_correct": 243,
+      "crc_correct": 224,
+      "oracle_mse": 0.002673629904165864,
+      "crc_mse": 0.0038813489954918623
+    },
+    {
+      "trial": 3,
+      "image": 4,
+      "class_name": "church",
+      "oracle_correct": 242,
+      "crc_correct": 234,
+      "oracle_mse": 0.004040519241243601,
+      "crc_mse": 0.006000203546136618
+    },
+    {
+      "trial": 3,
+      "image": 5,
+      "class_name": "French horn",
+      "oracle_correct": 253,
+      "crc_correct": 244,
+      "oracle_mse": 3.7684283597627655e-05,
+      "crc_mse": 0.0021982670295983553
+    },
+    {
+      "trial": 3,
+      "image": 6,
+      "class_name": "garbage truck",
+      "oracle_correct": 239,
+      "crc_correct": 224,
+      "oracle_mse": 0.0026989884208887815,
+      "crc_mse": 0.003180369036272168
+    },
+    {
+      "trial": 3,
+      "image": 7,
+      "class_name": "gas pump",
+      "oracle_correct": 230,
+      "crc_correct": 210,
+      "oracle_mse": 0.013012953102588654,
+      "crc_mse": 0.02465568296611309
+    },
+    {
+      "trial": 3,
+      "image": 8,
+      "class_name": "golf ball",
+      "oracle_correct": 254,
+      "crc_correct": 236,
+      "oracle_mse": 0.0016573528992012143,
+      "crc_mse": 0.004368761088699102
+    },
+    {
+      "trial": 3,
+      "image": 9,
+      "class_name": "parachute",
+      "oracle_correct": 227,
+      "crc_correct": 210,
+      "oracle_mse": 0.0037992901634424925,
+      "crc_mse": 0.009193040430545807
+    },
+    {
+      "trial": 4,
+      "image": 0,
+      "class_name": "tench",
+      "oracle_correct": 245,
+      "crc_correct": 220,
+      "oracle_mse": 0.0004113305185455829,
+      "crc_mse": 0.0035989948082715273
+    },
+    {
+      "trial": 4,
+      "image": 1,
+      "class_name": "English springer",
+      "oracle_correct": 253,
+      "crc_correct": 230,
+      "oracle_mse": 0.0005450439057312906,
+      "crc_mse": 0.003091356484219432
+    },
+    {
+      "trial": 4,
+      "image": 2,
+      "class_name": "cassette player",
+      "oracle_correct": 242,
+      "crc_correct": 221,
+      "oracle_mse": 0.0009548330563120544,
+      "crc_mse": 0.005929397419095039
+    },
+    {
+      "trial": 4,
+      "image": 3,
+      "class_name": "chain saw",
+      "oracle_correct": 240,
+      "crc_correct": 217,
+      "oracle_mse": 0.0030732247978448868,
+      "crc_mse": 0.006213080137968063
+    },
+    {
+      "trial": 4,
+      "image": 4,
+      "class_name": "church",
+      "oracle_correct": 251,
+      "crc_correct": 218,
+      "oracle_mse": 0.0011122931027784944,
+      "crc_mse": 0.012501801364123821
+    },
+    {
+      "trial": 4,
+      "image": 5,
+      "class_name": "French horn",
+      "oracle_correct": 242,
+      "crc_correct": 227,
+      "oracle_mse": 0.00285468646325171,
+      "crc_mse": 0.005588685628026724
+    },
+    {
+      "trial": 4,
+      "image": 6,
+      "class_name": "garbage truck",
+      "oracle_correct": 234,
+      "crc_correct": 217,
+      "oracle_mse": 0.003824730170890689,
+      "crc_mse": 0.008050250820815563
+    },
+    {
+      "trial": 4,
+      "image": 7,
+      "class_name": "gas pump",
+      "oracle_correct": 244,
+      "crc_correct": 232,
+      "oracle_mse": 0.006226911675184965,
+      "crc_mse": 0.011981390416622162
+    },
+    {
+      "trial": 4,
+      "image": 8,
+      "class_name": "golf ball",
+      "oracle_correct": 252,
+      "crc_correct": 239,
+      "oracle_mse": 0.001416800543665886,
+      "crc_mse": 0.0031098260078579187
+    },
+    {
+      "trial": 4,
+      "image": 9,
+      "class_name": "parachute",
+      "oracle_correct": 238,
+      "crc_correct": 197,
+      "oracle_mse": 0.003236861201003194,
+      "crc_mse": 0.010568625293672085
+    }
+  ]
+}

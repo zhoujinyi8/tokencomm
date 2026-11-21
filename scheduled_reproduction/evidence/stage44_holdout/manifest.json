@@ -1,0 +1,36 @@
+{
+  "count": 100,
+  "class_names": [
+    "tench",
+    "English springer",
+    "cassette player",
+    "chain saw",
+    "church",
+    "French horn",
+    "garbage truck",
+    "gas pump",
+    "golf ball",
+    "parachute"
+  ],
+  "per_class": 10,
+  "eligible_by_class": [
+    859,
+    851,
+    889,
+    754,
+    837,
+    852,
+    857,
+    827,
+    847,
+    856
+  ],
+  "rejected_prior_rows": 1040,
+  "source_sha256": "b13d180724c25fd9daf01f6c10f35148d0aa855d9fe6ad96130fe71e65b77c9f",
+  "test_jsonl_sha256": "dfea5458cd0b98ca0eb88c68bccbada742f5449bbe646d2c50e3dbf103d1a54a",
+  "protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "prior_file_overlap": 0,
+  "prior_pixel_overlap": 0,
+  "inference_status": "not_encoded_or_evaluated",
+  "note": "pixel hashes computed for deduplication only; no model inference or visual selection"
+}
