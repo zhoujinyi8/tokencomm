@@ -1,5 +1,6 @@
 """Evaluate frozen recovery files with atomic per-reception metric outputs."""
 import importlib.metadata
+import argparse
 import json
 import os
 import sys
@@ -14,6 +15,11 @@ from torchvision import transforms
 from omegaconf import OmegaConf
 from pretrained_vq import sha256
 
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--max-minutes',type=float,default=45.)
+args=parser.parse_args()
+assert 0<args.max_minutes<=60
+started=time.monotonic()
 root=Path(__file__).resolve().parent
 run=root/'runs';data=root/'data/imagenette_stage44_holdout'
 protocol_path=run/'stage44_frozen_protocol.json'
@@ -48,7 +54,7 @@ transform=transforms.Compose([transforms.Resize((256,256)),transforms.ToTensor()
 to_pil=transforms.ToPILImage()
 target=run/'stage47_holdout_metrics';target.mkdir(exist_ok=True)
 paths=['direct','oracle','crc','soft_gate_0.05','soft_gate_0.1','soft_gate_0.25']
-deadline=time.monotonic()+45*60
+deadline=started+args.max_minutes*60
 with torch.inference_mode():
     for image,record in enumerate(records):
         source=data/record['image'];assert sha256(source)==record['sha256']

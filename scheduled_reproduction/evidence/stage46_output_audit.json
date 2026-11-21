@@ -1,5 +1,5 @@
 {
-  "checked_cases": 210,
+  "checked_cases": 245,
   "all_checks_passed": true,
   "performance_metrics_computed": false,
   "checks": [
@@ -849,6 +849,146 @@
     },
     {
       "image_index": 41,
+      "trial": 4
+    },
+    {
+      "image_index": 42,
+      "trial": 0
+    },
+    {
+      "image_index": 42,
+      "trial": 1
+    },
+    {
+      "image_index": 42,
+      "trial": 2
+    },
+    {
+      "image_index": 42,
+      "trial": 3
+    },
+    {
+      "image_index": 42,
+      "trial": 4
+    },
+    {
+      "image_index": 43,
+      "trial": 0
+    },
+    {
+      "image_index": 43,
+      "trial": 1
+    },
+    {
+      "image_index": 43,
+      "trial": 2
+    },
+    {
+      "image_index": 43,
+      "trial": 3
+    },
+    {
+      "image_index": 43,
+      "trial": 4
+    },
+    {
+      "image_index": 44,
+      "trial": 0
+    },
+    {
+      "image_index": 44,
+      "trial": 1
+    },
+    {
+      "image_index": 44,
+      "trial": 2
+    },
+    {
+      "image_index": 44,
+      "trial": 3
+    },
+    {
+      "image_index": 44,
+      "trial": 4
+    },
+    {
+      "image_index": 45,
+      "trial": 0
+    },
+    {
+      "image_index": 45,
+      "trial": 1
+    },
+    {
+      "image_index": 45,
+      "trial": 2
+    },
+    {
+      "image_index": 45,
+      "trial": 3
+    },
+    {
+      "image_index": 45,
+      "trial": 4
+    },
+    {
+      "image_index": 46,
+      "trial": 0
+    },
+    {
+      "image_index": 46,
+      "trial": 1
+    },
+    {
+      "image_index": 46,
+      "trial": 2
+    },
+    {
+      "image_index": 46,
+      "trial": 3
+    },
+    {
+      "image_index": 46,
+      "trial": 4
+    },
+    {
+      "image_index": 47,
+      "trial": 0
+    },
+    {
+      "image_index": 47,
+      "trial": 1
+    },
+    {
+      "image_index": 47,
+      "trial": 2
+    },
+    {
+      "image_index": 47,
+      "trial": 3
+    },
+    {
+      "image_index": 47,
+      "trial": 4
+    },
+    {
+      "image_index": 48,
+      "trial": 0
+    },
+    {
+      "image_index": 48,
+      "trial": 1
+    },
+    {
+      "image_index": 48,
+      "trial": 2
+    },
+    {
+      "image_index": 48,
+      "trial": 3
+    },
+    {
+      "image_index": 48,
       "trial": 4
     }
   ]

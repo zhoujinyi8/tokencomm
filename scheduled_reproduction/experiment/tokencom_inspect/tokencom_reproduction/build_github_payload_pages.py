@@ -7,7 +7,10 @@ checkout=root.parents[1]/'tokencomm_github_sync'
 target=checkout/'scheduled_reproduction'
 pages=root.parents[1]/'github_payload_pages';pages.mkdir(exist_ok=True)
 groups=[];current=[];size=0
-for path in sorted(list(target.rglob('*'))+[checkout/'.flake8',checkout/'pytest.ini']):
+for path in sorted(list(target.rglob('*'))+[checkout/'.flake8',checkout/'pytest.ini',
+                                        checkout/'third_party/perceptual_similarity/lpips/trainer.py',
+                                        checkout/'requirements-ci.txt',checkout/'.github/workflows/python-app.yml',
+                                        checkout/'conftest.py',checkout/'test_context_maskgit_v4.py',checkout/'CI_TESTING.md']):
     if not path.is_file():continue
     entry={'path':path.relative_to(checkout).as_posix(),'mode':'100644','type':'blob',
            'content':path.read_bytes().decode('utf-8')}

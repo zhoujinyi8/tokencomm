@@ -1,0 +1,65 @@
+{
+  "metric_receptions_saved": 11,
+  "paths_per_reception": 6,
+  "complete_five_trial_images": 2,
+  "expected_receptions": 500,
+  "all_checks_passed": true,
+  "performance_aggregated": false,
+  "cases": [
+    {
+      "image_index": 0,
+      "trial": 0,
+      "sha256": "32314dc28574d5e636658896c6cbc4c26f125db050b74db3a5c8de020ef8a0d6"
+    },
+    {
+      "image_index": 0,
+      "trial": 1,
+      "sha256": "d47e940acfd5dac1f90d16b6e23424c108f99a38b431c14a1cba43c19149c047"
+    },
+    {
+      "image_index": 0,
+      "trial": 2,
+      "sha256": "f294cd52f2d81ec49dcf2623b16dea60a9302cfdc7979241366694f10e9ba046"
+    },
+    {
+      "image_index": 0,
+      "trial": 3,
+      "sha256": "f7efb06f606878d85b9886b3a97b71bc17c7659de0608d0b2bd1a995a32d9a2e"
+    },
+    {
+      "image_index": 0,
+      "trial": 4,
+      "sha256": "6046cb9b2691044e16b0128fdb451c57ec1ca7b092893ab6ae58efc2e3044714"
+    },
+    {
+      "image_index": 1,
+      "trial": 0,
+      "sha256": "e2bafba746cd55829111dbd368b57f95ece8b4b17f5eded3e20594090aecd837"
+    },
+    {
+      "image_index": 1,
+      "trial": 1,
+      "sha256": "01d9070a660ddedb084ef6b64234aa52f4dc3061976596f9fe774f2a8ed48fb1"
+    },
+    {
+      "image_index": 1,
+      "trial": 2,
+      "sha256": "909f1b376f9c30ef4d042920f70bb148ed96ca19d66757e4995f762d24870225"
+    },
+    {
+      "image_index": 1,
+      "trial": 3,
+      "sha256": "e942265a186a8dc8a0895fe3113d017b26a206c9e75e941fc29708966b7b4634"
+    },
+    {
+      "image_index": 1,
+      "trial": 4,
+      "sha256": "fd6e82623f5fb350f5980d14d7e8bf5b1c986b259b00599459bf47fd9418dd46"
+    },
+    {
+      "image_index": 2,
+      "trial": 0,
+      "sha256": "3c794327afc61127ab1588247bd80400e673867358ed75020e5a75b85c021245"
+    }
+  ]
+}

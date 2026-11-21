@@ -8,7 +8,7 @@ root=Path(__file__).resolve().parent
 checkout=root.parents[1]/'tokencomm_github_sync'
 assert (checkout/'.git').is_file()
 (checkout/'.flake8').write_text('[flake8]\nextend-exclude = scheduled_reproduction\n',encoding='utf-8')
-(checkout/'pytest.ini').write_text('[pytest]\nnorecursedirs = .* build dist CVS _darcs {arch} *.egg venv scheduled_reproduction\n',encoding='utf-8')
+(checkout/'pytest.ini').write_text('[pytest]\npython_files = test_*.py\nmarkers =\n    integration: requires local experiment data, checkpoints, or frozen artifact identities\nnorecursedirs = .* build dist CVS _darcs {arch} *.egg venv scheduled_reproduction\n',encoding='utf-8')
 target=checkout/'scheduled_reproduction'
 target.mkdir(parents=True,exist_ok=True)
 (target/'.gitattributes').write_text('* -text\n',encoding='utf-8')
@@ -31,7 +31,9 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage44_frozen_protocol.json','stage44_holdout_audit.json','stage45_encoder_lock.json',
              'stage45_phy_lock.json','stage45_cache_audit.json',
              'stage46_recovery_lock.json','stage46_recovery_progress.json',
-             'stage46_output_audit.json','stage46_environment.json']:
+             'stage46_output_audit.json','stage46_environment.json',
+             'stage47_metrics_lock.json','stage47_metric_file_audit.json',
+             'stage48_ci_verification.json','stage48_session_progress.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -64,7 +66,7 @@ Restore `evidence/stage44_holdout/{manifest.json,test.jsonl}` and the protocol i
 
 After the stage45 cache audit is complete, run `run_stage46_frozen_recovery.py`. Its fixed computation window saves complete receptions and resumes missing cases under the same script lock. `audit_stage46_outputs.py` validates saved input identity, preservation of unmasked positions and exact gate definitions without performance aggregation.
 
-`evaluate_stage47_frozen_metrics.py` is prepared for the next phase and was not used to select settings. `summarize_stage47_complete_holdout.py` refuses an incomplete evaluation: it requires all 100 images and five receptions for all six paths. Preserve source and execution locks between sessions.
+`evaluate_stage47_frozen_metrics.py` writes per-reception metrics under a separate execution lock; outcomes are not used to select settings. `summarize_stage47_complete_holdout.py` refuses an incomplete evaluation: it requires all 100 images and five receptions for all six paths. Preserve source and execution locks between sessions.
 
 ## Interpretation''')
 (target/'README.md').write_text(readme,encoding='utf-8')
