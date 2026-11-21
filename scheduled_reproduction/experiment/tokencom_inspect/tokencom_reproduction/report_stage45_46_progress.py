@@ -36,14 +36,21 @@ GitHub 同步目标为已有项目 zhoujinyi8/tokencomm 的独立分支 reproduc
 下一步：继续完成缺失的恢复组，锁定并运行图像指标入口，再按每张图五轮均值进行全 100 图的配对汇总。当前仍是单一 8 dB、固定生成种子和作者类别信息假设，未实现论文完整 TCE/反馈协议；项目级数据去重不能排除公开预训练重叠。
 ''',encoding='utf-8')
 names=['cache_stage45_holdout_tokens.py','cache_stage45_holdout_phy.py','audit_stage45_caches.py',
+       'audit_stage46_outputs.py','record_stage46_provenance.py',
+       'evaluate_stage47_frozen_metrics.py','summarize_stage47_complete_holdout.py','restore_stage44_images.py',
        'run_stage46_frozen_recovery.py','runs/stage45_encoder_lock.json','runs/stage45_phy_lock.json',
        'runs/stage45_cache_audit.json','runs/stage46_recovery_progress.json','runs/stage44_frozen_protocol.json']
 if (run/'stage46_recovery_lock.json').exists():names.append('runs/stage46_recovery_lock.json')
+for name in ['stage46_output_audit.json','stage46_environment.json']:
+    if (run/name).exists():names.append('runs/'+name)
 items=[(name,root) for name in names]+[(report.name,outputs)]
 manifest={name:hashlib.sha256((base/name).read_bytes()).hexdigest() for name,base in items}
 target=outputs/'TokCom_stage45_46_frozen_holdout_progress.zip'
 with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as z:
     for name,base in items:z.write(base/name,name)
     z.writestr('SHA256_manifest.json',json.dumps(manifest,indent=2))
+with zipfile.ZipFile(target) as z:
+    assert z.testzip() is None
+    assert all(hashlib.sha256(z.read(name)).hexdigest()==digest for name,digest in manifest.items())
 print(json.dumps({k:v for k,v in progress.items() if k!='cases'},indent=2))
 print(report)
