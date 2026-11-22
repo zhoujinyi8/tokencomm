@@ -33,7 +33,8 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage46_recovery_lock.json','stage46_recovery_progress.json',
              'stage46_output_audit.json','stage46_environment.json',
              'stage47_metrics_lock.json','stage47_metric_file_audit.json',
-             'stage48_ci_verification.json','stage48_session_progress.json']:
+             'stage48_ci_verification.json','stage48_session_progress.json',
+             'stage49_session_progress.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
