@@ -34,7 +34,8 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage46_output_audit.json','stage46_environment.json',
              'stage47_metrics_lock.json','stage47_metric_file_audit.json',
              'stage48_ci_verification.json','stage48_session_progress.json',
-             'stage49_session_progress.json']:
+             'stage49_session_progress.json','stage50_session_progress.json',
+             'stage51_window_start.json','stage51_session_progress.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -70,6 +71,18 @@ After the stage45 cache audit is complete, run `run_stage46_frozen_recovery.py`.
 `evaluate_stage47_frozen_metrics.py` writes per-reception metrics under a separate execution lock; outcomes are not used to select settings. `summarize_stage47_complete_holdout.py` refuses an incomplete evaluation: it requires all 100 images and five receptions for all six paths. Preserve source and execution locks between sessions.
 
 ## Interpretation''')
+progress_path=root/'runs/stage46_recovery_progress.json'
+metric_audit_path=root/'runs/stage47_metric_file_audit.json'
+if progress_path.exists() and metric_audit_path.exists():
+    progress=json.loads(progress_path.read_text(encoding='utf-8'))
+    metrics=json.loads(metric_audit_path.read_text(encoding='utf-8'))
+    readme=readme.replace('## Files and execution layout',f'''## Frozen evaluation coverage
+
+- Recovery: {progress['completed_recovery_cases']}/500 receptions; {progress['complete_five_trial_images']}/100 images have five complete trials.
+- Image metrics: {metrics['metric_receptions_saved']}/500 receptions, six paths per reception; {metrics['complete_five_trial_images']}/100 images have five metric trials.
+- See `evidence/stage46_output_audit.json` and `evidence/stage47_metric_file_audit.json` for actual audited coverage. Recovery completion alone does not establish metric completion or paper-wide performance. The complete summary entry point requires every image and trial.
+
+## Files and execution layout''')
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

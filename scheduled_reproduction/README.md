@@ -8,6 +8,12 @@ Author VQGAN/MaskGIT weights and demo PHY have been exercised on ten development
 
 A project-disjoint 100-image holdout and its protocol were frozen before selection/inference. Stage 45 caches author token IDs and five PHY receptions per image, with per-file identity locks and resumable atomic writes. See evidence/stage45_cache_audit.json for actual completion; absence of final recovery metrics is intentional. The holdout is now being accessed under the frozen protocol and must not be used for further strategy tuning.
 
+## Frozen evaluation coverage
+
+- Recovery: 500/500 receptions; 100/100 images have five complete trials.
+- Image metrics: 185/500 receptions, six paths per reception; 37/100 images have five metric trials.
+- See `evidence/stage46_output_audit.json` and `evidence/stage47_metric_file_audit.json` for actual audited coverage. Recovery completion alone does not establish metric completion or paper-wide performance. The complete summary entry point requires every image and trial.
+
 ## Files and execution layout
 
 - `reports/` contains Chinese progress reports; `evidence/` contains machine-readable summaries and frozen identities.

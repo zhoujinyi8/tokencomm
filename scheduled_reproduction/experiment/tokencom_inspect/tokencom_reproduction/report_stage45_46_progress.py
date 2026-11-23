@@ -2,6 +2,7 @@
 import hashlib
 import json
 import zipfile
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import numpy as np
 from pretrained_vq import sha256
@@ -26,7 +27,8 @@ progress={'expected_images':100,'expected_receptions':500,'completed_recovery_ca
           'complete_five_trial_images':sum(sum(c['image_index']==i for c in completed)==5 for i in range(100)),
           'complete':len(completed)==500,'metrics_aggregated':False,'cases':completed}
 (run/'stage46_recovery_progress.json').write_text(json.dumps(progress,indent=2),encoding='utf-8')
-report=outputs/'TokCom_第四十五至四十六阶段新留出执行进度_2026-11-22.md'
+report_date=datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=8))).date().isoformat()
+report=outputs/f'TokCom_第四十五至四十六阶段新留出执行进度_{report_date}.md'
 report.write_text(f'''# TokCom 第四十五至四十六阶段：新留出执行进度
 
 按照第四十四阶段冻结协议，已经完成作者 token 编码 {audit['encoded_images']}/100 张、物理接收缓存 {audit['phy_cases']}/500 组。每个图像 token 文件和每次接收文件均原子保存，并检查图像身份、形状、取值范围、种子和协议哈希。新留出集现在已经进入固定评估流程，不能再作为策略调参数据。
