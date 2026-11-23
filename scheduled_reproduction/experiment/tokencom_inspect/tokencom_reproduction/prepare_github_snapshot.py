@@ -35,7 +35,10 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage47_metrics_lock.json','stage47_metric_file_audit.json',
              'stage48_ci_verification.json','stage48_session_progress.json',
              'stage49_session_progress.json','stage50_session_progress.json',
-             'stage51_window_start.json','stage51_session_progress.json']:
+             'stage51_window_start.json','stage51_session_progress.json',
+             'stage52_window_start.json','stage52_session_progress.json',
+             'stage47_complete_holdout_summary.json','stage52_tce_reference_check.json',
+             'stage52_paper_scope_review.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -47,7 +50,7 @@ This folder preserves the recurring reproduction work separately from the reposi
 
 Author VQGAN/MaskGIT weights and demo PHY have been exercised on ten development images across five receptions. Exact token counts, original-image PSNR, LPIPS and CLIP are recorded with explicit input conventions. CRC recovery can reduce exact token accuracy; soft-channel selection gives small development-image quality changes that require new-data validation.
 
-A project-disjoint 100-image holdout and its protocol were frozen before selection/inference. Stage 45 caches author token IDs and five PHY receptions per image, with per-file identity locks and resumable atomic writes. See evidence/stage45_cache_audit.json for actual completion; absence of final recovery metrics is intentional. The holdout is now being accessed under the frozen protocol and must not be used for further strategy tuning.
+A project-disjoint 100-image holdout and its protocol were frozen before selection/inference. Stage 45 caches author token IDs and five PHY receptions per image, with per-file identity locks and resumable atomic writes. See evidence/stage45_cache_audit.json and the separate recovery/metric coverage below. The holdout is being evaluated under the frozen protocol and must not be used for further strategy tuning.
 
 ## Files and execution layout
 
@@ -60,7 +63,7 @@ A project-disjoint 100-image holdout and its protocol were frozen before selecti
 
 ## Interpretation
 
-The holdout is disjoint from prior project image files and decoded pixels, not proven disjoint from public ImageNet pretraining. Author oracle masks require sender truth; CRC masks use receiver checks. Full paper TCE, feedback protocol, resource-equivalent comparisons and a multi-SNR reproduction remain incomplete. Development results are not paper-wide performance claims. Three exploratory gate fractions are all reported; none is selected from holdout outcomes.
+The holdout is disjoint from prior project image files and decoded pixels, not proven disjoint from public ImageNet pretraining. Author oracle masks require sender truth; CRC masks use receiver checks. Paper TCE/retransmission baselines, CMI ablation, resource-equivalent comparisons and multi-SNR reproduction remain incomplete. Engineering feedback/control protocols are separate extensions. Development results are not paper-wide performance claims. Three exploratory gate fractions are all reported; none is selected from holdout outcomes.
 '''
 readme=readme.replace('## Interpretation', '''## Continuing the frozen evaluation
 
@@ -83,6 +86,12 @@ if progress_path.exists() and metric_audit_path.exists():
 - See `evidence/stage46_output_audit.json` and `evidence/stage47_metric_file_audit.json` for actual audited coverage. Recovery completion alone does not establish metric completion or paper-wide performance. The complete summary entry point requires every image and trial.
 
 ## Files and execution layout''')
+if (root/'runs/stage47_complete_holdout_summary.json').exists():
+    readme=readme.replace('## Interpretation','''## Complete frozen summary
+
+All 100 images and five receptions are represented in `evidence/stage47_complete_holdout_summary.json`. It contains six-path means, paired per-image differences and all per-image values. Trial means are computed within image before averaging images. No exploratory gate fraction is selected. This completes the frozen 8 dB evaluation, while paper TCE/baseline, CMI ablation and multi-SNR reproduction remain open. Engineering feedback protocols are evaluated separately.
+
+## Interpretation''')
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

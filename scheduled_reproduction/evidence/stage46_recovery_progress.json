@@ -2,7 +2,7 @@
   "expected_images": 100,
   "expected_receptions": 500,
   "completed_recovery_cases": 500,
-  "metric_receptions_saved": 185,
+  "metric_receptions_saved": 267,
   "complete_five_trial_images": 100,
   "complete": true,
   "metrics_aggregated": false,
