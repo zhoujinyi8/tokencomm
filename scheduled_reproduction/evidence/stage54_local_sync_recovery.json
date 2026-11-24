@@ -1,0 +1,11 @@
+{
+  "head_before": "22648ebfe9d183a77ee9328e5b11519585ddcfc6",
+  "head_after": "e2e615634ff3c19dfdec22be1dd4521bd3f40af5",
+  "tree_sha": "8274aae34101f2850a1df4a01e1d7262d92ee2c6",
+  "exact_commit_object_verified": true,
+  "tree_matches_remote_api": true,
+  "worktree_clean": true,
+  "method": "exact remote Git object recovered from API metadata, with byte hash verified before local ref update",
+  "recovered_author_timezone": "+0800",
+  "recovered_committer_timezone": "+0800"
+}

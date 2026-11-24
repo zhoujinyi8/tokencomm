@@ -45,7 +45,13 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage53_development_cmi_result.json','stage53_ter_definition_audit.json',
              'stage53_development_cmi_grid_plan.json','stage53_development_cmi_grid_summary.json',
              'stage53_development_cmi_grid_audit.json','stage53_ideal_vq_plan.json',
-             'stage53_ideal_vq_summary.json','stage53_ideal_vq_audit.json']:
+             'stage53_ideal_vq_summary.json','stage53_ideal_vq_audit.json',
+             'stage54_window_start.json','stage54_local_sync_recovery.json',
+             'stage54_api_sync_idempotence.json','stage54_development_multisnr_plan.json',
+             'stage54_development_phy_progress.json','stage54_development_phy_audit.json',
+             'stage54_development_recovery_lock.json','stage54_development_recovery_progress.json',
+             'stage54_development_recovery_audit.json','stage54_session_progress.json',
+             'stage54_audit_contract_verification.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -94,11 +100,22 @@ if progress_path.exists() and metric_audit_path.exists():
 
 ## Files and execution layout''')
 if (root/'runs/stage47_complete_holdout_summary.json').exists():
+    readme=readme.replace('The holdout is being evaluated under the frozen protocol and must not be used for further strategy tuning.',
+                          'The frozen 8 dB holdout evaluation is complete and must not be used for further strategy tuning.')
     readme=readme.replace('## Interpretation','''## Complete frozen summary
 
-All 100 images and five receptions are represented in `evidence/stage47_complete_holdout_summary.json`. It contains six-path means, paired per-image differences and all per-image values. Trial means are computed within image before averaging images. No exploratory gate fraction is selected. This completes the frozen 8 dB evaluation, while paper TCE/baseline, CMI ablation and multi-SNR reproduction remain open. Engineering feedback protocols are evaluated separately.
+All 100 images and five receptions are represented in `evidence/stage47_complete_holdout_summary.json`. It contains six-path means, paired per-image differences and all per-image values. Trial means are computed within image before averaging images. No exploratory gate fraction is selected. This completes the frozen 8 dB evaluation. Stage 53 adds an analytic payload TCE reference, an exploratory development CMI comparison and ideal correct-token VQGAN references. Resource-equivalent baseline experiments, broader CMI validation and paper-wide multi-SNR reproduction remain open. Engineering feedback protocols are evaluated separately.
 
 ## Interpretation''')
+pilot_path=root/'runs/stage54_development_recovery_audit.json'
+if pilot_path.exists():
+    pilot=json.loads(pilot_path.read_text(encoding='utf-8'))
+    phy=json.loads((root/'runs/stage54_development_phy_audit.json').read_text(encoding='utf-8'))
+    assert pilot['all_checks_passed'] and phy['all_checks_passed']
+    readme+=f'''\n## Separate multi-SNR development pilot (stage 54)\n
+The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY {phy['completed_cases']}/300; four-path paired generation/metrics {pilot['completed_cases']}/300. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.\n
+Only complete 50-reception SNR groups receive outcome summaries. Current complete groups: {len(pilot['complete_snr_groups'])}/6. Incomplete groups report coverage only. This author-demo fixed interleaver and ten-image pilot do not establish paper-wide multi-SNR reproduction. Ideal correct-token decode does not simulate physical retransmissions.\n
+Resume `cache_stage54_development_phy.py` in the separate Sionna environment, audit with `audit_stage54_development_phy.py`, then run `run_stage54_development_multisnr.py` and `audit_stage54_development_recovery.py` in the PyTorch environment. Preserve plan and execution identities; restore local inputs named by the plan. `sync_github_worktree_from_api.py` verifies a published unsigned commit and full Git tree when native fetch is unavailable.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

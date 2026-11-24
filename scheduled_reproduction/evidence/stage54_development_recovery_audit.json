@@ -1,0 +1,41 @@
+{
+  "scope": "old 10-image development multi-SNR CMI pilot; not the 100-image frozen holdout",
+  "plan_sha256": "232175f2623e815eef69313a59d4c08d45bc3ef532a00ebe4d45cb75a8f3ca56",
+  "lock_sha256": "4af57133dab20cede28bf9fd62b64c8bf225b271e4a65c25e56b6bc0d9f4eddc",
+  "completed_cases": 17,
+  "expected_cases": 300,
+  "complete": false,
+  "counts_by_snr": {
+    "6.0": 3,
+    "6.5": 3,
+    "7.0": 3,
+    "7.5": 3,
+    "8.0": 3,
+    "9.0": 2
+  },
+  "complete_snr_groups": {},
+  "all_checks_passed": true,
+  "case_sha256": {
+    "snr0_image00_trial0.json": "9395dec3093d2afc63a8e56cbbede5b0d8b95539e0e926bb4dc61817c088090b",
+    "snr0_image00_trial1.json": "8ccae65902b677d1a7b0a8d5be8dd33c97a3d3e274394c894561aaaacd104fa9",
+    "snr0_image00_trial2.json": "78ee0652adeb7dcb7ec6576689ba9fd92084eaf33126ff14e707df2fe273e212",
+    "snr1_image00_trial0.json": "07040a562d90d32f98170b3089283e645d614cf4061bd22213ba7fb8009498f2",
+    "snr1_image00_trial1.json": "73f234a5dfcf3dfeab10a977cbc74707b81599cc0a6ca92080aa8408a13bb517",
+    "snr1_image00_trial2.json": "9069a1330c04a7ee376f0e4b3b4230674876b11121745eae3fed09093f1535f4",
+    "snr2_image00_trial0.json": "775e31ea0b91eb16a9c92abbc6a0a8a00bb765fa37014dbe394fa48b95d217f9",
+    "snr2_image00_trial1.json": "a8231f62e26247ac49f14c632f367757f8734b6d9c4cb6f9c47f8de07ee1c0cd",
+    "snr2_image00_trial2.json": "4e0863022f2a5822c8dcaf039fa456171379c673f872971b6aade2bf5da3f169",
+    "snr3_image00_trial0.json": "0b094bb5e86080701ff96e00634fbde097df50fdc5da923fff6a3767ca4fec8d",
+    "snr3_image00_trial1.json": "e2b7f95eaa54a87b647914d903ce336b7d190bcad95dd819128842df757fed19",
+    "snr3_image00_trial2.json": "df88668c05891de7d8c90307bc4c21472db545fff556326dcde7a16c54f39e70",
+    "snr4_image00_trial0.json": "ba1c90857995b3f016774bfcc1cd7ef39c58ea8900a0d8f7c3f20af42fafeda5",
+    "snr4_image00_trial1.json": "79c8d140fe941fce86314296c319e92024586f47dd26ff8686a1fab2aebb5194",
+    "snr4_image00_trial2.json": "0e99e490a1ea79a6cfe57ef5bed9cef8db95db2172a9f1d5d8db32f32fc6711f",
+    "snr5_image00_trial0.json": "1bf2ff41bd81fb821aaadd34fb62221c0a40abed54e685e2acd29bccdc87daed",
+    "snr5_image00_trial1.json": "58539dda35557b6e8fa1c76b49f983e5d36de2577bb65b50ecf114c9a594aefe"
+  },
+  "primary_holdout_changed": false,
+  "primary_summary_sha256": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+  "metric_definition": "actual final-ID equality and whole-image residual TER; author TER_af not used as TER",
+  "physical_retries_simulated": false
+}
