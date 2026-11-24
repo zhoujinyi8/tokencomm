@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-24T02:01:42.946018+00:00",
+  "source": "https://arxiv.org/html/2502.12096v4#S6",
+  "status": "supplemental descriptive analytic plan; not part of stage44 primary outcomes",
+  "original_primary_protocol_changed": false,
+  "image_quality_results_read_before_plan": false,
+  "script_sha256": "0b841b3b6f4a336cef6b00df22118289200ee75af9ea8f7b4d92488cc946e029",
+  "reference_sha256": "54ef87c7f0cf4a297e25b06ae11c242f204f8b4aba988b7214bde951507c9c4a",
+  "protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "packet_error_definition": "any received token ID differs from sent token in a fixed interleaved packet",
+  "population": "all 100 images, 5 trials, 64 packets/reception at 8 dB",
+  "aggregation": "pooled true packet errors / all 32000 packet trials; no strategy selection",
+  "assumptions": [
+    "T counts first attempt",
+    "single-shot T=1",
+    "ideal ARQ T=1/(1-pooled true PER)",
+    "homogeneous independent retry approximation; actual retries not simulated",
+    "token payload bits only; CRC/coding/padding/CMI/ACK/control/latency excluded",
+    "CRC failures are reported separately and are not substituted for true packet errors",
+    "no quality guarantee or complete-paper TCE curve claim"
+  ]
+}

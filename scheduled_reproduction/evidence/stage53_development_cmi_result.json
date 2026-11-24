@@ -1,0 +1,50 @@
+{
+  "scope": "preselected old development case; no holdout quality evaluation",
+  "plan_sha256": "3478067d15f4ca5d18e68add2288ebb5592dd12c766b94918aa15f2a6cf36a06",
+  "script_sha256": "cd33a307f7473fd3a18f0b0a54d912cd6479a7c8896615cc17841a6b3b26a5cd",
+  "original_primary_protocol_changed": false,
+  "pretrained_weights_loaded": true,
+  "current_holdout_data_accessed": false,
+  "image_index": 0,
+  "trial": 0,
+  "source_image_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+  "generation_seed": 20261124,
+  "direct_correct_tokens": 246,
+  "class_dropped_label_invariance_passed": true,
+  "rows": [
+    {
+      "path": "without_cmi_true_placeholder",
+      "w": 0,
+      "label": 0,
+      "steps": 7,
+      "masked_tokens": 24,
+      "correct_tokens": 235,
+      "unmasked_positions_preserved": true,
+      "decoded_output_finite": true,
+      "token_sha256": "104ef88e8756b847cdcd352490922de9409ed31dbcef1f32322a303b6513fecd"
+    },
+    {
+      "path": "without_cmi_alternate_placeholder",
+      "w": 0,
+      "label": 999,
+      "steps": 7,
+      "masked_tokens": 24,
+      "correct_tokens": 235,
+      "unmasked_positions_preserved": true,
+      "decoded_output_finite": true,
+      "token_sha256": "104ef88e8756b847cdcd352490922de9409ed31dbcef1f32322a303b6513fecd"
+    },
+    {
+      "path": "with_cmi_true_class",
+      "w": 1,
+      "label": 0,
+      "steps": 7,
+      "masked_tokens": 24,
+      "correct_tokens": 234,
+      "unmasked_positions_preserved": true,
+      "decoded_output_finite": true,
+      "token_sha256": "4db7b78e070fcc93ba20f30965834d2114824db241e51b6642df92a745343776"
+    }
+  ],
+  "caveat": "one old development reception; interface smoke, no general CMI benefit claim"
+}

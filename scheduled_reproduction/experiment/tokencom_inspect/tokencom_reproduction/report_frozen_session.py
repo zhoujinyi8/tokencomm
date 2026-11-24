@@ -74,6 +74,13 @@ if summary is not None:
                         + '\n'.join(differences)
                         + '\n\n真值掩码路径使用发送端真值，不能视作仅凭接收端信息取得的结果。PSNR 使用原始解码输出；LPIPS 使用裁剪输出和 normalize=True；CLIP 使用裁剪后转 PIL 的官方预处理，口径沿用冻结协议。')
     next_section = '本协议的恢复、图像指标和六路径配对汇总已经完成。后续转向论文 TCE、重传对照、CMI 消融及多 SNR 差距核对；工程反馈控制协议作为独立扩展评估，不使用该留出集继续调参或选择探索门控档位。'
+    definition_audit_path = run / 'stage53_ter_definition_audit.json'
+    if definition_audit_path.exists():
+        definition_audit = json.loads(definition_audit_path.read_text(encoding='utf-8'))
+        assert definition_audit['all_accounting_checks_passed']
+        assert definition_audit['summary_sha256'] == result['complete_summary_sha256']
+        result['ter_definition_audit_sha256'] = hashlib.sha256(definition_audit_path.read_bytes()).hexdigest()
+        analysis_section += '\n\n统计口径核验：作者 GenDecoding 中名为 TER_af 的返回量是正确掩码预测数除以全图 token 数，不能直接作为全图残余误码率。本报告始终使用最终 token ID 的全图精确计数。补充说明与全量修复/改错对账见阶段 53 的 TER 口径报告；该说明不改变冻结主指标或模型。'
 progress_path = run / f'stage{stage}_session_progress.json'
 progress_path.write_text(json.dumps(result, indent=2), encoding='utf-8')
 report = outputs / f'TokCom_阶段{stage}冻结留出续跑_{local_date}.md'

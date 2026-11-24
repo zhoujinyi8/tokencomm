@@ -38,7 +38,14 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage51_window_start.json','stage51_session_progress.json',
              'stage52_window_start.json','stage52_session_progress.json',
              'stage47_complete_holdout_summary.json','stage52_tce_reference_check.json',
-             'stage52_paper_scope_review.json']:
+             'stage52_paper_scope_review.json','stage53_window_start.json',
+             'stage53_session_progress.json','stage53_cmi_interface_audit.json',
+             'stage53_payload_tce_plan.json','stage53_payload_tce_result.json',
+             'stage53_complete_summary_audit.json','stage53_development_cmi_plan.json',
+             'stage53_development_cmi_result.json','stage53_ter_definition_audit.json',
+             'stage53_development_cmi_grid_plan.json','stage53_development_cmi_grid_summary.json',
+             'stage53_development_cmi_grid_audit.json','stage53_ideal_vq_plan.json',
+             'stage53_ideal_vq_summary.json','stage53_ideal_vq_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)

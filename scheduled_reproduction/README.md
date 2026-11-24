@@ -11,7 +11,7 @@ A project-disjoint 100-image holdout and its protocol were frozen before selecti
 ## Frozen evaluation coverage
 
 - Recovery: 500/500 receptions; 100/100 images have five complete trials.
-- Image metrics: 267/500 receptions, six paths per reception; 53/100 images have five metric trials.
+- Image metrics: 500/500 receptions, six paths per reception; 100/100 images have five metric trials.
 - See `evidence/stage46_output_audit.json` and `evidence/stage47_metric_file_audit.json` for actual audited coverage. Recovery completion alone does not establish metric completion or paper-wide performance. The complete summary entry point requires every image and trial.
 
 ## Files and execution layout
@@ -30,6 +30,10 @@ Restore `evidence/stage44_holdout/{manifest.json,test.jsonl}` and the protocol i
 After the stage45 cache audit is complete, run `run_stage46_frozen_recovery.py`. Its fixed computation window saves complete receptions and resumes missing cases under the same script lock. `audit_stage46_outputs.py` validates saved input identity, preservation of unmasked positions and exact gate definitions without performance aggregation.
 
 `evaluate_stage47_frozen_metrics.py` writes per-reception metrics under a separate execution lock; outcomes are not used to select settings. `summarize_stage47_complete_holdout.py` refuses an incomplete evaluation: it requires all 100 images and five receptions for all six paths. Preserve source and execution locks between sessions.
+
+## Complete frozen summary
+
+All 100 images and five receptions are represented in `evidence/stage47_complete_holdout_summary.json`. It contains six-path means, paired per-image differences and all per-image values. Trial means are computed within image before averaging images. No exploratory gate fraction is selected. This completes the frozen 8 dB evaluation, while paper TCE/baseline, CMI ablation and multi-SNR reproduction remain open. Engineering feedback protocols are evaluated separately.
 
 ## Interpretation
 

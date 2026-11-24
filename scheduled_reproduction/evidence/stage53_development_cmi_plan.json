@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-11-24T02:05:51.682687+00:00",
+  "scope": "preselected old development case; no holdout quality evaluation",
+  "execution_condition": "only after frozen metric process exits and sufficient window remains",
+  "selection_rule": "first old stage26 development image and first reception; no outcome-based selection",
+  "reception_cache": "runs/stage26_official_token_link_snr8_5trials.npz",
+  "image_index": 0,
+  "trial": 0,
+  "source_image_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+  "expected_masked_tokens": 24,
+  "mask": "fixed oracle packet mask",
+  "generation_seed": 20261124,
+  "generation_parameters": {
+    "step": 32,
+    "sm_temp": 1.3,
+    "randomize": "linear",
+    "r_temp": 7,
+    "sched_mode": "arccos"
+  },
+  "calls": [
+    [
+      "without_cmi_true_placeholder",
+      0,
+      0
+    ],
+    [
+      "without_cmi_alternate_placeholder",
+      0,
+      999
+    ],
+    [
+      "with_cmi_true_class",
+      1,
+      0
+    ]
+  ],
+  "script_sha256": "cd33a307f7473fd3a18f0b0a54d912cd6479a7c8896615cc17841a6b3b26a5cd",
+  "input_sha256": {
+    "runs/stage26_official_token_link_snr8_5trials.npz": "c83e364b624babd2c96b84cb0e820f6bda6e60ce39ae2d4d3d6594e0797f4a99",
+    "runs/stage26_official_demo_tokens.npz": "cf1e038f146e2778afa4c66f75cc35e2369bab134ada6034e8462464c0ef64ca",
+    "pretrained/official_tokcom/last.ckpt": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+    "pretrained/official_tokcom/MaskGIT_ImageNet_256.pth": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462"
+  },
+  "frozen_primary_protocol_changed": false,
+  "holdout_quality_results_read_before_plan": false,
+  "interpretation": "pretrained end-to-end interface check on one old development reception, not a CMI performance evaluation"
+}
