@@ -23,6 +23,7 @@ for path in (root/'third_party').rglob('*'):
         out=code/path.relative_to(root);out.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(path,out)
 reports=target/'reports';reports.mkdir(exist_ok=True)
 for path in (root.parents[2]/'outputs').glob('TokCom_*.md'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_PHY.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
              'stage34_lpips_five_trials_summary.json','stage35_clip_summary.json',
@@ -51,7 +52,10 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage54_development_phy_progress.json','stage54_development_phy_audit.json',
              'stage54_development_recovery_lock.json','stage54_development_recovery_progress.json',
              'stage54_development_recovery_audit.json','stage54_session_progress.json',
-             'stage54_audit_contract_verification.json']:
+             'stage54_audit_contract_verification.json','stage55_window_start.json',
+             'stage55_session_progress.json','stage55_development_phy_audit.json',
+             'stage55_development_recovery_audit.json','stage55_complete_phy_mask_exposure.json',
+             'stage55_input_convention_audit.json','stage55_range_diagnostic_plan.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -113,9 +117,13 @@ if pilot_path.exists():
     phy=json.loads((root/'runs/stage54_development_phy_audit.json').read_text(encoding='utf-8'))
     assert pilot['all_checks_passed'] and phy['all_checks_passed']
     readme+=f'''\n## Separate multi-SNR development pilot (stage 54)\n
-The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY {phy['completed_cases']}/300; four-path paired generation/metrics {pilot['completed_cases']}/300. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.\n
+The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY {phy['completed_cases']}/300; four-path paired generation/metrics {pilot['completed_cases']}/300. Complete PHY SNR groups: {len(phy['complete_snr_groups'])}/6. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.\n
 Only complete 50-reception SNR groups receive outcome summaries. Current complete groups: {len(pilot['complete_snr_groups'])}/6. Incomplete groups report coverage only. This author-demo fixed interleaver and ten-image pilot do not establish paper-wide multi-SNR reproduction. Ideal correct-token decode does not simulate physical retransmissions.\n
 Resume `cache_stage54_development_phy.py` in the separate Sionna environment, audit with `audit_stage54_development_phy.py`, then run `run_stage54_development_multisnr.py` and `audit_stage54_development_recovery.py` in the PyTorch environment. Preserve plan and execution identities; restore local inputs named by the plan. `sync_github_worktree_from_api.py` verifies a published unsigned commit and full Git tree when native fetch is unavailable.\n'''
+if (root/'runs/stage55_input_convention_audit.json').exists():
+    readme+='''\n## Convention alignment audit (stage 55)\n
+`evidence/stage55_input_convention_audit.json` verifies four pinned author files against remote Git blob identities. The published training code maps input x to 2*x-1 before VQ encoding, while the demo notebook directly encodes ToTensor output. The demo LPIPS call also differs from the explicit normalization convention in this frozen evaluation. This is a source-path discrepancy, not proof of checkpoint training provenance or a causal explanation for quality.\n
+`evidence/stage55_range_diagnostic_plan.json` preregisters a separate four-condition noiseless development diagnostic. Stage 55 saves this plan without executing it. No primary or active multi-SNR settings change. Complete PHY statistics and CRC/payload masking exposure are separately recorded in `evidence/stage55_complete_phy_mask_exposure.json`; they do not measure generation damage.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

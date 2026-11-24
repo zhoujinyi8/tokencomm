@@ -1,0 +1,144 @@
+{
+  "created_utc": "2026-11-24T12:11:26.611056+00:00",
+  "scope": "preregistered old-development noiseless VQGAN convention diagnostic; not executed in stage55",
+  "status": "planned_not_executed",
+  "source_audit": "stage55_input_convention_audit.json",
+  "source_audit_sha256": "9a44916b8e5cb9725146831d402947b88383f4437b3c876811429fc182de6a05",
+  "author_commit": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "objective": "Measure image round-trip and token-ID differences under explicit input/output conventions; does not establish actual checkpoint training provenance or MaskGIT/channel effects",
+  "images": 10,
+  "selected_indices": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90
+  ],
+  "image_manifest": [
+    {
+      "source_index": 0,
+      "label": 0,
+      "class_name": "tench",
+      "image_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "token_min": 4,
+      "token_max": 988
+    },
+    {
+      "source_index": 10,
+      "label": 1,
+      "class_name": "English springer",
+      "image_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "token_min": 12,
+      "token_max": 1023
+    },
+    {
+      "source_index": 20,
+      "label": 2,
+      "class_name": "cassette player",
+      "image_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "token_min": 0,
+      "token_max": 1017
+    },
+    {
+      "source_index": 30,
+      "label": 3,
+      "class_name": "chain saw",
+      "image_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "token_min": 0,
+      "token_max": 1017
+    },
+    {
+      "source_index": 40,
+      "label": 4,
+      "class_name": "church",
+      "image_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "token_min": 4,
+      "token_max": 1023
+    },
+    {
+      "source_index": 50,
+      "label": 5,
+      "class_name": "French horn",
+      "image_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "token_min": 4,
+      "token_max": 1023
+    },
+    {
+      "source_index": 60,
+      "label": 6,
+      "class_name": "garbage truck",
+      "image_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "token_min": 4,
+      "token_max": 1017
+    },
+    {
+      "source_index": 70,
+      "label": 7,
+      "class_name": "gas pump",
+      "image_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "token_min": 4,
+      "token_max": 1018
+    },
+    {
+      "source_index": 80,
+      "label": 8,
+      "class_name": "golf ball",
+      "image_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "token_min": 0,
+      "token_max": 1017
+    },
+    {
+      "source_index": 90,
+      "label": 9,
+      "class_name": "parachute",
+      "image_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "token_min": 0,
+      "token_max": 1023
+    }
+  ],
+  "image_geometry": "RGB, Resize((256,256)), ToTensor shared across all paths; no crop change",
+  "conditions": [
+    {
+      "path": "demo_input_raw_output",
+      "encoder_input": "x",
+      "decoder_output": "y"
+    },
+    {
+      "path": "demo_input_rescaled_output",
+      "encoder_input": "x",
+      "decoder_output": "(y+1)/2"
+    },
+    {
+      "path": "training_range_input_raw_output",
+      "encoder_input": "2*x-1",
+      "decoder_output": "y"
+    },
+    {
+      "path": "training_range_input_rescaled_output",
+      "encoder_input": "2*x-1",
+      "decoder_output": "(y+1)/2"
+    }
+  ],
+  "input_x_range": "[0,1]",
+  "output_y_definition": "raw VQGAN decode_code output; not assumed bounded",
+  "shared_metrics": "PSNR from unclipped defined output vs original x; LPIPS on clipped output with normalize=True; CLIP on clipped PIL output with official preprocess",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "vqgan_weight_sha256": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+  "source_token_manifest_sha256": "cf1e038f146e2778afa4c66f75cc35e2369bab134ada6034e8462464c0ef64ca",
+  "source_val_cache_sha256": "1b931ba507b91980220b7b5deeb73592e92471aa76e1df18492cec60cf2afe7e",
+  "aggregation": "Require all ten images and all four paths before means; report every condition and paired image differences, without selecting a winning convention",
+  "token_diagnostic": "fraction of VQ token IDs changed between encoder x and encoder 2*x-1; output affine conditions share IDs",
+  "device": "cpu",
+  "torch_threads": 4,
+  "maskgit_used": false,
+  "physical_channel_used": false,
+  "model_inference_already_performed": false,
+  "primary_holdout_changed": false,
+  "stage54_multisnr_plan_changed": false,
+  "interpretation": "Exploratory reused development cohort only. Do not overwrite frozen primary results or imply a noiseless convention diagnostic validates channel recovery."
+}
