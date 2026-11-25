@@ -41,9 +41,9 @@ The holdout is disjoint from prior project image files and decoded pixels, not p
 
 ## Separate multi-SNR development pilot (stage 54)
 
-The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY 300/300; four-path paired generation/metrics 72/300. Complete PHY SNR groups: 6/6. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.
+The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY 300/300; four-path paired generation/metrics 300/300. Complete PHY SNR groups: 6/6. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.
 
-Only complete 50-reception SNR groups receive outcome summaries. Current complete groups: 0/6. Incomplete groups report coverage only. This author-demo fixed interleaver and ten-image pilot do not establish paper-wide multi-SNR reproduction. Ideal correct-token decode does not simulate physical retransmissions.
+Only complete 50-reception SNR groups receive outcome summaries. Current complete groups: 6/6. Incomplete groups report coverage only. This author-demo fixed interleaver and ten-image pilot do not establish paper-wide multi-SNR reproduction. Ideal correct-token decode does not simulate physical retransmissions.
 
 Resume `cache_stage54_development_phy.py` in the separate Sionna environment, audit with `audit_stage54_development_phy.py`, then run `run_stage54_development_multisnr.py` and `audit_stage54_development_recovery.py` in the PyTorch environment. Preserve plan and execution identities; restore local inputs named by the plan. `sync_github_worktree_from_api.py` verifies a published unsigned commit and full Git tree when native fetch is unavailable.
 
@@ -66,3 +66,9 @@ The preregistered old-development comparison now has 50/50 demo-pipeline cases a
 The two conventions are x -> raw decode y, and 2*x-1 -> (y+1)/2 for every metric path. Same images, 8 dB, noise seeds, code/modulation, class modes and generation parameters are retained. Each stream uses its own true-error oracle mask; both class modes share that mask within the stream. No cross-pipeline quality means are released until all 50 pairs and all four paths are complete. See `evidence/stage57_comparison_audit.json`; this independent namespace does not alter the frozen primary or the original six-SNR grid.
 
 Resume `run_stage57_convention_comparison.py`, audit with `audit_stage57_convention_comparison.py`, then render a session with `report_convention_comparison.py --session runs/SESSION.json`. The frozen reuse-source manifest prevents later original-grid progress from changing this study's initial identities.
+
+## Resumed six-SNR model study (stage 59)
+
+The matched convention study is complete at 100 pipeline receptions and 50 pairs; its frozen audit and all 100 case files remain unchanged. Stage 59 resumes the original independently locked six-SNR model study from 72/300. Current model coverage: 300/300; new model cases this window: 228. PHY remains 300/300, with 0 new physical simulations this window. No matched-convention case is transferred into the original grid. Incomplete SNR groups receive coverage only, without quality means.
+
+Publication follows draft PR #2 on `reproduction/automation-30-stage58`. Use `sync_github_worktree_from_api.py --branch BRANCH --commit SHA --expected-parent PARENT --receipt runs/RECEIPT.json` for exact tree/commit synchronization on the selected existing branch. The explicit branch is checked before staging or ref mutation; isolated Git contract checks cover rejection and idempotence.

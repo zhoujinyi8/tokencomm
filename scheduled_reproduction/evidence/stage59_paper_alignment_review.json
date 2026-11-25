@@ -1,0 +1,63 @@
+{
+  "recorded_utc": "2026-11-25T20:24:07.362753+00:00",
+  "paper_source": "https://arxiv.org/html/2502.12096v5#S6",
+  "primary_source_retrieved": true,
+  "source_sections": [
+    "VI-A",
+    "VI-B"
+  ],
+  "primary_protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "multisnr_plan_sha256": "232175f2623e815eef69313a59d4c08d45bc3ef532a00ebe4d45cb75a8f3ca56",
+  "dataset": {
+    "paper": "ImageNet100",
+    "local_development_images": 10,
+    "local_holdout_images": 100,
+    "local_holdout_per_class": 10,
+    "local_source": "unused images from local Imagenette training-source parquet; not upstream test split",
+    "same_dataset_as_paper_established": false,
+    "warning": "A 100-image Imagenette holdout does not establish an ImageNet100 evaluation; exact paper subset and split remain unresolved."
+  },
+  "packet_positions": {
+    "paper": "randomized token positions within packets",
+    "current": "fixed token index modulo 64",
+    "alignment_complete": false
+  },
+  "class_information": {
+    "paper_label_bits": 7,
+    "paper_assumption": "separate channel and perfect recovery",
+    "current": "perfect class ID supplied directly to model; no transmitted CMI stream or resource charge",
+    "alignment_of_perfect_condition_only": true,
+    "resource_equivalent": false
+  },
+  "coding_and_mapping": {
+    "phy_script_sha256": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167",
+    "sionna_conv_encoder_sha256": "6789760303148102c118ec1377a6453a58b0d7246551eeb14104c347b75121f8",
+    "crc_and_convolutional_encoding": "per packet: input batch shape (1,64,40), CRC output (1,64,51), convolutional output (1,64,102)",
+    "conv_encoder_terminate": false,
+    "qam_mapping": "102 coded bits per packet flattened across all 64 packets before 4-bit symbols",
+    "full_frame_coded_bits": 6528,
+    "full_frame_qam_symbols": 1632,
+    "independent_packet_qam_boundary_aligned": false,
+    "illustrative_independent_mapping": {
+      "status": "arithmetic only; not simulated or adopted",
+      "padding_bits_per_packet": 2,
+      "symbols_per_packet_with_padding": 26,
+      "full_frame_symbols_if_all_padded": 1664
+    },
+    "existing_wire_ledger_changed": false
+  },
+  "retransmission_baselines": {
+    "paper": "VQGAN + R and Cheng + R; payload TCE uses 1/(1-PER)",
+    "current": "ideal correct-token decode plus analytic payload-TCE reference; no physical retry result",
+    "physical_retry_executed": false
+  },
+  "next_priorities": [
+    "Resolve exact ImageNet100 subset/split and source availability before selecting new data",
+    "Preregister independent random-position interleaver comparison without rewriting existing locks",
+    "Define packet-symbol framing, stopping rule, CMI accounting and retry noise policy before physical ARQ",
+    "Obtain and verify Cheng approximately 0.04 bpp baseline and identical channel conditions"
+  ],
+  "additional_model_inference_performed": false,
+  "primary_or_multisnr_settings_changed": false,
+  "full_paper_reproduction_complete": false
+}

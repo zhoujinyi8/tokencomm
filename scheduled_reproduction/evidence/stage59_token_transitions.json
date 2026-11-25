@@ -1,0 +1,3346 @@
+{
+  "analysis": "descriptive exact-ID transitions; no strategy selection",
+  "source_audit_sha256": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+  "script_sha256": "c1f568ca212f14e8516917055d306ba7b2f65a403e4cf9b8a9532a8833b17585",
+  "plan_sha256": "232175f2623e815eef69313a59d4c08d45bc3ef532a00ebe4d45cb75a8f3ca56",
+  "complete": true,
+  "completed_cases": 300,
+  "new_model_inference_performed": false,
+  "primary_holdout_changed": false,
+  "outcome_counts_aggregated": true,
+  "groups": {
+    "6.0": {
+      "receptions": 50,
+      "totals": {
+        "direct": {
+          "tokens": 12800,
+          "masked_tokens": 5224,
+          "wrong_before": 1923,
+          "wrong_after": 1923,
+          "repaired": 0,
+          "damaged": 0,
+          "masked_correct_preserved": 3301,
+          "wrong_still_wrong": 1923,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 0
+        },
+        "without_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 5224,
+          "wrong_before": 1923,
+          "wrong_after": 4746,
+          "repaired": 172,
+          "damaged": 2995,
+          "masked_correct_preserved": 306,
+          "wrong_still_wrong": 1751,
+          "wrong_to_different_wrong": 1749,
+          "net_correct_gain": -2823
+        },
+        "with_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 5224,
+          "wrong_before": 1923,
+          "wrong_after": 4711,
+          "repaired": 183,
+          "damaged": 2971,
+          "masked_correct_preserved": 330,
+          "wrong_still_wrong": 1740,
+          "wrong_to_different_wrong": 1738,
+          "net_correct_gain": -2788
+        },
+        "ideal_correct_tokens": {
+          "tokens": 12800,
+          "masked_tokens": 5224,
+          "wrong_before": 1923,
+          "wrong_after": 0,
+          "repaired": 1923,
+          "damaged": 0,
+          "masked_correct_preserved": 3301,
+          "wrong_still_wrong": 0,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 1923
+        }
+      },
+      "per_image_trial_means": [
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 115.2,
+            "wrong_before": 44.8,
+            "wrong_after": 44.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 70.4,
+            "wrong_still_wrong": 44.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 115.2,
+            "wrong_before": 44.8,
+            "wrong_after": 105.8,
+            "repaired": 4.4,
+            "damaged": 65.4,
+            "masked_correct_preserved": 5.0,
+            "wrong_still_wrong": 40.4,
+            "wrong_to_different_wrong": 40.4,
+            "net_correct_gain": -61.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 115.2,
+            "wrong_before": 44.8,
+            "wrong_after": 103.2,
+            "repaired": 4.8,
+            "damaged": 63.2,
+            "masked_correct_preserved": 7.2,
+            "wrong_still_wrong": 40.0,
+            "wrong_to_different_wrong": 40.0,
+            "net_correct_gain": -58.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 115.2,
+            "wrong_before": 44.8,
+            "wrong_after": 0.0,
+            "repaired": 44.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 70.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 44.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 104.8,
+            "wrong_before": 37.2,
+            "wrong_after": 37.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 67.6,
+            "wrong_still_wrong": 37.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 104.8,
+            "wrong_before": 37.2,
+            "wrong_after": 99.8,
+            "repaired": 1.2,
+            "damaged": 63.8,
+            "masked_correct_preserved": 3.8,
+            "wrong_still_wrong": 36.0,
+            "wrong_to_different_wrong": 36.0,
+            "net_correct_gain": -62.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 104.8,
+            "wrong_before": 37.2,
+            "wrong_after": 98.8,
+            "repaired": 1.4,
+            "damaged": 63.0,
+            "masked_correct_preserved": 4.6,
+            "wrong_still_wrong": 35.8,
+            "wrong_to_different_wrong": 35.8,
+            "net_correct_gain": -61.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 104.8,
+            "wrong_before": 37.2,
+            "wrong_after": 0.0,
+            "repaired": 37.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 67.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 37.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 99.2,
+            "wrong_before": 38.4,
+            "wrong_after": 38.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 60.8,
+            "wrong_still_wrong": 38.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 99.2,
+            "wrong_before": 38.4,
+            "wrong_after": 90.2,
+            "repaired": 3.8,
+            "damaged": 55.6,
+            "masked_correct_preserved": 5.2,
+            "wrong_still_wrong": 34.6,
+            "wrong_to_different_wrong": 34.6,
+            "net_correct_gain": -51.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 99.2,
+            "wrong_before": 38.4,
+            "wrong_after": 88.6,
+            "repaired": 4.6,
+            "damaged": 54.8,
+            "masked_correct_preserved": 6.0,
+            "wrong_still_wrong": 33.8,
+            "wrong_to_different_wrong": 33.8,
+            "net_correct_gain": -50.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 99.2,
+            "wrong_before": 38.4,
+            "wrong_after": 0.0,
+            "repaired": 38.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 60.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 38.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 96.0,
+            "wrong_before": 32.2,
+            "wrong_after": 32.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 63.8,
+            "wrong_still_wrong": 32.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 96.0,
+            "wrong_before": 32.2,
+            "wrong_after": 81.4,
+            "repaired": 5.2,
+            "damaged": 54.4,
+            "masked_correct_preserved": 9.4,
+            "wrong_still_wrong": 27.0,
+            "wrong_to_different_wrong": 27.0,
+            "net_correct_gain": -49.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 96.0,
+            "wrong_before": 32.2,
+            "wrong_after": 81.8,
+            "repaired": 5.4,
+            "damaged": 55.0,
+            "masked_correct_preserved": 8.8,
+            "wrong_still_wrong": 26.8,
+            "wrong_to_different_wrong": 26.8,
+            "net_correct_gain": -49.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 96.0,
+            "wrong_before": 32.2,
+            "wrong_after": 0.0,
+            "repaired": 32.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 63.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 32.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 109.6,
+            "wrong_before": 39.2,
+            "wrong_after": 39.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 70.4,
+            "wrong_still_wrong": 39.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 109.6,
+            "wrong_before": 39.2,
+            "wrong_after": 105.2,
+            "repaired": 1.8,
+            "damaged": 67.8,
+            "masked_correct_preserved": 2.6,
+            "wrong_still_wrong": 37.4,
+            "wrong_to_different_wrong": 37.2,
+            "net_correct_gain": -66.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 109.6,
+            "wrong_before": 39.2,
+            "wrong_after": 104.6,
+            "repaired": 1.4,
+            "damaged": 66.8,
+            "masked_correct_preserved": 3.6,
+            "wrong_still_wrong": 37.8,
+            "wrong_to_different_wrong": 37.8,
+            "net_correct_gain": -65.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 109.6,
+            "wrong_before": 39.2,
+            "wrong_after": 0.0,
+            "repaired": 39.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 70.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 39.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 95.2,
+            "wrong_before": 35.6,
+            "wrong_after": 35.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 59.6,
+            "wrong_still_wrong": 35.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 95.2,
+            "wrong_before": 35.6,
+            "wrong_after": 79.4,
+            "repaired": 5.0,
+            "damaged": 48.8,
+            "masked_correct_preserved": 10.8,
+            "wrong_still_wrong": 30.6,
+            "wrong_to_different_wrong": 30.4,
+            "net_correct_gain": -43.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 95.2,
+            "wrong_before": 35.6,
+            "wrong_after": 79.6,
+            "repaired": 5.0,
+            "damaged": 49.0,
+            "masked_correct_preserved": 10.6,
+            "wrong_still_wrong": 30.6,
+            "wrong_to_different_wrong": 30.4,
+            "net_correct_gain": -44.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 95.2,
+            "wrong_before": 35.6,
+            "wrong_after": 0.0,
+            "repaired": 35.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 59.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 35.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 102.4,
+            "wrong_before": 38.8,
+            "wrong_after": 38.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 63.6,
+            "wrong_still_wrong": 38.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 102.4,
+            "wrong_before": 38.8,
+            "wrong_after": 88.0,
+            "repaired": 4.8,
+            "damaged": 54.0,
+            "masked_correct_preserved": 9.6,
+            "wrong_still_wrong": 34.0,
+            "wrong_to_different_wrong": 34.0,
+            "net_correct_gain": -49.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 102.4,
+            "wrong_before": 38.8,
+            "wrong_after": 87.2,
+            "repaired": 5.6,
+            "damaged": 54.0,
+            "masked_correct_preserved": 9.6,
+            "wrong_still_wrong": 33.2,
+            "wrong_to_different_wrong": 33.2,
+            "net_correct_gain": -48.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 102.4,
+            "wrong_before": 38.8,
+            "wrong_after": 0.0,
+            "repaired": 38.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 63.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 38.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 103.2,
+            "wrong_before": 37.8,
+            "wrong_after": 37.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 65.4,
+            "wrong_still_wrong": 37.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 103.2,
+            "wrong_before": 37.8,
+            "wrong_after": 101.4,
+            "repaired": 0.8,
+            "damaged": 64.4,
+            "masked_correct_preserved": 1.0,
+            "wrong_still_wrong": 37.0,
+            "wrong_to_different_wrong": 37.0,
+            "net_correct_gain": -63.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 103.2,
+            "wrong_before": 37.8,
+            "wrong_after": 101.0,
+            "repaired": 0.8,
+            "damaged": 64.0,
+            "masked_correct_preserved": 1.4,
+            "wrong_still_wrong": 37.0,
+            "wrong_to_different_wrong": 36.8,
+            "net_correct_gain": -63.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 103.2,
+            "wrong_before": 37.8,
+            "wrong_after": 0.0,
+            "repaired": 37.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 65.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 37.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 101.6,
+            "wrong_before": 36.2,
+            "wrong_after": 36.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 65.4,
+            "wrong_still_wrong": 36.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 101.6,
+            "wrong_before": 36.2,
+            "wrong_after": 93.0,
+            "repaired": 3.4,
+            "damaged": 60.2,
+            "masked_correct_preserved": 5.2,
+            "wrong_still_wrong": 32.8,
+            "wrong_to_different_wrong": 32.8,
+            "net_correct_gain": -56.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 101.6,
+            "wrong_before": 36.2,
+            "wrong_after": 92.2,
+            "repaired": 3.8,
+            "damaged": 59.8,
+            "masked_correct_preserved": 5.6,
+            "wrong_still_wrong": 32.4,
+            "wrong_to_different_wrong": 32.4,
+            "net_correct_gain": -56.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 101.6,
+            "wrong_before": 36.2,
+            "wrong_after": 0.0,
+            "repaired": 36.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 65.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 36.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 117.6,
+            "wrong_before": 44.4,
+            "wrong_after": 44.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 73.2,
+            "wrong_still_wrong": 44.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 117.6,
+            "wrong_before": 44.4,
+            "wrong_after": 105.0,
+            "repaired": 4.0,
+            "damaged": 64.6,
+            "masked_correct_preserved": 8.6,
+            "wrong_still_wrong": 40.4,
+            "wrong_to_different_wrong": 40.4,
+            "net_correct_gain": -60.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 117.6,
+            "wrong_before": 44.4,
+            "wrong_after": 105.2,
+            "repaired": 3.8,
+            "damaged": 64.6,
+            "masked_correct_preserved": 8.6,
+            "wrong_still_wrong": 40.6,
+            "wrong_to_different_wrong": 40.6,
+            "net_correct_gain": -60.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 117.6,
+            "wrong_before": 44.4,
+            "wrong_after": 0.0,
+            "repaired": 44.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 73.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 44.4
+          }
+        }
+      ]
+    },
+    "6.5": {
+      "receptions": 50,
+      "totals": {
+        "direct": {
+          "tokens": 12800,
+          "masked_tokens": 3628,
+          "wrong_before": 1225,
+          "wrong_after": 1225,
+          "repaired": 0,
+          "damaged": 0,
+          "masked_correct_preserved": 2403,
+          "wrong_still_wrong": 1225,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 0
+        },
+        "without_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 3628,
+          "wrong_before": 1225,
+          "wrong_after": 3239,
+          "repaired": 126,
+          "damaged": 2140,
+          "masked_correct_preserved": 263,
+          "wrong_still_wrong": 1099,
+          "wrong_to_different_wrong": 1099,
+          "net_correct_gain": -2014
+        },
+        "with_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 3628,
+          "wrong_before": 1225,
+          "wrong_after": 3220,
+          "repaired": 135,
+          "damaged": 2130,
+          "masked_correct_preserved": 273,
+          "wrong_still_wrong": 1090,
+          "wrong_to_different_wrong": 1090,
+          "net_correct_gain": -1995
+        },
+        "ideal_correct_tokens": {
+          "tokens": 12800,
+          "masked_tokens": 3628,
+          "wrong_before": 1225,
+          "wrong_after": 0,
+          "repaired": 1225,
+          "damaged": 0,
+          "masked_correct_preserved": 2403,
+          "wrong_still_wrong": 0,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 1225
+        }
+      },
+      "per_image_trial_means": [
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 75.2,
+            "wrong_before": 26.6,
+            "wrong_after": 26.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.6,
+            "wrong_still_wrong": 26.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 75.2,
+            "wrong_before": 26.6,
+            "wrong_after": 67.6,
+            "repaired": 3.2,
+            "damaged": 44.2,
+            "masked_correct_preserved": 4.4,
+            "wrong_still_wrong": 23.4,
+            "wrong_to_different_wrong": 23.4,
+            "net_correct_gain": -41.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 75.2,
+            "wrong_before": 26.6,
+            "wrong_after": 65.2,
+            "repaired": 4.4,
+            "damaged": 43.0,
+            "masked_correct_preserved": 5.6,
+            "wrong_still_wrong": 22.2,
+            "wrong_to_different_wrong": 22.2,
+            "net_correct_gain": -38.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 75.2,
+            "wrong_before": 26.6,
+            "wrong_after": 0.0,
+            "repaired": 26.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 26.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.0,
+            "wrong_after": 24.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.8,
+            "wrong_still_wrong": 24.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.0,
+            "wrong_after": 67.4,
+            "repaired": 1.4,
+            "damaged": 44.8,
+            "masked_correct_preserved": 4.0,
+            "wrong_still_wrong": 22.6,
+            "wrong_to_different_wrong": 22.6,
+            "net_correct_gain": -43.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.0,
+            "wrong_after": 65.4,
+            "repaired": 2.0,
+            "damaged": 43.4,
+            "masked_correct_preserved": 5.4,
+            "wrong_still_wrong": 22.0,
+            "wrong_to_different_wrong": 22.0,
+            "net_correct_gain": -41.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.0,
+            "wrong_after": 0.0,
+            "repaired": 24.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 24.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 70.4,
+            "wrong_before": 23.8,
+            "wrong_after": 23.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 46.6,
+            "wrong_still_wrong": 23.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 70.4,
+            "wrong_before": 23.8,
+            "wrong_after": 61.2,
+            "repaired": 2.2,
+            "damaged": 39.6,
+            "masked_correct_preserved": 7.0,
+            "wrong_still_wrong": 21.6,
+            "wrong_to_different_wrong": 21.6,
+            "net_correct_gain": -37.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 70.4,
+            "wrong_before": 23.8,
+            "wrong_after": 61.8,
+            "repaired": 2.8,
+            "damaged": 40.8,
+            "masked_correct_preserved": 5.8,
+            "wrong_still_wrong": 21.0,
+            "wrong_to_different_wrong": 21.0,
+            "net_correct_gain": -38.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 70.4,
+            "wrong_before": 23.8,
+            "wrong_after": 0.0,
+            "repaired": 23.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 46.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 23.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 66.4,
+            "wrong_before": 21.6,
+            "wrong_after": 21.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 44.8,
+            "wrong_still_wrong": 21.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 66.4,
+            "wrong_before": 21.6,
+            "wrong_after": 56.6,
+            "repaired": 3.4,
+            "damaged": 38.4,
+            "masked_correct_preserved": 6.4,
+            "wrong_still_wrong": 18.2,
+            "wrong_to_different_wrong": 18.2,
+            "net_correct_gain": -35.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 66.4,
+            "wrong_before": 21.6,
+            "wrong_after": 57.2,
+            "repaired": 3.4,
+            "damaged": 39.0,
+            "masked_correct_preserved": 5.8,
+            "wrong_still_wrong": 18.2,
+            "wrong_to_different_wrong": 18.2,
+            "net_correct_gain": -35.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 66.4,
+            "wrong_before": 21.6,
+            "wrong_after": 0.0,
+            "repaired": 21.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 44.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 21.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 72.0,
+            "wrong_before": 23.4,
+            "wrong_after": 23.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.6,
+            "wrong_still_wrong": 23.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 72.0,
+            "wrong_before": 23.4,
+            "wrong_after": 68.6,
+            "repaired": 0.8,
+            "damaged": 46.0,
+            "masked_correct_preserved": 2.6,
+            "wrong_still_wrong": 22.6,
+            "wrong_to_different_wrong": 22.6,
+            "net_correct_gain": -45.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 72.0,
+            "wrong_before": 23.4,
+            "wrong_after": 69.6,
+            "repaired": 0.6,
+            "damaged": 46.8,
+            "masked_correct_preserved": 1.8,
+            "wrong_still_wrong": 22.8,
+            "wrong_to_different_wrong": 22.8,
+            "net_correct_gain": -46.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 72.0,
+            "wrong_before": 23.4,
+            "wrong_after": 0.0,
+            "repaired": 23.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 23.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 64.0,
+            "wrong_before": 22.6,
+            "wrong_after": 22.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 41.4,
+            "wrong_still_wrong": 22.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 64.0,
+            "wrong_before": 22.6,
+            "wrong_after": 50.8,
+            "repaired": 4.4,
+            "damaged": 32.6,
+            "masked_correct_preserved": 8.8,
+            "wrong_still_wrong": 18.2,
+            "wrong_to_different_wrong": 18.2,
+            "net_correct_gain": -28.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 64.0,
+            "wrong_before": 22.6,
+            "wrong_after": 49.8,
+            "repaired": 4.8,
+            "damaged": 32.0,
+            "masked_correct_preserved": 9.4,
+            "wrong_still_wrong": 17.8,
+            "wrong_to_different_wrong": 17.8,
+            "net_correct_gain": -27.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 64.0,
+            "wrong_before": 22.6,
+            "wrong_after": 0.0,
+            "repaired": 22.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 41.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 22.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 69.6,
+            "wrong_before": 24.0,
+            "wrong_after": 24.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 45.6,
+            "wrong_still_wrong": 24.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 69.6,
+            "wrong_before": 24.0,
+            "wrong_after": 58.8,
+            "repaired": 4.0,
+            "damaged": 38.8,
+            "masked_correct_preserved": 6.8,
+            "wrong_still_wrong": 20.0,
+            "wrong_to_different_wrong": 20.0,
+            "net_correct_gain": -34.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 69.6,
+            "wrong_before": 24.0,
+            "wrong_after": 59.2,
+            "repaired": 4.0,
+            "damaged": 39.2,
+            "masked_correct_preserved": 6.4,
+            "wrong_still_wrong": 20.0,
+            "wrong_to_different_wrong": 20.0,
+            "net_correct_gain": -35.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 69.6,
+            "wrong_before": 24.0,
+            "wrong_after": 0.0,
+            "repaired": 24.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 45.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 24.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 71.2,
+            "wrong_before": 23.4,
+            "wrong_after": 23.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 47.8,
+            "wrong_still_wrong": 23.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 71.2,
+            "wrong_before": 23.4,
+            "wrong_after": 70.0,
+            "repaired": 0.4,
+            "damaged": 47.0,
+            "masked_correct_preserved": 0.8,
+            "wrong_still_wrong": 23.0,
+            "wrong_to_different_wrong": 23.0,
+            "net_correct_gain": -46.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 71.2,
+            "wrong_before": 23.4,
+            "wrong_after": 70.0,
+            "repaired": 0.4,
+            "damaged": 47.0,
+            "masked_correct_preserved": 0.8,
+            "wrong_still_wrong": 23.0,
+            "wrong_to_different_wrong": 23.0,
+            "net_correct_gain": -46.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 71.2,
+            "wrong_before": 23.4,
+            "wrong_after": 0.0,
+            "repaired": 23.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 47.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 23.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.6,
+            "wrong_after": 24.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.2,
+            "wrong_still_wrong": 24.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.6,
+            "wrong_after": 65.0,
+            "repaired": 2.8,
+            "damaged": 43.2,
+            "masked_correct_preserved": 5.0,
+            "wrong_still_wrong": 21.8,
+            "wrong_to_different_wrong": 21.8,
+            "net_correct_gain": -40.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.6,
+            "wrong_after": 64.6,
+            "repaired": 2.2,
+            "damaged": 42.2,
+            "masked_correct_preserved": 6.0,
+            "wrong_still_wrong": 22.4,
+            "wrong_to_different_wrong": 22.4,
+            "net_correct_gain": -40.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 72.8,
+            "wrong_before": 24.6,
+            "wrong_after": 0.0,
+            "repaired": 24.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 48.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 24.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 91.2,
+            "wrong_before": 31.0,
+            "wrong_after": 31.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 60.2,
+            "wrong_still_wrong": 31.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 91.2,
+            "wrong_before": 31.0,
+            "wrong_after": 81.8,
+            "repaired": 2.6,
+            "damaged": 53.4,
+            "masked_correct_preserved": 6.8,
+            "wrong_still_wrong": 28.4,
+            "wrong_to_different_wrong": 28.4,
+            "net_correct_gain": -50.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 91.2,
+            "wrong_before": 31.0,
+            "wrong_after": 81.2,
+            "repaired": 2.4,
+            "damaged": 52.6,
+            "masked_correct_preserved": 7.6,
+            "wrong_still_wrong": 28.6,
+            "wrong_to_different_wrong": 28.6,
+            "net_correct_gain": -50.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 91.2,
+            "wrong_before": 31.0,
+            "wrong_after": 0.0,
+            "repaired": 31.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 60.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 31.0
+          }
+        }
+      ]
+    },
+    "7.0": {
+      "receptions": 50,
+      "totals": {
+        "direct": {
+          "tokens": 12800,
+          "masked_tokens": 2428,
+          "wrong_before": 780,
+          "wrong_after": 780,
+          "repaired": 0,
+          "damaged": 0,
+          "masked_correct_preserved": 1648,
+          "wrong_still_wrong": 780,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 0
+        },
+        "without_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 2428,
+          "wrong_before": 780,
+          "wrong_after": 2154,
+          "repaired": 88,
+          "damaged": 1462,
+          "masked_correct_preserved": 186,
+          "wrong_still_wrong": 692,
+          "wrong_to_different_wrong": 692,
+          "net_correct_gain": -1374
+        },
+        "with_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 2428,
+          "wrong_before": 780,
+          "wrong_after": 2145,
+          "repaired": 101,
+          "damaged": 1466,
+          "masked_correct_preserved": 182,
+          "wrong_still_wrong": 679,
+          "wrong_to_different_wrong": 679,
+          "net_correct_gain": -1365
+        },
+        "ideal_correct_tokens": {
+          "tokens": 12800,
+          "masked_tokens": 2428,
+          "wrong_before": 780,
+          "wrong_after": 0,
+          "repaired": 780,
+          "damaged": 0,
+          "masked_correct_preserved": 1648,
+          "wrong_still_wrong": 0,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 780
+        }
+      },
+      "per_image_trial_means": [
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 18.6,
+            "wrong_after": 18.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 34.2,
+            "wrong_still_wrong": 18.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 18.6,
+            "wrong_after": 47.4,
+            "repaired": 2.0,
+            "damaged": 30.8,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 16.6,
+            "wrong_to_different_wrong": 16.6,
+            "net_correct_gain": -28.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 18.6,
+            "wrong_after": 47.0,
+            "repaired": 2.4,
+            "damaged": 30.8,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 16.2,
+            "wrong_to_different_wrong": 16.2,
+            "net_correct_gain": -28.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 18.6,
+            "wrong_after": 0.0,
+            "repaired": 18.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 34.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 18.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 52.0,
+            "wrong_before": 16.4,
+            "wrong_after": 16.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 35.6,
+            "wrong_still_wrong": 16.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 52.0,
+            "wrong_before": 16.4,
+            "wrong_after": 48.8,
+            "repaired": 0.8,
+            "damaged": 33.2,
+            "masked_correct_preserved": 2.4,
+            "wrong_still_wrong": 15.6,
+            "wrong_to_different_wrong": 15.6,
+            "net_correct_gain": -32.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 52.0,
+            "wrong_before": 16.4,
+            "wrong_after": 48.2,
+            "repaired": 1.2,
+            "damaged": 33.0,
+            "masked_correct_preserved": 2.6,
+            "wrong_still_wrong": 15.2,
+            "wrong_to_different_wrong": 15.2,
+            "net_correct_gain": -31.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 52.0,
+            "wrong_before": 16.4,
+            "wrong_after": 0.0,
+            "repaired": 16.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 35.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 16.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 16.0,
+            "wrong_after": 16.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 36.8,
+            "wrong_still_wrong": 16.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 16.0,
+            "wrong_after": 45.8,
+            "repaired": 1.6,
+            "damaged": 31.4,
+            "masked_correct_preserved": 5.4,
+            "wrong_still_wrong": 14.4,
+            "wrong_to_different_wrong": 14.4,
+            "net_correct_gain": -29.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 16.0,
+            "wrong_after": 45.8,
+            "repaired": 2.0,
+            "damaged": 31.8,
+            "masked_correct_preserved": 5.0,
+            "wrong_still_wrong": 14.0,
+            "wrong_to_different_wrong": 14.0,
+            "net_correct_gain": -29.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 52.8,
+            "wrong_before": 16.0,
+            "wrong_after": 0.0,
+            "repaired": 16.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 36.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 16.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 42.4,
+            "wrong_before": 13.2,
+            "wrong_after": 13.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 29.2,
+            "wrong_still_wrong": 13.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 42.4,
+            "wrong_before": 13.2,
+            "wrong_after": 36.4,
+            "repaired": 2.2,
+            "damaged": 25.4,
+            "masked_correct_preserved": 3.8,
+            "wrong_still_wrong": 11.0,
+            "wrong_to_different_wrong": 11.0,
+            "net_correct_gain": -23.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 42.4,
+            "wrong_before": 13.2,
+            "wrong_after": 37.0,
+            "repaired": 2.0,
+            "damaged": 25.8,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 11.2,
+            "wrong_to_different_wrong": 11.2,
+            "net_correct_gain": -23.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 42.4,
+            "wrong_before": 13.2,
+            "wrong_after": 0.0,
+            "repaired": 13.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 29.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 13.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 44.0,
+            "wrong_before": 13.0,
+            "wrong_after": 13.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 31.0,
+            "wrong_still_wrong": 13.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 44.0,
+            "wrong_before": 13.0,
+            "wrong_after": 42.2,
+            "repaired": 0.4,
+            "damaged": 29.6,
+            "masked_correct_preserved": 1.4,
+            "wrong_still_wrong": 12.6,
+            "wrong_to_different_wrong": 12.6,
+            "net_correct_gain": -29.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 44.0,
+            "wrong_before": 13.0,
+            "wrong_after": 41.8,
+            "repaired": 0.8,
+            "damaged": 29.6,
+            "masked_correct_preserved": 1.4,
+            "wrong_still_wrong": 12.2,
+            "wrong_to_different_wrong": 12.2,
+            "net_correct_gain": -28.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 44.0,
+            "wrong_before": 13.0,
+            "wrong_after": 0.0,
+            "repaired": 13.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 31.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 13.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 43.2,
+            "wrong_before": 14.6,
+            "wrong_after": 14.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 28.6,
+            "wrong_still_wrong": 14.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 43.2,
+            "wrong_before": 14.6,
+            "wrong_after": 34.2,
+            "repaired": 2.2,
+            "damaged": 21.8,
+            "masked_correct_preserved": 6.8,
+            "wrong_still_wrong": 12.4,
+            "wrong_to_different_wrong": 12.4,
+            "net_correct_gain": -19.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 43.2,
+            "wrong_before": 14.6,
+            "wrong_after": 34.4,
+            "repaired": 2.6,
+            "damaged": 22.4,
+            "masked_correct_preserved": 6.2,
+            "wrong_still_wrong": 12.0,
+            "wrong_to_different_wrong": 12.0,
+            "net_correct_gain": -19.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 43.2,
+            "wrong_before": 14.6,
+            "wrong_after": 0.0,
+            "repaired": 14.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 28.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 14.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.8,
+            "wrong_after": 14.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 30.8,
+            "wrong_still_wrong": 14.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.8,
+            "wrong_after": 39.2,
+            "repaired": 3.0,
+            "damaged": 27.4,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 11.8,
+            "wrong_to_different_wrong": 11.8,
+            "net_correct_gain": -24.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.8,
+            "wrong_after": 39.6,
+            "repaired": 2.8,
+            "damaged": 27.6,
+            "masked_correct_preserved": 3.2,
+            "wrong_still_wrong": 12.0,
+            "wrong_to_different_wrong": 12.0,
+            "net_correct_gain": -24.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.8,
+            "wrong_after": 0.0,
+            "repaired": 14.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 30.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 14.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.0,
+            "wrong_after": 14.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 31.6,
+            "wrong_still_wrong": 14.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.0,
+            "wrong_after": 44.4,
+            "repaired": 0.6,
+            "damaged": 31.0,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 13.4,
+            "wrong_to_different_wrong": 13.4,
+            "net_correct_gain": -30.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.0,
+            "wrong_after": 43.8,
+            "repaired": 0.8,
+            "damaged": 30.6,
+            "masked_correct_preserved": 1.0,
+            "wrong_still_wrong": 13.2,
+            "wrong_to_different_wrong": 13.2,
+            "net_correct_gain": -29.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 45.6,
+            "wrong_before": 14.0,
+            "wrong_after": 0.0,
+            "repaired": 14.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 31.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 14.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 48.8,
+            "wrong_before": 15.6,
+            "wrong_after": 15.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 33.2,
+            "wrong_still_wrong": 15.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 48.8,
+            "wrong_before": 15.6,
+            "wrong_after": 41.2,
+            "repaired": 2.0,
+            "damaged": 27.6,
+            "masked_correct_preserved": 5.6,
+            "wrong_still_wrong": 13.6,
+            "wrong_to_different_wrong": 13.6,
+            "net_correct_gain": -25.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 48.8,
+            "wrong_before": 15.6,
+            "wrong_after": 40.8,
+            "repaired": 2.6,
+            "damaged": 27.8,
+            "masked_correct_preserved": 5.4,
+            "wrong_still_wrong": 13.0,
+            "wrong_to_different_wrong": 13.0,
+            "net_correct_gain": -25.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 48.8,
+            "wrong_before": 15.6,
+            "wrong_after": 0.0,
+            "repaired": 15.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 33.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 15.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 58.4,
+            "wrong_before": 19.8,
+            "wrong_after": 19.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 38.6,
+            "wrong_still_wrong": 19.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 58.4,
+            "wrong_before": 19.8,
+            "wrong_after": 51.2,
+            "repaired": 2.8,
+            "damaged": 34.2,
+            "masked_correct_preserved": 4.4,
+            "wrong_still_wrong": 17.0,
+            "wrong_to_different_wrong": 17.0,
+            "net_correct_gain": -31.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 58.4,
+            "wrong_before": 19.8,
+            "wrong_after": 50.6,
+            "repaired": 3.0,
+            "damaged": 33.8,
+            "masked_correct_preserved": 4.8,
+            "wrong_still_wrong": 16.8,
+            "wrong_to_different_wrong": 16.8,
+            "net_correct_gain": -30.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 58.4,
+            "wrong_before": 19.8,
+            "wrong_after": 0.0,
+            "repaired": 19.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 38.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 19.8
+          }
+        }
+      ]
+    },
+    "7.5": {
+      "receptions": 50,
+      "totals": {
+        "direct": {
+          "tokens": 12800,
+          "masked_tokens": 1496,
+          "wrong_before": 450,
+          "wrong_after": 450,
+          "repaired": 0,
+          "damaged": 0,
+          "masked_correct_preserved": 1046,
+          "wrong_still_wrong": 450,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 0
+        },
+        "without_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 1496,
+          "wrong_before": 450,
+          "wrong_after": 1303,
+          "repaired": 57,
+          "damaged": 910,
+          "masked_correct_preserved": 136,
+          "wrong_still_wrong": 393,
+          "wrong_to_different_wrong": 393,
+          "net_correct_gain": -853
+        },
+        "with_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 1496,
+          "wrong_before": 450,
+          "wrong_after": 1301,
+          "repaired": 57,
+          "damaged": 908,
+          "masked_correct_preserved": 138,
+          "wrong_still_wrong": 393,
+          "wrong_to_different_wrong": 393,
+          "net_correct_gain": -851
+        },
+        "ideal_correct_tokens": {
+          "tokens": 12800,
+          "masked_tokens": 1496,
+          "wrong_before": 450,
+          "wrong_after": 0,
+          "repaired": 450,
+          "damaged": 0,
+          "masked_correct_preserved": 1046,
+          "wrong_still_wrong": 0,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 450
+        }
+      },
+      "per_image_trial_means": [
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 9.4,
+            "wrong_after": 9.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 20.2,
+            "wrong_still_wrong": 9.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 9.4,
+            "wrong_after": 25.2,
+            "repaired": 1.2,
+            "damaged": 17.0,
+            "masked_correct_preserved": 3.2,
+            "wrong_still_wrong": 8.2,
+            "wrong_to_different_wrong": 8.2,
+            "net_correct_gain": -15.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 9.4,
+            "wrong_after": 25.4,
+            "repaired": 1.0,
+            "damaged": 17.0,
+            "masked_correct_preserved": 3.2,
+            "wrong_still_wrong": 8.4,
+            "wrong_to_different_wrong": 8.4,
+            "net_correct_gain": -16.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 9.4,
+            "wrong_after": 0.0,
+            "repaired": 9.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 20.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 9.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 33.6,
+            "wrong_before": 10.2,
+            "wrong_after": 10.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 23.4,
+            "wrong_still_wrong": 10.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 33.6,
+            "wrong_before": 10.2,
+            "wrong_after": 31.0,
+            "repaired": 0.4,
+            "damaged": 21.2,
+            "masked_correct_preserved": 2.2,
+            "wrong_still_wrong": 9.8,
+            "wrong_to_different_wrong": 9.8,
+            "net_correct_gain": -20.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 33.6,
+            "wrong_before": 10.2,
+            "wrong_after": 31.0,
+            "repaired": 0.6,
+            "damaged": 21.4,
+            "masked_correct_preserved": 2.0,
+            "wrong_still_wrong": 9.6,
+            "wrong_to_different_wrong": 9.6,
+            "net_correct_gain": -20.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 33.6,
+            "wrong_before": 10.2,
+            "wrong_after": 0.0,
+            "repaired": 10.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 23.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 10.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 32.8,
+            "wrong_before": 9.0,
+            "wrong_after": 9.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 23.8,
+            "wrong_still_wrong": 9.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 32.8,
+            "wrong_before": 9.0,
+            "wrong_after": 28.8,
+            "repaired": 0.8,
+            "damaged": 20.6,
+            "masked_correct_preserved": 3.2,
+            "wrong_still_wrong": 8.2,
+            "wrong_to_different_wrong": 8.2,
+            "net_correct_gain": -19.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 32.8,
+            "wrong_before": 9.0,
+            "wrong_after": 28.6,
+            "repaired": 0.8,
+            "damaged": 20.4,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 8.2,
+            "wrong_to_different_wrong": 8.2,
+            "net_correct_gain": -19.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 32.8,
+            "wrong_before": 9.0,
+            "wrong_after": 0.0,
+            "repaired": 9.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 23.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 9.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 25.6,
+            "wrong_before": 7.6,
+            "wrong_after": 7.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 18.0,
+            "wrong_still_wrong": 7.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 25.6,
+            "wrong_before": 7.6,
+            "wrong_after": 22.0,
+            "repaired": 1.0,
+            "damaged": 15.4,
+            "masked_correct_preserved": 2.6,
+            "wrong_still_wrong": 6.6,
+            "wrong_to_different_wrong": 6.6,
+            "net_correct_gain": -14.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 25.6,
+            "wrong_before": 7.6,
+            "wrong_after": 22.0,
+            "repaired": 1.0,
+            "damaged": 15.4,
+            "masked_correct_preserved": 2.6,
+            "wrong_still_wrong": 6.6,
+            "wrong_to_different_wrong": 6.6,
+            "net_correct_gain": -14.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 25.6,
+            "wrong_before": 7.6,
+            "wrong_after": 0.0,
+            "repaired": 7.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 18.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 7.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 8.6,
+            "wrong_after": 8.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 21.0,
+            "wrong_still_wrong": 8.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 8.6,
+            "wrong_after": 28.6,
+            "repaired": 0.4,
+            "damaged": 20.4,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 8.2,
+            "wrong_to_different_wrong": 8.2,
+            "net_correct_gain": -20.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 8.6,
+            "wrong_after": 28.2,
+            "repaired": 0.6,
+            "damaged": 20.2,
+            "masked_correct_preserved": 0.8,
+            "wrong_still_wrong": 8.0,
+            "wrong_to_different_wrong": 8.0,
+            "net_correct_gain": -19.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 29.6,
+            "wrong_before": 8.6,
+            "wrong_after": 0.0,
+            "repaired": 8.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 21.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 8.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 7.8,
+            "wrong_after": 7.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 17.0,
+            "wrong_still_wrong": 7.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 7.8,
+            "wrong_after": 17.0,
+            "repaired": 2.2,
+            "damaged": 11.4,
+            "masked_correct_preserved": 5.6,
+            "wrong_still_wrong": 5.6,
+            "wrong_to_different_wrong": 5.6,
+            "net_correct_gain": -9.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 7.8,
+            "wrong_after": 17.2,
+            "repaired": 1.8,
+            "damaged": 11.2,
+            "masked_correct_preserved": 5.8,
+            "wrong_still_wrong": 6.0,
+            "wrong_to_different_wrong": 6.0,
+            "net_correct_gain": -9.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 7.8,
+            "wrong_after": 0.0,
+            "repaired": 7.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 17.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 7.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 8.4,
+            "wrong_after": 8.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 16.4,
+            "wrong_still_wrong": 8.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 8.4,
+            "wrong_after": 21.0,
+            "repaired": 1.6,
+            "damaged": 14.2,
+            "masked_correct_preserved": 2.2,
+            "wrong_still_wrong": 6.8,
+            "wrong_to_different_wrong": 6.8,
+            "net_correct_gain": -12.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 8.4,
+            "wrong_after": 20.8,
+            "repaired": 1.6,
+            "damaged": 14.0,
+            "masked_correct_preserved": 2.4,
+            "wrong_still_wrong": 6.8,
+            "wrong_to_different_wrong": 6.8,
+            "net_correct_gain": -12.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 24.8,
+            "wrong_before": 8.4,
+            "wrong_after": 0.0,
+            "repaired": 8.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 16.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 8.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 7.2,
+            "wrong_after": 7.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 19.2,
+            "wrong_still_wrong": 7.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 7.2,
+            "wrong_after": 24.4,
+            "repaired": 0.8,
+            "damaged": 18.0,
+            "masked_correct_preserved": 1.2,
+            "wrong_still_wrong": 6.4,
+            "wrong_to_different_wrong": 6.4,
+            "net_correct_gain": -17.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 7.2,
+            "wrong_after": 24.4,
+            "repaired": 0.8,
+            "damaged": 18.0,
+            "masked_correct_preserved": 1.2,
+            "wrong_still_wrong": 6.4,
+            "wrong_to_different_wrong": 6.4,
+            "net_correct_gain": -17.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 7.2,
+            "wrong_after": 0.0,
+            "repaired": 7.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 19.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 7.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 32.0,
+            "wrong_before": 9.6,
+            "wrong_after": 9.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 22.4,
+            "wrong_still_wrong": 9.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 32.0,
+            "wrong_before": 9.6,
+            "wrong_after": 28.0,
+            "repaired": 1.2,
+            "damaged": 19.6,
+            "masked_correct_preserved": 2.8,
+            "wrong_still_wrong": 8.4,
+            "wrong_to_different_wrong": 8.4,
+            "net_correct_gain": -18.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 32.0,
+            "wrong_before": 9.6,
+            "wrong_after": 28.2,
+            "repaired": 1.0,
+            "damaged": 19.6,
+            "masked_correct_preserved": 2.8,
+            "wrong_still_wrong": 8.6,
+            "wrong_to_different_wrong": 8.6,
+            "net_correct_gain": -18.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 32.0,
+            "wrong_before": 9.6,
+            "wrong_after": 0.0,
+            "repaired": 9.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 22.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 9.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 40.0,
+            "wrong_before": 12.2,
+            "wrong_after": 12.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 27.8,
+            "wrong_still_wrong": 12.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 40.0,
+            "wrong_before": 12.2,
+            "wrong_after": 34.6,
+            "repaired": 1.8,
+            "damaged": 24.2,
+            "masked_correct_preserved": 3.6,
+            "wrong_still_wrong": 10.4,
+            "wrong_to_different_wrong": 10.4,
+            "net_correct_gain": -22.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 40.0,
+            "wrong_before": 12.2,
+            "wrong_after": 34.4,
+            "repaired": 2.2,
+            "damaged": 24.4,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 10.0,
+            "wrong_to_different_wrong": 10.0,
+            "net_correct_gain": -22.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 40.0,
+            "wrong_before": 12.2,
+            "wrong_after": 0.0,
+            "repaired": 12.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 27.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 12.2
+          }
+        }
+      ]
+    },
+    "8.0": {
+      "receptions": 50,
+      "totals": {
+        "direct": {
+          "tokens": 12800,
+          "masked_tokens": 872,
+          "wrong_before": 257,
+          "wrong_after": 257,
+          "repaired": 0,
+          "damaged": 0,
+          "masked_correct_preserved": 615,
+          "wrong_still_wrong": 257,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 0
+        },
+        "without_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 872,
+          "wrong_before": 257,
+          "wrong_after": 752,
+          "repaired": 35,
+          "damaged": 530,
+          "masked_correct_preserved": 85,
+          "wrong_still_wrong": 222,
+          "wrong_to_different_wrong": 221,
+          "net_correct_gain": -495
+        },
+        "with_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 872,
+          "wrong_before": 257,
+          "wrong_after": 743,
+          "repaired": 35,
+          "damaged": 521,
+          "masked_correct_preserved": 94,
+          "wrong_still_wrong": 222,
+          "wrong_to_different_wrong": 222,
+          "net_correct_gain": -486
+        },
+        "ideal_correct_tokens": {
+          "tokens": 12800,
+          "masked_tokens": 872,
+          "wrong_before": 257,
+          "wrong_after": 0,
+          "repaired": 257,
+          "damaged": 0,
+          "masked_correct_preserved": 615,
+          "wrong_still_wrong": 0,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 257
+        }
+      },
+      "per_image_trial_means": [
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 20.8,
+            "wrong_before": 6.4,
+            "wrong_after": 6.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 14.4,
+            "wrong_still_wrong": 6.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 20.8,
+            "wrong_before": 6.4,
+            "wrong_after": 18.2,
+            "repaired": 0.4,
+            "damaged": 12.2,
+            "masked_correct_preserved": 2.2,
+            "wrong_still_wrong": 6.0,
+            "wrong_to_different_wrong": 6.0,
+            "net_correct_gain": -11.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 20.8,
+            "wrong_before": 6.4,
+            "wrong_after": 17.8,
+            "repaired": 0.6,
+            "damaged": 12.0,
+            "masked_correct_preserved": 2.4,
+            "wrong_still_wrong": 5.8,
+            "wrong_to_different_wrong": 5.8,
+            "net_correct_gain": -11.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 20.8,
+            "wrong_before": 6.4,
+            "wrong_after": 0.0,
+            "repaired": 6.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 14.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 6.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 23.2,
+            "wrong_before": 6.8,
+            "wrong_after": 6.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 16.4,
+            "wrong_still_wrong": 6.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 23.2,
+            "wrong_before": 6.8,
+            "wrong_after": 21.4,
+            "repaired": 0.4,
+            "damaged": 15.0,
+            "masked_correct_preserved": 1.4,
+            "wrong_still_wrong": 6.4,
+            "wrong_to_different_wrong": 6.4,
+            "net_correct_gain": -14.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 23.2,
+            "wrong_before": 6.8,
+            "wrong_after": 20.8,
+            "repaired": 0.4,
+            "damaged": 14.4,
+            "masked_correct_preserved": 2.0,
+            "wrong_still_wrong": 6.4,
+            "wrong_to_different_wrong": 6.4,
+            "net_correct_gain": -14.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 23.2,
+            "wrong_before": 6.8,
+            "wrong_after": 0.0,
+            "repaired": 6.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 16.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 6.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 19.2,
+            "wrong_before": 5.4,
+            "wrong_after": 5.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 13.8,
+            "wrong_still_wrong": 5.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 19.2,
+            "wrong_before": 5.4,
+            "wrong_after": 16.4,
+            "repaired": 0.8,
+            "damaged": 11.8,
+            "masked_correct_preserved": 2.0,
+            "wrong_still_wrong": 4.6,
+            "wrong_to_different_wrong": 4.6,
+            "net_correct_gain": -11.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 19.2,
+            "wrong_before": 5.4,
+            "wrong_after": 16.2,
+            "repaired": 0.6,
+            "damaged": 11.4,
+            "masked_correct_preserved": 2.4,
+            "wrong_still_wrong": 4.8,
+            "wrong_to_different_wrong": 4.8,
+            "net_correct_gain": -10.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 19.2,
+            "wrong_before": 5.4,
+            "wrong_after": 0.0,
+            "repaired": 5.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 13.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 5.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 10.4,
+            "wrong_before": 3.2,
+            "wrong_after": 3.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 7.2,
+            "wrong_still_wrong": 3.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 10.4,
+            "wrong_before": 3.2,
+            "wrong_after": 8.6,
+            "repaired": 0.8,
+            "damaged": 6.2,
+            "masked_correct_preserved": 1.0,
+            "wrong_still_wrong": 2.4,
+            "wrong_to_different_wrong": 2.4,
+            "net_correct_gain": -5.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 10.4,
+            "wrong_before": 3.2,
+            "wrong_after": 8.8,
+            "repaired": 0.6,
+            "damaged": 6.2,
+            "masked_correct_preserved": 1.0,
+            "wrong_still_wrong": 2.6,
+            "wrong_to_different_wrong": 2.6,
+            "net_correct_gain": -5.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 10.4,
+            "wrong_before": 3.2,
+            "wrong_after": 0.0,
+            "repaired": 3.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 7.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 3.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 12.8,
+            "wrong_before": 3.6,
+            "wrong_after": 3.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 9.2,
+            "wrong_still_wrong": 3.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 12.8,
+            "wrong_before": 3.6,
+            "wrong_after": 11.8,
+            "repaired": 0.6,
+            "damaged": 8.8,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 3.0,
+            "wrong_to_different_wrong": 3.0,
+            "net_correct_gain": -8.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 12.8,
+            "wrong_before": 3.6,
+            "wrong_after": 11.4,
+            "repaired": 0.6,
+            "damaged": 8.4,
+            "masked_correct_preserved": 0.8,
+            "wrong_still_wrong": 3.0,
+            "wrong_to_different_wrong": 3.0,
+            "net_correct_gain": -7.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 12.8,
+            "wrong_before": 3.6,
+            "wrong_after": 0.0,
+            "repaired": 3.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 9.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 3.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 5.0,
+            "wrong_after": 5.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 11.0,
+            "wrong_still_wrong": 5.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 5.0,
+            "wrong_after": 12.6,
+            "repaired": 0.8,
+            "damaged": 8.4,
+            "masked_correct_preserved": 2.6,
+            "wrong_still_wrong": 4.2,
+            "wrong_to_different_wrong": 4.0,
+            "net_correct_gain": -7.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 5.0,
+            "wrong_after": 12.2,
+            "repaired": 1.0,
+            "damaged": 8.2,
+            "masked_correct_preserved": 2.8,
+            "wrong_still_wrong": 4.0,
+            "wrong_to_different_wrong": 4.0,
+            "net_correct_gain": -7.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 5.0,
+            "wrong_after": 0.0,
+            "repaired": 5.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 11.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 5.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 13.6,
+            "wrong_before": 4.4,
+            "wrong_after": 4.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 9.2,
+            "wrong_still_wrong": 4.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 13.6,
+            "wrong_before": 4.4,
+            "wrong_after": 11.4,
+            "repaired": 0.8,
+            "damaged": 7.8,
+            "masked_correct_preserved": 1.4,
+            "wrong_still_wrong": 3.6,
+            "wrong_to_different_wrong": 3.6,
+            "net_correct_gain": -7.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 13.6,
+            "wrong_before": 4.4,
+            "wrong_after": 11.2,
+            "repaired": 0.8,
+            "damaged": 7.6,
+            "masked_correct_preserved": 1.6,
+            "wrong_still_wrong": 3.6,
+            "wrong_to_different_wrong": 3.6,
+            "net_correct_gain": -6.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 13.6,
+            "wrong_before": 4.4,
+            "wrong_after": 0.0,
+            "repaired": 4.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 9.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 4.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 4.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 11.8,
+            "wrong_still_wrong": 4.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 15.0,
+            "repaired": 0.4,
+            "damaged": 11.2,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 3.8,
+            "wrong_to_different_wrong": 3.8,
+            "net_correct_gain": -10.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 15.0,
+            "repaired": 0.4,
+            "damaged": 11.2,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 3.8,
+            "wrong_to_different_wrong": 3.8,
+            "net_correct_gain": -10.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 0.0,
+            "repaired": 4.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 11.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 4.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 4.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 11.8,
+            "wrong_still_wrong": 4.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 13.6,
+            "repaired": 0.6,
+            "damaged": 10.0,
+            "masked_correct_preserved": 1.8,
+            "wrong_still_wrong": 3.6,
+            "wrong_to_different_wrong": 3.6,
+            "net_correct_gain": -9.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 13.4,
+            "repaired": 0.8,
+            "damaged": 10.0,
+            "masked_correct_preserved": 1.8,
+            "wrong_still_wrong": 3.4,
+            "wrong_to_different_wrong": 3.4,
+            "net_correct_gain": -9.2
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 16.0,
+            "wrong_before": 4.2,
+            "wrong_after": 0.0,
+            "repaired": 4.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 11.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 4.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 8.2,
+            "wrong_after": 8.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 18.2,
+            "wrong_still_wrong": 8.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 8.2,
+            "wrong_after": 21.4,
+            "repaired": 1.4,
+            "damaged": 14.6,
+            "masked_correct_preserved": 3.6,
+            "wrong_still_wrong": 6.8,
+            "wrong_to_different_wrong": 6.8,
+            "net_correct_gain": -13.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 8.2,
+            "wrong_after": 21.8,
+            "repaired": 1.2,
+            "damaged": 14.8,
+            "masked_correct_preserved": 3.4,
+            "wrong_still_wrong": 7.0,
+            "wrong_to_different_wrong": 7.0,
+            "net_correct_gain": -13.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 26.4,
+            "wrong_before": 8.2,
+            "wrong_after": 0.0,
+            "repaired": 8.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 18.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 8.2
+          }
+        }
+      ]
+    },
+    "9.0": {
+      "receptions": 50,
+      "totals": {
+        "direct": {
+          "tokens": 12800,
+          "masked_tokens": 204,
+          "wrong_before": 62,
+          "wrong_after": 62,
+          "repaired": 0,
+          "damaged": 0,
+          "masked_correct_preserved": 142,
+          "wrong_still_wrong": 62,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 0
+        },
+        "without_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 204,
+          "wrong_before": 62,
+          "wrong_after": 176,
+          "repaired": 10,
+          "damaged": 124,
+          "masked_correct_preserved": 18,
+          "wrong_still_wrong": 52,
+          "wrong_to_different_wrong": 52,
+          "net_correct_gain": -114
+        },
+        "with_cmi": {
+          "tokens": 12800,
+          "masked_tokens": 204,
+          "wrong_before": 62,
+          "wrong_after": 176,
+          "repaired": 9,
+          "damaged": 123,
+          "masked_correct_preserved": 19,
+          "wrong_still_wrong": 53,
+          "wrong_to_different_wrong": 53,
+          "net_correct_gain": -114
+        },
+        "ideal_correct_tokens": {
+          "tokens": 12800,
+          "masked_tokens": 204,
+          "wrong_before": 62,
+          "wrong_after": 0,
+          "repaired": 62,
+          "damaged": 0,
+          "masked_correct_preserved": 142,
+          "wrong_still_wrong": 0,
+          "wrong_to_different_wrong": 0,
+          "net_correct_gain": 62
+        }
+      },
+      "per_image_trial_means": [
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 0.8,
+            "wrong_after": 0.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.4,
+            "wrong_still_wrong": 0.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 0.8,
+            "wrong_after": 2.4,
+            "repaired": 0.2,
+            "damaged": 1.8,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.6,
+            "net_correct_gain": -1.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 0.8,
+            "wrong_after": 2.4,
+            "repaired": 0.2,
+            "damaged": 1.8,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.6,
+            "net_correct_gain": -1.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 0.8,
+            "wrong_after": 0.0,
+            "repaired": 0.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.6,
+            "wrong_after": 1.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 4.0,
+            "wrong_still_wrong": 1.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.6,
+            "wrong_after": 5.4,
+            "repaired": 0.0,
+            "damaged": 3.8,
+            "masked_correct_preserved": 0.2,
+            "wrong_still_wrong": 1.6,
+            "wrong_to_different_wrong": 1.6,
+            "net_correct_gain": -3.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.6,
+            "wrong_after": 5.4,
+            "repaired": 0.0,
+            "damaged": 3.8,
+            "masked_correct_preserved": 0.2,
+            "wrong_still_wrong": 1.6,
+            "wrong_to_different_wrong": 1.6,
+            "net_correct_gain": -3.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.6,
+            "wrong_after": 0.0,
+            "repaired": 1.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 4.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 1.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.0,
+            "wrong_after": 1.0,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.2,
+            "wrong_still_wrong": 1.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.0,
+            "wrong_after": 2.8,
+            "repaired": 0.0,
+            "damaged": 1.8,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 1.0,
+            "wrong_to_different_wrong": 1.0,
+            "net_correct_gain": -1.8
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.0,
+            "wrong_after": 2.6,
+            "repaired": 0.0,
+            "damaged": 1.6,
+            "masked_correct_preserved": 0.6,
+            "wrong_still_wrong": 1.0,
+            "wrong_to_different_wrong": 1.0,
+            "net_correct_gain": -1.6
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.0,
+            "wrong_after": 0.0,
+            "repaired": 1.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 1.0
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 2.4,
+            "wrong_before": 0.8,
+            "wrong_after": 0.8,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 1.6,
+            "wrong_still_wrong": 0.8,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 2.4,
+            "wrong_before": 0.8,
+            "wrong_after": 2.0,
+            "repaired": 0.2,
+            "damaged": 1.4,
+            "masked_correct_preserved": 0.2,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.6,
+            "net_correct_gain": -1.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 2.4,
+            "wrong_before": 0.8,
+            "wrong_after": 2.2,
+            "repaired": 0.2,
+            "damaged": 1.6,
+            "masked_correct_preserved": 0.0,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.6,
+            "net_correct_gain": -1.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 2.4,
+            "wrong_before": 0.8,
+            "wrong_after": 0.0,
+            "repaired": 0.8,
+            "damaged": 0.0,
+            "masked_correct_preserved": 1.6,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.8
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 1.6,
+            "wrong_before": 0.6,
+            "wrong_after": 0.6,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 1.0,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 1.6,
+            "wrong_before": 0.6,
+            "wrong_after": 1.6,
+            "repaired": 0.0,
+            "damaged": 1.0,
+            "masked_correct_preserved": 0.0,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.6,
+            "net_correct_gain": -1.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 1.6,
+            "wrong_before": 0.6,
+            "wrong_after": 1.6,
+            "repaired": 0.0,
+            "damaged": 1.0,
+            "masked_correct_preserved": 0.0,
+            "wrong_still_wrong": 0.6,
+            "wrong_to_different_wrong": 0.6,
+            "net_correct_gain": -1.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 1.6,
+            "wrong_before": 0.6,
+            "wrong_after": 0.0,
+            "repaired": 0.6,
+            "damaged": 0.0,
+            "masked_correct_preserved": 1.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.6
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.2,
+            "wrong_after": 1.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.0,
+            "wrong_still_wrong": 1.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.2,
+            "wrong_after": 2.4,
+            "repaired": 0.4,
+            "damaged": 1.6,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 0.8,
+            "wrong_to_different_wrong": 0.8,
+            "net_correct_gain": -1.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.2,
+            "wrong_after": 2.6,
+            "repaired": 0.2,
+            "damaged": 1.6,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 1.0,
+            "wrong_to_different_wrong": 1.0,
+            "net_correct_gain": -1.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 3.2,
+            "wrong_before": 1.2,
+            "wrong_after": 0.0,
+            "repaired": 1.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.0,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 1.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 0.8,
+            "wrong_before": 0.4,
+            "wrong_after": 0.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 0.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 0.8,
+            "wrong_before": 0.4,
+            "wrong_after": 0.6,
+            "repaired": 0.2,
+            "damaged": 0.4,
+            "masked_correct_preserved": 0.0,
+            "wrong_still_wrong": 0.2,
+            "wrong_to_different_wrong": 0.2,
+            "net_correct_gain": -0.2
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 0.8,
+            "wrong_before": 0.4,
+            "wrong_after": 0.4,
+            "repaired": 0.2,
+            "damaged": 0.2,
+            "masked_correct_preserved": 0.2,
+            "wrong_still_wrong": 0.2,
+            "wrong_to_different_wrong": 0.2,
+            "net_correct_gain": 0.0
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 0.8,
+            "wrong_before": 0.4,
+            "wrong_after": 0.0,
+            "repaired": 0.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.4,
+            "wrong_after": 1.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 4.2,
+            "wrong_still_wrong": 1.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.4,
+            "wrong_after": 5.4,
+            "repaired": 0.0,
+            "damaged": 4.0,
+            "masked_correct_preserved": 0.2,
+            "wrong_still_wrong": 1.4,
+            "wrong_to_different_wrong": 1.4,
+            "net_correct_gain": -4.0
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.4,
+            "wrong_after": 5.2,
+            "repaired": 0.2,
+            "damaged": 4.0,
+            "masked_correct_preserved": 0.2,
+            "wrong_still_wrong": 1.2,
+            "wrong_to_different_wrong": 1.2,
+            "net_correct_gain": -3.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 5.6,
+            "wrong_before": 1.4,
+            "wrong_after": 0.0,
+            "repaired": 1.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 4.2,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 1.4
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 4.0,
+            "wrong_before": 1.2,
+            "wrong_after": 1.2,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.8,
+            "wrong_still_wrong": 1.2,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 4.0,
+            "wrong_before": 1.2,
+            "wrong_after": 3.6,
+            "repaired": 0.0,
+            "damaged": 2.4,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 1.2,
+            "wrong_to_different_wrong": 1.2,
+            "net_correct_gain": -2.4
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 4.0,
+            "wrong_before": 1.2,
+            "wrong_after": 3.6,
+            "repaired": 0.0,
+            "damaged": 2.4,
+            "masked_correct_preserved": 0.4,
+            "wrong_still_wrong": 1.2,
+            "wrong_to_different_wrong": 1.2,
+            "net_correct_gain": -2.4
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 4.0,
+            "wrong_before": 1.2,
+            "wrong_after": 0.0,
+            "repaired": 1.2,
+            "damaged": 0.0,
+            "masked_correct_preserved": 2.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 1.2
+          }
+        },
+        {
+          "direct": {
+            "tokens": 256.0,
+            "masked_tokens": 11.2,
+            "wrong_before": 3.4,
+            "wrong_after": 3.4,
+            "repaired": 0.0,
+            "damaged": 0.0,
+            "masked_correct_preserved": 7.8,
+            "wrong_still_wrong": 3.4,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 0.0
+          },
+          "without_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 11.2,
+            "wrong_before": 3.4,
+            "wrong_after": 9.0,
+            "repaired": 1.0,
+            "damaged": 6.6,
+            "masked_correct_preserved": 1.2,
+            "wrong_still_wrong": 2.4,
+            "wrong_to_different_wrong": 2.4,
+            "net_correct_gain": -5.6
+          },
+          "with_cmi": {
+            "tokens": 256.0,
+            "masked_tokens": 11.2,
+            "wrong_before": 3.4,
+            "wrong_after": 9.2,
+            "repaired": 0.8,
+            "damaged": 6.6,
+            "masked_correct_preserved": 1.2,
+            "wrong_still_wrong": 2.6,
+            "wrong_to_different_wrong": 2.6,
+            "net_correct_gain": -5.8
+          },
+          "ideal_correct_tokens": {
+            "tokens": 256.0,
+            "masked_tokens": 11.2,
+            "wrong_before": 3.4,
+            "wrong_after": 0.0,
+            "repaired": 3.4,
+            "damaged": 0.0,
+            "masked_correct_preserved": 7.8,
+            "wrong_still_wrong": 0.0,
+            "wrong_to_different_wrong": 0.0,
+            "net_correct_gain": 3.4
+          }
+        }
+      ]
+    }
+  },
+  "receptions_audited": 300,
+  "path_rows_audited": 1200,
+  "all_checks_passed": true
+}

@@ -1,0 +1,14 @@
+{
+  "passed": 4,
+  "failed": 0,
+  "network_used": false,
+  "model_inference_performed": false,
+  "checks": [
+    "wrong branch refused before ref mutation",
+    "alternate branch exact commit/tree",
+    "idempotent rerun",
+    "tree mismatch refuses ref mutation"
+  ],
+  "helper_script_sha256": "e7c70bea4eaddcc3850c1669fb9f3a9f1ff962d4b24bc62fc042dd1539cd842b",
+  "test_script_sha256": "faf314b927b6ea8133f4f1385bc7f1c3a0fb2fed8f9a28455734a4bf4419237e"
+}

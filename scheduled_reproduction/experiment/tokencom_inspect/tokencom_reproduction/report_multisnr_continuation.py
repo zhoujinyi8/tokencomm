@@ -35,6 +35,11 @@ assert sha(root / 'run_stage46_frozen_recovery.py') == read('stage46_recovery_lo
 assert sha(root / 'evaluate_stage47_frozen_metrics.py') == read('stage47_metrics_lock.json')['metric_script_sha256']
 assert session['initial_phy_cases'] <= phy['completed_cases'] <= 300
 assert session['initial_model_cases'] <= model['completed_cases'] <= phy['completed_cases']
+if 'initial_model_case_sha256' in session:
+    assert len(session['initial_model_case_sha256']) == session['initial_model_cases']
+    for name, digest in session['initial_model_case_sha256'].items():
+        assert sha(run/'stage54_development_recovery'/name) == digest == model['case_sha256'][name]
+    assert sha(run/'stage54_development_recovery_lock.json') == session['model_execution_lock_sha256']
 now = datetime.now(timezone.utc)
 date = now.astimezone(timezone(timedelta(hours=8))).date().isoformat()
 prefix = f'TokCom_阶段{stage}多SNR续跑_{date}'
@@ -42,6 +47,19 @@ evidence_names = ['stage54_development_multisnr_plan.json', 'stage54_development
                   'stage54_development_phy_audit.json', 'stage54_development_recovery_lock.json',
                   'stage54_development_recovery_progress.json', 'stage54_development_recovery_audit.json',
                   'stage54_audit_contract_verification.json']
+runtime_name = f'stage{stage}_runtime_identity.json'
+runtime_section = ''
+if (run/runtime_name).exists():
+    runtime = read(runtime_name)
+    assert runtime['all_checks_passed'] and runtime['packages_match_frozen_environment']
+    assert runtime['author_sources_match_frozen_environment']
+    assert runtime['baseline_environment_sha256'] == sha(run/'stage46_environment.json')
+    assert runtime['runner_sha256'] == sha(root/'run_stage54_development_multisnr.py')
+    assert runtime['class_mapping_matches_published_parent'] and runtime['class_mapping_matches_prior_lock']
+    assert runtime['class_mapping_script_sha256'] == sha(root/'evaluate_stage9_pretrained_maskgit.py')
+    evidence_names.append(runtime_name)
+    result_runtime_verified = True
+    runtime_section = '本轮另行核对Python版本、七个依赖包版本与十个作者源文件SHA-256，均与冻结环境记录一致；权重、源图和生成身份由实际模型执行入口核验。环境核对本身没有构造模型或运行推理。'
 model_images = {str(snr): len({name.split('_')[1] for name in model['case_sha256']
                              if name.startswith(f'snr{si}_')}) for si, snr in enumerate(plan['snr_db'])}
 phy_images = {str(snr): len({case['image_index'] for case in phy['cases'] if case['snr_index'] == si})
@@ -57,6 +75,48 @@ result = dict(session, recorded_utc=now.isoformat(),
               primary_recovery_cases=500, primary_metric_cases=500, new_primary_cases=0,
               primary_frozen_scripts_unchanged=True, audit_contract_checks_verified=4,
               full_paper_reproduction_complete=False)
+if runtime_section:
+    result['runtime_identity_verified'] = result_runtime_verified
+alignment_section = ''
+next_study_section = ''
+next_plan_name = f'stage{stage}_randomized_packetization_plan.json'
+if (run/next_plan_name).exists():
+    next_plan = read(next_plan_name)
+    assert next_plan['status'] == 'planned_not_executed'
+    assert next_plan['baseline_plan_sha256'] == session['plan_sha256']
+    assert next_plan['baseline_runner_sha256'] == sha(root/'run_stage54_development_multisnr.py')
+    assert next_plan['new_phy_simulations_performed'] == next_plan['new_model_inference_performed'] == 0
+    assert len(next_plan['permutations']) == 10
+    for row in next_plan['permutations']:
+        permutation = row['permutation']; inverse = row['inverse_permutation']
+        assert sorted(permutation) == list(range(256))
+        assert all(permutation[inverse[i]] == i and inverse[permutation[i]] == i for i in range(256))
+    evidence_names.append(next_plan_name)
+    result['next_independent_plan'] = next_plan_name
+    result['next_independent_plan_sha256'] = sha(run/next_plan_name)
+    next_study_section = '''## 后续独立随机交织计划（尚未执行）
+
+在当前六SNR质量汇总之前预先保存随机包分配敏感性计划：仍用同十张开发图、六SNR、每图五次接收，计划另算300组物理接收与四路径模型结果。每图使用固定PCG64种子202611260+图序号生成256位置置换，同图五次接收和六SNR共享该置换；接收ID与掩码经逆置换回到原位置。十个置换的双射与往返共40项检查通过，没有运行新物理模拟或模型推理。
+
+仅改变包位置分配，保留原权重、输入输出约定、全帧QAM映射、噪声和生成种子、类别模式与指标；不同时引入补位或重传协议。固定与随机分支各SNR均齐备50次接收后，才汇总全部四路径及逐图配对差值。该计划不更改任何已有缓存，不是新留出集，也不声称恢复了论文未公开的具体置换种子。新执行锁须在首次推理前固定完整基线审计身份。
+'''
+alignment_name = f'stage{stage}_paper_alignment_review.json'
+if (run/alignment_name).exists():
+    alignment = read(alignment_name)
+    assert alignment['primary_source_retrieved'] and not alignment['primary_or_multisnr_settings_changed']
+    assert alignment['primary_protocol_sha256'] == session['primary_protocol_sha256']
+    assert alignment['multisnr_plan_sha256'] == session['plan_sha256']
+    assert alignment['coding_and_mapping']['phy_script_sha256'] == sha(root/'smoke_stage25_sionna_link.py')
+    evidence_names.append(alignment_name)
+    result['paper_alignment_review'] = alignment_name
+    alignment_section = '''## 与论文实验范围的剩余差异
+
+[论文VI-A/B](https://arxiv.org/html/2502.12096v5#S6)使用ImageNet100、随机化包内token位置及独立信道完美恢复的7-bit类别标签。本地开发集为十张Imagenette图像，冻结主实验为同来源十类的100张图；100张图不等同ImageNet100数据集。当前采用演示固定交织并直接提供类别条件，没有CMI传输资源实验。论文确切数据子集与划分仍需明确。
+
+本地代码与Sionna源文件核对表明：CRC和卷积编码按包处理，输出每包102个编码bit；16-QAM阶段才把64包编码bit拼接映射为1632个符号。102不是4的整数倍，因此这个全帧符号数不能直接除以64后作为独立包重传的整数符号成本。若另行设计每包补2bit的独立映射，则每包26个符号、64包共1664个符号；这只是算术示例，未采用、未模拟，也不修改原接收或payload TCE结果。
+
+后续实际ARQ须先固定包/符号边界、停止规则、重试噪声与类别资源核算，再实现相同条件的基线；当前理想正确token解码及解析TCE不替代物理重传实验。Cheng约0.04bpp基线仍未完成。
+'''
 
 # Preserve a session-named audit copy: the stage54 pilot audit is a resumable live view.
 frozen_phy_name = f'stage{stage}_development_phy_audit.json'
@@ -105,9 +165,9 @@ if (run / convention_name).exists():
     evidence_names.append(convention_name)
     convention_section = '''## 作者训练与演示预处理差异
 
-本轮对固定作者提交的四个文件完成 AST/文本及 GitHub 整文件 blob 身份核对。[训练代码 Trainer/vit.py 第183行](https://github.com/liqiao19/TokenCom_Code/blob/0422ed32dcde3347e0bb6697f343f7a9ff7b3214/Trainer/vit.py#L183) 在编码前执行 2×x−1，把 [0,1] 输入映射到 [-1,1]；[演示 notebook](https://github.com/liqiao19/TokenCom_Code/blob/0422ed32dcde3347e0bb6697f343f7a9ff7b3214/TokCom_Demo.ipynb) 的第8、14个单元则经 Resize/ToTensor 后直接编码 [0,1]。这确认了发布代码路径的差异，尚未证明公开权重实际使用哪套训练流水线，也未证明该差异导致本实验的质量表现。
+阶段55对固定作者提交的四个文件完成 AST/文本及 GitHub 整文件 blob 身份核对。[训练代码 Trainer/vit.py 第183行](https://github.com/liqiao19/TokenCom_Code/blob/0422ed32dcde3347e0bb6697f343f7a9ff7b3214/Trainer/vit.py#L183) 在编码前执行 2×x−1，把 [0,1] 输入映射到 [-1,1]；[演示 notebook](https://github.com/liqiao19/TokenCom_Code/blob/0422ed32dcde3347e0bb6697f343f7a9ff7b3214/TokCom_Demo.ipynb) 的第8、14个单元则经 Resize/ToTensor 后直接编码 [0,1]。这确认了发布代码路径的差异，尚未证明公开权重实际使用哪套训练流水线，也未证明该差异导致本实验的质量表现。
 
-另有指标口径差异：[作者 LPIPS 包装](https://github.com/liqiao19/TokenCom_Code/blob/0422ed32dcde3347e0bb6697f343f7a9ff7b3214/Performance_metrics.py#L34) 未显式传 normalize 参数，而当前冻结指标显式使用 normalize=True。VQGAN decode_code 直接返回 decoder 输出；本轮没有更改编码输入、输出映射或指标约定。后续需预先定义独立旧开发图 round-trip 对照，固定图像几何和指标，再比较演示输入/原输出与训练范围输入/显式输出映射；不得重写主实验或把口径差异当作已证实因果。
+另有指标口径差异：[作者 LPIPS 包装](https://github.com/liqiao19/TokenCom_Code/blob/0422ed32dcde3347e0bb6697f343f7a9ff7b3214/Performance_metrics.py#L34) 未显式传 normalize 参数，而当前冻结指标显式使用 normalize=True。VQGAN decode_code 直接返回 decoder 输出；本轮没有更改编码输入、输出映射或指标约定。独立旧开发图 round-trip 与链路对照的执行状态见后节；不得重写主实验或把口径差异当作已证实因果。
 
 '''
     range_plan_name = 'stage55_range_diagnostic_plan.json'
@@ -175,7 +235,24 @@ if (run/'stage56_end_to_end_convention_plan.json').exists():
     comparison = read('stage56_end_to_end_convention_plan.json')
     assert comparison['source_multisnr_plan_sha256'] == session['plan_sha256']
     evidence_names.append('stage56_end_to_end_convention_plan.json')
-    diagnostic_section += '后续完整链路对照已预先记录在 stage56_end_to_end_convention_plan.json：同十图、8 dB、每图五次接收、相同物理链路和生成参数，比较两套一致的输入/输出约定及全部四路径。只有两套流水线各50组齐备才做跨流水线质量汇总；现有演示缓存仅在全部身份和设置相同时复用。此计划尚未执行，不能把上述诊断当作它的结果。\n\n'
+    comparison_audit_name = 'stage58_session_comparison_audit.json'
+    if 'comparison_frozen_audit_sha256' in session:
+        matched = read(comparison_audit_name)
+        assert sha(run/comparison_audit_name) == session['comparison_frozen_audit_sha256']
+        assert matched['all_checks_passed'] and matched['complete'] and matched['complete_pairs'] == 50
+        assert matched['pipeline_receptions'] == session['comparison_complete_cases'] == 100
+        assert matched['plan_sha256'] == sha(run/'stage56_end_to_end_convention_plan.json')
+        for name, digest in matched['case_sha256'].items():
+            assert sha(run/'stage57_comparison_recovery'/name) == digest
+        result['comparison_study_changed'] = False
+        result['comparison_complete_cases'] = 100
+        result['comparison_complete_pairs'] = 50
+        evidence_names.append(comparison_audit_name)
+        diagnostic_section += '## 已完成且保持独立的8 dB链路约定对照\n\n'
+        diagnostic_section += 'stage56_end_to_end_convention_plan.json 对应的独立对照已在阶段58完成：同十张旧开发图、8 dB、每图五次接收、两套约定各50组，共100个完整四路径接收组、50对接收。本轮重新核验阶段58冻结审计与100个结果文件哈希，没有重算、改写或把这些组转计入原六SNR试点。原六SNR模型覆盖仅按其独立目录的实际结果统计。\n\n'
+        diagnostic_section += '完整对照中，训练代码约定相对演示约定的图像指标有变化，但两套约定下恢复后的token正确率均低于直接接收；训练代码约定的恢复PSNR也低于该约定的直接解码。因此没有依据开发图结果选择新的主实验流水线。全部四路径及逐图配对差值保存在阶段58冻结审计，输入映射诊断与固定掩码先验探测均不代替这项链路结果。\n\n'
+    else:
+        diagnostic_section += '完整链路对照已预先记录在 stage56_end_to_end_convention_plan.json：同十图、8 dB、每图五次接收、相同物理链路和生成参数，比较两套一致的输入/输出约定及全部四路径。只有两套流水线各50组齐备才做跨流水线质量汇总；具体执行状态以独立执行审计为准。\n\n'
 if len(phy['complete_snr_groups']) == len(plan['snr_db']):
     import matplotlib
     matplotlib.use('Agg')
@@ -205,7 +282,86 @@ if len(phy['complete_snr_groups']) == len(plan['snr_db']):
     plt.close(fig)
     result['phy_figure_sha256'] = {p.name: sha(p) for p in figure_paths}
     figure_section = f'\n![完整物理接收统计与解析 payload TCE]({prefix}_PHY.svg)\n\n图中实线物理误差来自完整缓存，理想 ARQ 虚线为解析计算；没有实际重传实验，也没有模型质量曲线。\n'
+transition_section = ''
+transition_name = f'stage{stage}_token_transitions.json'
+transition_contract_name = f'stage{stage}_token_transition_contract.json'
+if (run/transition_name).exists():
+    transitions = read(transition_name); transition_contract = read(transition_contract_name)
+    assert transitions['all_checks_passed'] and transitions['source_audit_sha256'] == sha(run/'stage54_development_recovery_audit.json')
+    assert transitions['script_sha256'] == sha(root/'summarize_multisnr_token_transitions.py')
+    assert transition_contract['passed'] == 5 and transition_contract['failed'] == 0
+    assert transition_contract['script_sha256'] == transitions['script_sha256']
+    assert transition_contract['test_script_sha256'] == sha(root/'test_multisnr_token_transitions.py')
+    evidence_names += [transition_name, transition_contract_name]
+    result['token_transition_contract_checks'] = 5
+    result['token_transition_audit'] = transition_name
+    transition_section = '## 修复与原正确token改错的分解\n\n'
+    if transitions['complete']:
+        assert model['complete'] and transitions['receptions_audited'] == 300 and transitions['path_rows_audited'] == 1200
+        rows = ['| SNR/dB | 恢复模式 | 接收原错误/12800 | 原错修复 | 原正确改错 | 净正确数增量 | 最终错误/12800 |',
+                '|---|---|---:|---:|---:|---:|---:|']
+        for snr in plan['snr_db']:
+            for mode in ('without_cmi','with_cmi'):
+                v = transitions['groups'][str(snr)]['totals'][mode]
+                assert v['net_correct_gain'] == v['repaired']-v['damaged'] == v['wrong_before']-v['wrong_after']
+                rows.append(f"| {snr:g} | {mode} | {v['wrong_before']} | {v['repaired']} | {v['damaged']} | {v['net_correct_gain']} | {v['wrong_after']} |")
+        transition_section += chr(10).join(rows)
+        transition_section += '\n\n每个SNR均为完整50次接收、12800个token。逐组从保存ID重新分类并严格核对：正确数变化=原错修复−原正确改错；未掩码位置保持不变。JSON记录全部四路径及逐图五次接收均值；直接解码修复与改错均为零，理想正确token参考修复全部原错且不损坏原正确token。这是既有结果的描述性分解，没有据此调整掩码、种子或模型，也没有重新推理。\n'
+    else:
+        transition_section += '六SNR整体尚未完成，不汇总部分接收的修复或改错计数。\n'
+quality_section = '尚无完整50接收的模型SNR组，不输出部分组质量均值或模型质量曲线。'
+result['quality_aggregated_snr_db'] = [snr for snr in plan['snr_db'] if str(snr) in model['complete_snr_groups']]
+if model['complete_snr_groups']:
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    complete_snr = result['quality_aggregated_snr_db']
+    table = ['| SNR/dB | 路径 | 正确token/256 | 残余TER | PSNR/dB | LPIPS | CLIP |',
+             '|---|---|---:|---:|---:|---:|---:|']
+    for snr in complete_snr:
+        group = model['complete_snr_groups'][str(snr)]
+        assert group['complete_receptions'] == 50
+        assert set(group['means_over_images']) == set(plan['paths'])
+        for name in plan['paths']:
+            v = group['means_over_images'][name]
+            assert all(math.isfinite(v[key]) for key in ('correct_tokens','whole_image_ter','psnr_raw','lpips_normalized','clip_clipped'))
+            assert math.isclose(v['whole_image_ter'], 1-v['correct_tokens']/256, abs_tol=1e-12)
+            table.append(f"| {snr:g} | {name} | {v['correct_tokens']:.6f} | {v['whole_image_ter']:.6%} | {v['psnr_raw']:.6f} | {v['lpips_normalized']:.6f} | {v['clip_clipped']:.6f} |")
+    fig, axes = plt.subplots(2, 2, figsize=(11, 8), constrained_layout=True)
+    labels = {'direct':'Direct decode', 'without_cmi':'Without CMI', 'with_cmi':'With CMI',
+              'ideal_correct_tokens':'Ideal correct-token reference'}
+    fields = [('whole_image_ter','Final token error rate (%)',100), ('psnr_raw','Raw-output PSNR (dB)',1),
+              ('lpips_normalized','Normalized LPIPS',1), ('clip_clipped','CLIP cosine',1)]
+    for axis, (field, ylabel, scale) in zip(axes.flat, fields):
+        for name, marker in zip(plan['paths'], ('o','s','^','D')):
+            values = [scale*model['complete_snr_groups'][str(snr)]['means_over_images'][name][field] for snr in complete_snr]
+            axis.plot(complete_snr, values, marker=marker, label=labels[name])
+        axis.set(xlabel='SNR (dB)', ylabel=ylabel, xticks=plan['snr_db'])
+        axis.grid(alpha=.25)
+    axes[0,0].legend(fontsize=8)
+    fig.suptitle('Old-development model study: all four paths, complete SNR groups only\n'
+                 '10 images x 5 receptions per shown SNR; oracle error masks; no pipeline selected', fontsize=11)
+    fig.supxlabel('Average five receptions within image, then ten images. Ideal tokens do not simulate physical retransmission.', fontsize=9)
+    quality_figures = []
+    for suffix in ('svg','png'):
+        path = outputs/f'{prefix}_模型质量.{suffix}'
+        fig.savefig(path, dpi=160); quality_figures.append(path)
+    plt.close(fig)
+    figure_paths += quality_figures
+    result['model_quality_figure_sha256'] = {p.name:sha(p) for p in quality_figures}
+    quality_section = chr(10).join(table)+f'\n\n![完整SNR组四路径模型质量]({prefix}_模型质量.svg)\n\n每个显示SNR均为完整50次接收，先对每图五次接收平均，再平均十图。四路径全部保留；token相等与图像质量分别解释，不依据任一指标选择流水线。图中理想正确token参考不是实际重传基线。'
 progress_name = f'stage{stage}_session_progress.json'
+publication_pr = session.get('github_pull_request', 1)
+publication_section = ''
+contract_name = f'stage{stage}_publication_branch_contract.json'
+if (run/contract_name).exists():
+    contract = read(contract_name)
+    assert contract['passed'] == 4 and contract['failed'] == 0
+    assert contract['helper_script_sha256'] == sha(root/'sync_github_worktree_from_api.py')
+    assert contract['test_script_sha256'] == sha(root/'test_publication_branch_contract.py')
+    evidence_names.append(contract_name)
+    result['publication_branch_contract_checks'] = 4
+    publication_section = '发布同步工具现支持显式--branch参数，在暂存和移动引用前核对当前分支。四项隔离Git检查验证错误分支拒绝、替代分支精确同步、重复执行一致，以及树不匹配拒绝移动引用；检查没有使用网络或模型推理。'
 (run / progress_name).write_text(json.dumps(result, indent=2), encoding='utf-8')
 text = f'''# TokCom 阶段{stage}：多 SNR 固定计划续跑
 
@@ -215,9 +371,17 @@ text = f'''# TokCom 阶段{stage}：多 SNR 固定计划续跑
 
 本轮新增物理 {result['new_phy_cases']} 组、四路径配对恢复与指标 {result['new_paired_model_cases']} 组；当前累计物理 {phy['completed_cases']}/300、模型 {model['completed_cases']}/300。保存组全部通过输入哈希、最终 token、未掩码位置保持与有限指标检查。四路径为直接解码、无 CMI、有 CMI、正确 token 理想参考。
 
+{runtime_section}
+
 {chr(10).join(coverage)}
 
 模型每个 SNR 需 10 图 × 5 次接收完整后才汇总质量；先对每图五次接收平均，再平均十图。当前完整模型组 {len(model['complete_snr_groups'])}/6；未完成组不输出质量均值。物理组和模型组分别判断完整性。
+
+## 完整模型组的四路径质量
+
+{quality_section}
+
+{transition_section}
 
 ## 完整物理组与解析参考
 
@@ -241,11 +405,16 @@ TCE 单位为 pixels/token payload bit，单次为 65536/2560=25.6。理想 ARQ 
 
 实际残余 TER 由最终 token ID 与发送 token 比较；作者 TER_af 返回值不作为残余 TER。图像指标沿用原始输出 PSNR、clamp 后 normalize=True 的 LPIPS、clamp→PIL→官方预处理的 CLIP。项目图像去重不证明与公开预训练数据独立。旧开发集结果、固定交织和解析参考不构成整篇论文复现；更大样本 CMI、资源等价基线及论文设置对齐仍未完成。
 
+{alignment_section}
+
 {convention_section}
 {diagnostic_section}
+{next_study_section}
 ## 发布与续跑
 
-本报告基于发布前审计；发布提交、远端 CI 和精确 Git tree/commit 验证写入单独本地回执，避免自引用。持续更新草稿 PR：https://github.com/zhoujinyi8/tokencomm/pull/1 。原始图像、权重和逐接收缓存不进入发布白名单。
+本报告基于发布前审计；发布提交、远端 CI 和精确 Git tree/commit 验证写入单独本地回执，避免自引用。持续更新草稿 PR：https://github.com/zhoujinyi8/tokencomm/pull/{publication_pr} 。原始图像、权重和逐接收缓存不进入发布白名单。
+
+{publication_section}
 
 剩余物理 {result['remaining_phy_cases']} 组、模型 {result['remaining_model_cases']} 组。保持原计划和执行锁，通过 cache_stage54_development_phy.py、audit_stage54_development_phy.py、run_stage54_development_multisnr.py、audit_stage54_development_recovery.py 续跑；已保存完整组自动跳过。历史阶段报告不重写，当前会话另存审计快照。
 '''
@@ -259,6 +428,10 @@ if exposure_text:
 if convention_section:
     scripts.append('audit_stage55_input_conventions.py')
 scripts += diagnostic_scripts
+if publication_section:
+    scripts.append('test_publication_branch_contract.py')
+if transition_section:
+    scripts += ['summarize_multisnr_token_transitions.py','test_multisnr_token_transitions.py']
 evidence_names += [session_path.name, progress_name, frozen_phy_name, frozen_model_name]
 entries = {f'code/{name}': (root/name).read_bytes() for name in scripts}
 entries.update({f'evidence/{name}': (run/name).read_bytes() for name in evidence_names})
@@ -277,4 +450,5 @@ with zipfile.ZipFile(archive) as bundle:
 print(json.dumps({'stage': stage, 'phy_cases': phy['completed_cases'], 'model_cases': model['completed_cases'],
                   'new_phy': result['new_phy_cases'], 'new_model': result['new_paired_model_cases'],
                   'archive_entries': len(entries), 'archive_sha256': sha(archive),
-                  'report': str(report), 'archive': str(archive)}, ensure_ascii=True, indent=2))
+                  'report': str(report), 'archive': str(archive),
+                  'figures': [str(path) for path in figure_paths]}, ensure_ascii=True, indent=2))

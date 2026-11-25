@@ -24,6 +24,7 @@ for path in (root/'third_party').rglob('*'):
 reports=target/'reports';reports.mkdir(exist_ok=True)
 for path in (root.parents[2]/'outputs').glob('TokCom_*.md'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_PHY.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_模型质量.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
@@ -70,7 +71,12 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage57_aggregation_contract_verification.json','stage57_session_comparison_audit.json',
              'stage58_window_start.json','stage58_session_progress.json','stage58_session_comparison_audit.json',
              'stage58_plot_smoke_verification.json','stage58_checkpoint_metadata_audit.json',
-             'stage58_upstream_weight_source_audit.json']:
+             'stage58_upstream_weight_source_audit.json',
+             'stage59_window_start.json','stage59_session_progress.json',
+             'stage59_development_phy_audit.json','stage59_development_recovery_audit.json',
+             'stage59_publication_branch_contract.json','stage59_runtime_identity.json',
+             'stage59_paper_alignment_review.json','stage59_randomized_packetization_plan.json',
+             'stage59_token_transitions.json','stage59_token_transition_contract.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -155,6 +161,11 @@ if (root/'runs/stage57_comparison_audit.json').exists():
 The preregistered old-development comparison now has {matched['counts']['demo']}/50 demo-pipeline cases and {matched['counts']['training_code_convention']}/50 training-code-convention cases, representing {matched['complete_pairs']}/50 complete image/trial pairs. Four paths are recorded per case. {matched['reused_demo_cases']} demo cases are reused only after exact identity checks; {matched['computed_cases']} cases are computed by this study. Both PHY streams have 50 audited receptions; 50 new simulations and 50 inherited demo PHY references are distinguished.\n
 The two conventions are x -> raw decode y, and 2*x-1 -> (y+1)/2 for every metric path. Same images, 8 dB, noise seeds, code/modulation, class modes and generation parameters are retained. Each stream uses its own true-error oracle mask; both class modes share that mask within the stream. No cross-pipeline quality means are released until all 50 pairs and all four paths are complete. See `evidence/stage57_comparison_audit.json`; this independent namespace does not alter the frozen primary or the original six-SNR grid.\n
 Resume `run_stage57_convention_comparison.py`, audit with `audit_stage57_convention_comparison.py`, then render a session with `report_convention_comparison.py --session runs/SESSION.json`. The frozen reuse-source manifest prevents later original-grid progress from changing this study's initial identities.\n'''
+if (root/'runs/stage59_session_progress.json').exists():
+    continuation=json.loads((root/'runs/stage59_session_progress.json').read_text(encoding='utf-8'))
+    readme+=f'''\n## Resumed six-SNR model study (stage 59)\n
+The matched convention study is complete at 100 pipeline receptions and 50 pairs; its frozen audit and all 100 case files remain unchanged. Stage 59 resumes the original independently locked six-SNR model study from 72/300. Current model coverage: {continuation['paired_model_cases']}/300; new model cases this window: {continuation['new_paired_model_cases']}. PHY remains 300/300, with {continuation['new_phy_cases']} new physical simulations this window. No matched-convention case is transferred into the original grid. Incomplete SNR groups receive coverage only, without quality means.\n
+Publication follows draft PR #{continuation.get('github_pull_request',2)} on `{continuation.get('github_branch','reproduction/automation-30-stage58')}`. Use `sync_github_worktree_from_api.py --branch BRANCH --commit SHA --expected-parent PARENT --receipt runs/RECEIPT.json` for exact tree/commit synchronization on the selected existing branch. The explicit branch is checked before staging or ref mutation; isolated Git contract checks cover rejection and idempotence.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):
