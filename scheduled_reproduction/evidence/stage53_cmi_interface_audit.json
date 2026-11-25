@@ -1,0 +1,116 @@
+{
+  "kind": "synthetic interface audit; no pretrained recovery result",
+  "pretrained_weights_loaded": false,
+  "datasets_accessed": false,
+  "frozen_evaluation_changed": false,
+  "tiny_model_configuration": {
+    "img_size": 32,
+    "hidden_dim": 32,
+    "depth": 1,
+    "heads": 4,
+    "codebook_size": 8,
+    "nclass": 3
+  },
+  "synthetic_probe_threads": 1,
+  "drop_class_logits_invariant_to_label": true,
+  "conditioned_logits_distinguish_labels": true,
+  "observed_class_token_ids": [
+    12,
+    12,
+    9,
+    11
+  ],
+  "generation_branch_calls": {
+    "0": [
+      {
+        "batch": 1,
+        "labels": [
+          0
+        ],
+        "drop_label": [
+          true
+        ]
+      },
+      {
+        "batch": 1,
+        "labels": [
+          0
+        ],
+        "drop_label": [
+          true
+        ]
+      }
+    ],
+    "1": [
+      {
+        "batch": 1,
+        "labels": [
+          0
+        ],
+        "drop_label": [
+          false
+        ]
+      },
+      {
+        "batch": 1,
+        "labels": [
+          0
+        ],
+        "drop_label": [
+          false
+        ]
+      }
+    ],
+    "9": [
+      {
+        "batch": 2,
+        "labels": [
+          0,
+          0
+        ],
+        "drop_label": [
+          false,
+          true
+        ]
+      },
+      {
+        "batch": 2,
+        "labels": [
+          0,
+          0
+        ],
+        "drop_label": [
+          false,
+          true
+        ]
+      }
+    ]
+  },
+  "return_metric_examples": {
+    "0": {
+      "all_four_generated_tokens_wrong": true,
+      "returned_TER_af": 0.0,
+      "actual_whole_image_residual_TER": 1.0
+    },
+    "1": {
+      "all_four_generated_tokens_wrong": true,
+      "returned_TER_af": 0.0,
+      "actual_whole_image_residual_TER": 1.0
+    },
+    "9": {
+      "all_four_generated_tokens_wrong": true,
+      "returned_TER_af": 0.0,
+      "actual_whole_image_residual_TER": 1.0
+    }
+  },
+  "returned_TER_af_semantics": "correct masked predictions / all image tokens; not whole-image residual TER",
+  "future_cmi_ablation_modes": {
+    "without_cmi": 0,
+    "with_cmi": 1
+  },
+  "author_source_sha256": {
+    "Network/transformer.py": "6153ee9608422ad6c2a6cad54974046fde43a7b9dd3c7fe60d31b6f075056c00",
+    "Trainer/vit.py": "65bb6293d0f812c1dfce22dc01b64ab212042d05e7568d4ab8b5228d688d2a0c"
+  },
+  "probe_script_sha256": "a338e500fb7fbb881a1d7aeb361488635835dda8ab58fe5f5be9e8aa44b074c5"
+}

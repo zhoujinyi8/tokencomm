@@ -7,13 +7,10 @@ from context_maskgit_v4 import ContextMaskGITv4, initialize_context_maskgit_v4_f
 
 
 class ContextMaskGITv4Tests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.checkpoint = torch.load("runs/stage15_contextual_tokcom/best.pt", weights_only=True)
-
     def test_v3_warm_start_preserves_conditional_and_unconditional_logits(self):
-        v3 = load_context_maskgit_v3(self.checkpoint).eval()
-        v4 = initialize_context_maskgit_v4_from_v3(self.checkpoint).eval()
+        checkpoint = torch.load("runs/stage15_contextual_tokcom/best.pt", weights_only=True)
+        v3 = load_context_maskgit_v3(checkpoint).eval()
+        v4 = initialize_context_maskgit_v4_from_v3(checkpoint).eval()
         ids = torch.randint(0, 1024, (2, 256))
         labels = torch.tensor([1, 7])
         with torch.no_grad():

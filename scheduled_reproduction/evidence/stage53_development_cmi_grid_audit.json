@@ -1,0 +1,14 @@
+{
+  "all_checks_passed": true,
+  "scope": "old 10-image development set, 5 receptions; exploratory CMI ablation, not current holdout",
+  "completed_cases": 50,
+  "complete": true,
+  "preselected_smoke_case_consistent": true,
+  "independent_direct_mean_correct_tokens": 250.7,
+  "source_plan_sha256": "93f5c71d8d3321031bdc175bddad5c5ce2ee7a00463defd1e0f1a68664c37211",
+  "summary_sha256": "aba4c1bbe3107a29d1b01d741284d498f2f623206d31f0891a4f4394b6b0ec5b",
+  "metric_weight_identities_match_primary": true,
+  "primary_metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "primary_holdout_changed": false,
+  "primary_summary_sha256": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979"
+}

@@ -1,0 +1,14 @@
+{
+  "passed": 4,
+  "failed": 0,
+  "method": "standalone actual audit subprocess against isolated NumPy fixtures",
+  "checks": [
+    "incomplete_snr_has_no_means",
+    "complete_snr_aggregates_50_receptions",
+    "reject_wrong_final_token_count",
+    "reject_changed_unmasked_token"
+  ],
+  "audit_script_sha256": "26c700a168e055b30bb36359ca069fb979809f28c783ac823e07b757b1bf120f",
+  "check_script_sha256": "ccfd13514cc0edd532b788b7c2cca5c396409a48972d2ac14487e9f3f0b3a8c1",
+  "recorded_utc": "2026-11-24T07:21:42.742849+00:00"
+}

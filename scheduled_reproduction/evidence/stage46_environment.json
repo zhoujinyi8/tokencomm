@@ -1,0 +1,31 @@
+{
+  "python": "3.10.11",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "torch": "2.14.0",
+    "torchvision": "0.29.0",
+    "numpy": "1.26.4",
+    "omegaconf": "2.4.0",
+    "Pillow": "10.3.0",
+    "lpips": "0.1.4",
+    "clip": "1.0"
+  },
+  "device": "cpu",
+  "torch_threads": 4,
+  "author_commit": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "tracked_author_modifications": [],
+  "author_source_sha256": {
+    "Network/transformer.py": "6153ee9608422ad6c2a6cad54974046fde43a7b9dd3c7fe60d31b6f075056c00",
+    "Network/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Network/Taming/util.py": "189b26a34460c577f98a302abd338a10dff19bd55a8baba288559753f727bd9c",
+    "Network/Taming/models/vqgan.py": "fe0a4e1aebc109426fc4ff5323d482a68a4eba0bc8df07b69053cfa9aa0c42a9",
+    "Network/Taming/modules/util.py": "c6e2fd47e584206dc47da53294dcf1a80c8303cbbb5ac65392ed8e63d879a3a2",
+    "Network/Taming/modules/diffusionmodules/model.py": "a1e8b84ff52accadaf62e43f75ede4d9e8f8a74029ef7b36ae11813a0276794e",
+    "Network/Taming/modules/vqvae/quantize.py": "70b6369f23729f2ea8c11d174e410cf00295a8076e0d9bcb118eb35aa8d3cda4",
+    "Trainer/trainer.py": "2b0b2b44bfe5eccbe52acdc3d0a7d2c0953e90db2cd286344dafcf15e3b529c9",
+    "Trainer/vit.py": "65bb6293d0f812c1dfce22dc01b64ab212042d05e7568d4ab8b5228d688d2a0c",
+    "pretrained_maskgit/VQGAN/model.yaml": "d32cf4a300712b90eaf2bcf0d52ee7eb26ec0bdc199c667207b0094cbbb18760"
+  },
+  "recovery_runner_sha256": "e3561bfe640f86ee2069e11bda9ce1211f53f60a2507d114f1e24e3880f2e518",
+  "note": "provenance only; no holdout accuracy or quality metrics computed"
+}

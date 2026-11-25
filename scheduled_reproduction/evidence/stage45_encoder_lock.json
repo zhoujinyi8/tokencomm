@@ -1,0 +1,6 @@
+{
+  "protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "manifest_sha256": "dfea5458cd0b98ca0eb88c68bccbada742f5449bbe646d2c50e3dbf103d1a54a",
+  "encoder_script_sha256": "dca840b6540c336f0e0996015315cc623e904fd4f6a7f0d7cf722680caa7811d",
+  "phase": "token encoding only; no selection by outcome"
+}

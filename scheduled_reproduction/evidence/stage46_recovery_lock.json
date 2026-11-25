@@ -1,0 +1,7 @@
+{
+  "protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "runner_sha256": "e3561bfe640f86ee2069e11bda9ce1211f53f60a2507d114f1e24e3880f2e518",
+  "encoder_lock_sha256": "12531456ca9d3af96c3218cdd7c771740e9acb365b16590da66ec5e7ddcf5ba1",
+  "phy_lock_sha256": "0584098a0a22e29e3d5572f499406497864174fad23b3cec7423279602697fd9",
+  "purpose": "frozen evaluation; partial files are not tuning data"
+}

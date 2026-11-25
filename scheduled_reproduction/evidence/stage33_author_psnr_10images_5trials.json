@@ -1,0 +1,539 @@
+{
+  "scope": "ten development images, five saved AWGN 8 dB receptions each; image is the aggregation unit",
+  "saved_pairs": 50,
+  "complete_images": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "complete_pairs": 50,
+  "mean_psnr_raw_over_complete_images": {
+    "oracle": 19.131139611852767,
+    "crc": 18.605839427594624
+  },
+  "mean_psnr_clipped_diagnostic": {
+    "oracle": 19.292817772079545,
+    "crc": 18.779376706531067
+  },
+  "per_image": [
+    {
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle_mean_psnr_raw": 22.16534397537398,
+      "crc_mean_psnr_raw": 21.588626996329126
+    },
+    {
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle_mean_psnr_raw": 21.38718784003182,
+      "crc_mean_psnr_raw": 20.832747369081595
+    },
+    {
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle_mean_psnr_raw": 20.834146648100404,
+      "crc_mean_psnr_raw": 19.89627600945296
+    },
+    {
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle_mean_psnr_raw": 19.85550379901199,
+      "crc_mean_psnr_raw": 19.06155620857996
+    },
+    {
+      "image_index": 4,
+      "class_name": "church",
+      "oracle_mean_psnr_raw": 16.654359764937706,
+      "crc_mean_psnr_raw": 16.20722719959334
+    },
+    {
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle_mean_psnr_raw": 18.620650034059576,
+      "crc_mean_psnr_raw": 18.380268077816623
+    },
+    {
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle_mean_psnr_raw": 18.748970779191584,
+      "crc_mean_psnr_raw": 18.483894230288826
+    },
+    {
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle_mean_psnr_raw": 15.333931421878308,
+      "crc_mean_psnr_raw": 14.942925836149707
+    },
+    {
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle_mean_psnr_raw": 18.47422881931535,
+      "crc_mean_psnr_raw": 18.376149026666162
+    },
+    {
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle_mean_psnr_raw": 19.23707303662693,
+      "crc_mean_psnr_raw": 18.28872332198793
+    }
+  ],
+  "rows": [
+    {
+      "trial": 0,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle_psnr_raw": 21.942813441238624,
+      "crc_psnr_raw": 21.79744387772164,
+      "oracle_psnr_clipped": 22.007531619035767,
+      "crc_psnr_clipped": 21.875214064106963
+    },
+    {
+      "trial": 0,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle_psnr_raw": 21.348437770479947,
+      "crc_psnr_raw": 21.277746250754717,
+      "oracle_psnr_clipped": 21.44198393861597,
+      "crc_psnr_clipped": 21.382285119808113
+    },
+    {
+      "trial": 0,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle_psnr_raw": 19.762408607059363,
+      "crc_psnr_raw": 19.15871903052736,
+      "oracle_psnr_clipped": 19.81632022570906,
+      "crc_psnr_clipped": 19.199290903632512
+    },
+    {
+      "trial": 0,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle_psnr_raw": 20.280315538086686,
+      "crc_psnr_raw": 19.473933443230248,
+      "oracle_psnr_clipped": 20.45275830054779,
+      "crc_psnr_clipped": 19.7104670351164
+    },
+    {
+      "trial": 0,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle_psnr_raw": 16.521920042543602,
+      "crc_psnr_raw": 16.009412763994668,
+      "oracle_psnr_clipped": 16.57519192301948,
+      "crc_psnr_clipped": 16.07616336909052
+    },
+    {
+      "trial": 0,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle_psnr_raw": 18.680935624425622,
+      "crc_psnr_raw": 18.600211026320057,
+      "oracle_psnr_clipped": 18.790113522028143,
+      "crc_psnr_clipped": 18.71798740590257
+    },
+    {
+      "trial": 0,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle_psnr_raw": 19.292543722882716,
+      "crc_psnr_raw": 19.365163427321953,
+      "oracle_psnr_clipped": 19.626402586119557,
+      "crc_psnr_clipped": 19.642702682871608
+    },
+    {
+      "trial": 0,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle_psnr_raw": 15.428180214512503,
+      "crc_psnr_raw": 14.961285853002781,
+      "oracle_psnr_clipped": 15.491671206971827,
+      "crc_psnr_clipped": 15.019802914867045
+    },
+    {
+      "trial": 0,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle_psnr_raw": 18.08666722706284,
+      "crc_psnr_raw": 17.633234737474147,
+      "oracle_psnr_clipped": 18.30199623231278,
+      "crc_psnr_clipped": 17.927579313346435
+    },
+    {
+      "trial": 0,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle_psnr_raw": 19.220903030784836,
+      "crc_psnr_raw": 17.790398631379936,
+      "oracle_psnr_clipped": 19.66265390827388,
+      "crc_psnr_clipped": 18.713075641229352
+    },
+    {
+      "trial": 1,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle_psnr_raw": 22.313780575859653,
+      "crc_psnr_raw": 21.707509573893986,
+      "oracle_psnr_clipped": 22.421534726796008,
+      "crc_psnr_clipped": 21.78731954553005
+    },
+    {
+      "trial": 1,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle_psnr_raw": 21.582631369358914,
+      "crc_psnr_raw": 21.569059362333157,
+      "oracle_psnr_clipped": 21.670573572862097,
+      "crc_psnr_clipped": 21.672446043010567
+    },
+    {
+      "trial": 1,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle_psnr_raw": 20.920858948582964,
+      "crc_psnr_raw": 21.1825778217332,
+      "oracle_psnr_clipped": 20.93186489090531,
+      "crc_psnr_clipped": 21.196903887340945
+    },
+    {
+      "trial": 1,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle_psnr_raw": 20.009818328905244,
+      "crc_psnr_raw": 18.165071809126513,
+      "oracle_psnr_clipped": 20.23207086126131,
+      "crc_psnr_clipped": 18.253962870339667
+    },
+    {
+      "trial": 1,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle_psnr_raw": 16.781137354116833,
+      "crc_psnr_raw": 16.49171395644267,
+      "oracle_psnr_clipped": 16.85402319362933,
+      "crc_psnr_clipped": 16.554795655838852
+    },
+    {
+      "trial": 1,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle_psnr_raw": 18.580871971111023,
+      "crc_psnr_raw": 18.48767143834532,
+      "oracle_psnr_clipped": 18.676599054904027,
+      "crc_psnr_clipped": 18.594012686007538
+    },
+    {
+      "trial": 1,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle_psnr_raw": 18.872126839430788,
+      "crc_psnr_raw": 18.419193301600327,
+      "oracle_psnr_clipped": 19.25521628525909,
+      "crc_psnr_clipped": 18.789494585666475
+    },
+    {
+      "trial": 1,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle_psnr_raw": 15.298552945015825,
+      "crc_psnr_raw": 14.30145896404882,
+      "oracle_psnr_clipped": 15.359462414097045,
+      "crc_psnr_clipped": 14.384347745251098
+    },
+    {
+      "trial": 1,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle_psnr_raw": 18.33517188769274,
+      "crc_psnr_raw": 18.184753865191063,
+      "oracle_psnr_clipped": 18.533724599692068,
+      "crc_psnr_clipped": 18.252661079366014
+    },
+    {
+      "trial": 1,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle_psnr_raw": 18.734160234466707,
+      "crc_psnr_raw": 18.684518782822845,
+      "oracle_psnr_clipped": 19.30567206583774,
+      "crc_psnr_clipped": 19.24687105442112
+    },
+    {
+      "trial": 2,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle_psnr_raw": 22.255425429566454,
+      "crc_psnr_raw": 21.69343715011701,
+      "oracle_psnr_clipped": 22.316301920779807,
+      "crc_psnr_clipped": 21.81200957489779
+    },
+    {
+      "trial": 2,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle_psnr_raw": 21.44678829453013,
+      "crc_psnr_raw": 20.357964631613306,
+      "oracle_psnr_clipped": 21.49839114421429,
+      "crc_psnr_clipped": 20.477707127294615
+    },
+    {
+      "trial": 2,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle_psnr_raw": 21.010650892542117,
+      "crc_psnr_raw": 20.00448796813916,
+      "oracle_psnr_clipped": 21.02926738592252,
+      "crc_psnr_clipped": 20.021601777944266
+    },
+    {
+      "trial": 2,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle_psnr_raw": 19.733768938069048,
+      "crc_psnr_raw": 19.70103134978819,
+      "oracle_psnr_clipped": 20.007761898996602,
+      "crc_psnr_clipped": 19.900807926344612
+    },
+    {
+      "trial": 2,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle_psnr_raw": 16.617318617765232,
+      "crc_psnr_raw": 16.366315070536217,
+      "oracle_psnr_clipped": 16.65208899802347,
+      "crc_psnr_clipped": 16.405471430359352
+    },
+    {
+      "trial": 2,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle_psnr_raw": 18.5280405313472,
+      "crc_psnr_raw": 17.542091678653126,
+      "oracle_psnr_clipped": 18.61618888548636,
+      "crc_psnr_clipped": 17.669932739928072
+    },
+    {
+      "trial": 2,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle_psnr_raw": 18.004972927897004,
+      "crc_psnr_raw": 17.967167369845225,
+      "oracle_psnr_clipped": 18.487857322284775,
+      "crc_psnr_clipped": 18.510504649911688
+    },
+    {
+      "trial": 2,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle_psnr_raw": 15.291363615348777,
+      "crc_psnr_raw": 15.434847941438344,
+      "oracle_psnr_clipped": 15.347271343597113,
+      "crc_psnr_clipped": 15.484176419145559
+    },
+    {
+      "trial": 2,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle_psnr_raw": 18.507783836187556,
+      "crc_psnr_raw": 18.904257672841876,
+      "oracle_psnr_clipped": 18.5736645044173,
+      "crc_psnr_clipped": 18.93860989658033
+    },
+    {
+      "trial": 2,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle_psnr_raw": 19.674152286716804,
+      "crc_psnr_raw": 18.49990705345799,
+      "oracle_psnr_clipped": 20.104611836649173,
+      "crc_psnr_clipped": 19.223354888346748
+    },
+    {
+      "trial": 3,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle_psnr_raw": 21.974575572412604,
+      "crc_psnr_raw": 21.552559716587645,
+      "oracle_psnr_clipped": 22.097458148875265,
+      "crc_psnr_clipped": 21.653330229565633
+    },
+    {
+      "trial": 3,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle_psnr_raw": 21.028999796893622,
+      "crc_psnr_raw": 19.725498916171244,
+      "oracle_psnr_clipped": 21.11222942692281,
+      "crc_psnr_clipped": 19.804616057959198
+    },
+    {
+      "trial": 3,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle_psnr_raw": 21.38549136866844,
+      "crc_psnr_raw": 19.919049777866277,
+      "oracle_psnr_clipped": 21.403125710846002,
+      "crc_psnr_clipped": 19.9332733015395
+    },
+    {
+      "trial": 3,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle_psnr_raw": 19.869009232476948,
+      "crc_psnr_raw": 19.403260011317972,
+      "oracle_psnr_clipped": 20.014546459415293,
+      "crc_psnr_clipped": 19.546130851877194
+    },
+    {
+      "trial": 3,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle_psnr_raw": 16.641265923856576,
+      "crc_psnr_raw": 16.50591899884703,
+      "oracle_psnr_clipped": 16.701390183220994,
+      "crc_psnr_clipped": 16.57601406445122
+    },
+    {
+      "trial": 3,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle_psnr_raw": 18.747612511906247,
+      "crc_psnr_raw": 18.569790121124058,
+      "oracle_psnr_clipped": 18.854010551864263,
+      "crc_psnr_clipped": 18.686588852704578
+    },
+    {
+      "trial": 3,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle_psnr_raw": 18.876694444394634,
+      "crc_psnr_raw": 19.0218727255481,
+      "oracle_psnr_clipped": 19.264943330536596,
+      "crc_psnr_clipped": 19.351951838202943
+    },
+    {
+      "trial": 3,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle_psnr_raw": 15.246292032900584,
+      "crc_psnr_raw": 14.539620683193888,
+      "oracle_psnr_clipped": 15.294822776693078,
+      "crc_psnr_clipped": 14.625153111539088
+    },
+    {
+      "trial": 3,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle_psnr_raw": 18.709757635457223,
+      "crc_psnr_raw": 18.778969347293135,
+      "oracle_psnr_clipped": 18.76112057523187,
+      "crc_psnr_clipped": 18.801853269186932
+    },
+    {
+      "trial": 3,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle_psnr_raw": 19.308067069443613,
+      "crc_psnr_raw": 18.083742442078695,
+      "oracle_psnr_clipped": 19.734285576771352,
+      "crc_psnr_clipped": 18.44129603699969
+    },
+    {
+      "trial": 4,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle_psnr_raw": 22.340124857792546,
+      "crc_psnr_raw": 21.19218466332534,
+      "oracle_psnr_clipped": 22.402355852186915,
+      "crc_psnr_clipped": 21.255871343161367
+    },
+    {
+      "trial": 4,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle_psnr_raw": 21.529081968896474,
+      "crc_psnr_raw": 21.23346768453556,
+      "oracle_psnr_clipped": 21.629018004479196,
+      "crc_psnr_clipped": 21.30914951973724
+    },
+    {
+      "trial": 4,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle_psnr_raw": 21.091323423649136,
+      "crc_psnr_raw": 19.216545448998815,
+      "oracle_psnr_clipped": 21.105354518455506,
+      "crc_psnr_clipped": 19.224484067158386
+    },
+    {
+      "trial": 4,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle_psnr_raw": 19.384606957522017,
+      "crc_psnr_raw": 18.564484429436884,
+      "oracle_psnr_clipped": 19.74917158336242,
+      "crc_psnr_clipped": 18.8192671149583
+    },
+    {
+      "trial": 4,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle_psnr_raw": 16.71015688640628,
+      "crc_psnr_raw": 15.662775208146122,
+      "oracle_psnr_clipped": 16.778456620242608,
+      "crc_psnr_clipped": 15.779874790396327
+    },
+    {
+      "trial": 4,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle_psnr_raw": 18.565789531507786,
+      "crc_psnr_raw": 18.701576124640557,
+      "oracle_psnr_clipped": 18.64761426344952,
+      "crc_psnr_clipped": 18.798409411297275
+    },
+    {
+      "trial": 4,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle_psnr_raw": 18.698515961352786,
+      "crc_psnr_raw": 17.646074327128527,
+      "oracle_psnr_clipped": 19.08847612182448,
+      "crc_psnr_clipped": 18.141557773928877
+    },
+    {
+      "trial": 4,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle_psnr_raw": 15.405268301613846,
+      "crc_psnr_raw": 15.477415739064694,
+      "oracle_psnr_clipped": 15.470597146101564,
+      "crc_psnr_clipped": 15.521858546861665
+    },
+    {
+      "trial": 4,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle_psnr_raw": 18.731763510176382,
+      "crc_psnr_raw": 18.379529510530567,
+      "oracle_psnr_clipped": 18.781605828167212,
+      "crc_psnr_clipped": 18.4290965987851
+    },
+    {
+      "trial": 4,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle_psnr_raw": 19.24808256172269,
+      "crc_psnr_raw": 18.38504970020019,
+      "oracle_psnr_clipped": 19.709535557080514,
+      "crc_psnr_clipped": 18.827498512745613
+    }
+  ]
+}

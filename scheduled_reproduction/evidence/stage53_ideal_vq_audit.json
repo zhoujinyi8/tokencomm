@@ -1,0 +1,9 @@
+{
+  "all_checks_passed": true,
+  "completed_images": 100,
+  "complete": true,
+  "summary_sha256": "4769db76497c8bde9a5dc4db46b41f50e74fb204d9289a092015af72dfcda2bf",
+  "source_plan_sha256": "5d663f84feb7f5e9a2bd7f5c2fd1800d7ebf60aab0f220e46343568eff04d339",
+  "primary_protocol_unchanged": true,
+  "physical_retries_simulated": false
+}

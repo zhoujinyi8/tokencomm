@@ -1,0 +1,22 @@
+{
+  "all_checks_passed": true,
+  "complete_images": 100,
+  "complete_receptions": 500,
+  "paths": [
+    "direct",
+    "oracle",
+    "crc",
+    "soft_gate_0.05",
+    "soft_gate_0.1",
+    "soft_gate_0.25"
+  ],
+  "selected_exploratory_fraction": null,
+  "direct_correct_tokens_from_independent_phy_counts": 250.722,
+  "paired_difference_arithmetic_consistent": true,
+  "per_image_coverage_complete": true,
+  "summary_sha256": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+  "metric_audit_sha256": "1e644ae5cb51c27267b946c31dc453d2be916d0c6dd37c2b4fbac616f0bf3d11",
+  "supplemental_phy_result_sha256": "2ec95c0426fce709e5b69c90f516a0e21fde657148efe702fe7514d53b65893c",
+  "original_summary_entrypoint_sha256": "7f77efc95b8d10aa875e2882e06fd813d46c60f3c78c81954d4807797076427c",
+  "note": "Integrity and cross-artifact reconciliation; no selection or extra performance outcome"
+}

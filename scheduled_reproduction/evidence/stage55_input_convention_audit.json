@@ -1,0 +1,64 @@
+{
+  "author_commit": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "author_files": {
+    "Trainer/vit.py": {
+      "sha256": "65bb6293d0f812c1dfce22dc01b64ab212042d05e7568d4ab8b5228d688d2a0c",
+      "git_blob_sha": "e902e6f81e0f604591ea2644ac2ac03161dac474",
+      "remote_connector_identity_matches": true,
+      "checkout_crlf_normalized_for_git_identity": true
+    },
+    "TokCom_Demo.ipynb": {
+      "sha256": "47e2cd9aed662c3016817e9de21737513eab46480eab6f8dc7518bea2a678925",
+      "git_blob_sha": "499852d8b6568beb2e2ced6d18130f7847b57018",
+      "remote_connector_identity_matches": true,
+      "checkout_crlf_normalized_for_git_identity": true
+    },
+    "Performance_metrics.py": {
+      "sha256": "4afaf76f3e1ceab8d6a7968491080d9a0e4eda49a10999e75397d19007686908",
+      "git_blob_sha": "6f9aaf5f15fd71cc0bb020f5015a4f7662c62593",
+      "remote_connector_identity_matches": true,
+      "checkout_crlf_normalized_for_git_identity": true
+    },
+    "Network/Taming/models/vqgan.py": {
+      "sha256": "fe0a4e1aebc109426fc4ff5323d482a68a4eba0bc8df07b69053cfa9aa0c42a9",
+      "git_blob_sha": "9ac55afe95a6a9caf51e0e737d06d4208effc7b6",
+      "remote_connector_identity_matches": true,
+      "checkout_crlf_normalized_for_git_identity": true
+    }
+  },
+  "all_checks_passed": true,
+  "script_sha256": "8e01ceb8cc368afd256b066fc0e693ad0485f9a091c8b35476824d6b5315becc",
+  "training_input": {
+    "pixel_mapping": "2*x-1 before VQGAN encoding",
+    "range": "[-1,1]",
+    "normalization_line": 183,
+    "encode_line": 190
+  },
+  "demo_input": {
+    "transforms": [
+      "transforms.Resize((256, 256))",
+      "transforms.ToTensor()"
+    ],
+    "range": "[0,1]",
+    "notebook_cell": 8,
+    "encode_cell": 14,
+    "encode_cell_line": 27
+  },
+  "demo_lpips": {
+    "normalize_keyword_explicit": false,
+    "call_line": 40
+  },
+  "primary_lpips": {
+    "normalize_keyword": true,
+    "script_matches_frozen_lock": true
+  },
+  "decode_code": {
+    "returns_decoder_output_without_affine_conversion": true,
+    "line": 68
+  },
+  "model_inference_performed": false,
+  "primary_protocol_changed": false,
+  "pilot_plan_changed": false,
+  "causal_effect_on_quality_established": false,
+  "next_independent_development_question": "Predefine a separate paired VQGAN round-trip audit on old development images comparing demo input/raw output with training-range input and explicit output rescaling. Hold image geometry and metrics fixed before seeing results. Do not reinterpret or overwrite the frozen evaluation."
+}

@@ -1,0 +1,5041 @@
+{
+  "kind": "supplemental descriptive analytic calculation; not a preregistered primary outcome",
+  "created_utc": "2026-11-24T02:01:46.688161+00:00",
+  "source": "https://arxiv.org/html/2502.12096v4#S6",
+  "plan_sha256": "7a2d5014ed9fd455319610d43838a078dc7e6968c9e9bdee3abb48f012b4695b",
+  "script_sha256": "0b841b3b6f4a336cef6b00df22118289200ee75af9ea8f7b4d92488cc946e029",
+  "reference_sha256": "54ef87c7f0cf4a297e25b06ae11c242f204f8b4aba988b7214bde951507c9c4a",
+  "protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "cache_audit_sha256": "e555577d3a78251743ca48668c47411cb93e3255aeb194b8c98b69f60a8ce781",
+  "complete_images": 100,
+  "complete_receptions": 500,
+  "input_hashes_matched": true,
+  "original_primary_protocol_changed": false,
+  "image_quality_metrics_read": false,
+  "strategy_or_threshold_selected": false,
+  "totals": {
+    "packets": 32000,
+    "true_error_packets": 2227,
+    "crc_failed_packets": 4720,
+    "data_correct_crc_failed_packets": 2493,
+    "data_wrong_crc_passed_packets": 0,
+    "wrong_received_tokens": 2639
+  },
+  "true_packet_error_rate": 0.06959375,
+  "crc_failure_rate": 0.1475,
+  "units": "pixels/token_payload_bit",
+  "single_shot_tce": 25.6,
+  "ideal_arq_mean_attempts_from_pooled_per": 1.074799314815437,
+  "ideal_arq_tce_from_true_per": 23.8184,
+  "assumptions": [
+    "T counts first attempt",
+    "single-shot T=1",
+    "ideal ARQ T=1/(1-pooled true PER)",
+    "homogeneous independent retry approximation; actual retries not simulated",
+    "token payload bits only; CRC/coding/padding/CMI/ACK/control/latency excluded",
+    "CRC failures are reported separately and are not substituted for true packet errors",
+    "no quality guarantee or complete-paper TCE curve claim"
+  ],
+  "cases": [
+    {
+      "image_index": 0,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 0,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 0,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 0,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 0,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 1,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 1,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 1,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 1,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 1,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 3,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 2,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 2,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 2,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 2,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 2,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 3,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 3,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 3,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 3,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 3,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 4,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 4,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 4,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 4,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 4,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 4,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 5,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 5,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 5,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 5,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 5,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 6,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 6,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 6,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 6,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 6,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 3,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 7,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 7,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 7,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 7,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 7,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 8,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 4,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 8,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 8,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 8,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 8,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 9,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 9,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 9,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 9,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 9,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 10,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 10,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 10,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 10,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 10,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 11,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 11,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 11,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 11,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 11,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 12,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 12,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 12,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 12,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 12,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 13,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 13,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 13,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 16,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 13,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 14
+    },
+    {
+      "image_index": 13,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 14,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 14,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 14,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 14,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 14,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 10,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 15,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 15,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 12
+    },
+    {
+      "image_index": 15,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 15,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 15,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 16,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 16,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 16,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 16,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 16,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 17,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 17,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 17,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 17,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 17,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 18,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 18,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 18,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 18,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 18,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 19,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 19,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 19,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 19,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 19,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 20,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 20,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 20,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 20,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 20,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 21,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 12
+    },
+    {
+      "image_index": 21,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 21,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 21,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 21,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 22,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 22,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 22,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 22,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 22,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 23,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 23,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 23,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 23,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 23,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 24,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 24,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 24,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 24,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 24,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 25,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 25,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 25,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 25,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 25,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 26,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 26,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 26,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 26,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 26,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 27,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 27,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 27,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 27,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 27,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 28,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 28,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 28,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 28,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 28,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 29,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 29,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 29,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 29,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 29,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 30,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 30,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 30,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 30,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 15,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 30,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 31,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 31,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 31,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 31,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 31,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 32,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 32,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 32,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 32,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 32,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 33,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 33,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 33,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 33,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 33,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 34,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 15,
+      "data_correct_crc_failed_packets": 11,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 34,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 34,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 34,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 34,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 35,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 10,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 14
+    },
+    {
+      "image_index": 35,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 35,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 35,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 35,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 36,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 36,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 10,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 13
+    },
+    {
+      "image_index": 36,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 36,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 36,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 37,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 37,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 37,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 37,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 0,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 37,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 38,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 38,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 38,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 38,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 38,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 39,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 39,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 39,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 39,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 39,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 40,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 40,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 40,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 40,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 40,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 41,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 16,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 41,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 41,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 41,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 4,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 41,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 16,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 42,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 42,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 42,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 42,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 42,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 43,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 43,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 43,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 3,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 43,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 43,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 44,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 44,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 23,
+      "data_correct_crc_failed_packets": 14,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 44,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 44,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 44,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 45,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 45,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 45,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 10,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 13
+    },
+    {
+      "image_index": 45,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 45,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 46,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 11,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 46,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 46,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 46,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 46,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 47,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 47,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 47,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 47,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 47,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 48,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 48,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 48,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 48,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 48,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 10,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 14
+    },
+    {
+      "image_index": 49,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 49,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 49,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 49,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 49,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 50,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 50,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 50,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 3,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 50,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 50,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 51,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 51,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 51,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 51,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 51,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 52,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 52,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 52,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 52,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 52,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 53,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 53,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 53,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 53,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 53,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 54,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 54,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 54,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 54,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 54,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 55,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 55,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 55,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 55,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 55,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 56,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 56,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 56,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 56,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 56,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 57,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 57,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 57,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 57,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 57,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 58,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 58,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 58,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 58,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 58,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 17,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 59,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 59,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 59,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 59,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 59,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 3,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 60,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 60,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 60,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 60,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 60,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 61,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 61,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 61,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 61,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 61,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 62,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 62,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 62,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 17,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 62,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 62,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 63,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 63,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 63,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 63,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 63,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 64,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 64,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 64,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 64,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 64,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 65,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 65,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 65,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 65,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 65,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 66,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 66,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 15,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 66,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 66,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 66,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 67,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 67,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 67,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 67,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 67,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 13,
+      "crc_failed_packets": 20,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 13
+    },
+    {
+      "image_index": 68,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 68,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 68,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 68,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 68,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 69,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 69,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 69,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 69,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 69,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 70,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 70,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 70,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 70,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 11,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 70,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 71,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 71,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 71,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 71,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 71,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 72,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 72,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 72,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 72,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 72,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 73,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 73,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 73,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 73,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 73,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 74,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 74,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 74,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 9,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 74,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 74,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 75,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 75,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 75,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 75,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 75,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 17,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 11
+    },
+    {
+      "image_index": 76,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 76,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 76,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 76,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 76,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 77,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 4,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 77,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 77,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 77,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 77,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 78,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 78,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 78,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 78,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 78,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 79,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 79,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 79,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 79,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 79,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 80,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 80,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 80,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 80,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 80,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 81,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 81,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 81,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 81,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 81,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 82,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 82,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 0,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 0
+    },
+    {
+      "image_index": 82,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 82,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 82,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 83,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 13,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 83,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 83,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 83,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 83,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 84,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 84,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 84,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 84,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 3,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 84,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 85,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 85,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 85,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 85,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 85,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 86,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 86,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 17,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 86,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 10,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 86,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 86,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 87,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 87,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 87,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 87,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 87,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 15,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 88,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 88,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 88,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 88,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 88,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 89,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 89,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 89,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 89,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 89,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 90,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 2,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 90,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 14,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 90,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 90,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 90,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 91,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 91,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 11,
+      "crc_failed_packets": 16,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 14
+    },
+    {
+      "image_index": 91,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 91,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 91,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 92,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 92,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 92,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 92,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 92,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 93,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 93,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 93,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 93,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 93,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 94,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 94,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 94,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 94,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 94,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 1,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 1
+    },
+    {
+      "image_index": 95,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 95,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 95,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 4,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 95,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 6,
+      "data_correct_crc_failed_packets": 1,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 95,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 96,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 96,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 96,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 2,
+      "crc_failed_packets": 8,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 2
+    },
+    {
+      "image_index": 96,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 96,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 7,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 97,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 97,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 5,
+      "data_correct_crc_failed_packets": 2,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 97,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 97,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 10,
+      "crc_failed_packets": 15,
+      "data_correct_crc_failed_packets": 5,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 12
+    },
+    {
+      "image_index": 97,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 8,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 98,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 4,
+      "data_correct_crc_failed_packets": 0,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 98,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 3,
+      "crc_failed_packets": 12,
+      "data_correct_crc_failed_packets": 9,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 3
+    },
+    {
+      "image_index": 98,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 7
+    },
+    {
+      "image_index": 98,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 7,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 6
+    },
+    {
+      "image_index": 98,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    },
+    {
+      "image_index": 99,
+      "trial": 0,
+      "packets": 64,
+      "true_error_packets": 8,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 9
+    },
+    {
+      "image_index": 99,
+      "trial": 1,
+      "packets": 64,
+      "true_error_packets": 6,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 3,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 10
+    },
+    {
+      "image_index": 99,
+      "trial": 2,
+      "packets": 64,
+      "true_error_packets": 4,
+      "crc_failed_packets": 10,
+      "data_correct_crc_failed_packets": 6,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 4
+    },
+    {
+      "image_index": 99,
+      "trial": 3,
+      "packets": 64,
+      "true_error_packets": 7,
+      "crc_failed_packets": 11,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 8
+    },
+    {
+      "image_index": 99,
+      "trial": 4,
+      "packets": 64,
+      "true_error_packets": 5,
+      "crc_failed_packets": 9,
+      "data_correct_crc_failed_packets": 4,
+      "data_wrong_crc_passed_packets": 0,
+      "wrong_received_tokens": 5
+    }
+  ]
+}
