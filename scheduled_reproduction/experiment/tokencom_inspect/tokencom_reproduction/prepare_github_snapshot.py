@@ -61,7 +61,12 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage56_range_execution_lock.json','stage56_range_progress.json','stage56_range_audit.json',
              'stage56_prior_probe_plan.json','stage56_prior_probe_lock.json',
              'stage56_prior_probe_progress.json','stage56_prior_probe_audit.json',
-             'stage56_end_to_end_convention_plan.json']:
+             'stage56_end_to_end_convention_plan.json','stage57_window_start.json',
+             'stage57_session_progress.json','stage57_comparison_phy_lock.json',
+             'stage57_comparison_phy_progress.json','stage57_comparison_phy_audit.json',
+             'stage57_reuse_source_audit.json','stage57_comparison_execution_lock.json',
+             'stage57_comparison_progress.json','stage57_comparison_audit.json',
+             'stage57_aggregation_contract_verification.json','stage57_session_comparison_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -139,6 +144,13 @@ if (root/'runs/stage56_prior_probe_audit.json').exists():
     prior=json.loads((root/'runs/stage56_prior_probe_audit.json').read_text(encoding='utf-8'))
     assert prior['all_checks_passed']
     readme+=f'''\nThe separate fixed-50%-mask token-prior diagnostic covers {prior['complete_images']}/10 audited images. It compares both tokenizations with and without class conditioning using saved logits. Cross entropy is recomputed over the author's full 1025-class output; top-1 accuracy is measured only at 128 masked positions per image. This is not iterative generation or channel recovery. See `evidence/stage56_prior_probe_audit.json`.\n'''
+if (root/'runs/stage57_comparison_audit.json').exists():
+    matched=json.loads((root/'runs/stage57_comparison_audit.json').read_text(encoding='utf-8'))
+    assert matched['all_checks_passed'] and not matched.get('snapshot_only',False)
+    readme+=f'''\n## Separate matched end-to-end conventions (stage 57)\n
+The preregistered old-development comparison now has {matched['counts']['demo']}/50 demo-pipeline cases and {matched['counts']['training_code_convention']}/50 training-code-convention cases, representing {matched['complete_pairs']}/50 complete image/trial pairs. Four paths are recorded per case. {matched['reused_demo_cases']} demo cases are reused only after exact identity checks; {matched['computed_cases']} cases are computed by this study. Both PHY streams have 50 audited receptions; 50 new simulations and 50 inherited demo PHY references are distinguished.\n
+The two conventions are x -> raw decode y, and 2*x-1 -> (y+1)/2 for every metric path. Same images, 8 dB, noise seeds, code/modulation, class modes and generation parameters are retained. Each stream uses its own true-error oracle mask; both class modes share that mask within the stream. No cross-pipeline quality means are released until all 50 pairs and all four paths are complete. See `evidence/stage57_comparison_audit.json`; this independent namespace does not alter the frozen primary or the original six-SNR grid.\n
+Resume `run_stage57_convention_comparison.py`, audit with `audit_stage57_convention_comparison.py`, then render a session with `report_convention_comparison.py --session runs/SESSION.json`. The frozen reuse-source manifest prevents later original-grid progress from changing this study's initial identities.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

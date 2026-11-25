@@ -58,3 +58,11 @@ Resume `cache_stage54_development_phy.py` in the separate Sionna environment, au
 The preregistered four-condition noiseless VQGAN diagnostic now has 10/10 audited development images. Complete results report all input/output mappings without choosing a winner. See `evidence/stage56_range_audit.json`. Token-ID differences between encodings are not channel TER. These results do not change the primary holdout or active multi-SNR settings.
 
 The separate fixed-50%-mask token-prior diagnostic covers 10/10 audited images. It compares both tokenizations with and without class conditioning using saved logits. Cross entropy is recomputed over the author's full 1025-class output; top-1 accuracy is measured only at 128 masked positions per image. This is not iterative generation or channel recovery. See `evidence/stage56_prior_probe_audit.json`.
+
+## Separate matched end-to-end conventions (stage 57)
+
+The preregistered old-development comparison now has 27/50 demo-pipeline cases and 27/50 training-code-convention cases, representing 27/50 complete image/trial pairs. Four paths are recorded per case. 12 demo cases are reused only after exact identity checks; 42 cases are computed by this study. Both PHY streams have 50 audited receptions; 50 new simulations and 50 inherited demo PHY references are distinguished.
+
+The two conventions are x -> raw decode y, and 2*x-1 -> (y+1)/2 for every metric path. Same images, 8 dB, noise seeds, code/modulation, class modes and generation parameters are retained. Each stream uses its own true-error oracle mask; both class modes share that mask within the stream. No cross-pipeline quality means are released until all 50 pairs and all four paths are complete. See `evidence/stage57_comparison_audit.json`; this independent namespace does not alter the frozen primary or the original six-SNR grid.
+
+Resume `run_stage57_convention_comparison.py`, audit with `audit_stage57_convention_comparison.py`, then render a session with `report_convention_comparison.py --session runs/SESSION.json`. The frozen reuse-source manifest prevents later original-grid progress from changing this study's initial identities.

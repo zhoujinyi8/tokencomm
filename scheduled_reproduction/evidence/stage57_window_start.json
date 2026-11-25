@@ -1,0 +1,20 @@
+{
+  "stage": 57,
+  "session_start_utc": "2026-11-25T10:05:37.601Z",
+  "parent_commit": "a8875d455878ea0abb77be5bf359c498a2acd491",
+  "parent_tree_sha": "7ed408c452b3f8e425c7c0067586fbf0df24ed2f",
+  "initial_old_multisnr_cases": 72,
+  "initial_comparison_cases": 0,
+  "new_phy_simulations": 50,
+  "demo_phy_reused": 50,
+  "model_max_minutes": 50,
+  "primary_protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "primary_summary_sha256": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+  "comparison_plan_sha256": "f52b00b26b41dc7dea7e674679e526487145e47b9d09f425f28e723913e0fe83",
+  "primary_holdout_changed": false,
+  "full_paper_reproduction_complete": false,
+  "model_process_id": 25264,
+  "phy_process_id": 16892,
+  "initial_computed_cases": 0,
+  "initial_reused_cases": 0
+}

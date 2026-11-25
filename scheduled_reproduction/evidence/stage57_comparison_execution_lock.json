@@ -1,0 +1,10 @@
+{
+  "script_sha256": "783cc4a03904b79dfbf76af1f39d4678c9df0767cf25f7cb61883b607cdd7d5e",
+  "plan_sha256": "f52b00b26b41dc7dea7e674679e526487145e47b9d09f425f28e723913e0fe83",
+  "phy_audit_sha256": "c99193f3cebc1fe0421601007d390ef25758628de38accc38628a845510ecb69",
+  "range_audit_sha256": "7b2beb4e63e1412fc7ad883876584d5129a856d12c3b181f6857c7f17719099d",
+  "old_recovery_audit_sha256": "18909a23633bbd1c175c75e50e3687cfca6ec6ff796b7cf3e73d1476bb76216a",
+  "old_execution_lock_sha256": "4af57133dab20cede28bf9fd62b64c8bf225b271e4a65c25e56b6bc0d9f4eddc",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "author_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10"
+}
