@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "scope": "synthetic complete-cohort plotting smoke only; no model-quality inference",
+  "plot_script_sha256": "bbf6b778fdb09f1cf353785caa4595134068c6d5faff92837f2687ce3bc7e31b",
+  "formats": [
+    "svg",
+    "png"
+  ],
+  "png_dimensions": [
+    2240,
+    768
+  ],
+  "recorded_utc": "2026-11-25T15:12:59.084253+00:00"
+}

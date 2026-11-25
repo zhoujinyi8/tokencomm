@@ -24,6 +24,7 @@ for path in (root/'third_party').rglob('*'):
 reports=target/'reports';reports.mkdir(exist_ok=True)
 for path in (root.parents[2]/'outputs').glob('TokCom_*.md'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_PHY.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
              'stage34_lpips_five_trials_summary.json','stage35_clip_summary.json',
@@ -66,7 +67,10 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage57_comparison_phy_progress.json','stage57_comparison_phy_audit.json',
              'stage57_reuse_source_audit.json','stage57_comparison_execution_lock.json',
              'stage57_comparison_progress.json','stage57_comparison_audit.json',
-             'stage57_aggregation_contract_verification.json','stage57_session_comparison_audit.json']:
+             'stage57_aggregation_contract_verification.json','stage57_session_comparison_audit.json',
+             'stage58_window_start.json','stage58_session_progress.json','stage58_session_comparison_audit.json',
+             'stage58_plot_smoke_verification.json','stage58_checkpoint_metadata_audit.json',
+             'stage58_upstream_weight_source_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)

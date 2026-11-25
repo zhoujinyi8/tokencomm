@@ -1,0 +1,50 @@
+{
+  "stage": 58,
+  "session_start_utc": "2026-11-25T15:08:11.735Z",
+  "parent_commit": "3d293dee0c8fa1b77f2da499f734d0f1dea2bd00",
+  "parent_tree_sha": "c76941faa9fde0ae088633f8089626a86f0b1cfe",
+  "initial_old_multisnr_cases": 72,
+  "initial_comparison_cases": 54,
+  "initial_computed_cases": 42,
+  "initial_reused_cases": 12,
+  "initial_complete_pairs": 27,
+  "new_phy_simulations": 0,
+  "model_max_minutes": 50,
+  "primary_protocol_sha256": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+  "primary_summary_sha256": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+  "comparison_plan_sha256": "f52b00b26b41dc7dea7e674679e526487145e47b9d09f425f28e723913e0fe83",
+  "prior_comparison_json_hashes_verified": 54,
+  "author_source_environment_rechecked": true,
+  "primary_holdout_changed": false,
+  "full_paper_reproduction_complete": false,
+  "model_process_id": 42732,
+  "tail_model_process_id": 37504,
+  "tail_model_max_minutes": 7,
+  "tail_initial_comparison_cases": 95,
+  "recorded_utc": "2026-11-25T16:08:41.448526+00:00",
+  "comparison_counts": {
+    "demo": 50,
+    "training_code_convention": 50
+  },
+  "comparison_pipeline_receptions": 100,
+  "complete_comparison_pairs": 50,
+  "comparison_reused_demo_cases": 12,
+  "comparison_computed_cases": 88,
+  "new_computed_cases": 46,
+  "newly_catalogued_reused_cases": 0,
+  "computed_cases_by_pipeline": {
+    "demo": 38,
+    "training_code_convention": 50
+  },
+  "comparison_complete": true,
+  "quality_means_aggregated": true,
+  "remaining_pipeline_receptions": 0,
+  "remaining_complete_pairs": 0,
+  "old_multisnr_model_cases": 72,
+  "old_multisnr_study_changed": false,
+  "paired_difference_figure_sha256": {
+    "TokCom_\u9636\u6bb558\u5b8c\u6574\u94fe\u8def\u8f93\u5165\u7ea6\u5b9a\u5bf9\u7167_2026-11-26_\u914d\u5bf9\u5dee\u503c.svg": "76ea729c156591997c9cc0381dc21adb2021e2cd05e82965c1168d40d3b66f3a",
+    "TokCom_\u9636\u6bb558\u5b8c\u6574\u94fe\u8def\u8f93\u5165\u7ea6\u5b9a\u5bf9\u7167_2026-11-26_\u914d\u5bf9\u5dee\u503c.png": "dfff50dfb92ee919994003f9553a484703335724fad36c03118db521749eff73"
+  },
+  "checkpoint_training_preprocessing_established": false
+}

@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-11-25T15:17:29.064982+00:00",
+  "script_sha256": "c6e3a98ab1e61926cf4b4c6ef419990fa945f6f02e2130794d3b70936a1b3ad2",
+  "torch_version": "2.14.0+cpu",
+  "weights_verified": true,
+  "read_method": "safe metadata/header inspection only; no network construction or inference",
+  "checkpoints": {
+    "vqgan": {
+      "filename": "last.ckpt",
+      "sha256": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+      "file_bytes": 957954257,
+      "read_method": "legacy pickle opcode inspection only; no object deserialization or tensor allocation",
+      "header_records_scanned": 4,
+      "header_end_offset": 159616,
+      "header_metadata_key_markers": [
+        "epoch",
+        "global_step",
+        "pytorch-lightning_version",
+        "state_dict"
+      ],
+      "preprocessing_metadata_hits": [],
+      "metadata_values_available": false
+    },
+    "maskgit": {
+      "filename": "MaskGIT_ImageNet_256.pth",
+      "sha256": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462",
+      "file_bytes": 2090306069,
+      "top_level_keys": [
+        "iter",
+        "global_epoch",
+        "model_state_dict",
+        "optimizer_state_dict"
+      ],
+      "metadata_field_types": {
+        "iter": "int",
+        "global_epoch": "int"
+      },
+      "preprocessing_metadata_hits": [],
+      "metadata_values_available": true,
+      "read_method": "torch.load weights_only=True, mmap=True; no network construction"
+    }
+  },
+  "model_inference_performed": false,
+  "scientific_protocol_changed": false,
+  "actual_training_preprocessing_established": false,
+  "interpretation": "Only explicit non-tensor metadata fields are inspected. Missing fields do not establish any training convention; performance comparisons cannot identify actual checkpoint training preprocessing."
+}

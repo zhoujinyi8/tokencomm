@@ -61,7 +61,7 @@ The separate fixed-50%-mask token-prior diagnostic covers 10/10 audited images. 
 
 ## Separate matched end-to-end conventions (stage 57)
 
-The preregistered old-development comparison now has 27/50 demo-pipeline cases and 27/50 training-code-convention cases, representing 27/50 complete image/trial pairs. Four paths are recorded per case. 12 demo cases are reused only after exact identity checks; 42 cases are computed by this study. Both PHY streams have 50 audited receptions; 50 new simulations and 50 inherited demo PHY references are distinguished.
+The preregistered old-development comparison now has 50/50 demo-pipeline cases and 50/50 training-code-convention cases, representing 50/50 complete image/trial pairs. Four paths are recorded per case. 12 demo cases are reused only after exact identity checks; 88 cases are computed by this study. Both PHY streams have 50 audited receptions; 50 new simulations and 50 inherited demo PHY references are distinguished.
 
 The two conventions are x -> raw decode y, and 2*x-1 -> (y+1)/2 for every metric path. Same images, 8 dB, noise seeds, code/modulation, class modes and generation parameters are retained. Each stream uses its own true-error oracle mask; both class modes share that mask within the stream. No cross-pipeline quality means are released until all 50 pairs and all four paths are complete. See `evidence/stage57_comparison_audit.json`; this independent namespace does not alter the frozen primary or the original six-SNR grid.
 
