@@ -41,7 +41,7 @@ The holdout is disjoint from prior project image files and decoded pixels, not p
 
 ## Separate multi-SNR development pilot (stage 54)
 
-The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY 300/300; four-path paired generation/metrics 45/300. Complete PHY SNR groups: 6/6. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.
+The completed primary 100-image holdout stays frozen. A separate preplanned pilot uses the old ten development images at 6, 6.5, 7, 7.5, 8 and 9 dB, five receptions each (300 total). Current audited coverage: PHY 300/300; four-path paired generation/metrics 72/300. Complete PHY SNR groups: 6/6. Modes w=0 and w=1 use the same sender-truth oracle mask and fixed generation seed. The paths are direct decode, without CMI, with CMI, and ideal correct-token decode.
 
 Only complete 50-reception SNR groups receive outcome summaries. Current complete groups: 0/6. Incomplete groups report coverage only. This author-demo fixed interleaver and ten-image pilot do not establish paper-wide multi-SNR reproduction. Ideal correct-token decode does not simulate physical retransmissions.
 
@@ -52,3 +52,9 @@ Resume `cache_stage54_development_phy.py` in the separate Sionna environment, au
 `evidence/stage55_input_convention_audit.json` verifies four pinned author files against remote Git blob identities. The published training code maps input x to 2*x-1 before VQ encoding, while the demo notebook directly encodes ToTensor output. The demo LPIPS call also differs from the explicit normalization convention in this frozen evaluation. This is a source-path discrepancy, not proof of checkpoint training provenance or a causal explanation for quality.
 
 `evidence/stage55_range_diagnostic_plan.json` preregisters a separate four-condition noiseless development diagnostic. Stage 55 saves this plan without executing it. No primary or active multi-SNR settings change. Complete PHY statistics and CRC/payload masking exposure are separately recorded in `evidence/stage55_complete_phy_mask_exposure.json`; they do not measure generation damage.
+
+## Executed convention diagnostic (stage 56)
+
+The preregistered four-condition noiseless VQGAN diagnostic now has 10/10 audited development images. Complete results report all input/output mappings without choosing a winner. See `evidence/stage56_range_audit.json`. Token-ID differences between encodings are not channel TER. These results do not change the primary holdout or active multi-SNR settings.
+
+The separate fixed-50%-mask token-prior diagnostic covers 10/10 audited images. It compares both tokenizations with and without class conditioning using saved logits. Cross entropy is recomputed over the author's full 1025-class output; top-1 accuracy is measured only at 128 masked positions per image. This is not iterative generation or channel recovery. See `evidence/stage56_prior_probe_audit.json`.

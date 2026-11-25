@@ -1,0 +1,139 @@
+{
+  "created_utc": "2026-11-25T05:25:15.772898+00:00",
+  "status_at_creation": "planned_not_executed",
+  "scope": "separate old-development end-to-end input-convention comparison, not a replacement of the frozen studies",
+  "motivation": "Noiseless reconstruction and fixed-mask token prediction do not provide one common performance ordering; evaluate actual channel reconstruction under matched conditions",
+  "images": 10,
+  "source_image_manifest": [
+    {
+      "source_index": 0,
+      "label": 0,
+      "class_name": "tench",
+      "image_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "token_min": 4,
+      "token_max": 988
+    },
+    {
+      "source_index": 10,
+      "label": 1,
+      "class_name": "English springer",
+      "image_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "token_min": 12,
+      "token_max": 1023
+    },
+    {
+      "source_index": 20,
+      "label": 2,
+      "class_name": "cassette player",
+      "image_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "token_min": 0,
+      "token_max": 1017
+    },
+    {
+      "source_index": 30,
+      "label": 3,
+      "class_name": "chain saw",
+      "image_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "token_min": 0,
+      "token_max": 1017
+    },
+    {
+      "source_index": 40,
+      "label": 4,
+      "class_name": "church",
+      "image_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "token_min": 4,
+      "token_max": 1023
+    },
+    {
+      "source_index": 50,
+      "label": 5,
+      "class_name": "French horn",
+      "image_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "token_min": 4,
+      "token_max": 1023
+    },
+    {
+      "source_index": 60,
+      "label": 6,
+      "class_name": "garbage truck",
+      "image_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "token_min": 4,
+      "token_max": 1017
+    },
+    {
+      "source_index": 70,
+      "label": 7,
+      "class_name": "gas pump",
+      "image_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "token_min": 4,
+      "token_max": 1018
+    },
+    {
+      "source_index": 80,
+      "label": 8,
+      "class_name": "golf ball",
+      "image_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "token_min": 0,
+      "token_max": 1017
+    },
+    {
+      "source_index": 90,
+      "label": 9,
+      "class_name": "parachute",
+      "image_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "token_min": 0,
+      "token_max": 1023
+    }
+  ],
+  "snr_db": 8.0,
+  "phy_trials_per_image": 5,
+  "receptions_per_pipeline": 50,
+  "pipelines": [
+    {
+      "name": "demo",
+      "encoder_input": "x",
+      "decoder_metric_output": "y"
+    },
+    {
+      "name": "training_code_convention",
+      "encoder_input": "2*x-1",
+      "decoder_metric_output": "(y+1)/2"
+    }
+  ],
+  "geometry": "RGB, Resize((256,256)), ToTensor shared across all paths; no crop change",
+  "paths": [
+    "direct",
+    "without_cmi",
+    "with_cmi",
+    "ideal_correct_tokens"
+  ],
+  "phy_seed_base": 202611240,
+  "phy_seed_formula": "base+100*image_index+trial",
+  "generation_seed": 20261124,
+  "generation_parameters": {
+    "step": 32,
+    "sm_temp": 1.3,
+    "randomize": "linear",
+    "r_temp": 7,
+    "sched_mode": "arccos"
+  },
+  "mask": "sender-truth oracle packet mask independently determined for each transmitted token stream; shared by the two class modes within a pipeline",
+  "class_condition": "same true ImageNet class, direct perfect side-information assumption; no CMI transport simulated",
+  "physical_chain": "existing Sionna 0.19.2 AWGN CRC11 convolutional [101,111] soft Viterbi 16-QAM",
+  "interleaver": "author-demo fixed token index mod64; not paper randomized packet positions",
+  "common_noise": "same image/trial seed for both pipelines; transmitted symbols may differ",
+  "source_multisnr_plan_sha256": "232175f2623e815eef69313a59d4c08d45bc3ef532a00ebe4d45cb75a8f3ca56",
+  "source_range_plan_sha256": "88a83275dccf7cc0575ed86b216831ce97a25206f27eaeadb4056aefb3ae4858",
+  "vqgan_weight_sha256": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+  "maskgit_weight_sha256": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462",
+  "metrics": "PSNR from unclipped defined output vs original x; LPIPS on clipped output with normalize=True; CLIP on clipped PIL output with official preprocess",
+  "token_metrics": "exact final-ID equality against that pipeline source tokens; do not compare different encoder IDs as channel errors",
+  "aggregation": "Require all ten images and all five receptions in both pipelines and all four paths before between-pipeline quality means. Average five trials within image, then ten paired images. Retain every path and image difference; select no winner.",
+  "reuse_policy": "Reuse demo caches only when source tokens, PHY seed, generation settings, metric convention and all identities match; never change existing locks or summaries",
+  "primary_holdout_changed": false,
+  "stage54_multisnr_plan_changed": false,
+  "actual_checkpoint_training_provenance_established": false,
+  "execution_receipt_required": true,
+  "interpretation": "Exploratory reused development cohort; not independent validation or paper-wide reproduction. Any future definitive protocol requires separately preregistered validation."
+}

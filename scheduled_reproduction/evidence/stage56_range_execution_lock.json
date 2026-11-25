@@ -1,0 +1,7 @@
+{
+  "script_sha256": "502a33cd1006869b82f1b7927ca08363b66a6fc19ada09ff8e9ed42becb6cb1e",
+  "plan_sha256": "88a83275dccf7cc0575ed86b216831ce97a25206f27eaeadb4056aefb3ae4858",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "author_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10",
+  "vq_config_sha256": "d32cf4a300712b90eaf2bcf0d52ee7eb26ec0bdc199c667207b0094cbbb18760"
+}

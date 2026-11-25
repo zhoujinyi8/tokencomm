@@ -117,6 +117,65 @@ if (run / convention_name).exists():
     evidence_names.append(range_plan_name)
     convention_section += '独立对照计划已预先保存为 stage55_range_diagnostic_plan.json：固定十张旧开发图、图像几何和指标，比较输入 x / 2x−1 与输出 y / (y+1)/2 的四种组合，并报告全部条件和 token ID 差异。阶段55仅保存计划，不包含这项模型对照结果；后续是否执行应查看独立执行回执。计划不使用信道或 MaskGIT，不选择最佳条件，不改变当前多 SNR 试点。\n\n'
 figure_paths = []
+diagnostic_section = ''
+diagnostic_scripts = []
+if (run/'stage56_range_audit.json').exists():
+    diagnostic = read('stage56_range_audit.json')
+    assert diagnostic['all_checks_passed']
+    assert diagnostic['plan_sha256'] == sha(run/'stage55_range_diagnostic_plan.json')
+    evidence_names += ['stage56_range_execution_lock.json', 'stage56_range_progress.json', 'stage56_range_audit.json']
+    diagnostic_scripts += ['run_stage56_range_diagnostic.py', 'audit_stage56_range_diagnostic.py']
+    result['range_diagnostic_complete'] = diagnostic['complete']
+    result['range_diagnostic_images'] = diagnostic['complete_images']
+    diagnostic_section += '## 已执行的输入/输出映射对照\n\n'
+    if diagnostic['complete']:
+        paired = []
+        metric_keys = ['psnr_raw', 'lpips_normalized', 'clip_clipped']
+        baseline = diagnostic['condition_paths'][0]
+        for case in diagnostic['per_image']:
+            by_path = {row['path']: row for row in case['rows']}
+            paired.append({'image_index': case['image_index'], 'source_sha256': case['source_sha256'],
+                           'differences_from_demo_raw': {name: {key: by_path[name][key]-by_path[baseline][key]
+                               for key in metric_keys} for name in diagnostic['condition_paths']}})
+        for name in diagnostic['condition_paths']:
+            for key in metric_keys:
+                assert math.isclose(sum(item['differences_from_demo_raw'][name][key] for item in paired)/10,
+                                    diagnostic['difference_from_demo_raw'][name][key], abs_tol=1e-12)
+        result['range_paired_per_image_differences'] = paired
+        rows = ['| 编码输入 | 解码输出映射 | PSNR/dB | LPIPS | CLIP |', '|---|---|---:|---:|---:|']
+        labels = [('x', 'y'), ('x', '(y+1)/2'), ('2x−1', 'y'), ('2x−1', '(y+1)/2')]
+        for name, (encoder, decoder) in zip(diagnostic['condition_paths'], labels):
+            values = diagnostic['means_over_images'][name]
+            rows.append(f"| {encoder} | {decoder} | {values['psnr_raw']:.6f} | {values['lpips_normalized']:.6f} | {values['clip_clipped']:.6f} |")
+        diagnostic_section += chr(10).join(rows)
+        diagnostic_section += f"\n\n十张旧开发图、四条件全部齐备，按图像平均。每张图四条件相对演示原输出的配对差值保存在本阶段 session_progress.json，均值与完整审计逐项核对。两种编码共有 {diagnostic['changed_token_ids']}/{diagnostic['total_token_ids']} 个位置的 token ID 不同（{diagnostic['changed_token_fraction']:.4%}），这是编码身份差异，不是信道 TER。原始像素与源图逐像素核对，PSNR 从保存输出重算；LPIPS/CLIP 的输入约定及权重受执行锁约束。没有选择或覆盖任何条件，也没有执行信道或 MaskGIT 恢复。\n\n"
+    else:
+        diagnostic_section += f"目前仅 {diagnostic['complete_images']}/10 图，未汇总部分样本质量。\n\n"
+if (run/'stage56_prior_probe_audit.json').exists():
+    prior = read('stage56_prior_probe_audit.json')
+    assert prior['all_checks_passed']
+    evidence_names += ['stage56_prior_probe_plan.json', 'stage56_prior_probe_lock.json',
+                       'stage56_prior_probe_progress.json', 'stage56_prior_probe_audit.json']
+    diagnostic_scripts += ['run_stage56_prior_probe.py', 'audit_stage56_prior_probe.py']
+    result['prior_probe_complete'] = prior['complete']
+    result['prior_probe_images'] = prior['complete_images']
+    diagnostic_section += '## 固定掩码 token 先验匹配检查\n\n'
+    if prior['complete']:
+        rows = ['| 编码输入 | 类别条件 | 平均交叉熵/(nat/token) | 掩码位置 top-1 准确率 |', '|---|---|---:|---:|']
+        for name in prior['paths']:
+            values = prior['means_over_images'][name]
+            encoder = '2x−1' if name.startswith('training_') else 'x'
+            mode = '无 CMI' if name.endswith('without_cmi') else '有 CMI'
+            rows.append(f"| {encoder} | {mode} | {values['cross_entropy']:.6f} | {values['top1_accuracy']:.4%} |")
+        diagnostic_section += chr(10).join(rows)+'\n\n'
+    else:
+        diagnostic_section += f"仅 {prior['complete_images']}/10 图，未汇总部分样本。\n\n"
+    diagnostic_section += '本节交叉熵 CE 的单位为 nat/token，与上文通信效率 TCE（pixels/token payload bit）不是同一指标。每图固定随机选择 128/256 个掩码位置，四条件共享位置；十图按图像平均。使用作者完整 1025 类 logits 计算交叉熵，审计从保存 logits 独立重算交叉熵和 top-1 计数。类别模式使用相同真值标签，分别丢弃或保留条件。不同输入编码会改变目标 token 分布，因此跨编码交叉熵与准确率不能单独判定哪种预处理与权重训练更匹配。此处没有迭代生成、物理信道或图像质量评估；其结果不等同信道恢复收益，也不证明公开权重的实际训练流水线。\n\n'
+if (run/'stage56_end_to_end_convention_plan.json').exists():
+    comparison = read('stage56_end_to_end_convention_plan.json')
+    assert comparison['source_multisnr_plan_sha256'] == session['plan_sha256']
+    evidence_names.append('stage56_end_to_end_convention_plan.json')
+    diagnostic_section += '后续完整链路对照已预先记录在 stage56_end_to_end_convention_plan.json：同十图、8 dB、每图五次接收、相同物理链路和生成参数，比较两套一致的输入/输出约定及全部四路径。只有两套流水线各50组齐备才做跨流水线质量汇总；现有演示缓存仅在全部身份和设置相同时复用。此计划尚未执行，不能把上述诊断当作它的结果。\n\n'
 if len(phy['complete_snr_groups']) == len(plan['snr_db']):
     import matplotlib
     matplotlib.use('Agg')
@@ -170,6 +229,8 @@ TCE 单位为 pixels/token payload bit，单次为 65536/2560=25.6。理想 ARQ 
 
 该试点使用旧十张开发图、作者演示固定交织、AWGN/CRC11/卷积码软 Viterbi/16-QAM。同一图与接收序号跨 SNR 重置相同噪声种子。CMI 两路径共享发送端真值 oracle 掩码，分别 w=0、w=1，生成参数、种子及执行锁保持不变。oracle 需要发送端真值，理想正确 token 解码也不是实际 ARQ 接收结果。
 
+本节完整物理统计与多 SNR 恢复均沿用演示输入约定；输入范围和 token 先验诊断使用独立缓存，不替换这些结果。
+
 ## 主实验与复现范围
 
 冻结 8 dB 主实验维持 100 图 × 5 次接收、六路径，恢复与指标均为 500/500；本轮新增主实验组数为零。协议、完整汇总及两个执行脚本均匹配原冻结身份。
@@ -181,6 +242,7 @@ TCE 单位为 pixels/token payload bit，单次为 65536/2560=25.6。理想 ARQ 
 实际残余 TER 由最终 token ID 与发送 token 比较；作者 TER_af 返回值不作为残余 TER。图像指标沿用原始输出 PSNR、clamp 后 normalize=True 的 LPIPS、clamp→PIL→官方预处理的 CLIP。项目图像去重不证明与公开预训练数据独立。旧开发集结果、固定交织和解析参考不构成整篇论文复现；更大样本 CMI、资源等价基线及论文设置对齐仍未完成。
 
 {convention_section}
+{diagnostic_section}
 ## 发布与续跑
 
 本报告基于发布前审计；发布提交、远端 CI 和精确 Git tree/commit 验证写入单独本地回执，避免自引用。持续更新草稿 PR：https://github.com/zhoujinyi8/tokencomm/pull/1 。原始图像、权重和逐接收缓存不进入发布白名单。
@@ -196,6 +258,7 @@ if exposure_text:
     scripts.append('summarize_stage55_complete_phy.py')
 if convention_section:
     scripts.append('audit_stage55_input_conventions.py')
+scripts += diagnostic_scripts
 evidence_names += [session_path.name, progress_name, frozen_phy_name, frozen_model_name]
 entries = {f'code/{name}': (root/name).read_bytes() for name in scripts}
 entries.update({f'evidence/{name}': (run/name).read_bytes() for name in evidence_names})

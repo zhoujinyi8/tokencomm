@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-25T05:06:31.930441+00:00",
+  "scope": "old-development masked-token prior compatibility diagnostic; no channel or iterative recovery",
+  "range_plan_sha256": "88a83275dccf7cc0575ed86b216831ce97a25206f27eaeadb4056aefb3ae4858",
+  "images": 10,
+  "tokenizations": [
+    "demo",
+    "training"
+  ],
+  "class_modes": {
+    "without_cmi": true,
+    "with_cmi": false
+  },
+  "mask_seed_base": 202611250,
+  "masked_tokens_per_image": 128,
+  "mask_definition": "np.random.default_rng(seed_base+image_index).choice(256,128,replace=False); same positions for all four conditions",
+  "metrics": [
+    "masked cross entropy over full author 1025-class output",
+    "masked top1 correct count / 128"
+  ],
+  "aggregation": "only all ten images and all four conditions; per-image means and paired differences, all conditions reported without selecting a winner",
+  "maskgit_weight_sha256": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462",
+  "author_commit": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "torch_threads": 4,
+  "primary_holdout_changed": false,
+  "multisnr_plan_changed": false,
+  "quality_metrics_evaluated": false,
+  "causal_effect_on_channel_recovery_established": false
+}

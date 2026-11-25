@@ -55,7 +55,13 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage54_audit_contract_verification.json','stage55_window_start.json',
              'stage55_session_progress.json','stage55_development_phy_audit.json',
              'stage55_development_recovery_audit.json','stage55_complete_phy_mask_exposure.json',
-             'stage55_input_convention_audit.json','stage55_range_diagnostic_plan.json']:
+             'stage55_input_convention_audit.json','stage55_range_diagnostic_plan.json',
+             'stage56_window_start.json','stage56_session_progress.json',
+             'stage56_development_phy_audit.json','stage56_development_recovery_audit.json',
+             'stage56_range_execution_lock.json','stage56_range_progress.json','stage56_range_audit.json',
+             'stage56_prior_probe_plan.json','stage56_prior_probe_lock.json',
+             'stage56_prior_probe_progress.json','stage56_prior_probe_audit.json',
+             'stage56_end_to_end_convention_plan.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -124,6 +130,15 @@ if (root/'runs/stage55_input_convention_audit.json').exists():
     readme+='''\n## Convention alignment audit (stage 55)\n
 `evidence/stage55_input_convention_audit.json` verifies four pinned author files against remote Git blob identities. The published training code maps input x to 2*x-1 before VQ encoding, while the demo notebook directly encodes ToTensor output. The demo LPIPS call also differs from the explicit normalization convention in this frozen evaluation. This is a source-path discrepancy, not proof of checkpoint training provenance or a causal explanation for quality.\n
 `evidence/stage55_range_diagnostic_plan.json` preregisters a separate four-condition noiseless development diagnostic. Stage 55 saves this plan without executing it. No primary or active multi-SNR settings change. Complete PHY statistics and CRC/payload masking exposure are separately recorded in `evidence/stage55_complete_phy_mask_exposure.json`; they do not measure generation damage.\n'''
+if (root/'runs/stage56_range_audit.json').exists():
+    range_audit=json.loads((root/'runs/stage56_range_audit.json').read_text(encoding='utf-8'))
+    assert range_audit['all_checks_passed']
+    readme+=f'''\n## Executed convention diagnostic (stage 56)\n
+The preregistered four-condition noiseless VQGAN diagnostic now has {range_audit['complete_images']}/10 audited development images. Complete results report all input/output mappings without choosing a winner. See `evidence/stage56_range_audit.json`. Token-ID differences between encodings are not channel TER. These results do not change the primary holdout or active multi-SNR settings.\n'''
+if (root/'runs/stage56_prior_probe_audit.json').exists():
+    prior=json.loads((root/'runs/stage56_prior_probe_audit.json').read_text(encoding='utf-8'))
+    assert prior['all_checks_passed']
+    readme+=f'''\nThe separate fixed-50%-mask token-prior diagnostic covers {prior['complete_images']}/10 audited images. It compares both tokenizations with and without class conditioning using saved logits. Cross entropy is recomputed over the author's full 1025-class output; top-1 accuracy is measured only at 128 masked positions per image. This is not iterative generation or channel recovery. See `evidence/stage56_prior_probe_audit.json`.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):
