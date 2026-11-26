@@ -1,0 +1,10 @@
+{
+  "script_sha256": "6373df5b5bf744ddb9a62f114192903edc42ca5dd78f9120aea1f29e3e994b50",
+  "plan_sha256": "8da44f40101d2fadbee9fa6dc47f1be48a9190734e16c12fc236113b67710fed",
+  "author_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "token_metric": "final token ID equality; author TER_af is not residual TER",
+  "preregistered_plan_sha256": "3b71a6ceb98ff8bddd6b8bd9e8dfc3067c0e3fc13531d2f5336bcf678d90de7a",
+  "baseline_complete_audit_sha256": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+  "phy_audit_sha256": "57993a159df64913cf52463a4658a1b75d8844381e0186079a7fdd07ca189989"
+}

@@ -1,0 +1,25 @@
+{
+  "all_checks_passed": true,
+  "audit_script_sha256": "e31d9e76981d257dcbce2ae1669016bd918318cfb4879fa49f644293525e37eb",
+  "plan_sha256": "8da44f40101d2fadbee9fa6dc47f1be48a9190734e16c12fc236113b67710fed",
+  "preregistered_plan_sha256": "3b71a6ceb98ff8bddd6b8bd9e8dfc3067c0e3fc13531d2f5336bcf678d90de7a",
+  "baseline_audit_sha256": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+  "randomized_audit_sha256": "c883d8a049e32eb7ad2ce247a9e6664abf2f9d9b5bd6728c37d54a6a3613ee8b",
+  "randomized_cases": 217,
+  "randomized_counts_by_snr": {
+    "6.0": 37,
+    "6.5": 36,
+    "7.0": 36,
+    "7.5": 36,
+    "8.0": 36,
+    "9.0": 36
+  },
+  "complete_randomized_study": false,
+  "paired_quality_snr_groups": 0,
+  "groups": {},
+  "helper_sha256": "cf1589a716c5d67a5359f205b7c8bc380c145645fa85ad8e8008f3e1cd316f59",
+  "selected_pipeline": null,
+  "incomplete_snr_quality_means_withheld": true,
+  "new_model_inference_performed": false,
+  "primary_holdout_changed": false
+}

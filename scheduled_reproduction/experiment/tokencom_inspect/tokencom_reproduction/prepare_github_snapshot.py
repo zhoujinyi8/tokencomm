@@ -25,6 +25,7 @@ reports=target/'reports';reports.mkdir(exist_ok=True)
 for path in (root.parents[2]/'outputs').glob('TokCom_*.md'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_PHY.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_模型质量.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_PHY.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
@@ -76,7 +77,16 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage59_development_phy_audit.json','stage59_development_recovery_audit.json',
              'stage59_publication_branch_contract.json','stage59_runtime_identity.json',
              'stage59_paper_alignment_review.json','stage59_randomized_packetization_plan.json',
-             'stage59_token_transitions.json','stage59_token_transition_contract.json']:
+             'stage59_token_transitions.json','stage59_token_transition_contract.json',
+             'stage60_window_start.json','stage60_execution_spec.json','stage60_runtime_identity.json','stage60_phy_runtime_identity.json',
+             'stage60_packetization_contract.json','stage60_phy_roundtrip_smoke.json',
+             'stage60_noiseless_phy_verification.json','stage60_randomized_phy_lock.json',
+             'stage60_randomized_phy_progress.json','stage60_randomized_phy_audit.json',
+             'stage60_randomized_recovery_lock.json','stage60_randomized_recovery_progress.json',
+             'stage60_randomized_recovery_audit.json','stage60_model_audit_contract.json',
+             'stage60_paired_aggregation_contract.json','stage60_paired_packetization_audit.json',
+             'stage60_session_progress.json','stage60_session_phy_audit.json',
+             'stage60_session_model_audit.json','stage60_session_paired_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -166,6 +176,12 @@ if (root/'runs/stage59_session_progress.json').exists():
     readme+=f'''\n## Resumed six-SNR model study (stage 59)\n
 The matched convention study is complete at 100 pipeline receptions and 50 pairs; its frozen audit and all 100 case files remain unchanged. Stage 59 resumes the original independently locked six-SNR model study from 72/300. Current model coverage: {continuation['paired_model_cases']}/300; new model cases this window: {continuation['new_paired_model_cases']}. PHY remains 300/300, with {continuation['new_phy_cases']} new physical simulations this window. No matched-convention case is transferred into the original grid. Incomplete SNR groups receive coverage only, without quality means.\n
 Publication follows draft PR #{continuation.get('github_pull_request',2)} on `{continuation.get('github_branch','reproduction/automation-30-stage58')}`. Use `sync_github_worktree_from_api.py --branch BRANCH --commit SHA --expected-parent PARENT --receipt runs/RECEIPT.json` for exact tree/commit synchronization on the selected existing branch. The explicit branch is checked before staging or ref mutation; isolated Git contract checks cover rejection and idempotence.\n'''
+if (root/'runs/stage60_session_progress.json').exists():
+    randomized=json.loads((root/'runs/stage60_session_progress.json').read_text(encoding='utf-8'))
+    readme+=f'''\n## Independent randomized packet assignment (stage 60)\n
+The prior fixed-grid study stays complete at 300/300, the primary holdout at 500/500 and the convention study at 100/100. A separately preregistered study now has randomized PHY {randomized['randomized_phy_cases']}/300 and four-path models {randomized['randomized_model_cases']}/300. The {randomized['diagnostic_phy_transmissions_total']} diagnostic transmissions are separate from formal receptions. The fixed complete baseline audit was pinned before first new inference.\n
+Each image has a fixed PCG64 permutation shared across five trials and six SNRs. Packet errors are defined in transmitted packet coordinates; received IDs and both masks are inverse-permuted before model processing. All other model/channel/metric identities are retained. Completed SNR groups alone receive paired quality means; current complete paired groups: {randomized['complete_paired_quality_snr_groups']}/6. This is an old-Imagenette sensitivity study, not paper-wide ImageNet100 replication.\n
+Resume `run_stage60_randomized_recovery.py`, then `audit_stage60_randomized_recovery.py` and `audit_stage60_paired_packetization.py`. Render `report_randomized_session.py --session runs/SESSION.json`. Keep the execution spec, permutation helper, scripts and locks unchanged. The pure permutation/mask checks, actual auditor fixtures and paired-aggregation gates have separate bounded receipts. Noisy high-SNR and exact noiseless diagnostic checks are labeled separately.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

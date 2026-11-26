@@ -1,0 +1,27 @@
+{
+  "passed": 2,
+  "failed": 0,
+  "script_sha256": "102e25831cf933633029a45482e4c87927c53969e2de32a6fdee1ea8df9e1e37",
+  "execution_spec_sha256": "8da44f40101d2fadbee9fa6dc47f1be48a9190734e16c12fc236113b67710fed",
+  "simulator_sha256": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167",
+  "helper_sha256": "1c64f425c6325f7b9c4a24cf4af839f694cdda163e3f7a532883834618312f5f",
+  "added_channel_noise": false,
+  "demapper_variance_assumption": 0.01,
+  "model_inference_performed": false,
+  "diagnostic_noiseless_transmissions": 2,
+  "formal_study_receptions": 0,
+  "cases": [
+    {
+      "image_index": 0,
+      "payload_bit_errors": 0,
+      "token_errors": 0,
+      "crc_failures": 0
+    },
+    {
+      "image_index": 9,
+      "payload_bit_errors": 0,
+      "token_errors": 0,
+      "crc_failures": 0
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-11-26T01:27:54.918047+00:00",
+  "all_checks_passed": true,
+  "python": "3.10.11",
+  "packages": {
+    "tensorflow": "2.15.1",
+    "sionna": "0.19.2",
+    "numpy": "1.26.4"
+  },
+  "conv_encoder_sha256": "6789760303148102c118ec1377a6453a58b0d7246551eeb14104c347b75121f8",
+  "simulator_sha256": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167",
+  "model_inference_performed": false,
+  "new_phy_simulations_performed": 0
+}

@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-11-24T07:00:32.567323+00:00",
+  "scope": "Independent old-development randomized packetization sensitivity study; not ImageNet100 paper replication",
+  "source": "https://arxiv.org/html/2502.12096v4#S6",
+  "snr_db": [
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    9.0
+  ],
+  "images": 10,
+  "phy_trials": 5,
+  "expected_receptions": 300,
+  "phy_seed_base": 202611240,
+  "noise_coupling": "same seed for each image/trial across SNRs; scaled-noise common-random-number design",
+  "interleaver": "For image i, PCG64 seed 202611260+i produces p. Packetizer receives tx[p] using existing reshape(1,4,64).transpose(0,2,1). Received IDs and expanded token masks are restored to original positions with inverse(p). The same image permutation is held across all five trials and all six SNRs.",
+  "physical_chain": "existing Sionna 0.19.2 AWGN CRC11 convolutional [101,111] soft Viterbi 16-QAM",
+  "generation_seed": 20261124,
+  "generation_parameters": {
+    "step": 32,
+    "sm_temp": 1.3,
+    "randomize": "linear",
+    "r_temp": 7,
+    "sched_mode": "arccos"
+  },
+  "class_modes": {
+    "without_cmi": 0,
+    "with_cmi": 1
+  },
+  "mask": "same sender-truth oracle packet mask for both generation paths",
+  "paths": [
+    "direct",
+    "without_cmi",
+    "with_cmi",
+    "ideal_correct_tokens"
+  ],
+  "metric_conventions": "same raw PSNR, clamped normalized LPIPS and clipped PIL CLIP as primary; separate development cohort",
+  "aggregation": "only complete 50-reception SNR groups are summarized; five trials within each image then ten images; incomplete SNR groups are coverage only",
+  "ideal_reference": "correct source token decode, not physical retries; payload-only ideal ARQ from true packet PER",
+  "primary_holdout_changed": false,
+  "strategy_or_threshold_selected_from_primary_results": false,
+  "phy_simulator_sha256": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167",
+  "phy_cache_script_sha256": "ebca23f933d0bbc7e4e1dda162af1b752ce7f07fb514d4a985419c4cc11bc9b2",
+  "input_sha256": {
+    "runs/stage26_official_token_link_snr8_5trials.npz": "c83e364b624babd2c96b84cb0e820f6bda6e60ce39ae2d4d3d6594e0797f4a99",
+    "runs/stage26_official_demo_tokens.npz": "cf1e038f146e2778afa4c66f75cc35e2369bab134ada6034e8462464c0ef64ca",
+    "data/imagenette_stage5/token_cache/val.pt": "1b931ba507b91980220b7b5deeb73592e92471aa76e1df18492cec60cf2afe7e",
+    "pretrained/official_tokcom/last.ckpt": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+    "pretrained/official_tokcom/MaskGIT_ImageNet_256.pth": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462",
+    "runs/stage47_metrics_lock.json": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd"
+  },
+  "preregistered_plan_sha256": "3b71a6ceb98ff8bddd6b8bd9e8dfc3067c0e3fc13531d2f5336bcf678d90de7a",
+  "baseline_complete_audit_sha256": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+  "baseline_phy_audit_sha256": "7fbfdd8a206ffb57b7af6d96c63a5b00f5cd5686a6ad43721ea8ad93a4f59437",
+  "packetization_helper_sha256": "1c64f425c6325f7b9c4a24cf4af839f694cdda163e3f7a532883834618312f5f",
+  "class_mapping_script_sha256": "c463d298c7c946c457966af37b5812aa35ea6fa3a7eff5e4c5f91a7b3d7e10d1"
+}

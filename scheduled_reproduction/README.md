@@ -72,3 +72,11 @@ Resume `run_stage57_convention_comparison.py`, audit with `audit_stage57_convent
 The matched convention study is complete at 100 pipeline receptions and 50 pairs; its frozen audit and all 100 case files remain unchanged. Stage 59 resumes the original independently locked six-SNR model study from 72/300. Current model coverage: 300/300; new model cases this window: 228. PHY remains 300/300, with 0 new physical simulations this window. No matched-convention case is transferred into the original grid. Incomplete SNR groups receive coverage only, without quality means.
 
 Publication follows draft PR #2 on `reproduction/automation-30-stage58`. Use `sync_github_worktree_from_api.py --branch BRANCH --commit SHA --expected-parent PARENT --receipt runs/RECEIPT.json` for exact tree/commit synchronization on the selected existing branch. The explicit branch is checked before staging or ref mutation; isolated Git contract checks cover rejection and idempotence.
+
+## Independent randomized packet assignment (stage 60)
+
+The prior fixed-grid study stays complete at 300/300, the primary holdout at 500/500 and the convention study at 100/100. A separately preregistered study now has randomized PHY 300/300 and four-path models 217/300. The 4 diagnostic transmissions are separate from formal receptions. The fixed complete baseline audit was pinned before first new inference.
+
+Each image has a fixed PCG64 permutation shared across five trials and six SNRs. Packet errors are defined in transmitted packet coordinates; received IDs and both masks are inverse-permuted before model processing. All other model/channel/metric identities are retained. Completed SNR groups alone receive paired quality means; current complete paired groups: 0/6. This is an old-Imagenette sensitivity study, not paper-wide ImageNet100 replication.
+
+Resume `run_stage60_randomized_recovery.py`, then `audit_stage60_randomized_recovery.py` and `audit_stage60_paired_packetization.py`. Render `report_randomized_session.py --session runs/SESSION.json`. Keep the execution spec, permutation helper, scripts and locks unchanged. The pure permutation/mask checks, actual auditor fixtures and paired-aggregation gates have separate bounded receipts. Noisy high-SNR and exact noiseless diagnostic checks are labeled separately.
