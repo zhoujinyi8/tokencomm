@@ -80,3 +80,13 @@ The prior fixed-grid study stays complete at 300/300, the primary holdout at 500
 Each image has a fixed PCG64 permutation shared across five trials and six SNRs. Packet errors are defined in transmitted packet coordinates; received IDs and both masks are inverse-permuted before model processing. All other model/channel/metric identities are retained. Completed SNR groups alone receive paired quality means; current complete paired groups: 0/6. This is an old-Imagenette sensitivity study, not paper-wide ImageNet100 replication.
 
 Resume `run_stage60_randomized_recovery.py`, then `audit_stage60_randomized_recovery.py` and `audit_stage60_paired_packetization.py`. Render `report_randomized_session.py --session runs/SESSION.json`. Keep the execution spec, permutation helper, scripts and locks unchanged. The pure permutation/mask checks, actual auditor fixtures and paired-aggregation gates have separate bounded receipts. Noisy high-SNR and exact noiseless diagnostic checks are labeled separately.
+
+## Completed pairing and actual packet ARQ (stage 61)
+
+The randomized four-path model study is complete at 300/300, including 83 new cases this round and all six complete fixed/random pairs. All four paths and per-image differences are retained without choosing a winning permutation.
+
+The separate padded-packet experiment completes 300/300 frames and 900 VQGAN endpoint metric rows across single pass, receiver CRC ARQ and sender-oracle ARQ. Attempts are simulated with independent packet/attempt noise, capped at 32, with wrong CRC acceptances and censoring retained. Each first pass is 1664 QAM symbols (40 payload + 11 CRC bits, half-rate convolution, 2 padding bits per packet). Forward data only: feedback/header/CMI airtime is not modeled. The earlier 1632-symbol MaskGIT results are not a matching-framing baseline.
+
+Metric accounting records 298 actual decoder forwards and 612 rows using exact same-image clean-ID references. No MaskGIT inference is claimed for ARQ endpoints. Two noiseless packet diagnostics and 14 pure accounting/metric checks are separate from 300 formal frames. The initial Mapper shape preflight correction and its replaced lock are preserved.
+
+Next: `stage61_matched_padded_recovery_plan.json` and 300 audited canonical first-pass inputs prepare an independent six-path neural comparison under the same 1664-symbol framing. Implement and lock its runner/auditor before new inference. This round performs zero Transformer recovery cases in that new study. Keep all prior frozen studies unchanged; ImageNet100, Cheng and complete resource-equivalent paper replication remain open.

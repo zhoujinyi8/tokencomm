@@ -26,6 +26,8 @@ for path in (root.parents[2]/'outputs').glob('TokCom_*.md'):shutil.copy2(path,re
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_PHY.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_模型质量.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_PHY.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_模型配对差值.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_填充包ARQ.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
@@ -86,7 +88,16 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage60_randomized_recovery_audit.json','stage60_model_audit_contract.json',
              'stage60_paired_aggregation_contract.json','stage60_paired_packetization_audit.json',
              'stage60_session_progress.json','stage60_session_phy_audit.json',
-             'stage60_session_model_audit.json','stage60_session_paired_audit.json']:
+             'stage60_session_model_audit.json','stage60_session_paired_audit.json',
+             'stage61_window_start.json','stage61_runtime_identity.json','stage61_session_progress.json',
+             'stage61_session_phy_audit.json','stage61_session_model_audit.json','stage61_session_paired_audit.json',
+             'stage61_packet_arq_plan.json','stage61_packet_arq_lock.json','stage61_packet_arq_lock_v2.json',
+             'stage61_arq_contract.json','stage61_arq_noiseless_verification.json','stage61_arq_preflight_correction.json',
+             'stage61_packet_arq_pilot_audit.json','stage61_packet_arq_progress.json','stage61_packet_arq_audit.json',
+             'stage61_session_packet_arq_audit.json','stage61_arq_metric_plan.json','stage61_arq_metric_lock.json',
+             'stage61_arq_metric_contract.json','stage61_arq_metric_progress.json','stage61_arq_metric_audit.json',
+             'stage61_session_arq_metric_audit.json','stage61_matched_padded_recovery_plan.json',
+             'stage61_matched_padded_input_lock.json','stage61_matched_padded_input_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -182,6 +193,13 @@ if (root/'runs/stage60_session_progress.json').exists():
 The prior fixed-grid study stays complete at 300/300, the primary holdout at 500/500 and the convention study at 100/100. A separately preregistered study now has randomized PHY {randomized['randomized_phy_cases']}/300 and four-path models {randomized['randomized_model_cases']}/300. The {randomized['diagnostic_phy_transmissions_total']} diagnostic transmissions are separate from formal receptions. The fixed complete baseline audit was pinned before first new inference.\n
 Each image has a fixed PCG64 permutation shared across five trials and six SNRs. Packet errors are defined in transmitted packet coordinates; received IDs and both masks are inverse-permuted before model processing. All other model/channel/metric identities are retained. Completed SNR groups alone receive paired quality means; current complete paired groups: {randomized['complete_paired_quality_snr_groups']}/6. This is an old-Imagenette sensitivity study, not paper-wide ImageNet100 replication.\n
 Resume `run_stage60_randomized_recovery.py`, then `audit_stage60_randomized_recovery.py` and `audit_stage60_paired_packetization.py`. Render `report_randomized_session.py --session runs/SESSION.json`. Keep the execution spec, permutation helper, scripts and locks unchanged. The pure permutation/mask checks, actual auditor fixtures and paired-aggregation gates have separate bounded receipts. Noisy high-SNR and exact noiseless diagnostic checks are labeled separately.\n'''
+if (root/'runs/stage61_session_progress.json').exists():
+    current=json.loads((root/'runs/stage61_session_progress.json').read_text(encoding='utf-8'))
+    readme+=f'''\n## Completed pairing and actual packet ARQ (stage 61)\n
+The randomized four-path model study is complete at {current['randomized_model_cases']}/300, including {current['new_randomized_model_cases']} new cases this round and all six complete fixed/random pairs. All four paths and per-image differences are retained without choosing a winning permutation.\n
+The separate padded-packet experiment completes {current['packet_arq_frame_experiments']}/300 frames and {current['packet_arq_metric_rows']} VQGAN endpoint metric rows across single pass, receiver CRC ARQ and sender-oracle ARQ. Attempts are simulated with independent packet/attempt noise, capped at 32, with wrong CRC acceptances and censoring retained. Each first pass is 1664 QAM symbols (40 payload + 11 CRC bits, half-rate convolution, 2 padding bits per packet). Forward data only: feedback/header/CMI airtime is not modeled. The earlier 1632-symbol MaskGIT results are not a matching-framing baseline.\n
+Metric accounting records {current['arq_decoder_forwards_this_invocation']} actual decoder forwards and {current['arq_exact_clean_reference_rows']} rows using exact same-image clean-ID references. No MaskGIT inference is claimed for ARQ endpoints. Two noiseless packet diagnostics and 14 pure accounting/metric checks are separate from 300 formal frames. The initial Mapper shape preflight correction and its replaced lock are preserved.\n
+Next: `stage61_matched_padded_recovery_plan.json` and {current['matched_padded_inputs']} audited canonical first-pass inputs prepare an independent six-path neural comparison under the same 1664-symbol framing. Implement and lock its runner/auditor before new inference. This round performs zero Transformer recovery cases in that new study. Keep all prior frozen studies unchanged; ImageNet100, Cheng and complete resource-equivalent paper replication remain open.\n'''
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

@@ -34,6 +34,9 @@ assert runtime['all_checks_passed'] and sha(run/f'stage{stage}_runtime_identity.
 assert runtime['execution_spec_sha256']==sha(run/'stage60_execution_spec.json')
 assert runtime['runner_sha256']==sha(root/'run_stage60_randomized_recovery.py')
 assert runtime['class_mapping_script_sha256']==spec['class_mapping_script_sha256']
+if 'initial_randomized_model_case_sha256' in session:
+    assert len(session['initial_randomized_model_case_sha256'])==session['initial_randomized_model_cases']
+    assert all(model['case_sha256'][n]==digest for n,digest in session['initial_randomized_model_case_sha256'].items())
 phy_runtime=read('stage60_phy_runtime_identity.json')
 assert phy_runtime['all_checks_passed'] and phy_runtime['simulator_sha256']==spec['phy_simulator_sha256']
 assert phy_runtime['packages']=={'tensorflow':'2.15.1','sionna':'0.19.2','numpy':'1.26.4'}
@@ -91,6 +94,13 @@ if paired['groups']:
                 v=group['means_over_images'][branch][path]
                 rows.append(f"| {key} | {branch} | {path} | {v['correct_tokens']:.6f} | {v['whole_image_ter']:.6%} | {v['psnr_raw']:.6f} | {v['lpips_normalized']:.6f} | {v['clip_clipped']:.6f} |")
     quality=chr(10).join(rows)+'\n\n先对每图五次接收平均，再平均十图；全部四路径与逐图配对差值保存在配对审计JSON。未完整的SNR不参与质量汇总，不选择最佳流水线。'
+    differences=['| SNR/dB | 路径：随机减固定 | 正确token差值 | TER差值/百分点 | PSNR差值/dB | LPIPS差值 | CLIP差值 |',
+                 '|---|---|---:|---:|---:|---:|---:|']
+    for key,group in paired['groups'].items():
+        for path in plan['paths']:
+            v=group['paired_mean_difference'][path]
+            differences.append(f"| {key} | {path} | {v['correct_tokens']:+.6f} | {100*v['whole_image_ter']:+.6f} | {v['psnr_raw']:+.6f} | {v['lpips_normalized']:+.6f} | {v['clip_clipped']:+.6f} |")
+    quality+='\n\n'+chr(10).join(differences)
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -107,6 +117,86 @@ for suffix in ('svg','png'):
     path=outputs/f'{prefix}_PHY.{suffix}';fig.savefig(path,dpi=160);figures.append(path)
 plt.close(fig)
 result['phy_figure_sha256']={p.name:sha(p) for p in figures}
+if paired['complete_randomized_study'] and paired['paired_quality_snr_groups']==6:
+    from plot_paired_packetization import plot_paired_packetization
+    paired_figures=plot_paired_packetization(paired,outputs,prefix)
+    result['paired_model_figure_sha256']={p.name:sha(p) for p in paired_figures}
+    figures+=paired_figures
+    quality+=f'\n\n![完整模型配对差值]({prefix}_模型配对差值.svg)\n\n图为十张旧开发图的配对均值；逐图值保存在JSON，没有据此选择新的流水线或声称显著性。'
+arq_section='';arq_scripts=[];arq_evidence=[]
+if stage>=61 and (run/'stage61_packet_arq_audit.json').exists():
+    arq=read('stage61_packet_arq_audit.json');arq_progress=read('stage61_packet_arq_progress.json')
+    assert arq['all_checks_passed'] and arq['audit_script_sha256']==sha(root/'audit_stage61_packet_arq.py')
+    assert arq['completed_frame_experiments']==arq_progress['completed_frame_experiments']
+    assert arq['plan_sha256']==sha(run/'stage61_packet_arq_plan.json')
+    assert arq['lock_sha256']==sha(run/'stage61_packet_arq_lock_v2.json')
+    assert all(sha(run/'stage61_packet_arq'/n)==h for n,h in arq['case_sha256'].items())
+    pilot=read('stage61_packet_arq_pilot_audit.json')
+    assert sha(run/'stage61_packet_arq_pilot_audit.json')==session['arq_pilot_audit_sha256']
+    assert all(arq['case_sha256'][n]==h for n,h in pilot['case_sha256'].items())
+    frozen_arq=f'stage{stage}_session_packet_arq_audit.json'
+    (run/frozen_arq).write_bytes((run/'stage61_packet_arq_audit.json').read_bytes())
+    arq_evidence=['stage61_packet_arq_plan.json','stage61_packet_arq_lock.json','stage61_packet_arq_lock_v2.json',
+        'stage61_arq_contract.json','stage61_arq_noiseless_verification.json','stage61_arq_preflight_correction.json',
+        'stage61_packet_arq_pilot_audit.json','stage61_packet_arq_progress.json','stage61_packet_arq_audit.json',frozen_arq]
+    arq_scripts=['packet_arq_accounting.py','test_packet_arq_accounting.py','cache_stage61_packet_arq.py','audit_stage61_packet_arq.py']
+    result.update(packet_arq_frame_experiments=arq['completed_frame_experiments'],
+        new_packet_arq_frame_experiments=arq['completed_frame_experiments']-session.get('initial_packet_arq_frame_experiments',0),
+        packet_arq_complete=arq['complete'],packet_arq_diagnostic_frames=arq['diagnostic_noiseless_frames'],
+        union_simulated_packet_observations=arq['union_simulated_packet_observations'])
+    rows=['| 策略 | 实际包尝试数 | 前向wire bit | 前向QAM符号 | 逻辑反馈事件 | CRC接受但payload错误包 | 截断包 |',
+          '|---|---:|---:|---:|---:|---:|---:|']
+    for policy,v in arq['observed_policy_totals'].items():
+        rows.append(f"| {policy} | {v['total_packet_attempts']} | {v['forward_wire_bits']} | {v['forward_qam_symbols']} | {v['logical_feedback_events']} | {v['accepted_crc_payload_errors']} | {v['censored_packets']} |")
+    arq_section=f'''## 独立匹配填充包重传协议
+
+本轮另完成 {result['new_packet_arq_frame_experiments']} 个新协议帧实验，累计 {arq['completed_frame_experiments']}/300；两次无噪诊断另计。预先指定24帧试点通过停止规则与账本验证后，按同一计划继续缺失帧，没有按性能筛选样本。每包40bit payload+11bit CRC，经半率卷积编码为102bit，再补2bit形成104bit/26个QAM符号；三策略首发相同，重试使用每包/每次尝试独立PCG64噪声，最多32次，截断和CRC错误接受均保留。
+
+{chr(10).join(rows)}
+
+CRC策略只根据接收端校验停止，发送端真值策略只是理想参考。共同噪声下模拟仍被任一策略需要的包，联合仿真观察数{arq['union_simulated_packet_observations']}不等于每种策略的收费成本。反馈只记录事件数，反馈编码/头部/CMI airtime与延迟均未建模；当前协议不构成完整资源等价论文基线。先前完整帧映射为1632符号，此协议首发为1664符号，旧MaskGIT结果没有被当作本协议下的神经恢复路径。
+
+首次无噪前置检查在正式采样前发现QAM Mapper输入维度错误；已保留失败源哈希与旧锁，修正后使用v2执行锁重新通过无噪检查，预先计划未改变，失败版本未产生正式接收数据。
+'''
+    if (run/'stage61_arq_metric_audit.json').exists():
+        metrics=read('stage61_arq_metric_audit.json')
+        assert metrics['all_checks_passed'] and metrics['audit_script_sha256']==sha(root/'audit_stage61_arq_metrics.py')
+        assert metrics['source_arq_audit_sha256']==sha(run/'stage61_packet_arq_audit.json')
+        frozen_metrics=f'stage{stage}_session_arq_metric_audit.json'
+        (run/frozen_metrics).write_bytes((run/'stage61_arq_metric_audit.json').read_bytes())
+        arq_evidence+=['stage61_arq_metric_plan.json','stage61_arq_metric_lock.json','stage61_arq_metric_contract.json',
+            'stage61_arq_metric_progress.json','stage61_arq_metric_audit.json',frozen_metrics]
+        arq_scripts+=['evaluate_stage61_arq_metrics.py','arq_metric_checks.py','test_arq_metric_checks.py','audit_stage61_arq_metrics.py','plot_packet_arq.py']
+        result.update(packet_arq_metric_frames=metrics['completed_frames'],packet_arq_metric_rows=metrics['metric_rows'],
+            packet_arq_metric_complete=metrics['complete'],arq_decoder_forwards_this_invocation=metrics['decoder_forwards_this_invocation'],
+            arq_exact_clean_reference_rows=metrics['exact_clean_reference_rows'])
+        arq_section+=f"\n端点VQGAN图像指标已评估{metrics['completed_frames']}/300帧、{metrics['metric_rows']}行；本次实际解码forward为{metrics['decoder_forwards_this_invocation']}次，{metrics['exact_clean_reference_rows']}行通过精确sender-ID相等复用同图确定性干净参考。未使用MaskGIT。未齐备50帧的SNR不汇总端点质量。\n"
+        if arq['complete'] and metrics['complete']:
+            metric_rows=['| SNR/dB | 策略 | payload TCE（总量比） | pixels/前向QAM符号（总量比） | 残余TER | PSNR/dB | LPIPS | CLIP |',
+                         '|---|---|---:|---:|---:|---:|---:|---:|']
+            for key,group in metrics['complete_snr_groups'].items():
+                for policy,v in group['means_over_images'].items():
+                    cost=arq['complete_snr_groups'][key][policy]
+                    metric_rows.append(f"| {key} | {policy} | {cost['payload_tce_ratio_of_sums']:.6f} | {cost['forward_pixels_per_symbol_ratio_of_sums']:.6f} | {v['whole_image_ter']:.6%} | {v['psnr_raw']:.6f} | {v['lpips_normalized']:.6f} | {v['clip_clipped']:.6f} |")
+            arq_section+='\n'+chr(10).join(metric_rows)+'\n\n成本效率采用每SNR总pixels除以总资源；图像质量先平均每图五次接收，再平均十图。\n'
+            from plot_packet_arq import plot_packet_arq
+            arq_figures=plot_packet_arq(arq,metrics,outputs,prefix)
+            result['packet_arq_figure_sha256']={p.name:sha(p) for p in arq_figures};figures+=arq_figures
+            arq_section+=f'\n![匹配填充包成本与端点质量]({prefix}_填充包ARQ.svg)\n'
+next_step='保留原执行锁，继续缺失随机模型组并完成六SNR配对审计。'
+if stage>=61 and (run/'stage61_matched_padded_input_audit.json').exists():
+    prepared=read('stage61_matched_padded_input_audit.json')
+    assert prepared['all_checks_passed'] and prepared['complete']
+    assert prepared['source_arq_audit_sha256']==sha(run/'stage61_packet_arq_audit.json')
+    assert prepared['plan_sha256']==sha(run/'stage61_matched_padded_recovery_plan.json')
+    assert prepared['lock_sha256']==sha(run/'stage61_matched_padded_input_lock.json')
+    assert prepared['script_sha256']==sha(root/'derive_matched_padded_inputs.py')
+    assert all(sha(run/'stage61_matched_padded_inputs'/n)==h for n,h in prepared['case_sha256'].items())
+    arq_evidence+=['stage61_matched_padded_recovery_plan.json','stage61_matched_padded_input_lock.json','stage61_matched_padded_input_audit.json']
+    arq_scripts+=['derive_matched_padded_inputs.py']
+    result.update(matched_padded_inputs=prepared['completed_inputs'],matched_padded_new_transformer_inference=0)
+    next_step='随机交织300组及本轮ARQ端点评估均已完成。下一轮按独立预先计划实现并锁定六路径匹配填充帧模型入口与审计，再对300份已验证输入进行恢复；保持每帧1664前向QAM符号的首发条件一致。六路径包含direct、oracle/CRC掩码各自有无CMI和ideal。本轮仅准备这些输入，没有执行该新研究的Transformer恢复，也没有移用旧1632符号模型端点。'
+    arq_section+='\n### 下一轮匹配帧输入\n\n'+next_step+'\n'
 progress_name=f'stage{stage}_session_progress.json';(run/progress_name).write_text(json.dumps(result,indent=2),encoding='utf-8')
 report=outputs/f'{prefix}.md'
 report.write_text(f'''# TokCom 阶段{stage}：独立随机交织对照
@@ -139,6 +229,8 @@ CRC和卷积编码仍按包处理，16-QAM仍采用原全帧映射：payload2560
 
 {quality}
 
+{arq_section}
+
 ## 验证与原实验
 
 22项置换/掩码检查、4项实际模型审计隔离检查、5项配对汇总门槛检查均通过；两次高SNR与两次精确无噪链路检查通过。精确无噪检查不添加信道噪声，demapper采用正方差0.01得到有限软LLR，该值不是新增AWGN。模型审计重新核对最终ID、未掩码位置保持、有限指标及理想正确token参考与固定基线一致性；作者TER_af不作为残余TER。
@@ -149,7 +241,7 @@ CRC和卷积编码仍按包处理，16-QAM仍采用原全帧映射：payload2560
 
 ## 发布与续跑
 
-保持执行规范、PHY/模型执行锁及原缓存，运行run_stage60_randomized_recovery.py继续缺失组，再运行audit_stage60_randomized_recovery.py和audit_stage60_paired_packetization.py。每SNR两分支均齐备50接收后才汇总全部四路径与逐图配对差值。发布提交、实际CI和精确Git对象核验另写本地回执，避免自引用。草稿PR：https://github.com/zhoujinyi8/tokencomm/pull/{session['github_pull_request']} 。
+{next_step} 发布提交、实际CI和精确Git对象核验另写本地回执，避免自引用。草稿PR：https://github.com/zhoujinyi8/tokencomm/pull/{session['github_pull_request']} 。
 
 PHY缓存和精确无噪诊断使用独立TensorFlow2.15.1/Sionna0.19.2环境；模型恢复及结果审计使用主PyTorch环境。既有正式PHY已完整时不重复模拟，模型入口自动跳过身份匹配的完整组。
 ''',encoding='utf-8')
@@ -157,7 +249,8 @@ scripts=['randomized_packetization.py','test_randomized_packetization.py','cache
          'audit_stage60_randomized_phy.py','run_stage60_randomized_recovery.py','audit_stage60_randomized_recovery.py',
          'test_stage60_model_audit.py','test_stage60_noiseless_phy.py','paired_packetization_aggregation.py',
          'test_paired_packetization_aggregation.py','audit_stage60_paired_packetization.py','report_randomized_session.py',
-         'smoke_stage25_sionna_link.py','paper_tce_reference.py','evaluate_stage9_pretrained_maskgit.py','sync_github_worktree_from_api.py']
+         'smoke_stage25_sionna_link.py','paper_tce_reference.py','evaluate_stage9_pretrained_maskgit.py','sync_github_worktree_from_api.py',
+         'plot_paired_packetization.py']+arq_scripts
 evidence=['stage59_randomized_packetization_plan.json','stage59_development_recovery_audit.json','stage59_development_phy_audit.json',
           'stage44_frozen_protocol.json','stage47_complete_holdout_summary.json','stage58_session_comparison_audit.json',
           'stage46_environment.json','stage47_metrics_lock.json','stage54_development_multisnr_plan.json',
@@ -165,9 +258,11 @@ evidence=['stage59_randomized_packetization_plan.json','stage59_development_reco
           'stage60_randomized_phy_audit.json','stage60_phy_roundtrip_smoke.json','stage60_noiseless_phy_verification.json',
           'stage60_packetization_contract.json','stage60_randomized_recovery_lock.json','stage60_randomized_recovery_progress.json',
           'stage60_randomized_recovery_audit.json','stage60_model_audit_contract.json','stage60_paired_aggregation_contract.json',
-          'stage60_paired_packetization_audit.json',session_path.name,f'stage{stage}_runtime_identity.json',progress_name]+audit_copies
+          'stage60_paired_packetization_audit.json',session_path.name,f'stage{stage}_runtime_identity.json',progress_name]+audit_copies+arq_evidence
 entries={f'code/{n}':(root/n).read_bytes() for n in scripts}
 entries.update({f'evidence/{n}':(run/n).read_bytes() for n in evidence})
+if arq_section and (run/'stage61_arq_initial_cache_source.py').exists():
+    entries['diagnostics/initial_failed_cache_source.py']=(run/'stage61_arq_initial_cache_source.py').read_bytes()
 entries[f'reports/{report.name}']=report.read_bytes();entries.update({f'reports/{p.name}':p.read_bytes() for p in figures})
 manifest={n:hashlib.sha256(v).hexdigest() for n,v in entries.items()}
 entries['SHA256.json']=json.dumps(manifest,indent=2).encode('utf-8')

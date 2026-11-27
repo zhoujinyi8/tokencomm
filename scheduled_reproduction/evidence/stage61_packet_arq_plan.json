@@ -1,0 +1,103 @@
+{
+  "created_utc": "2026-11-27T09:34:55.345255+00:00",
+  "status": "planned_not_executed",
+  "scope": "Independent padded-packet physical ARQ protocol pilot; not a completed resource-equivalent paper baseline",
+  "source_paper": "https://arxiv.org/html/2502.12096v5#S6",
+  "source_randomization_plan_sha256": "3b71a6ceb98ff8bddd6b8bd9e8dfc3067c0e3fc13531d2f5336bcf678d90de7a",
+  "source_token_inputs": {
+    "runs/stage26_official_token_link_snr8_5trials.npz": "c83e364b624babd2c96b84cb0e820f6bda6e60ce39ae2d4d3d6594e0797f4a99",
+    "runs/stage26_official_demo_tokens.npz": "cf1e038f146e2778afa4c66f75cc35e2369bab134ada6034e8462464c0ef64ca"
+  },
+  "images": 10,
+  "trials_per_image": 5,
+  "snr_db": [
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    9.0
+  ],
+  "expected_formal_frame_experiments": 300,
+  "pilot_coordinates": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      9,
+      0
+    ],
+    [
+      9,
+      1
+    ]
+  ],
+  "pilot_expected_frame_experiments": 24,
+  "token_packet_assignment": "Use the existing preregistered per-image permutation and four-token strided packetizer; undo both mappings after reception",
+  "forward_framing": {
+    "tokens_per_packet": 4,
+    "payload_bits": 40,
+    "crc": "CRC11",
+    "crc_bits": 11,
+    "conv_polynomials": [
+      "101",
+      "111"
+    ],
+    "conv_terminate": false,
+    "convolutional_bits": 102,
+    "padding_after_convolutional_encoding_bits": 2,
+    "wire_bits": 104,
+    "qam_bits_per_symbol": 4,
+    "qam_symbols_per_packet_attempt": 26,
+    "first_frame_symbols": 1664
+  },
+  "policies": [
+    "single_pass_padded",
+    "receiver_crc_arq_padded",
+    "sender_oracle_arq_padded"
+  ],
+  "receiver_crc_rule": "Stop each packet at first valid receiver CRC, even if sender truth would reveal a payload error. Count accepted-but-wrong payloads separately.",
+  "sender_oracle_rule": "Ideal reference only: stop each packet at first payload equality with sender truth, irrespective of CRC parity status.",
+  "maximum_attempts_including_initial": 32,
+  "cap_handling": "Retain last reception, flag each unaccepted packet as censored; do not silently drop capped packets or pretend guaranteed delivery.",
+  "noise": {
+    "generator": "NumPy PCG64; independent complex AWGN for each packet/attempt",
+    "seed_base": 2026112700,
+    "seed_formula": "base + 1000000*image + 100000*trial + 10000*snr_index + 100*packet + attempt",
+    "attempt_indices": "1..32",
+    "packet_indices": "0..63",
+    "coupling": "All policies share identical packet/attempt realizations; simulate union of packets still needed by either ARQ rule.",
+    "variance": "10**(-snr_db/10), half per real component"
+  },
+  "ledgers": {
+    "payload_bits_per_attempt": 40,
+    "crc_bits_per_attempt": 11,
+    "conv_bits_per_attempt": 102,
+    "pad_bits_per_attempt": 2,
+    "wire_bits_per_attempt": 104,
+    "qam_symbols_per_attempt": 26,
+    "logical_ack_nack_events_per_arq_attempt": 1,
+    "feedback_bits_or_airtime": null,
+    "cmi_bits_or_airtime": null,
+    "headers_bits_or_airtime": null,
+    "latency": null,
+    "efficiency_reporting": "Record per-frame payload pixels/attempted-payload-bit and forward pixels/QAM-symbol. Any cohort ratios require explicit ratio-of-sums definition. Feedback, headers and CMI remain unmodeled."
+  },
+  "gates": [
+    "Noiseless matched framing round trip before noisy pilot",
+    "Unit fixtures for CRC false acceptance, parity-only failure, cap censoring and ledger consistency",
+    "Verify seed uniqueness and policy-order independence",
+    "Preserve attempt traces for independent stop-rule replay and integer ledger audit",
+    "No whole-cohort PER or quality means until 50 experiments per SNR; pilot reports coverage and exact accounting only"
+  ],
+  "existing_studies_changed": false,
+  "randomized_quality_results_used_for_plan": false,
+  "new_model_inference_performed": false,
+  "new_formal_frame_experiments_performed": 0,
+  "full_paper_reproduction_complete": false
+}

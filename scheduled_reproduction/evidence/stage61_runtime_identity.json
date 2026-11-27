@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-27T09:31:18.684591+00:00",
+  "all_checks_passed": true,
+  "python": "3.10.11",
+  "packages": {
+    "torch": "2.14.0",
+    "torchvision": "0.29.0",
+    "numpy": "1.26.4",
+    "omegaconf": "2.4.0",
+    "Pillow": "10.3.0",
+    "lpips": "0.1.4",
+    "clip": "1.0"
+  },
+  "author_source_sha256": {
+    "Network/transformer.py": "6153ee9608422ad6c2a6cad54974046fde43a7b9dd3c7fe60d31b6f075056c00",
+    "Network/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Network/Taming/util.py": "189b26a34460c577f98a302abd338a10dff19bd55a8baba288559753f727bd9c",
+    "Network/Taming/models/vqgan.py": "fe0a4e1aebc109426fc4ff5323d482a68a4eba0bc8df07b69053cfa9aa0c42a9",
+    "Network/Taming/modules/util.py": "c6e2fd47e584206dc47da53294dcf1a80c8303cbbb5ac65392ed8e63d879a3a2",
+    "Network/Taming/modules/diffusionmodules/model.py": "a1e8b84ff52accadaf62e43f75ede4d9e8f8a74029ef7b36ae11813a0276794e",
+    "Network/Taming/modules/vqvae/quantize.py": "70b6369f23729f2ea8c11d174e410cf00295a8076e0d9bcb118eb35aa8d3cda4",
+    "Trainer/trainer.py": "2b0b2b44bfe5eccbe52acdc3d0a7d2c0953e90db2cd286344dafcf15e3b529c9",
+    "Trainer/vit.py": "65bb6293d0f812c1dfce22dc01b64ab212042d05e7568d4ab8b5228d688d2a0c",
+    "pretrained_maskgit/VQGAN/model.yaml": "d32cf4a300712b90eaf2bcf0d52ee7eb26ec0bdc199c667207b0094cbbb18760"
+  },
+  "class_mapping_script_sha256": "c463d298c7c946c457966af37b5812aa35ea6fa3a7eff5e4c5f91a7b3d7e10d1",
+  "execution_spec_sha256": "8da44f40101d2fadbee9fa6dc47f1be48a9190734e16c12fc236113b67710fed",
+  "runner_sha256": "6373df5b5bf744ddb9a62f114192903edc42ca5dd78f9120aea1f29e3e994b50",
+  "baseline_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10",
+  "model_inference_performed": false
+}

@@ -1,0 +1,30 @@
+{
+  "plan_sha256": "d189ba28a3718d4686d33b33bcc52dffde09417ddd37f5a18b7b9da09a87b39b",
+  "script_sha256": "650d320c4a316f8dd519fcf07fbf357785bb12826f3188cfc62475102d672b06",
+  "helper_sha256": "c271898601e187ca8d249caf4bdf359514fd9a46939c59815d0a1be8e53af391",
+  "permutation_helper_sha256": "1c64f425c6325f7b9c4a24cf4af839f694cdda163e3f7a532883834618312f5f",
+  "component_source_sha256": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167",
+  "numpy": "1.26.4",
+  "tensorflow": "2.15.1",
+  "sionna": "0.19.2",
+  "passed": 2,
+  "failed": 0,
+  "diagnostic_noiseless_frames": 2,
+  "diagnostic_packet_observations": 128,
+  "added_channel_noise": false,
+  "model_inference_performed": false,
+  "cases": [
+    {
+      "image_index": 0,
+      "packet_observations": 64,
+      "all_policies_first_attempt": true,
+      "token_errors": 0
+    },
+    {
+      "image_index": 9,
+      "packet_observations": 64,
+      "all_policies_first_attempt": true,
+      "token_errors": 0
+    }
+  ]
+}
