@@ -1,0 +1,13 @@
+{
+  "script_sha256": "508c493626b413d109709e1576aafbf8e25b1d19b570258008a0092acaa76940",
+  "plan_sha256": "b7bf8a3c94c9a7fd7f0fe341ed69a6c09fd2f5cd19bb780b0759dd9fdafa24e9",
+  "checks_sha256": "4503a5f7d1ec207a7e0c9637adc374801b9b67d256da45bc7be66f7d9ac18017",
+  "test_sha256": "414284c2e880bb10fa4967e92daedf92a8cf67b63ee96c3d98a5bc655307f871",
+  "auditor_sha256": "5a2ea4aad6316fedacb6ecbeedcfbe7f92d58b8fb46e7e3536429aa04e8f91b7",
+  "author_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "token_metric": "final token ID equality; author TER_af is not residual TER",
+  "preregistered_plan_sha256": "b7bf8a3c94c9a7fd7f0fe341ed69a6c09fd2f5cd19bb780b0759dd9fdafa24e9",
+  "input_audit_sha256": "26cb75b9e3bb79a56ec3148a5184bdc4a884f039a77e85dcec31d3bb8583c76b",
+  "phy_audit_sha256": "26cb75b9e3bb79a56ec3148a5184bdc4a884f039a77e85dcec31d3bb8583c76b"
+}

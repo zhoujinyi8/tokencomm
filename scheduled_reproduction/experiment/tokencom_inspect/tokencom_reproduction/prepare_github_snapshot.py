@@ -97,7 +97,8 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage61_session_packet_arq_audit.json','stage61_arq_metric_plan.json','stage61_arq_metric_lock.json',
              'stage61_arq_metric_contract.json','stage61_arq_metric_progress.json','stage61_arq_metric_audit.json',
              'stage61_session_arq_metric_audit.json','stage61_matched_padded_recovery_plan.json',
-             'stage61_matched_padded_input_lock.json','stage61_matched_padded_input_audit.json']:
+             'stage61_matched_padded_input_lock.json','stage61_matched_padded_input_audit.json',
+             'stage62_matched_recovery_lock.json','stage62_matched_recovery_progress.json','stage62_matched_recovery_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -200,6 +201,9 @@ The randomized four-path model study is complete at {current['randomized_model_c
 The separate padded-packet experiment completes {current['packet_arq_frame_experiments']}/300 frames and {current['packet_arq_metric_rows']} VQGAN endpoint metric rows across single pass, receiver CRC ARQ and sender-oracle ARQ. Attempts are simulated with independent packet/attempt noise, capped at 32, with wrong CRC acceptances and censoring retained. Each first pass is 1664 QAM symbols (40 payload + 11 CRC bits, half-rate convolution, 2 padding bits per packet). Forward data only: feedback/header/CMI airtime is not modeled. The earlier 1632-symbol MaskGIT results are not a matching-framing baseline.\n
 Metric accounting records {current['arq_decoder_forwards_this_invocation']} actual decoder forwards and {current['arq_exact_clean_reference_rows']} rows using exact same-image clean-ID references. No MaskGIT inference is claimed for ARQ endpoints. Two noiseless packet diagnostics and 14 pure accounting/metric checks are separate from 300 formal frames. The initial Mapper shape preflight correction and its replaced lock are preserved.\n
 Next: `stage61_matched_padded_recovery_plan.json` and {current['matched_padded_inputs']} audited canonical first-pass inputs prepare an independent six-path neural comparison under the same 1664-symbol framing. Implement and lock its runner/auditor before new inference. This round performs zero Transformer recovery cases in that new study. Keep all prior frozen studies unchanged; ImageNet100, Cheng and complete resource-equivalent paper replication remain open.\n'''
+if (root/'runs/stage62_matched_recovery_audit.json').exists():
+    active=json.loads((root/'runs/stage62_matched_recovery_audit.json').read_text(encoding='utf-8'))
+    readme+=f"\n## Matched padded neural recovery (stage 62)\n\nImplemented the separately locked six-path runner and auditor. Audited coverage: {active['completed_cases']}/300 receptions, six paths each. Uses the 300 existing 1664-symbol first-pass inputs, separate oracle/CRC masks, and frozen model/metric conventions. No new PHY and no copying old unpadded generated endpoints. Incomplete SNR groups receive coverage only. Resume `run_stage62_matched_recovery.py`, then `audit_stage62_matched_recovery.py` and `report_stage62_matched.py`. The six pure mask/metric validation checks are independent of real model evaluations.\n"
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

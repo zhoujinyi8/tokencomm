@@ -1,0 +1,34 @@
+{
+  "scope": "Matched-padded single-pass MaskGIT controls; independent namespace, future inference only",
+  "plan_sha256": "b7bf8a3c94c9a7fd7f0fe341ed69a6c09fd2f5cd19bb780b0759dd9fdafa24e9",
+  "lock_sha256": "c3d7907e2e48eb0fa77d838e246c5b8e1b6863e74e8caad4fd9054a722d63230",
+  "completed_cases": 14,
+  "expected_cases": 300,
+  "complete": false,
+  "counts_by_snr": {
+    "6.0": 3,
+    "6.5": 3,
+    "7.0": 2,
+    "7.5": 2,
+    "8.0": 2,
+    "9.0": 2
+  },
+  "budget_reached": true,
+  "primary_holdout_changed": false,
+  "case_sha256": {
+    "snr0_image00_trial0.json": "cbe351103e1a7fa6b9650f061997ef3fe3444220821816e8e01a9432836623e0",
+    "snr0_image00_trial1.json": "21ee18296381e4fb14ba792aa4e9c49f0b99422608138b8b2d56b25e049f3cad",
+    "snr0_image00_trial2.json": "2b1155c7053dee5e6dc651b22273e90dea26a1a4040a20a2c3d55b6dff0da07c",
+    "snr1_image00_trial0.json": "55436a7000ddd067f65f304b5313e9d6c48c89756aff5539cd7dd9cc01d91123",
+    "snr1_image00_trial1.json": "b7900e4d5169d09ee3c95497fb474468f4125bae3380cc5cd932c50bdfe0d768",
+    "snr1_image00_trial2.json": "1a5fb10b8c3f6551fec9b27d148ebe6e658cd4eb5379902f759d7b0524740d2b",
+    "snr2_image00_trial0.json": "97b4b3f595608e95965e143e295bfd2777eec6b756180c9a757ad40adf1f8df4",
+    "snr2_image00_trial1.json": "36119916558311fd4d1f669605a8ad201c063c3d29f0570251499513f7940e7c",
+    "snr3_image00_trial0.json": "92c9e7b633c5c568355a238f5a44a34b633908c514a273d6e1e92b4e0ddfde80",
+    "snr3_image00_trial1.json": "ac998741d4450d43ddb6731f00a5750576376a6771b82e419aa8fd937a93aeb1",
+    "snr4_image00_trial0.json": "f0ca169aba80ca80630acec2ed01042b5be4534103f0d87a292176d05db1756a",
+    "snr4_image00_trial1.json": "dba300fb7fd569cc97072db075282c84b35f3d8ea2d8ff102b28541b1c8dca01",
+    "snr5_image00_trial0.json": "a760764718e0b0d2d209feff29fb782c8b70f14991368b1d5bec5c25a6f7b3c6",
+    "snr5_image00_trial1.json": "ca6af95a129df1a85ff43ed4270c48d5636bf6228593e93c45477b9ddca77ac9"
+  }
+}
