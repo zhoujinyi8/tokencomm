@@ -94,3 +94,7 @@ Next: `stage61_matched_padded_recovery_plan.json` and 300 audited canonical firs
 ## Matched padded neural recovery (stage 62)
 
 Implemented the separately locked six-path runner and auditor. Audited coverage: 82/300 receptions, six paths each. Uses the 300 existing 1664-symbol first-pass inputs, separate oracle/CRC masks, and frozen model/metric conventions. No new PHY and no copying old unpadded generated endpoints. Incomplete SNR groups receive coverage only. Resume `run_stage62_matched_recovery.py`, then `audit_stage62_matched_recovery.py` and `report_stage62_matched.py`. The six pure mask/metric validation checks are independent of real model evaluations.
+
+## Matched padded continuation (stage 63)
+
+Continued from 82 cases with the identical runner, inputs and execution lock. Current independently audited coverage: 194/300 receptions; new this round: 112. The first 82 case hashes remain unchanged. Stage62 session receipts are frozen separately. Resume the same locked runner for missing cases. Quality means require 50 receptions per SNR; no incomplete-SNR means are published.
