@@ -1,7 +1,7 @@
 {
   ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
   ".gitignore": "aacc36aca85ef9d2d2d95560c866df023c2fc80f4c274792ff90caab8d532237",
-  "README.md": "ff8db00f2364efb35f21098fd503d7a74603406ea52b8bd63f79136bd2bb5a42",
+  "README.md": "054c8d9fe31b87e657192acb1935f757b698145dc7cfc3b2e612695708f1a4a9",
   "evidence/stage30_multitrial_progress.json": "b6295986383d5dfc5f088939a9fc848e7b424b971a80b4f1bd96ce5b363add46",
   "evidence/stage33_author_psnr_10images_5trials.json": "40f787f3c58678d0266fb307a4b1477ca0edaef611d3270f363cf142bf5f34ee",
   "evidence/stage34_lpips_five_trials_summary.json": "01685d48018dd5e739237c0db85534f2822d740074a920a8e575c42336fe8dc9",
@@ -151,9 +151,9 @@
   "evidence/stage61_session_phy_audit.json": "57993a159df64913cf52463a4658a1b75d8844381e0186079a7fdd07ca189989",
   "evidence/stage61_session_progress.json": "8653114f6b6e35031caf70f27dfc7559ada370f7f6e4d7be2beabea14a65a527",
   "evidence/stage61_window_start.json": "e066bc96249db0b16afef3fc0ea1b61524b9789e19851984dc3dd5310a190ae4",
-  "evidence/stage62_matched_recovery_audit.json": "4c91074ee155405d0170eacb976107940a680ab81e515873a8251947e50f888b",
+  "evidence/stage62_matched_recovery_audit.json": "b489b3543ad2818958c0662763ceac253dfa58f8af2b94c36937a0f46c5bba9b",
   "evidence/stage62_matched_recovery_lock.json": "c3d7907e2e48eb0fa77d838e246c5b8e1b6863e74e8caad4fd9054a722d63230",
-  "evidence/stage62_matched_recovery_progress.json": "c9457c81ee826ec87fd7834eeba19e6540f6850118b6342faf5072791133c23a",
+  "evidence/stage62_matched_recovery_progress.json": "0d6a1f14a947f54bb86016acd5104142bee590598ba6e65d15b0921a9f428536",
   "evidence/stage44_holdout/manifest.json": "1f2c5d03a4791d3ea18800772401225fa74c99bbb9cb17beebeedc150ebab96b",
   "evidence/stage44_holdout/test.jsonl": "dfea5458cd0b98ca0eb88c68bccbada742f5449bbe646d2c50e3dbf103d1a54a",
   "experiment/tokencom_inspect/tokencom_reproduction/analyze_stage10_validation.py": "bc2b181c0de79d85a0c19868e00d3ef74148e625d42da2ac36e2e7a04cb46812",
@@ -484,5 +484,5 @@
   "reports/TokCom_\u9636\u6bb561\u968f\u673a\u4ea4\u7ec7\u5bf9\u7167_2026-11-27_PHY.svg": "c7fb8431f9a5ca13080151c406a8d25c47eb1557c3e409651b71ffece403a217",
   "reports/TokCom_\u9636\u6bb561\u968f\u673a\u4ea4\u7ec7\u5bf9\u7167_2026-11-27_\u586b\u5145\u5305ARQ.svg": "3dc4bf9fcfb4f52129666b2d8a9e95328e5b689cfb732c6ef6119ace5096e1b4",
   "reports/TokCom_\u9636\u6bb561\u968f\u673a\u4ea4\u7ec7\u5bf9\u7167_2026-11-27_\u6a21\u578b\u914d\u5bf9\u5dee\u503c.svg": "139075310a255005eb48276e29744abf07fe481245cb77e88b14a4d90eadcd1a",
-  "reports/TokCom_\u9636\u6bb562\u5339\u914d\u586b\u5145\u5e27\u6062\u590d_2026-11-28.md": "aa419271475d749f6745358d2f715c7a4bd718412e5b377beabd4c9bd72882dd"
+  "reports/TokCom_\u9636\u6bb562\u5339\u914d\u586b\u5145\u5e27\u6062\u590d_2026-11-28.md": "c83afca63a1edd7915d666c98e51f346934ca9896479f94fbfa69aba32791233"
 }
