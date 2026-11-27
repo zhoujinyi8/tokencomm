@@ -7,3 +7,5 @@ After restoring those assets and their original implementation identities, run `
 The ContextMaskGITv4 gradient and state round-trip test uses synthetic inputs and runs in the unit job. Only its checkpoint warm-start test requires the local Stage15 checkpoint.
 
 `scheduled_reproduction/` is a versioned experiment snapshot with separate data, weights, locks and execution instructions. Its historical scripts are excluded from root lint and test discovery. The snapshot verifier checks byte hashes and Python syntax without importing heavy models. Frozen holdout output audits and model evaluation are recorded separately in that folder's evidence and reports.
+
+The separate `Verify padded packet ARQ contracts` step imports only two pure NumPy check modules from that snapshot and calls their `verify()` functions. It checks eight stopping-rule/noise/accounting cases and six endpoint-validation cases without writing experiment receipts, loading weights, or running a physical channel or model. These 14 checks supplement the root pytest count; they do not replace asset integration tests or rerun the 300-frame experiment.
