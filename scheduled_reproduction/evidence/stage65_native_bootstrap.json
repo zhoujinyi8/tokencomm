@@ -1,0 +1,16 @@
+[
+  {
+    "name": "compressai-1.2.8.tar.gz",
+    "url": "https://files.pythonhosted.org/packages/a3/65/c6e387c10f159a15f9c0099b6656636d4e2ab4e2df1412b1755c8aee55f0/compressai-1.2.8.tar.gz",
+    "sha256": "d90a923694b4b66c3e39bd90316e7f177a620787190ca7550731fc16c1bc7d5e",
+    "bytes": 183800,
+    "extracted": "D:\\\u65b0\u5efa\u6587\u4ef6\u5939 (2)\\2026-10-18\\new-chat\\work\\cheng_build\\compressai-1.2.8"
+  },
+  {
+    "name": "llvm-mingw-20261117-ucrt-x86_64.zip",
+    "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261117/llvm-mingw-20261117-ucrt-x86_64.zip",
+    "sha256": "4d002e330a0f703625aa5ccbc37e96f8f824413e163bfc7336774aabd2c3a412",
+    "bytes": 191082415,
+    "extracted": "D:\\\u65b0\u5efa\u6587\u4ef6\u5939 (2)\\2026-10-18\\new-chat\\work\\cheng_build\\llvm-mingw-20261117-ucrt-x86_64"
+  }
+]

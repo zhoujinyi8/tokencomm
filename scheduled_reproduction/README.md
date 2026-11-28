@@ -102,3 +102,9 @@ Continued from 82 cases with the identical runner, inputs and execution lock. Cu
 ## Matched padded completion check (stage 64)
 
 Continued from 194 unchanged cases with the identical execution lock. Audited coverage is 300/300 with 6 complete SNR groups. Each complete group compares all six neural paths with all three same-framing ARQ endpoint policies, including per-image paired differences. Direct decoder endpoints are checked against the identical first-pass ARQ endpoints before comparison. Feedback/header/CMI airtime is excluded; ideal correct tokens remain a quality reference, not a realizable retransmission policy. Full paper replication remains incomplete. See the stage64 report and comparison audit.
+
+## Cheng byte-stream preparation (stage 65)
+
+Audited 20/20 clean stock-codec cases across anchor/attention quality 1 and the same ten old development images, with two fresh-process decoding checks. Actual entropy bpp and custom 34-byte CH65 header costs are distinct from likelihood estimates. Stock rates are about 3.2 times the paper's stated ~0.04 bpp target; these are not paper-rate-matched baselines. Native upstream rANS/CDF extensions were built in a separate Windows environment from hash-pinned source/toolchain archives. No native binaries, checkpoints, image arrays or compressed image streams are exported in this Git snapshot.
+
+A separately planned one-update training smoke and fixed 100-update balanced proxy pilot exercise optimization and checkpoint/RNG state. They use existing training images with frozen evaluation identities excluded, and do not establish paper checkpoint/data provenance. See the pilot audit for actual update/calibration coverage. `verify_imagenet100_manifest.py` checks a supplied 100-class manifest and file hashes; structural validity is explicitly separate from author provenance. Full paper reproduction remains incomplete.

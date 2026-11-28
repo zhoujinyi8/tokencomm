@@ -1,0 +1,135 @@
+{
+  "created_utc": "2026-11-28T05:52:56.223447+00:00",
+  "scope": "Stock Cheng clean entropy-coding engineering diagnostic, NOT the paper fine-tuned baseline",
+  "paper_source": "https://arxiv.org/html/2502.12096v5#S6",
+  "paper_target_bpp": 0.04,
+  "diagnostic_rate_tolerance_relative": 0.1,
+  "paper_finetuned_weight_identified": false,
+  "paper_100class_manifest_identified": false,
+  "models": [
+    "cheng2020-anchor",
+    "cheng2020-attn"
+  ],
+  "quality": 1,
+  "training_metric": "mse",
+  "weights": [
+    {
+      "name": "cheng2020-anchor-1-dad2ebff.pth.tar",
+      "url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020-anchor-1-dad2ebff.pth.tar",
+      "download_url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020-anchor-1-dad2ebff.pth.tar",
+      "sha256": "dad2ebff44e86ae986d464d286d4c3531bd0f8c038233601bb8f3ad6dc7754e7",
+      "bytes": 51486290,
+      "quality": 1,
+      "metric": "mse",
+      "paper_finetuned_checkpoint": false
+    },
+    {
+      "name": "cheng2020_attn-mse-1-465f2b64.pth.tar",
+      "url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020_attn-mse-1-465f2b64.pth.tar",
+      "download_url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020_attn-mse-1-465f2b64.pth.tar?stage65_verify=1",
+      "sha256": "465f2b649c3fa5c67cf19f337306fc53efc4a91b6ac465e5506278b5fc997955",
+      "bytes": 56950481,
+      "quality": 1,
+      "metric": "mse",
+      "paper_finetuned_checkpoint": false
+    }
+  ],
+  "images": [
+    {
+      "image_index": 0,
+      "path": "data\\imagenette_stage5\\images\\val\\0\\6a58c6b938bf7481b2f8.jpg",
+      "sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "class_name": "tench"
+    },
+    {
+      "image_index": 1,
+      "path": "data\\imagenette_stage5\\images\\val\\1\\6913c4f1b79b7720e982.jpg",
+      "sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "class_name": "English springer"
+    },
+    {
+      "image_index": 2,
+      "path": "data\\imagenette_stage5\\images\\val\\2\\fb07b49d15c99822d14b.jpg",
+      "sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "class_name": "cassette player"
+    },
+    {
+      "image_index": 3,
+      "path": "data\\imagenette_stage5\\images\\val\\3\\e79acd48ab5aad34cdaf.jpg",
+      "sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "class_name": "chain saw"
+    },
+    {
+      "image_index": 4,
+      "path": "data\\imagenette_stage5\\images\\val\\4\\0ffe7281ccd326fd131e.jpg",
+      "sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "class_name": "church"
+    },
+    {
+      "image_index": 5,
+      "path": "data\\imagenette_stage5\\images\\val\\5\\c5dde2c2b76cbc97918c.jpg",
+      "sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "class_name": "French horn"
+    },
+    {
+      "image_index": 6,
+      "path": "data\\imagenette_stage5\\images\\val\\6\\c3ac20e484b5d42e23cb.jpg",
+      "sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "class_name": "garbage truck"
+    },
+    {
+      "image_index": 7,
+      "path": "data\\imagenette_stage5\\images\\val\\7\\85f0be6820089f3a60a2.jpg",
+      "sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "class_name": "gas pump"
+    },
+    {
+      "image_index": 8,
+      "path": "data\\imagenette_stage5\\images\\val\\8\\35280163ea51b6efe6e7.jpg",
+      "sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "class_name": "golf ball"
+    },
+    {
+      "image_index": 9,
+      "path": "data\\imagenette_stage5\\images\\val\\9\\5dba9090d46479f8994d.jpg",
+      "sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "class_name": "parachute"
+    }
+  ],
+  "image_size": [
+    256,
+    256
+  ],
+  "preprocess": "RGB -> Resize((256,256)) -> ToTensor [0,1]; no input normalization",
+  "expected_cases": 20,
+  "container_schema": "CH65 v1: fixed 34-byte header plus both complete entropy streams; payload and total bpp recorded separately",
+  "entropy_coder": "native upstream rANS",
+  "coding_device": "CPU",
+  "torch_threads": 4,
+  "metrics": "PSNR of actual decompressed clipped [0,1] pixels; normalized LPIPS and clipped-PIL official CLIP preprocessing",
+  "input_selection_sha256": "cf1e038f146e2778afa4c66f75cc35e2369bab134ada6034e8462464c0ef64ca",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "backend_smoke_sha256": "c88a3a2ad1f2fb810cc76c6d6f553f27f2c99ea4c5750a7bf6b800ddcc13f554",
+  "native_build_sha256": "a8bf0352611244fd6dffd092881503bb907c1fc4c30bf64e2964654ac043cf0b",
+  "dependency_receipt_sha256": "cd4949fd603baf8590360249957d7af42243edbc7bca620b738fa73f7de1c56f",
+  "container_helper_sha256": "8a5ebdbe708e3c1d299d1affcb5cafe04b9c0904e5b09ce998ffec8491f2bfbe",
+  "container_test_sha256": "4a31ea5aee7f08ada45722e95211d6013112d80f576ec4528991aaeba3268733",
+  "fresh_process_checks": [
+    {
+      "model": "cheng2020-anchor",
+      "image_index": 0
+    },
+    {
+      "model": "cheng2020-attn",
+      "image_index": 0
+    }
+  ],
+  "no_training": true,
+  "no_channel_simulation": true,
+  "no_corrupted_entropy_decoding": true,
+  "no_heldout_images": true,
+  "no_model_or_quality_selection": true,
+  "no_bitrate_claim_from_quality_parameter": true,
+  "existing_studies_changed": false,
+  "full_paper_reproduction_complete": false
+}

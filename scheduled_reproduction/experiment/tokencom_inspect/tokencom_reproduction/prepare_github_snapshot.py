@@ -29,6 +29,7 @@ for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_模型配对差值.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_填充包ARQ.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段64匹配填充帧续跑_*_完整对照.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段65Cheng码流与低码率准备_*_实际码率.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
@@ -101,7 +102,13 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage61_matched_padded_input_lock.json','stage61_matched_padded_input_audit.json',
              'stage62_matched_recovery_lock.json','stage62_matched_recovery_progress.json','stage62_matched_recovery_audit.json',
              'stage62_session_audit.json','stage62_session_progress.json','stage63_window_start.json','stage63_session_audit.json',
-             'stage64_window_start.json','stage64_session_audit.json','stage64_matched_arq_comparison.json','stage64_author_dataset_protocol.json']:
+             'stage64_window_start.json','stage64_session_audit.json','stage64_matched_arq_comparison.json','stage64_author_dataset_protocol.json',
+             'stage65_native_bootstrap.json','stage65_dependency_wheels.json','stage65_native_build.json','stage65_backend_smoke.json',
+             'stage65_stock_weights.json','stage65_attn_download_verification.json','stage65_weight_download_deviation.json','stage65_container_contract.json',
+             'stage65_cheng_diagnostic_plan.json','stage65_cheng_diagnostic_lock.json','stage65_cheng_progress.json','stage65_cheng_audit.json',
+             'stage65_fresh_model0.json','stage65_fresh_model1.json','stage65_cheng_packet_budget.json','stage65_gradient_smoke_plan.json',
+             'stage65_gradient_smoke.json','stage65_gradient_smoke_audit.json','stage65_rate_pilot_plan.json','stage65_rate_pilot.json',
+             'stage65_rate_pilot_audit.json','stage65_remote_source_check.json','stage65_protocol_gaps.json','stage65_contracts.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -214,6 +221,9 @@ if (root/'runs/stage63_session_audit.json').exists():
 if (root/'runs/stage64_session_audit.json').exists():
     current=json.loads((root/'runs/stage64_session_audit.json').read_text(encoding='utf-8'))
     readme+=f"\n## Matched padded completion check (stage 64)\n\nContinued from 194 unchanged cases with the identical execution lock. Audited coverage is {current['completed_cases']}/300 with {len(current['complete_snr_groups'])} complete SNR groups. Each complete group compares all six neural paths with all three same-framing ARQ endpoint policies, including per-image paired differences. Direct decoder endpoints are checked against the identical first-pass ARQ endpoints before comparison. Feedback/header/CMI airtime is excluded; ideal correct tokens remain a quality reference, not a realizable retransmission policy. Full paper replication remains incomplete. See the stage64 report and comparison audit.\n"
+if (root/'runs/stage65_cheng_audit.json').exists():
+    codec=json.loads((root/'runs/stage65_cheng_audit.json').read_text(encoding='utf-8'))
+    readme+=f"\n## Cheng byte-stream preparation (stage 65)\n\nAudited {codec['completed_cases']}/20 clean stock-codec cases across anchor/attention quality 1 and the same ten old development images, with two fresh-process decoding checks. Actual entropy bpp and custom 34-byte CH65 header costs are distinct from likelihood estimates. Stock rates are about 3.2 times the paper's stated ~0.04 bpp target; these are not paper-rate-matched baselines. Native upstream rANS/CDF extensions were built in a separate Windows environment from hash-pinned source/toolchain archives. No native binaries, checkpoints, image arrays or compressed image streams are exported in this Git snapshot.\n\nA separately planned one-update training smoke and fixed 100-update balanced proxy pilot exercise optimization and checkpoint/RNG state. They use existing training images with frozen evaluation identities excluded, and do not establish paper checkpoint/data provenance. See the pilot audit for actual update/calibration coverage. `verify_imagenet100_manifest.py` checks a supplied 100-class manifest and file hashes; structural validity is explicitly separate from author provenance. Full paper reproduction remains incomplete.\n"
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

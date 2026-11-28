@@ -1,0 +1,29 @@
+{
+  "new_checks_passed": 23,
+  "failed": 0,
+  "groups": {
+    "container": {
+      "passed": 8,
+      "failed": 0
+    },
+    "packet_budget": {
+      "passed": 6,
+      "failed": 0
+    },
+    "dataset_manifest": {
+      "passed": 9,
+      "failed": 0
+    }
+  },
+  "source_sha256": {
+    "cheng_stream_container.py": "8a5ebdbe708e3c1d299d1affcb5cafe04b9c0904e5b09ce998ffec8491f2bfbe",
+    "test_cheng_stream_container.py": "4a31ea5aee7f08ada45722e95211d6013112d80f576ec4528991aaeba3268733",
+    "cheng_packet_budget.py": "8911f6ec8039d93f3b72065bf135d3b673cf9f10c5cdecb4ab658565c31c4b70",
+    "test_cheng_packet_budget.py": "3ac6dd045bc7aff2c3524cb672507de1449eda57b49da6f74d4b12773776fa8a",
+    "imagenet100_manifest.py": "c66b5cf26be217ee2b748847fd87e05fdcefc4b2988f56cb593122f1a8ac8f12",
+    "test_imagenet100_manifest.py": "276c43d3364e4ff0f23132c913ec2728b361ed7eae8b7b82209e6b7b47372fc7"
+  },
+  "synthetic_manifest_fixtures_are_not_dataset_evidence": true,
+  "physical_simulations_performed": 0,
+  "model_inference_performed": false
+}

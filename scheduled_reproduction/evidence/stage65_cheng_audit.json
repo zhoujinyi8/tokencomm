@@ -1,0 +1,91 @@
+{
+  "all_checks_passed": true,
+  "audit_script_sha256": "388d32e08625439066d61273ab5c5978a58994ed0251be06684b8d3d572ca747",
+  "plan_sha256": "7be91f30f55c89917f36cd33e5408da03b4b1bf8d1a1a7d4a93190da423a4bd0",
+  "lock_sha256": "af83db3fa1f7312e664e1e1a0539891df741316fdb5d70e39071c30d18164994",
+  "completed_cases": 20,
+  "expected_cases": 20,
+  "complete": true,
+  "codec_cases_complete": true,
+  "fresh_process_checks": [
+    {
+      "model": "cheng2020-anchor",
+      "image_index": 0,
+      "max_abs_pixel_difference": 0.0,
+      "receipt_sha256": "0c7829d6c8754a1aceec9da364b3d214615a11d945eabca97f2db5e947b927b5"
+    },
+    {
+      "model": "cheng2020-attn",
+      "image_index": 0,
+      "max_abs_pixel_difference": 0.0,
+      "receipt_sha256": "83968b6e85058c3893135cf9d8a0fdf1ca0d9075bde3b0c04275d34fd9853841"
+    }
+  ],
+  "complete_model_groups": {
+    "cheng2020-anchor": {
+      "cases": 10,
+      "means": {
+        "entropy_payload_bpp": 0.128173828125,
+        "total_stored_bpp": 0.13232421875,
+        "estimated_likelihood_bpp": 0.12449006817270729,
+        "psnr_decoded": 29.198124170550994,
+        "lpips_normalized": 0.21634005159139633,
+        "clip_clipped": 0.8026935219764709
+      },
+      "actual_payload_bpp_range": [
+        0.068359375,
+        0.26416015625
+      ],
+      "payload_rate_ratio_to_paper_target": 3.204345703125,
+      "payload_rate_within_diagnostic_tolerance": false,
+      "paper_baseline_ready": false,
+      "reason": "Stock public weights; paper fine-tuned checkpoint and exact ImageNet100 identities are not established"
+    },
+    "cheng2020-attn": {
+      "cases": 10,
+      "means": {
+        "entropy_payload_bpp": 0.126513671875,
+        "total_stored_bpp": 0.1306640625,
+        "estimated_likelihood_bpp": 0.12465283408184533,
+        "psnr_decoded": 29.167401935974066,
+        "lpips_normalized": 0.22661331817507743,
+        "clip_clipped": 0.8066918551921844
+      },
+      "actual_payload_bpp_range": [
+        0.0703125,
+        0.25830078125
+      ],
+      "payload_rate_ratio_to_paper_target": 3.162841796875,
+      "payload_rate_within_diagnostic_tolerance": false,
+      "paper_baseline_ready": false,
+      "reason": "Stock public weights; paper fine-tuned checkpoint and exact ImageNet100 identities are not established"
+    }
+  },
+  "case_sha256": {
+    "model0_image00.json": "80b6a36674087cfc960a99c25451a82589f12b513b9934ac31fc9472bfccd4a0",
+    "model0_image01.json": "4821a709f66881fb82918ef770d0814357910844466154dfd5e7d32d22434030",
+    "model0_image02.json": "3c8591d17e81956fdd7f18f5beca70d15f95bd0f8c846e935fefd7607eef06ce",
+    "model0_image03.json": "e107fd9fa53678b7512bcd75c2602516a9456bf577b3ba01ad6547f98ae20b88",
+    "model0_image04.json": "0cb7764c6153c9c16fef4b25e2df61dc405579aa8f05d4a6374cad6843e4bc85",
+    "model0_image05.json": "0fb9d76e416de26e2d972810573d7f597d632b4b136689dfa9d00e26111c77f1",
+    "model0_image06.json": "e898595413f8495713e13aff3b9c69208169b8e379c6f047b2a49842d6cb9b12",
+    "model0_image07.json": "e94c7706fe7601307502c73a9811fa086b89e855addc776232e95e9d0b2efd2c",
+    "model0_image08.json": "3e0567055cff270333b58926c1ca0451383853f150c5dbbc00c4049a146dcdc4",
+    "model0_image09.json": "1fdcda5f49f6c43d7549a79b6c128bcf3a676c519f94580474f2b73a7c041cb8",
+    "model1_image00.json": "2fd1ba3b5cd9c4eab6a5c21848f020a2964e04e3f2fa7e431b4d5a16b8d54437",
+    "model1_image01.json": "527aa4f94c4a92dedf8c66139fe0fe59ec457d84b49b587570c9b5e007f5610d",
+    "model1_image02.json": "a551343c6667e9fdf009ed3d5821cfcceeadd4f679e4fe72a08b8f782b378e06",
+    "model1_image03.json": "a93f3247162f0aed5b77ab3cef8220f5be924159af59a4677a55464e57890997",
+    "model1_image04.json": "dc23619a0054cb4908bef9c16f55541affed4f705d176e48feeacadc5039fb4f",
+    "model1_image05.json": "0cda847a0dc1f8dffddf27b7a973daa7093747af844419637d217bb149dfdd24",
+    "model1_image06.json": "e76b1f5a550759dee18bab22572ea051b59de1bebabb4741e889aa297aa73c4d",
+    "model1_image07.json": "db865f90826349a12674a7aa7380be6fb1be81a49cd9bfa97362f7571416f532",
+    "model1_image08.json": "4bf2af484f7472331c0496a71276f89ab63b4dc36d42cf9d8b4ee3c69256174d",
+    "model1_image09.json": "d03be2a52984a91202cbfa03a3bae2f5be5118295199c571a7049e5cb8dde2a0"
+  },
+  "paper_baseline_ready": false,
+  "training_performed": false,
+  "channel_simulated": false,
+  "existing_studies_changed": false,
+  "full_paper_reproduction_complete": false
+}

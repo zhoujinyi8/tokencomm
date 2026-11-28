@@ -1,0 +1,44 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "e1526a7c34c55aed549ac4c63ead90077479cdf2214cdd1c8fc263bc25dbec90",
+  "manifest_helper_sha256": "c66b5cf26be217ee2b748847fd87e05fdcefc4b2988f56cb593122f1a8ac8f12",
+  "remote_check_sha256": "4f206e53235f1e5e7284151bd9683165e953b9919af2c871d9e50298438b7264",
+  "current_notebook_git_blob": "499852d8b6568beb2e2ced6d18130f7847b57018",
+  "checkout_notebook_raw_blob_sha": "8534a80ffcf5f43f13b08b1e81e5b658a1fe66ef",
+  "notebook_identical_to_first_public_release": true,
+  "small_cohort_rejection_probes": [
+    {
+      "candidate": "existing ten-class development cohort",
+      "class_count": 10,
+      "rejected": true,
+      "reason": "exactly 100 unique classes required"
+    },
+    {
+      "candidate": "pinned demo default",
+      "class_count": 2,
+      "rejected": true,
+      "reason": "exactly 100 unique classes required"
+    }
+  ],
+  "actual_paper_dataset_files_verified": 0,
+  "paper_dataset_identity_established": false,
+  "paper_cheng_requires_finetuned_about_004_bpp": true,
+  "stock_quality_parameter_is_not_a_bitrate_guarantee": true,
+  "unresolved": [
+    "Exact paper 100-class synsets and image/split identities",
+    "Cheng variant, fine-tuned checkpoint, training data/loss/steps",
+    "Complete feedback/header/CMI and error-detection assumptions",
+    "Journal/arXiv/code version alignment"
+  ],
+  "parent_commit": "bd3f2808123fd0464040ffc8acf1851b333f67f6",
+  "legacy_artifact_sha256_unchanged": {
+    "stage44_frozen_protocol.json": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+    "stage47_complete_holdout_summary.json": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+    "stage59_development_recovery_audit.json": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+    "stage58_session_comparison_audit.json": "3f3e50c51bb7d504bdc943d42d720185cff04b1f3121e196eec4f6b35096b273",
+    "stage64_session_audit.json": "c43928646826dad4a0a564dbdb6ac633272cf0607a6fc820d94d3273b12781ed",
+    "stage64_matched_arq_comparison.json": "63e196dc81622176d3f3d0c4f83968a9b1c7349d6b751273bbf199fc5349b5e4"
+  },
+  "external_messages_sent": false,
+  "full_paper_reproduction_complete": false
+}

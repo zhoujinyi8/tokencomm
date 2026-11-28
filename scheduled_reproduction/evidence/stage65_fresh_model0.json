@@ -1,0 +1,12 @@
+{
+  "model": "cheng2020-anchor",
+  "image_index": 0,
+  "container_sha256": "e836f1a0770e7d25c2a619bf0f1bd1adc623b65c662de0428beba1e7305b0e75",
+  "weight_sha256": "dad2ebff44e86ae986d464d286d4c3531bd0f8c038233601bb8f3ad6dc7754e7",
+  "decoder_script_sha256": "b428e411e905b96cd1350afc6928ed0f651cf6c3f96aac9e942b75aebf8d2db5",
+  "output_sha256": "6cbf1ec5700a45a097bfb3e6f1daccea72fe3ece605011daaa7f77377315e3eb",
+  "decoded_pixels_sha256": "2cbc8e5bd1eaa27e1c9fd4d3449119bfb01a0445b668cc951c5050f0a92bcf2f",
+  "source_image_loaded": false,
+  "encoder_called": false,
+  "full_paper_reproduction_complete": false
+}

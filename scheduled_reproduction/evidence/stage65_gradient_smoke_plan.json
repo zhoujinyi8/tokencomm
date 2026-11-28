@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-28T06:04:24.909714+00:00",
+  "scope": "One optimizer-update engineering smoke, not paper fine-tuning or rate-matched evaluation",
+  "model": "cheng2020-anchor",
+  "stock_weight_sha256": "dad2ebff44e86ae986d464d286d4c3531bd0f8c038233601bb8f3ad6dc7754e7",
+  "image": {
+    "path": "data/imagenette_stage5/images/train/8/00ebff9460d5f732b9e6.jpg",
+    "image": "images/train/8/00ebff9460d5f732b9e6.jpg",
+    "label": 8,
+    "question": "What is the main object in this image?",
+    "answer": "golf ball",
+    "sha256": "00ebff9460d5f732b9e6f498aa4ed594e71a0238853237cb884cb3094419d6f9",
+    "pixel_sha256": "693ef82afc303a9635f6e0f9a11487d7279818d667f6c3095896b22505f72329",
+    "source_path": "n03445777_14706.JPEG"
+  },
+  "selection_rule": "minimum SHA256 among eligible existing training rows",
+  "training_manifest_sha256": "9895ed5f77c4b5af9e95252c4b80e9e2b7f5453607b55afb90c326287ca46243",
+  "evaluation_manifest_sha256": {
+    "data/imagenette_pilot/test.jsonl": "29f2a4310d0b588b0d18b9b977ac8f9a9752ac2a1967bb528818be146cb9f1a7",
+    "data/imagenette_pilot/val.jsonl": "b80a6658fe2df1a5c4dd7b0bc915da6a9a875026907a4621da6c3c6927f32c79",
+    "data/imagenette_stage10_holdout/test.jsonl": "8b0475d7086b0391cb79e3e7eb401339b24add4231877b6978663aaecd421fe7",
+    "data/imagenette_stage44_holdout/test.jsonl": "dfea5458cd0b98ca0eb88c68bccbada742f5449bbe646d2c50e3dbf103d1a54a",
+    "data/imagenette_stage5/test.jsonl": "1c2924121111c85fa5544b9f355bccf272d428dbf162112a660589eeca79b24b",
+    "data/imagenette_stage5/val.jsonl": "0c2b11e0fdb7fd8925f75f9686632aa578982f835a81081295e0137d1c41dfdb",
+    "data/imagenette_stage7_holdout/test.jsonl": "2736f4ab93b413970333544130765e05cf596faed3cd3e85e5fe4fc89606b727"
+  },
+  "evaluation_rows_checked": 580,
+  "excluded_identity_counts": {
+    "byte_sha256": 580,
+    "pixel_sha256": 580,
+    "source_path": 580
+  },
+  "eligible_training_rows": 800,
+  "seed": 2026112801,
+  "torch_threads": 4,
+  "steps": 1,
+  "batch_size": 1,
+  "image_size": [
+    256,
+    256
+  ],
+  "loss": "upstream RateDistortionLoss(mse): lambda*255^2*MSE + estimated_bpp",
+  "lmbda": 0.0001,
+  "optimizer": "Adam",
+  "learning_rate": 1e-05,
+  "aux_learning_rate": 0.001,
+  "max_grad_norm": 1.0,
+  "hyperparameters_are_engineering_choices": true,
+  "author_training_hyperparameters_established": false,
+  "expected_contracts": [
+    "finite loss/gradients",
+    "nonzero learned parameter updates",
+    "updated entropy CDFs",
+    "checkpoint reload",
+    "decoded pixels equal after reload"
+  ],
+  "stock_weights_will_be_overwritten": false,
+  "frozen_evaluation_images_used_for_training": false,
+  "source_backend_sha256": "c88a3a2ad1f2fb810cc76c6d6f553f27f2c99ea4c5750a7bf6b800ddcc13f554",
+  "paper_baseline_ready": false,
+  "rate_match_established": false
+}
