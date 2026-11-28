@@ -28,6 +28,7 @@ for path in (root.parents[2]/'outputs').glob('TokCom_阶段*多SNR续跑_*_模�
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_PHY.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_模型配对差值.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_填充包ARQ.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段64匹配填充帧续跑_*_完整对照.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
@@ -99,7 +100,8 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage61_session_arq_metric_audit.json','stage61_matched_padded_recovery_plan.json',
              'stage61_matched_padded_input_lock.json','stage61_matched_padded_input_audit.json',
              'stage62_matched_recovery_lock.json','stage62_matched_recovery_progress.json','stage62_matched_recovery_audit.json',
-             'stage62_session_audit.json','stage62_session_progress.json','stage63_window_start.json','stage63_session_audit.json']:
+             'stage62_session_audit.json','stage62_session_progress.json','stage63_window_start.json','stage63_session_audit.json',
+             'stage64_window_start.json','stage64_session_audit.json','stage64_matched_arq_comparison.json','stage64_author_dataset_protocol.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -209,6 +211,9 @@ if (root/'runs/stage62_matched_recovery_audit.json').exists():
 if (root/'runs/stage63_session_audit.json').exists():
     active=json.loads((root/'runs/stage63_session_audit.json').read_text(encoding='utf-8'))
     readme+=f"\n## Matched padded continuation (stage 63)\n\nContinued from 82 cases with the identical runner, inputs and execution lock. Current independently audited coverage: {active['completed_cases']}/300 receptions; new this round: {active['completed_cases']-82}. The first 82 case hashes remain unchanged. Stage62 session receipts are frozen separately. Resume the same locked runner for missing cases. Quality means require 50 receptions per SNR; no incomplete-SNR means are published.\n"
+if (root/'runs/stage64_session_audit.json').exists():
+    current=json.loads((root/'runs/stage64_session_audit.json').read_text(encoding='utf-8'))
+    readme+=f"\n## Matched padded completion check (stage 64)\n\nContinued from 194 unchanged cases with the identical execution lock. Audited coverage is {current['completed_cases']}/300 with {len(current['complete_snr_groups'])} complete SNR groups. Each complete group compares all six neural paths with all three same-framing ARQ endpoint policies, including per-image paired differences. Direct decoder endpoints are checked against the identical first-pass ARQ endpoints before comparison. Feedback/header/CMI airtime is excluded; ideal correct tokens remain a quality reference, not a realizable retransmission policy. Full paper replication remains incomplete. See the stage64 report and comparison audit.\n"
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

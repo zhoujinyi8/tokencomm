@@ -1,0 +1,49 @@
+{
+  "all_checks_passed": true,
+  "scope": "Pinned demo source inspection only; not proof of the paper evaluation subset",
+  "official_commit": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "script_sha256": "1e4cc75968aceaff21c4ffb66ed0aaf317db177081f2bb83c5ed50f62c16a933",
+  "source_sha256": {
+    "README.md": "894f1b01bf846711b76578d482cfea6d52357d9b1477b6eccc5566af4b47b303",
+    "TokCom_Demo.ipynb": "47e2cd9aed662c3016817e9de21737513eab46480eab6f8dc7518bea2a678925",
+    "synset_words.txt": "fe2d871f673030e195ebbc297ea242f8524ef3238f36bd3b9818999a77f6626c"
+  },
+  "notebook_cell_indices": {
+    "config": 6,
+    "loader": 8
+  },
+  "config": {
+    "seed": 1,
+    "num_images": 40,
+    "class_indices": [
+      503,
+      498
+    ],
+    "snr_list": [
+      5,
+      7
+    ],
+    "num_simulations": 1
+  },
+  "configured_class_names": {
+    "503": "n03062245 cocktail shaker",
+    "498": "n03032252 cinema, movie theater, movie theatre, movie house, picture palace"
+  },
+  "configured_demo_images": 80,
+  "loader_root": "/root/autodl-tmp/imagenet100",
+  "config_root_uses_imagenet_root_environment": true,
+  "loader_uses_separate_literal_root": true,
+  "sampling": "random.sample over unsorted os.listdir; global config seed is 1",
+  "exact_paper_100_class_manifest_established": false,
+  "exact_paper_image_identities_established": false,
+  "next_required_evidence": [
+    "Author paper 100-class synset list",
+    "Evaluation split and exact image IDs/hashes",
+    "Sampling order and seeds",
+    "Cheng configuration/checkpoint and complete forward/feedback/CMI resource protocol"
+  ],
+  "official_source_changed": false,
+  "new_data_downloaded": false,
+  "new_model_inference": false,
+  "full_paper_reproduction_complete": false
+}

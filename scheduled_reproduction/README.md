@@ -98,3 +98,7 @@ Implemented the separately locked six-path runner and auditor. Audited coverage:
 ## Matched padded continuation (stage 63)
 
 Continued from 82 cases with the identical runner, inputs and execution lock. Current independently audited coverage: 194/300 receptions; new this round: 112. The first 82 case hashes remain unchanged. Stage62 session receipts are frozen separately. Resume the same locked runner for missing cases. Quality means require 50 receptions per SNR; no incomplete-SNR means are published.
+
+## Matched padded completion check (stage 64)
+
+Continued from 194 unchanged cases with the identical execution lock. Audited coverage is 300/300 with 6 complete SNR groups. Each complete group compares all six neural paths with all three same-framing ARQ endpoint policies, including per-image paired differences. Direct decoder endpoints are checked against the identical first-pass ARQ endpoints before comparison. Feedback/header/CMI airtime is excluded; ideal correct tokens remain a quality reference, not a realizable retransmission policy. Full paper replication remains incomplete. See the stage64 report and comparison audit.
