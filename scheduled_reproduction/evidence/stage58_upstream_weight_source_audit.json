@@ -1,0 +1,37 @@
+{
+  "retrieved_utc": "2026-11-25T15:20:29.949279+00:00",
+  "source_url": "https://huggingface.co/api/models/llvictorll/Maskgit-pytorch?blobs=true",
+  "repository": "llvictorll/Maskgit-pytorch",
+  "repository_revision": "8513f87a4f677564b68e80c561bc3ace7ec142f6",
+  "weight_files": {
+    "vqgan": [
+      {
+        "path": "pretrained_maskgit/VQGAN/last.ckpt",
+        "remote_sha256": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+        "local_sha256": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+        "matches": true
+      }
+    ],
+    "maskgit": [
+      {
+        "path": "pretrained_maskgit/MaskGIT/MaskGIT_ImageNet_256.pth",
+        "remote_sha256": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462",
+        "local_sha256": "74b38fa16c92da3db79f9aac3c9d0d2ef5cb6ea283c48908213f10d786304462",
+        "matches": true
+      }
+    ]
+  },
+  "actual_training_preprocessing_established": false,
+  "primary_protocol_changed": false,
+  "published_upstream_training_source": {
+    "repository": "valeoai/Halton-MaskGIT",
+    "reference": "v1.0",
+    "training_file": "Trainer/vit.py",
+    "training_file_git_blob_sha": "55e50af28c412fa64189a9be487bd6585304e0e5",
+    "readme_git_blob_sha": "d32ded3eabd7b317d1aed781da27f37ac5cf9c0a",
+    "normalization_line": 185,
+    "normalization_expression": "x = 2 * x - 1",
+    "source_url": "https://github.com/valeoai/Halton-MaskGIT/blob/v1.0/Trainer/vit.py#L185",
+    "actual_training_execution_proven": false
+  }
+}

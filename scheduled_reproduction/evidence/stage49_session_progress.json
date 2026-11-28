@@ -1,0 +1,26 @@
+{
+  "session_start_utc": "2026-11-22T04:26:32.211Z",
+  "recorded_utc": "2026-11-22T14:52:58.144133+00:00",
+  "initial_recovery_cases": 245,
+  "initial_metric_cases": 11,
+  "recovery_cases": 419,
+  "new_recovery_cases": 174,
+  "complete_five_trial_images": 83,
+  "metric_cases": 35,
+  "new_metric_cases": 24,
+  "expected_cases": 500,
+  "paths_per_metric_case": 6,
+  "model_performance_aggregated": false,
+  "frozen_scientific_settings_changed": false,
+  "incomplete_aggregation_guard_checked": true,
+  "incomplete_aggregation_guard_result": "ValueError: Incomplete frozen evaluation: aggregate withheld",
+  "prior_verified_ci": {
+    "commit": "6fd8cb6161bb88ff26703c5e72b674e866db542c",
+    "ci_verified_run": 44962806281,
+    "latest_commit_ci": "success",
+    "unit_tests_passed": 96,
+    "unit_tests_skipped": 2,
+    "asset_integrations_deselected": 11
+  },
+  "current_publication_receipt": "runs/stage46_github_sync_receipt.json"
+}

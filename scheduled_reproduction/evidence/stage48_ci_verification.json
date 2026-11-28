@@ -1,0 +1,20 @@
+{
+  "repository": "zhoujinyi8/tokencomm",
+  "commit": "c75af9818ba8d191ef9baed676762556da500746",
+  "workflow_run": 44959937005,
+  "workflow_url": "https://github.com/zhoujinyi8/tokencomm/actions/runs/44959937005",
+  "conclusion": "success",
+  "strict_lint": "passed",
+  "unit_tests_passed": 96,
+  "unit_tests_skipped": 2,
+  "asset_integration_tests_deselected": 11,
+  "asset_integration_tests_claimed_passed": false,
+  "debug_printer_smoke": "passed without model weight loading",
+  "notes": [
+    "The optional vendored trainer debug printer now calls the imported lpips package.",
+    "CI declares imports required by existing test modules.",
+    "Production cache scripts are not collected as tests.",
+    "Exact asset-dependent cases retain their assertions and can be run with pytest -m integration.",
+    "The historical Stage19 implementation identity discrepancy remains an asset-restoration audit concern; frozen expected hashes were not rewritten."
+  ]
+}

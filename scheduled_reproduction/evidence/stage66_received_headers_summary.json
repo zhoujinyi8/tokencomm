@@ -1,0 +1,31 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "302687f43698293d747ec3e89634693f213c8da434c21f4358bd7ef255bc25b5",
+  "transport_audit_sha256": "f2858a71db1b2add83e8cbb31956d3fb6da80ea7da97e662e0ee155d3ba29fdf",
+  "counts": {
+    "single_pass_padded": {
+      "exact_clean_reference": 8,
+      "container_parser_rejected": 238,
+      "fixed_geometry_rejected": 4,
+      "parseable_corrupted_stream": 50,
+      "censored": 0
+    },
+    "receiver_crc_arq_padded": {
+      "exact_clean_reference": 299,
+      "container_parser_rejected": 0,
+      "fixed_geometry_rejected": 0,
+      "parseable_corrupted_stream": 1,
+      "censored": 0
+    },
+    "sender_oracle_arq_padded": {
+      "exact_clean_reference": 300,
+      "container_parser_rejected": 0,
+      "fixed_geometry_rejected": 0,
+      "parseable_corrupted_stream": 0,
+      "censored": 0
+    }
+  },
+  "interpretation": "Post-hoc structural diagnosis only. Parser rejection is observable; exact/corrupt labels additionally use sender truth. Parseability does not prove decodability or correctness.",
+  "native_decoder_called": false,
+  "detailed_rows_sha256": "214435023c02525e8bb84b888e8ce406fa35f8a705e5429f1acc5a3d90c1fbcc"
+}

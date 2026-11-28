@@ -1,0 +1,22 @@
+[
+  {
+    "name": "cheng2020-anchor-1-dad2ebff.pth.tar",
+    "url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020-anchor-1-dad2ebff.pth.tar",
+    "download_url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020-anchor-1-dad2ebff.pth.tar",
+    "sha256": "dad2ebff44e86ae986d464d286d4c3531bd0f8c038233601bb8f3ad6dc7754e7",
+    "bytes": 51486290,
+    "quality": 1,
+    "metric": "mse",
+    "paper_finetuned_checkpoint": false
+  },
+  {
+    "name": "cheng2020_attn-mse-1-465f2b64.pth.tar",
+    "url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020_attn-mse-1-465f2b64.pth.tar",
+    "download_url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020_attn-mse-1-465f2b64.pth.tar?stage65_verify=1",
+    "sha256": "465f2b649c3fa5c67cf19f337306fc53efc4a91b6ac465e5506278b5fc997955",
+    "bytes": 56950481,
+    "quality": 1,
+    "metric": "mse",
+    "paper_finetuned_checkpoint": false
+  }
+]

@@ -1,0 +1,1376 @@
+{
+  "scope": "10 development images; five paired PHY trials averaged within image; descriptive only",
+  "pairs": 50,
+  "images": 10,
+  "metric_direction_counts_over_images": {
+    "tokens": {
+      "oracle": 10,
+      "crc": 0,
+      "tie": 0
+    },
+    "psnr_raw": {
+      "oracle": 10,
+      "crc": 0,
+      "tie": 0
+    },
+    "lpips_normalized": {
+      "oracle": 9,
+      "crc": 1,
+      "tie": 0
+    },
+    "clip_clipped": {
+      "oracle": 7,
+      "crc": 3,
+      "tie": 0
+    },
+    "lpips_author": {
+      "oracle": 10,
+      "crc": 0,
+      "tie": 0
+    },
+    "clip_author": {
+      "oracle": 4,
+      "crc": 6,
+      "tie": 0
+    }
+  },
+  "token_clip_disagreement_images": [
+    "tench",
+    "church",
+    "gas pump"
+  ],
+  "per_image": [
+    {
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle": {
+        "tokens": 239.6,
+        "psnr_raw": 22.16534397537398,
+        "lpips_normalized": 0.13713670670986175,
+        "clip_clipped": 0.7118951916694641,
+        "lpips_author": 0.11108636111021042,
+        "clip_author": 0.6007477879524231
+      },
+      "crc": {
+        "tokens": 224.0,
+        "psnr_raw": 21.588626996329126,
+        "lpips_normalized": 0.14357303082942963,
+        "clip_clipped": 0.7333353161811829,
+        "lpips_author": 0.11553916782140732,
+        "clip_author": 0.6369893312454223
+      },
+      "oracle_favorable_difference": {
+        "tokens": 15.599999999999994,
+        "psnr_raw": 0.5767169790448534,
+        "lpips_normalized": 0.006436324119567877,
+        "clip_clipped": -0.021440124511718728,
+        "lpips_author": 0.004452806711196897,
+        "clip_author": -0.03624154329299922
+      }
+    },
+    {
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle": {
+        "tokens": 241.0,
+        "psnr_raw": 21.38718784003182,
+        "lpips_normalized": 0.1976684719324112,
+        "clip_clipped": 0.7973273754119873,
+        "lpips_author": 0.162969371676445,
+        "clip_author": 0.7262848973274231
+      },
+      "crc": {
+        "tokens": 226.2,
+        "psnr_raw": 20.832747369081595,
+        "lpips_normalized": 0.207918119430542,
+        "clip_clipped": 0.776716434955597,
+        "lpips_author": 0.17104806303977965,
+        "clip_author": 0.7017494440078735
+      },
+      "oracle_favorable_difference": {
+        "tokens": 14.800000000000011,
+        "psnr_raw": 0.554440470950226,
+        "lpips_normalized": 0.010249647498130815,
+        "clip_clipped": 0.020610940456390336,
+        "lpips_author": 0.008078691363334639,
+        "clip_author": 0.02453545331954954
+      }
+    },
+    {
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle": {
+        "tokens": 241.0,
+        "psnr_raw": 20.834146648100404,
+        "lpips_normalized": 0.22078162729740142,
+        "clip_clipped": 0.8841644525527954,
+        "lpips_author": 0.18038876354694366,
+        "clip_author": 0.8148231387138367
+      },
+      "crc": {
+        "tokens": 220.8,
+        "psnr_raw": 19.89627600945296,
+        "lpips_normalized": 0.2310195356607437,
+        "clip_clipped": 0.8752047777175903,
+        "lpips_author": 0.19050218760967255,
+        "clip_author": 0.8191148042678833
+      },
+      "oracle_favorable_difference": {
+        "tokens": 20.19999999999999,
+        "psnr_raw": 0.9378706386474427,
+        "lpips_normalized": 0.01023790836334229,
+        "clip_clipped": 0.0089596748352051,
+        "lpips_author": 0.010113424062728887,
+        "clip_author": -0.0042916655540465865
+      }
+    },
+    {
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle": {
+        "tokens": 242.0,
+        "psnr_raw": 19.85550379901199,
+        "lpips_normalized": 0.19978104829788207,
+        "clip_clipped": 0.8042782306671142,
+        "lpips_author": 0.18896757960319518,
+        "clip_author": 0.5340142965316772
+      },
+      "crc": {
+        "tokens": 226.8,
+        "psnr_raw": 19.06155620857996,
+        "lpips_normalized": 0.21123827993869781,
+        "clip_clipped": 0.7919793725013733,
+        "lpips_author": 0.20240604281425476,
+        "clip_author": 0.540947437286377
+      },
+      "oracle_favorable_difference": {
+        "tokens": 15.199999999999989,
+        "psnr_raw": 0.7939475904320297,
+        "lpips_normalized": 0.011457231640815746,
+        "clip_clipped": 0.012298858165740945,
+        "lpips_author": 0.01343846321105957,
+        "clip_author": -0.0069331407546997514
+      }
+    },
+    {
+      "image_index": 4,
+      "class_name": "church",
+      "oracle": {
+        "tokens": 241.2,
+        "psnr_raw": 16.654359764937706,
+        "lpips_normalized": 0.28017285466194153,
+        "clip_clipped": 0.777833890914917,
+        "lpips_author": 0.2379942774772644,
+        "clip_author": 0.7364816784858703
+      },
+      "crc": {
+        "tokens": 223.2,
+        "psnr_raw": 16.20722719959334,
+        "lpips_normalized": 0.29551820158958436,
+        "clip_clipped": 0.7910006999969482,
+        "lpips_author": 0.25119722783565523,
+        "clip_author": 0.7414592146873474
+      },
+      "oracle_favorable_difference": {
+        "tokens": 18.0,
+        "psnr_raw": 0.44713256534436496,
+        "lpips_normalized": 0.015345346927642833,
+        "clip_clipped": -0.013166809082031272,
+        "lpips_author": 0.013202950358390836,
+        "clip_author": -0.004977536201477117
+      }
+    },
+    {
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle": {
+        "tokens": 246.0,
+        "psnr_raw": 18.620650034059576,
+        "lpips_normalized": 0.1334173172712326,
+        "clip_clipped": 0.8727633357048035,
+        "lpips_author": 0.1043728232383728,
+        "clip_author": 0.7830637693405151
+      },
+      "crc": {
+        "tokens": 233.6,
+        "psnr_raw": 18.380268077816623,
+        "lpips_normalized": 0.13323927521705628,
+        "clip_clipped": 0.849016273021698,
+        "lpips_author": 0.10512299537658691,
+        "clip_author": 0.7888469815254211
+      },
+      "oracle_favorable_difference": {
+        "tokens": 12.400000000000006,
+        "psnr_raw": 0.24038195624295255,
+        "lpips_normalized": -0.00017804205417631946,
+        "clip_clipped": 0.023747062683105447,
+        "lpips_author": 0.0007501721382141141,
+        "clip_author": -0.0057832121849059615
+      }
+    },
+    {
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle": {
+        "tokens": 240.0,
+        "psnr_raw": 18.748970779191584,
+        "lpips_normalized": 0.18049293756484985,
+        "clip_clipped": 0.8814081907272339,
+        "lpips_author": 0.16268193423748017,
+        "clip_author": 0.6833031654357911
+      },
+      "crc": {
+        "tokens": 223.6,
+        "psnr_raw": 18.483894230288826,
+        "lpips_normalized": 0.19597026705741882,
+        "clip_clipped": 0.8671465754508972,
+        "lpips_author": 0.17413633465766906,
+        "clip_author": 0.6395205140113831
+      },
+      "oracle_favorable_difference": {
+        "tokens": 16.400000000000006,
+        "psnr_raw": 0.26507654890275845,
+        "lpips_normalized": 0.01547732949256897,
+        "clip_clipped": 0.014261615276336626,
+        "lpips_author": 0.011454400420188887,
+        "clip_author": 0.04378265142440796
+      }
+    },
+    {
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle": {
+        "tokens": 243.6,
+        "psnr_raw": 15.333931421878308,
+        "lpips_normalized": 0.29477704763412477,
+        "clip_clipped": 0.8508231520652771,
+        "lpips_author": 0.27046056985855105,
+        "clip_author": 0.7996086835861206
+      },
+      "crc": {
+        "tokens": 223.8,
+        "psnr_raw": 14.942925836149707,
+        "lpips_normalized": 0.32838624715805054,
+        "clip_clipped": 0.8584219574928283,
+        "lpips_author": 0.30224273204803465,
+        "clip_author": 0.7882226467132568
+      },
+      "oracle_favorable_difference": {
+        "tokens": 19.799999999999983,
+        "psnr_raw": 0.39100558572860145,
+        "lpips_normalized": 0.03360919952392577,
+        "clip_clipped": -0.007598805427551203,
+        "lpips_author": 0.0317821621894836,
+        "clip_author": 0.01138603687286377
+      }
+    },
+    {
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle": {
+        "tokens": 243.0,
+        "psnr_raw": 18.47422881931535,
+        "lpips_normalized": 0.19758054316043855,
+        "clip_clipped": 0.8484060645103455,
+        "lpips_author": 0.15849691331386567,
+        "clip_author": 0.7046890735626221
+      },
+      "crc": {
+        "tokens": 227.6,
+        "psnr_raw": 18.376149026666162,
+        "lpips_normalized": 0.20772192478179932,
+        "clip_clipped": 0.8333794593811035,
+        "lpips_author": 0.1674657791852951,
+        "clip_author": 0.7138904094696045
+      },
+      "oracle_favorable_difference": {
+        "tokens": 15.400000000000006,
+        "psnr_raw": 0.09807979264918743,
+        "lpips_normalized": 0.010141381621360773,
+        "clip_clipped": 0.015026605129242032,
+        "lpips_author": 0.008968865871429421,
+        "clip_author": -0.009201335906982355
+      }
+    },
+    {
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle": {
+        "tokens": 233.8,
+        "psnr_raw": 19.23707303662693,
+        "lpips_normalized": 0.14881579875946044,
+        "clip_clipped": 0.7971392035484314,
+        "lpips_author": 0.12587316781282426,
+        "clip_author": 0.7325068235397338
+      },
+      "crc": {
+        "tokens": 212.6,
+        "psnr_raw": 18.28872332198793,
+        "lpips_normalized": 0.15999026894569396,
+        "clip_clipped": 0.7771583557128906,
+        "lpips_author": 0.13312556445598603,
+        "clip_author": 0.6693837165832519
+      },
+      "oracle_favorable_difference": {
+        "tokens": 21.200000000000017,
+        "psnr_raw": 0.9483497146390008,
+        "lpips_normalized": 0.01117447018623352,
+        "clip_clipped": 0.01998084783554077,
+        "lpips_author": 0.007252396643161768,
+        "clip_author": 0.06312310695648193
+      }
+    }
+  ],
+  "paired_records": [
+    {
+      "trial": 0,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle": {
+        "tokens": 237,
+        "psnr_raw": 21.942813441238624,
+        "lpips_normalized": 0.14900965988636017,
+        "clip_clipped": 0.7357375621795654,
+        "lpips_author": 0.12104044109582901,
+        "clip_author": 0.6592086553573608
+      },
+      "crc": {
+        "tokens": 222,
+        "psnr_raw": 21.79744387772164,
+        "lpips_normalized": 0.14953330159187317,
+        "clip_clipped": 0.6554715633392334,
+        "lpips_author": 0.11898725479841232,
+        "clip_author": 0.622697651386261
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle": {
+        "tokens": 233,
+        "psnr_raw": 21.348437770479947,
+        "lpips_normalized": 0.19627994298934937,
+        "clip_clipped": 0.7974073886871338,
+        "lpips_author": 0.16663436591625214,
+        "clip_author": 0.690830409526825
+      },
+      "crc": {
+        "tokens": 230,
+        "psnr_raw": 21.277746250754717,
+        "lpips_normalized": 0.19685576856136322,
+        "clip_clipped": 0.7967601418495178,
+        "lpips_author": 0.16797837615013123,
+        "clip_author": 0.6754866242408752
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle": {
+        "tokens": 234,
+        "psnr_raw": 19.762408607059363,
+        "lpips_normalized": 0.22391781210899353,
+        "clip_clipped": 0.8868241310119629,
+        "lpips_author": 0.18103039264678955,
+        "clip_author": 0.8064414858818054
+      },
+      "crc": {
+        "tokens": 208,
+        "psnr_raw": 19.15871903052736,
+        "lpips_normalized": 0.22566725313663483,
+        "clip_clipped": 0.8705257177352905,
+        "lpips_author": 0.19079922139644623,
+        "clip_author": 0.8179292678833008
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle": {
+        "tokens": 242,
+        "psnr_raw": 20.280315538086686,
+        "lpips_normalized": 0.19777384400367737,
+        "clip_clipped": 0.7937328219413757,
+        "lpips_author": 0.18819065392017365,
+        "clip_author": 0.5357158184051514
+      },
+      "crc": {
+        "tokens": 236,
+        "psnr_raw": 19.473933443230248,
+        "lpips_normalized": 0.20969757437705994,
+        "clip_clipped": 0.7785135507583618,
+        "lpips_author": 0.20133110880851746,
+        "clip_author": 0.5600754022598267
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle": {
+        "tokens": 234,
+        "psnr_raw": 16.521920042543602,
+        "lpips_normalized": 0.2807735800743103,
+        "clip_clipped": 0.7659140229225159,
+        "lpips_author": 0.23688611388206482,
+        "clip_author": 0.7351773381233215
+      },
+      "crc": {
+        "tokens": 215,
+        "psnr_raw": 16.009412763994668,
+        "lpips_normalized": 0.2971142828464508,
+        "clip_clipped": 0.7717867493629456,
+        "lpips_author": 0.2514495849609375,
+        "clip_author": 0.7190758585929871
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle": {
+        "tokens": 245,
+        "psnr_raw": 18.680935624425622,
+        "lpips_normalized": 0.13067851960659027,
+        "clip_clipped": 0.8711837530136108,
+        "lpips_author": 0.10331018269062042,
+        "clip_author": 0.7777254581451416
+      },
+      "crc": {
+        "tokens": 226,
+        "psnr_raw": 18.600211026320057,
+        "lpips_normalized": 0.13738803565502167,
+        "clip_clipped": 0.8570963144302368,
+        "lpips_author": 0.11230922490358353,
+        "clip_author": 0.8184303045272827
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle": {
+        "tokens": 248,
+        "psnr_raw": 19.292543722882716,
+        "lpips_normalized": 0.17540735006332397,
+        "clip_clipped": 0.8816849589347839,
+        "lpips_author": 0.15629324316978455,
+        "clip_author": 0.6825724840164185
+      },
+      "crc": {
+        "tokens": 239,
+        "psnr_raw": 19.365163427321953,
+        "lpips_normalized": 0.17287620902061462,
+        "clip_clipped": 0.8740018010139465,
+        "lpips_author": 0.1552427113056183,
+        "clip_author": 0.6381523013114929
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle": {
+        "tokens": 252,
+        "psnr_raw": 15.428180214512503,
+        "lpips_normalized": 0.2827862501144409,
+        "clip_clipped": 0.8732426762580872,
+        "lpips_author": 0.2613377273082733,
+        "clip_author": 0.824087381362915
+      },
+      "crc": {
+        "tokens": 224,
+        "psnr_raw": 14.961285853002781,
+        "lpips_normalized": 0.3135886788368225,
+        "clip_clipped": 0.8417106866836548,
+        "lpips_author": 0.2923831641674042,
+        "clip_author": 0.7346200942993164
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle": {
+        "tokens": 233,
+        "psnr_raw": 18.08666722706284,
+        "lpips_normalized": 0.21043825149536133,
+        "clip_clipped": 0.837593138217926,
+        "lpips_author": 0.16550137102603912,
+        "clip_author": 0.7133089900016785
+      },
+      "crc": {
+        "tokens": 212,
+        "psnr_raw": 17.633234737474147,
+        "lpips_normalized": 0.2197849452495575,
+        "clip_clipped": 0.8371069431304932,
+        "lpips_author": 0.17754587531089783,
+        "clip_author": 0.7211617827415466
+      }
+    },
+    {
+      "trial": 0,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle": {
+        "tokens": 231,
+        "psnr_raw": 19.220903030784836,
+        "lpips_normalized": 0.1438228189945221,
+        "clip_clipped": 0.7919849157333374,
+        "lpips_author": 0.1248101070523262,
+        "clip_author": 0.7404841184616089
+      },
+      "crc": {
+        "tokens": 208,
+        "psnr_raw": 17.790398631379936,
+        "lpips_normalized": 0.14556953310966492,
+        "clip_clipped": 0.8051842451095581,
+        "lpips_author": 0.1202375739812851,
+        "clip_author": 0.656703770160675
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle": {
+        "tokens": 240,
+        "psnr_raw": 22.313780575859653,
+        "lpips_normalized": 0.1257341355085373,
+        "clip_clipped": 0.6985693573951721,
+        "lpips_author": 0.10094884037971497,
+        "clip_author": 0.5727406144142151
+      },
+      "crc": {
+        "tokens": 228,
+        "psnr_raw": 21.707509573893986,
+        "lpips_normalized": 0.14915385842323303,
+        "clip_clipped": 0.7953973412513733,
+        "lpips_author": 0.11525440216064453,
+        "clip_author": 0.7494753003120422
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle": {
+        "tokens": 241,
+        "psnr_raw": 21.582631369358914,
+        "lpips_normalized": 0.19058290123939514,
+        "clip_clipped": 0.8038086295127869,
+        "lpips_author": 0.1534934639930725,
+        "clip_author": 0.7502121925354004
+      },
+      "crc": {
+        "tokens": 238,
+        "psnr_raw": 21.569059362333157,
+        "lpips_normalized": 0.18969205021858215,
+        "clip_clipped": 0.8120999336242676,
+        "lpips_author": 0.15185938775539398,
+        "clip_author": 0.7619073390960693
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle": {
+        "tokens": 241,
+        "psnr_raw": 20.920858948582964,
+        "lpips_normalized": 0.22552570700645447,
+        "clip_clipped": 0.8891728520393372,
+        "lpips_author": 0.18566225469112396,
+        "clip_author": 0.8433554172515869
+      },
+      "crc": {
+        "tokens": 236,
+        "psnr_raw": 21.1825778217332,
+        "lpips_normalized": 0.22147050499916077,
+        "clip_clipped": 0.8827828168869019,
+        "lpips_author": 0.17913098633289337,
+        "clip_author": 0.8142916560173035
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle": {
+        "tokens": 242,
+        "psnr_raw": 20.009818328905244,
+        "lpips_normalized": 0.2141687273979187,
+        "clip_clipped": 0.8342743515968323,
+        "lpips_author": 0.2023824155330658,
+        "clip_author": 0.5225653648376465
+      },
+      "crc": {
+        "tokens": 223,
+        "psnr_raw": 18.165071809126513,
+        "lpips_normalized": 0.22850017249584198,
+        "clip_clipped": 0.8415154218673706,
+        "lpips_author": 0.21673326194286346,
+        "clip_author": 0.5258041620254517
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle": {
+        "tokens": 241,
+        "psnr_raw": 16.781137354116833,
+        "lpips_normalized": 0.27901291847229004,
+        "clip_clipped": 0.7810878157615662,
+        "lpips_author": 0.23191383481025696,
+        "clip_author": 0.7580882906913757
+      },
+      "crc": {
+        "tokens": 226,
+        "psnr_raw": 16.49171395644267,
+        "lpips_normalized": 0.2866373360157013,
+        "clip_clipped": 0.7814016342163086,
+        "lpips_author": 0.2466404289007187,
+        "clip_author": 0.7492944002151489
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle": {
+        "tokens": 243,
+        "psnr_raw": 18.580871971111023,
+        "lpips_normalized": 0.1382148265838623,
+        "clip_clipped": 0.8618378043174744,
+        "lpips_author": 0.10709839314222336,
+        "clip_author": 0.7629418969154358
+      },
+      "crc": {
+        "tokens": 241,
+        "psnr_raw": 18.48767143834532,
+        "lpips_normalized": 0.13487055897712708,
+        "clip_clipped": 0.8618325591087341,
+        "lpips_author": 0.10438110679388046,
+        "clip_author": 0.7556772828102112
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle": {
+        "tokens": 244,
+        "psnr_raw": 18.872126839430788,
+        "lpips_normalized": 0.17309042811393738,
+        "clip_clipped": 0.8817862272262573,
+        "lpips_author": 0.15638481080532074,
+        "clip_author": 0.7128176689147949
+      },
+      "crc": {
+        "tokens": 221,
+        "psnr_raw": 18.419193301600327,
+        "lpips_normalized": 0.20742100477218628,
+        "clip_clipped": 0.8557124137878418,
+        "lpips_author": 0.18542709946632385,
+        "clip_author": 0.619782567024231
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle": {
+        "tokens": 248,
+        "psnr_raw": 15.298552945015825,
+        "lpips_normalized": 0.2885306775569916,
+        "clip_clipped": 0.8259872198104858,
+        "lpips_author": 0.26264965534210205,
+        "clip_author": 0.7669523358345032
+      },
+      "crc": {
+        "tokens": 213,
+        "psnr_raw": 14.30145896404882,
+        "lpips_normalized": 0.3441838324069977,
+        "clip_clipped": 0.865301787853241,
+        "lpips_author": 0.3168541193008423,
+        "clip_author": 0.7326605916023254
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle": {
+        "tokens": 242,
+        "psnr_raw": 18.33517188769274,
+        "lpips_normalized": 0.19333992898464203,
+        "clip_clipped": 0.8591265082359314,
+        "lpips_author": 0.15662401914596558,
+        "clip_author": 0.7225322127342224
+      },
+      "crc": {
+        "tokens": 227,
+        "psnr_raw": 18.184753865191063,
+        "lpips_normalized": 0.201443150639534,
+        "clip_clipped": 0.8341245651245117,
+        "lpips_author": 0.16441884636878967,
+        "clip_author": 0.6303197145462036
+      }
+    },
+    {
+      "trial": 1,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle": {
+        "tokens": 240,
+        "psnr_raw": 18.734160234466707,
+        "lpips_normalized": 0.15846958756446838,
+        "clip_clipped": 0.7858301997184753,
+        "lpips_author": 0.13586485385894775,
+        "clip_author": 0.7373401522636414
+      },
+      "crc": {
+        "tokens": 235,
+        "psnr_raw": 18.684518782822845,
+        "lpips_normalized": 0.16240279376506805,
+        "clip_clipped": 0.7656624913215637,
+        "lpips_author": 0.13664253056049347,
+        "clip_author": 0.7007532715797424
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle": {
+        "tokens": 231,
+        "psnr_raw": 22.255425429566454,
+        "lpips_normalized": 0.15027938783168793,
+        "clip_clipped": 0.7168871760368347,
+        "lpips_author": 0.12383659929037094,
+        "clip_author": 0.6262476444244385
+      },
+      "crc": {
+        "tokens": 222,
+        "psnr_raw": 21.69343715011701,
+        "lpips_normalized": 0.14573270082473755,
+        "clip_clipped": 0.770088255405426,
+        "lpips_author": 0.12154591083526611,
+        "clip_author": 0.5301746726036072
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle": {
+        "tokens": 233,
+        "psnr_raw": 21.44678829453013,
+        "lpips_normalized": 0.1977272480726242,
+        "clip_clipped": 0.7571930885314941,
+        "lpips_author": 0.1611585021018982,
+        "clip_author": 0.696620762348175
+      },
+      "crc": {
+        "tokens": 203,
+        "psnr_raw": 20.357964631613306,
+        "lpips_normalized": 0.22183632850646973,
+        "clip_clipped": 0.7497937083244324,
+        "lpips_author": 0.1797730028629303,
+        "clip_author": 0.644225001335144
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle": {
+        "tokens": 243,
+        "psnr_raw": 21.010650892542117,
+        "lpips_normalized": 0.216119647026062,
+        "clip_clipped": 0.8771405816078186,
+        "lpips_author": 0.177181676030159,
+        "clip_author": 0.7822043299674988
+      },
+      "crc": {
+        "tokens": 220,
+        "psnr_raw": 20.00448796813916,
+        "lpips_normalized": 0.23681539297103882,
+        "clip_clipped": 0.8756023049354553,
+        "lpips_author": 0.19424918293952942,
+        "clip_author": 0.7948205471038818
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle": {
+        "tokens": 243,
+        "psnr_raw": 19.733768938069048,
+        "lpips_normalized": 0.19398069381713867,
+        "clip_clipped": 0.8209850788116455,
+        "lpips_author": 0.1799454689025879,
+        "clip_author": 0.5339725017547607
+      },
+      "crc": {
+        "tokens": 234,
+        "psnr_raw": 19.70103134978819,
+        "lpips_normalized": 0.19631585478782654,
+        "clip_clipped": 0.8132283687591553,
+        "lpips_author": 0.18835023045539856,
+        "clip_author": 0.5586419701576233
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle": {
+        "tokens": 238,
+        "psnr_raw": 16.617318617765232,
+        "lpips_normalized": 0.27857381105422974,
+        "clip_clipped": 0.7757934331893921,
+        "lpips_author": 0.2404218316078186,
+        "clip_author": 0.7287614941596985
+      },
+      "crc": {
+        "tokens": 223,
+        "psnr_raw": 16.366315070536217,
+        "lpips_normalized": 0.307748943567276,
+        "clip_clipped": 0.7725350856781006,
+        "lpips_author": 0.26097941398620605,
+        "clip_author": 0.7354904413223267
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle": {
+        "tokens": 247,
+        "psnr_raw": 18.5280405313472,
+        "lpips_normalized": 0.13241668045520782,
+        "clip_clipped": 0.8981831073760986,
+        "lpips_author": 0.10502559691667557,
+        "clip_author": 0.819469690322876
+      },
+      "crc": {
+        "tokens": 230,
+        "psnr_raw": 17.542091678653126,
+        "lpips_normalized": 0.12656797468662262,
+        "clip_clipped": 0.922592043876648,
+        "lpips_author": 0.09995140135288239,
+        "clip_author": 0.8261805176734924
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle": {
+        "tokens": 235,
+        "psnr_raw": 18.004972927897004,
+        "lpips_normalized": 0.1790241003036499,
+        "clip_clipped": 0.8673179149627686,
+        "lpips_author": 0.1627383828163147,
+        "clip_author": 0.6416134238243103
+      },
+      "crc": {
+        "tokens": 217,
+        "psnr_raw": 17.967167369845225,
+        "lpips_normalized": 0.19860917329788208,
+        "clip_clipped": 0.8636120557785034,
+        "lpips_author": 0.1742396503686905,
+        "clip_author": 0.6330617070198059
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle": {
+        "tokens": 244,
+        "psnr_raw": 15.291363615348777,
+        "lpips_normalized": 0.2995087206363678,
+        "clip_clipped": 0.835767924785614,
+        "lpips_author": 0.2724679708480835,
+        "clip_author": 0.7673037648200989
+      },
+      "crc": {
+        "tokens": 240,
+        "psnr_raw": 15.434847941438344,
+        "lpips_normalized": 0.308775931596756,
+        "clip_clipped": 0.8719874620437622,
+        "lpips_author": 0.2797931134700775,
+        "clip_author": 0.8072295188903809
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle": {
+        "tokens": 234,
+        "psnr_raw": 18.507783836187556,
+        "lpips_normalized": 0.20941321551799774,
+        "clip_clipped": 0.8030027747154236,
+        "lpips_author": 0.16772449016571045,
+        "clip_author": 0.6846535801887512
+      },
+      "crc": {
+        "tokens": 224,
+        "psnr_raw": 18.904257672841876,
+        "lpips_normalized": 0.1967562884092331,
+        "clip_clipped": 0.8294288516044617,
+        "lpips_author": 0.15499669313430786,
+        "clip_author": 0.7348606586456299
+      }
+    },
+    {
+      "trial": 2,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle": {
+        "tokens": 233,
+        "psnr_raw": 19.674152286716804,
+        "lpips_normalized": 0.14497724175453186,
+        "clip_clipped": 0.8041687607765198,
+        "lpips_author": 0.12197569012641907,
+        "clip_author": 0.7499330043792725
+      },
+      "crc": {
+        "tokens": 213,
+        "psnr_raw": 18.49990705345799,
+        "lpips_normalized": 0.1589515209197998,
+        "clip_clipped": 0.759463906288147,
+        "lpips_author": 0.13160429894924164,
+        "clip_author": 0.6395955681800842
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle": {
+        "tokens": 245,
+        "psnr_raw": 21.974575572412604,
+        "lpips_normalized": 0.131961390376091,
+        "clip_clipped": 0.7067550420761108,
+        "lpips_author": 0.10553532838821411,
+        "clip_author": 0.5492905974388123
+      },
+      "crc": {
+        "tokens": 228,
+        "psnr_raw": 21.552559716587645,
+        "lpips_normalized": 0.13398477435112,
+        "clip_clipped": 0.6189882755279541,
+        "lpips_author": 0.10906445980072021,
+        "clip_author": 0.5727438926696777
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle": {
+        "tokens": 245,
+        "psnr_raw": 21.028999796893622,
+        "lpips_normalized": 0.20397615432739258,
+        "clip_clipped": 0.7995837330818176,
+        "lpips_author": 0.17080985009670258,
+        "clip_author": 0.7382155060768127
+      },
+      "crc": {
+        "tokens": 230,
+        "psnr_raw": 19.725498916171244,
+        "lpips_normalized": 0.2292047142982483,
+        "clip_clipped": 0.7482343316078186,
+        "lpips_author": 0.18764646351337433,
+        "clip_author": 0.6949066519737244
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle": {
+        "tokens": 245,
+        "psnr_raw": 21.38549136866844,
+        "lpips_normalized": 0.21379685401916504,
+        "clip_clipped": 0.8848572969436646,
+        "lpips_author": 0.17588289082050323,
+        "clip_author": 0.8152042627334595
+      },
+      "crc": {
+        "tokens": 219,
+        "psnr_raw": 19.919049777866277,
+        "lpips_normalized": 0.22856569290161133,
+        "clip_clipped": 0.8908696174621582,
+        "lpips_author": 0.19079528748989105,
+        "clip_author": 0.8531184792518616
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle": {
+        "tokens": 243,
+        "psnr_raw": 19.869009232476948,
+        "lpips_normalized": 0.19585782289505005,
+        "clip_clipped": 0.782843828201294,
+        "lpips_author": 0.18312501907348633,
+        "clip_author": 0.5836448073387146
+      },
+      "crc": {
+        "tokens": 224,
+        "psnr_raw": 19.403260011317972,
+        "lpips_normalized": 0.21235859394073486,
+        "clip_clipped": 0.7650718688964844,
+        "lpips_author": 0.20072798430919647,
+        "clip_author": 0.536068856716156
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle": {
+        "tokens": 242,
+        "psnr_raw": 16.641265923856576,
+        "lpips_normalized": 0.2834751307964325,
+        "clip_clipped": 0.7886620163917542,
+        "lpips_author": 0.2423783391714096,
+        "clip_author": 0.7168089151382446
+      },
+      "crc": {
+        "tokens": 234,
+        "psnr_raw": 16.50591899884703,
+        "lpips_normalized": 0.2856958508491516,
+        "clip_clipped": 0.8176966905593872,
+        "lpips_author": 0.24111774563789368,
+        "clip_author": 0.7625155448913574
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle": {
+        "tokens": 253,
+        "psnr_raw": 18.747612511906247,
+        "lpips_normalized": 0.12945939600467682,
+        "clip_clipped": 0.8817651271820068,
+        "lpips_author": 0.10163122415542603,
+        "clip_author": 0.7875508069992065
+      },
+      "crc": {
+        "tokens": 244,
+        "psnr_raw": 18.569790121124058,
+        "lpips_normalized": 0.1344357579946518,
+        "clip_clipped": 0.8423354625701904,
+        "lpips_author": 0.10330057889223099,
+        "clip_author": 0.8145751953125
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle": {
+        "tokens": 239,
+        "psnr_raw": 18.876694444394634,
+        "lpips_normalized": 0.1748274564743042,
+        "clip_clipped": 0.879639208316803,
+        "lpips_author": 0.15490522980690002,
+        "clip_author": 0.7379425764083862
+      },
+      "crc": {
+        "tokens": 224,
+        "psnr_raw": 19.0218727255481,
+        "lpips_normalized": 0.18415747582912445,
+        "clip_clipped": 0.8723288774490356,
+        "lpips_author": 0.16187143325805664,
+        "clip_author": 0.6329466104507446
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle": {
+        "tokens": 230,
+        "psnr_raw": 15.246292032900584,
+        "lpips_normalized": 0.32006266713142395,
+        "clip_clipped": 0.8370298147201538,
+        "lpips_author": 0.29590800404548645,
+        "clip_author": 0.8015952706336975
+      },
+      "crc": {
+        "tokens": 210,
+        "psnr_raw": 14.539620683193888,
+        "lpips_normalized": 0.36499249935150146,
+        "clip_clipped": 0.8179054856300354,
+        "lpips_author": 0.33471089601516724,
+        "clip_author": 0.81500643491745
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle": {
+        "tokens": 254,
+        "psnr_raw": 18.709757635457223,
+        "lpips_normalized": 0.18713372945785522,
+        "clip_clipped": 0.8774499893188477,
+        "lpips_author": 0.14998678863048553,
+        "clip_author": 0.7086144089698792
+      },
+      "crc": {
+        "tokens": 236,
+        "psnr_raw": 18.778969347293135,
+        "lpips_normalized": 0.22026370465755463,
+        "clip_clipped": 0.8318791389465332,
+        "lpips_author": 0.1790613830089569,
+        "clip_author": 0.8005879521369934
+      }
+    },
+    {
+      "trial": 3,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle": {
+        "tokens": 227,
+        "psnr_raw": 19.308067069443613,
+        "lpips_normalized": 0.15760284662246704,
+        "clip_clipped": 0.8028401732444763,
+        "lpips_author": 0.13025888800621033,
+        "clip_author": 0.6935262084007263
+      },
+      "crc": {
+        "tokens": 210,
+        "psnr_raw": 18.083742442078695,
+        "lpips_normalized": 0.1749657690525055,
+        "clip_clipped": 0.7613104581832886,
+        "lpips_author": 0.1443137526512146,
+        "clip_author": 0.6703964471817017
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 0,
+      "class_name": "tench",
+      "oracle": {
+        "tokens": 245,
+        "psnr_raw": 22.340124857792546,
+        "lpips_normalized": 0.12869895994663239,
+        "clip_clipped": 0.7015268206596375,
+        "lpips_author": 0.10407059639692307,
+        "clip_author": 0.5962514281272888
+      },
+      "crc": {
+        "tokens": 220,
+        "psnr_raw": 21.19218466332534,
+        "lpips_normalized": 0.1394605189561844,
+        "clip_clipped": 0.8267311453819275,
+        "lpips_author": 0.11284381151199341,
+        "clip_author": 0.7098551392555237
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 1,
+      "class_name": "English springer",
+      "oracle": {
+        "tokens": 253,
+        "psnr_raw": 21.529081968896474,
+        "lpips_normalized": 0.19977611303329468,
+        "clip_clipped": 0.8286440372467041,
+        "lpips_author": 0.16275067627429962,
+        "clip_author": 0.7555456161499023
+      },
+      "crc": {
+        "tokens": 230,
+        "psnr_raw": 21.23346768453556,
+        "lpips_normalized": 0.20200173556804657,
+        "clip_clipped": 0.7766940593719482,
+        "lpips_author": 0.16798308491706848,
+        "clip_author": 0.7322216033935547
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 2,
+      "class_name": "cassette player",
+      "oracle": {
+        "tokens": 242,
+        "psnr_raw": 21.091323423649136,
+        "lpips_normalized": 0.2245481163263321,
+        "clip_clipped": 0.8828274011611938,
+        "lpips_author": 0.18218660354614258,
+        "clip_author": 0.8269101977348328
+      },
+      "crc": {
+        "tokens": 221,
+        "psnr_raw": 19.216545448998815,
+        "lpips_normalized": 0.24257883429527283,
+        "clip_clipped": 0.8562434315681458,
+        "lpips_author": 0.19753625988960266,
+        "clip_author": 0.8154140710830688
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 3,
+      "class_name": "chain saw",
+      "oracle": {
+        "tokens": 240,
+        "psnr_raw": 19.384606957522017,
+        "lpips_normalized": 0.1971241533756256,
+        "clip_clipped": 0.7895550727844238,
+        "lpips_author": 0.1911943405866623,
+        "clip_author": 0.49417299032211304
+      },
+      "crc": {
+        "tokens": 217,
+        "psnr_raw": 18.564484429436884,
+        "lpips_normalized": 0.20931920409202576,
+        "clip_clipped": 0.7615676522254944,
+        "lpips_author": 0.20488762855529785,
+        "clip_author": 0.5241467952728271
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 4,
+      "class_name": "church",
+      "oracle": {
+        "tokens": 251,
+        "psnr_raw": 16.71015688640628,
+        "lpips_normalized": 0.27902883291244507,
+        "clip_clipped": 0.7777121663093567,
+        "lpips_author": 0.23837126791477203,
+        "clip_author": 0.7435723543167114
+      },
+      "crc": {
+        "tokens": 218,
+        "psnr_raw": 15.662775208146122,
+        "lpips_normalized": 0.30039459466934204,
+        "clip_clipped": 0.8115833401679993,
+        "lpips_author": 0.25579896569252014,
+        "clip_author": 0.740919828414917
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 5,
+      "class_name": "French horn",
+      "oracle": {
+        "tokens": 242,
+        "psnr_raw": 18.565789531507786,
+        "lpips_normalized": 0.1363171637058258,
+        "clip_clipped": 0.8508468866348267,
+        "lpips_author": 0.10479871928691864,
+        "clip_author": 0.7676309943199158
+      },
+      "crc": {
+        "tokens": 227,
+        "psnr_raw": 18.701576124640557,
+        "lpips_normalized": 0.13293404877185822,
+        "clip_clipped": 0.7612249851226807,
+        "lpips_author": 0.10567266494035721,
+        "clip_author": 0.7293716073036194
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "oracle": {
+        "tokens": 234,
+        "psnr_raw": 18.698515961352786,
+        "lpips_normalized": 0.2001153528690338,
+        "clip_clipped": 0.8966126441955566,
+        "lpips_author": 0.1830880045890808,
+        "clip_author": 0.6415696740150452
+      },
+      "crc": {
+        "tokens": 217,
+        "psnr_raw": 17.646074327128527,
+        "lpips_normalized": 0.21678747236728668,
+        "clip_clipped": 0.8700777292251587,
+        "lpips_author": 0.19390077888965607,
+        "clip_author": 0.6736593842506409
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 7,
+      "class_name": "gas pump",
+      "oracle": {
+        "tokens": 244,
+        "psnr_raw": 15.405268301613846,
+        "lpips_normalized": 0.28299692273139954,
+        "clip_clipped": 0.8820881247520447,
+        "lpips_author": 0.2599394917488098,
+        "clip_author": 0.8381046652793884
+      },
+      "crc": {
+        "tokens": 232,
+        "psnr_raw": 15.477415739064694,
+        "lpips_normalized": 0.31039029359817505,
+        "clip_clipped": 0.8952043652534485,
+        "lpips_author": 0.28747236728668213,
+        "clip_author": 0.8515965938568115
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 8,
+      "class_name": "golf ball",
+      "oracle": {
+        "tokens": 252,
+        "psnr_raw": 18.731763510176382,
+        "lpips_normalized": 0.18757759034633636,
+        "clip_clipped": 0.8648579120635986,
+        "lpips_author": 0.15264789760112762,
+        "clip_author": 0.6943361759185791
+      },
+      "crc": {
+        "tokens": 239,
+        "psnr_raw": 18.379529510530567,
+        "lpips_normalized": 0.20036153495311737,
+        "clip_clipped": 0.8343577980995178,
+        "lpips_author": 0.16130609810352325,
+        "clip_author": 0.6825219392776489
+      }
+    },
+    {
+      "trial": 4,
+      "image_index": 9,
+      "class_name": "parachute",
+      "oracle": {
+        "tokens": 238,
+        "psnr_raw": 19.24808256172269,
+        "lpips_normalized": 0.13920649886131287,
+        "clip_clipped": 0.8008719682693481,
+        "lpips_author": 0.1164563000202179,
+        "clip_author": 0.7412506341934204
+      },
+      "crc": {
+        "tokens": 197,
+        "psnr_raw": 18.38504970020019,
+        "lpips_normalized": 0.15806172788143158,
+        "clip_clipped": 0.7941706776618958,
+        "lpips_author": 0.1328296661376953,
+        "clip_author": 0.6794695258140564
+      }
+    }
+  ]
+}

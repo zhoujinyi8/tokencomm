@@ -1,0 +1,7 @@
+{
+  "script_sha256": "e1277e8f2e8711c48dd3a4803b83b70e9fac156ce9f827e6eb5e730be9c653a1",
+  "plan_sha256": "232175f2623e815eef69313a59d4c08d45bc3ef532a00ebe4d45cb75a8f3ca56",
+  "author_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "token_metric": "final token ID equality; author TER_af is not residual TER"
+}

@@ -1,0 +1,13 @@
+{
+  "passed": 4,
+  "failed": 0,
+  "audit_script_sha256": "0560b978cc06fe0bbc2bd3c9b777f1f4ae72dc37a27eb3ea8c41a7afae47cbdc",
+  "test_script_sha256": "b629b5156c47571f54a31ff5ebfe8129e24b0b1e6c2dcdf7132bd99ca1cb43a2",
+  "model_inference_performed": false,
+  "checks": [
+    "test_incomplete_snr_reports_coverage_without_means",
+    "test_complete_snr_aggregates_all_images_and_trials",
+    "test_audit_rejects_wrong_token_count",
+    "test_audit_rejects_unmasked_token_change"
+  ]
+}

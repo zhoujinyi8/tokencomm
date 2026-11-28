@@ -1,0 +1,19 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "noise_seed_combinations_verified": 614400,
+  "model_inference_performed": false,
+  "physical_simulations_performed": 0,
+  "helper_sha256": "c271898601e187ca8d249caf4bdf359514fd9a46939c59815d0a1be8e53af391",
+  "test_script_sha256": "455ad885c499d28806f94ffcc53c9e6836fdf419ecf3f1fd04d912d9fe6ab5a7",
+  "checks": [
+    "CRC false acceptance",
+    "parity-only failure",
+    "initial and wire ledger",
+    "cap retained",
+    "premature truncation refused",
+    "gapped trace refused",
+    "noise order invariance",
+    "seed identity"
+  ]
+}

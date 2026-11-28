@@ -1,0 +1,12 @@
+{
+  "model": "cheng2020-attn",
+  "image_index": 0,
+  "container_sha256": "6c03caa77fc3e687f025326773cebfc5e72c5cde326f46cd5622df8a3ab44e1b",
+  "weight_sha256": "465f2b649c3fa5c67cf19f337306fc53efc4a91b6ac465e5506278b5fc997955",
+  "decoder_script_sha256": "b428e411e905b96cd1350afc6928ed0f651cf6c3f96aac9e942b75aebf8d2db5",
+  "output_sha256": "67e5a9f8f9f4f79029149612014844087870f6326ec31ee6514a0e24827f98a8",
+  "decoded_pixels_sha256": "8b435da21d8d1622805b40218551709c9093b7d962ae3569e60344e38df33b8a",
+  "source_image_loaded": false,
+  "encoder_called": false,
+  "full_paper_reproduction_complete": false
+}

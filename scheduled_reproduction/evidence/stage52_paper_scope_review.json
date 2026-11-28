@@ -1,0 +1,12 @@
+{
+  "reviewed_date_local": "2026-11-24",
+  "paper_source": "https://arxiv.org/html/2502.12096v4#S6",
+  "crosscheck_source": "https://arxiv.org/html/2502.12096v5#S6",
+  "publisher_doi": "10.1109/MWC.001.2500084",
+  "author_commit": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "frozen_protocol_changed": false,
+  "holdout_quality_results_used": false,
+  "scope": "paper payload TCE and ideal retransmission baselines; engineering feedback extension reported separately",
+  "analytic_check": "stage52_tce_reference_check.json",
+  "report": "TokCom_\u9636\u6bb552\u8bba\u6587TCE\u53e3\u5f84\u4e0e\u540e\u7eed\u8303\u56f4\u6838\u5bf9_2026-11-24.md"
+}

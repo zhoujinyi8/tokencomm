@@ -1,0 +1,12 @@
+{
+  "all_checks_passed": true,
+  "audit_script_sha256": "8ddda8aa1ab0e668295ac4c076eae11e261caefe8b35d89dd4f7475c0b3e3fd2",
+  "source_result_sha256": "00535e58713dce7ca41d8d7ade892f390b834688a563c078f8ff915fe1204e84",
+  "checkpoint_sha256": "7f599ab879617f2433d2bd5709a6561d8b700860de171aa9f86af67efb569a30",
+  "optimizer_updates": 1,
+  "common_floating_tensors_changed": 104,
+  "changed_parameter_tensors_reported": 122,
+  "training_image_identity_verified": true,
+  "frozen_evaluation_images_used_for_training": false,
+  "paper_baseline_ready": false
+}

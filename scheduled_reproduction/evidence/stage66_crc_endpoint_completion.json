@@ -1,0 +1,77 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "3b3ee17e04ed990daeb617578d336e23a201ea154dc3c55ac76343797f53c281",
+  "source_endpoint_rows_sha256": "10be1014851c820d379a260f5e618bfb1e5f81a2deb697ed95ae40d6e5117750",
+  "measured_corrupt_metric_sha256": "47c017b2c84d1494f373b6a710d15d475f9077f1e2777959b730e46b09af92b4",
+  "complete_crc_endpoint_frames": 300,
+  "clean_reference_rows": 299,
+  "actual_corrupt_decoder_rows": 1,
+  "new_decoder_forwards_in_completion": 1,
+  "no_failure_imputation": true,
+  "per_snr": {
+    "6.0": {
+      "frames": 50,
+      "exact_clean_reference_rows": 49,
+      "actual_corrupt_decoder_rows": 1,
+      "means": {
+        "psnr_decoded": 23.726895530009678,
+        "lpips_normalized": 0.4468160530924797,
+        "clip_clipped": 0.6518492138385773
+      }
+    },
+    "6.5": {
+      "frames": 50,
+      "exact_clean_reference_rows": 50,
+      "actual_corrupt_decoder_rows": 0,
+      "means": {
+        "psnr_decoded": 24.046000792166197,
+        "lpips_normalized": 0.4392991825938225,
+        "clip_clipped": 0.6544650495052338
+      }
+    },
+    "7.0": {
+      "frames": 50,
+      "exact_clean_reference_rows": 50,
+      "actual_corrupt_decoder_rows": 0,
+      "means": {
+        "psnr_decoded": 24.046000792166197,
+        "lpips_normalized": 0.4392991825938225,
+        "clip_clipped": 0.6544650495052338
+      }
+    },
+    "7.5": {
+      "frames": 50,
+      "exact_clean_reference_rows": 50,
+      "actual_corrupt_decoder_rows": 0,
+      "means": {
+        "psnr_decoded": 24.046000792166197,
+        "lpips_normalized": 0.4392991825938225,
+        "clip_clipped": 0.6544650495052338
+      }
+    },
+    "8.0": {
+      "frames": 50,
+      "exact_clean_reference_rows": 50,
+      "actual_corrupt_decoder_rows": 0,
+      "means": {
+        "psnr_decoded": 24.046000792166197,
+        "lpips_normalized": 0.4392991825938225,
+        "clip_clipped": 0.6544650495052338
+      }
+    },
+    "9.0": {
+      "frames": 50,
+      "exact_clean_reference_rows": 50,
+      "actual_corrupt_decoder_rows": 0,
+      "means": {
+        "psnr_decoded": 24.046000792166197,
+        "lpips_normalized": 0.4392991825938225,
+        "clip_clipped": 0.6544650495052338
+      }
+    }
+  },
+  "noisy_single_pass_quality_complete": false,
+  "interpretation": "Engineering CRC-ARQ endpoints on ten development images; all 300 outcomes retained, 299 exact-byte references and one actual corrupted-stream metric. Not paper-wide baseline reproduction.",
+  "paper_baseline_ready": false,
+  "full_paper_reproduction_complete": false
+}

@@ -1,0 +1,26 @@
+{
+  "session_start_utc": "2026-11-22T14:57:30.437Z",
+  "recorded_utc": "2026-11-23T15:58:11.048071+00:00",
+  "initial_recovery_cases": 419,
+  "initial_metric_cases": 35,
+  "recovery_cases": 443,
+  "new_recovery_cases": 24,
+  "recovery_complete": false,
+  "complete_five_trial_images": 88,
+  "metric_cases": 35,
+  "new_metric_cases": 0,
+  "complete_five_trial_metric_images": 7,
+  "expected_cases": 500,
+  "paths_per_metric_case": 6,
+  "model_performance_aggregated": false,
+  "frozen_scientific_settings_changed": false,
+  "prior_verified_ci": {
+    "commit": "61ac312185969b4b179a92d0ea1dc7230efa9832",
+    "ci_verified_run": 45035280312,
+    "latest_commit_ci": "success",
+    "unit_tests_passed": 96,
+    "unit_tests_skipped": 2,
+    "asset_integrations_deselected": 11
+  },
+  "current_publication_receipt": "runs/stage46_github_sync_receipt.json"
+}

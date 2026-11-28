@@ -1,0 +1,40 @@
+{
+  "kind": "post hoc descriptive definition audit after full frozen summary; not a new primary outcome",
+  "original_primary_protocol_changed": false,
+  "complete_receptions": 500,
+  "total_tokens": 128000,
+  "direct_wrong_tokens": 2639,
+  "direct_whole_image_TER": 0.0206171875,
+  "paths": {
+    "oracle": {
+      "masked_tokens": 8908,
+      "originally_correct_masked": 6269,
+      "correct_masked_after": 1051,
+      "repaired_original_errors": 292,
+      "damaged_originally_correct": 5510,
+      "residual_wrong_tokens": 7857,
+      "source_return_formula_recomputed_from_saved_codes": 0.0082109375,
+      "actual_whole_image_residual_TER": 0.0613828125
+    },
+    "crc": {
+      "masked_tokens": 18880,
+      "originally_correct_masked": 16241,
+      "correct_masked_after": 2039,
+      "repaired_original_errors": 273,
+      "damaged_originally_correct": 14475,
+      "residual_wrong_tokens": 16841,
+      "source_return_formula_recomputed_from_saved_codes": 0.0159296875,
+      "actual_whole_image_residual_TER": 0.1315703125
+    }
+  },
+  "all_accounting_checks_passed": true,
+  "author_return_definition": "correct masked predictions / all image tokens",
+  "source_return_values_are_recomputed": true,
+  "author_source_sha256": {
+    "Network/transformer.py": "6153ee9608422ad6c2a6cad54974046fde43a7b9dd3c7fe60d31b6f075056c00",
+    "Trainer/vit.py": "65bb6293d0f812c1dfce22dc01b64ab212042d05e7568d4ab8b5228d688d2a0c"
+  },
+  "summary_sha256": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+  "script_sha256": "959885337e53bd7972f07dac7d4635f51e7ecbd365e554eaf6fe89c0a8b54109",
+  "caveat": "Audits the pinned public code return definition; does not establish how published paper curves were calculated"
+}

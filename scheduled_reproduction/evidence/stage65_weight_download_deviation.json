@@ -1,0 +1,6 @@
+{
+  "source_url": "https://compressai.s3.amazonaws.com/models/v1/cheng2020_attn-mse-1-465f2b64.pth.tar",
+  "unverified_sha256": "51abc4f4409a60927e5533d17838d6057ef4757a5cb34135681c3ee074e676ef",
+  "expected_sha256": "465f2b649c3fa5c67cf19f337306fc53efc4a91b6ac465e5506278b5fc997955",
+  "action": "retained separate unverified file; not used for inference"
+}

@@ -1,0 +1,27 @@
+{
+  "source": "https://arxiv.org/html/2502.12096v4#S6",
+  "data_accessed": false,
+  "holdout_metrics_aggregated": false,
+  "analytic_arq_examples": [
+    {
+      "PER": 0.0,
+      "TCE": 25.6
+    },
+    {
+      "PER": 0.2,
+      "TCE": 20.48
+    },
+    {
+      "PER": 0.4,
+      "TCE": 15.36
+    },
+    {
+      "PER": 1.0,
+      "TCE": 0.0
+    }
+  ],
+  "single_shot_tce": 25.6,
+  "edge_and_domain_checks_passed": true,
+  "invalid_inputs_rejected": 6,
+  "code_sha256": "54ef87c7f0cf4a297e25b06ae11c242f204f8b4aba988b7214bde951507c9c4a"
+}

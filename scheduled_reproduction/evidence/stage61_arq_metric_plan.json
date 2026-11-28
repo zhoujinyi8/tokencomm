@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-11-27T09:46:03.448104+00:00",
+  "status": "planned_not_executed",
+  "scope": "VQGAN reconstruction metrics for all matched-padded packet policies; no transformer inference",
+  "arq_plan_sha256": "d189ba28a3718d4686d33b33bcc52dffde09417ddd37f5a18b7b9da09a87b39b",
+  "requires_complete_arq_audit_before_first_inference": true,
+  "expected_frames": 300,
+  "paths": [
+    "single_pass_padded",
+    "receiver_crc_arq_padded",
+    "sender_oracle_arq_padded"
+  ],
+  "expected_metric_rows": 900,
+  "images": 10,
+  "trials": 5,
+  "snr_db": [
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    9.0
+  ],
+  "input_sha256": {
+    "runs/stage26_official_token_link_snr8_5trials.npz": "c83e364b624babd2c96b84cb0e820f6bda6e60ce39ae2d4d3d6594e0797f4a99",
+    "runs/stage26_official_demo_tokens.npz": "cf1e038f146e2778afa4c66f75cc35e2369bab134ada6034e8462464c0ef64ca",
+    "data/imagenette_stage5/token_cache/val.pt": "1b931ba507b91980220b7b5deeb73592e92471aa76e1df18492cec60cf2afe7e",
+    "pretrained/official_tokcom/last.ckpt": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71",
+    "runs/stage47_metrics_lock.json": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd"
+  },
+  "author_environment_sha256": "a67baad3cc0ebec20610b5823456c3ed7b46d75d078b9db191a02eb4ae446e10",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "baseline_complete_audit_sha256": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+  "image_transform": "RGB Resize((256,256)) + ToTensor",
+  "decoder_mapping": "raw VQGAN output y; no extra normalization",
+  "metrics": "raw-output PSNR against original; clamp/normalize=True LPIPS; clamp->PIL->official preprocessing CLIP cosine",
+  "exact_id_reuse": "Within image, an endpoint exactly equal to original sender IDs reuses the deterministic clean-reference metrics under identical frozen weights/input/metric identity. Store this origin per row and count actual decoder forwards separately.",
+  "aggregation": "Each SNR requires all 50 frames and all three policies. Average five trials within image, then ten images; retain every policy. Incomplete groups report coverage only.",
+  "limitations": [
+    "Ten old Imagenette development images, not an ImageNet100 evaluation",
+    "These metrics do not implement matched-padded MaskGIT/CMI recovery",
+    "Feedback/header/CMI transmission cost and latency remain unmodeled"
+  ],
+  "new_model_inference_performed": false,
+  "existing_studies_changed": false
+}

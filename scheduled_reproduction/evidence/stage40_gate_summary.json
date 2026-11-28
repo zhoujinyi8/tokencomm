@@ -1,0 +1,236 @@
+{
+  "scope": "10 development images, 5 saved AWGN 8 dB receptions; class known; receiver CRC gate diagnostic",
+  "prespecified_thresholds": [
+    0.0,
+    0.5,
+    0.9
+  ],
+  "threshold_selected": null,
+  "summaries": [
+    {
+      "threshold": 0.0,
+      "replaced": 1169,
+      "repaired": 34,
+      "harmed": 907,
+      "correct_tokens": 11662,
+      "image_means": {
+        "correct_tokens": 233.24,
+        "psnr_raw": 18.817657565641472,
+        "lpips_normalized": 0.20648392200469973,
+        "clip_clipped": 0.8164167261123658
+      },
+      "per_image": [
+        {
+          "correct_tokens": 234.4,
+          "psnr_raw": 21.87075275640141,
+          "lpips_normalized": 0.1385394662618637,
+          "clip_clipped": 0.7189452409744262
+        },
+        {
+          "correct_tokens": 233.4,
+          "psnr_raw": 20.953603274898132,
+          "lpips_normalized": 0.20428054928779601,
+          "clip_clipped": 0.7752203345298767
+        },
+        {
+          "correct_tokens": 231.8,
+          "psnr_raw": 20.374533627681735,
+          "lpips_normalized": 0.2291039377450943,
+          "clip_clipped": 0.8733556985855102
+        },
+        {
+          "correct_tokens": 233.8,
+          "psnr_raw": 19.30240246771486,
+          "lpips_normalized": 0.2073865830898285,
+          "clip_clipped": 0.7960297346115113
+        },
+        {
+          "correct_tokens": 234.2,
+          "psnr_raw": 16.39895099253173,
+          "lpips_normalized": 0.2911238789558411,
+          "clip_clipped": 0.7907393455505372
+        },
+        {
+          "correct_tokens": 239.2,
+          "psnr_raw": 18.331096014396028,
+          "lpips_normalized": 0.13354275226593018,
+          "clip_clipped": 0.8467034816741943
+        },
+        {
+          "correct_tokens": 233.0,
+          "psnr_raw": 18.61491047210007,
+          "lpips_normalized": 0.19277286529541016,
+          "clip_clipped": 0.8603407859802246
+        },
+        {
+          "correct_tokens": 232.4,
+          "psnr_raw": 15.116969262885831,
+          "lpips_normalized": 0.31697627902030945,
+          "clip_clipped": 0.8708369970321655
+        },
+        {
+          "correct_tokens": 235.6,
+          "psnr_raw": 18.55191102999939,
+          "lpips_normalized": 0.2016218900680542,
+          "clip_clipped": 0.8436718821525574
+        },
+        {
+          "correct_tokens": 224.6,
+          "psnr_raw": 18.661445757805545,
+          "lpips_normalized": 0.1494910180568695,
+          "clip_clipped": 0.7883237600326538
+        }
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "replaced": 75,
+      "repaired": 8,
+      "harmed": 55,
+      "correct_tokens": 12488,
+      "image_means": {
+        "correct_tokens": 249.76,
+        "psnr_raw": 18.83779103361838,
+        "lpips_normalized": 0.20271414071321486,
+        "clip_clipped": 0.8106819438934327
+      },
+      "per_image": [
+        {
+          "correct_tokens": 248.4,
+          "psnr_raw": 21.419144499877387,
+          "lpips_normalized": 0.14650526344776155,
+          "clip_clipped": 0.6722881436347962
+        },
+        {
+          "correct_tokens": 251.0,
+          "psnr_raw": 21.025917045297728,
+          "lpips_normalized": 0.20164678394794464,
+          "clip_clipped": 0.800705635547638
+        },
+        {
+          "correct_tokens": 250.0,
+          "psnr_raw": 20.786556799230503,
+          "lpips_normalized": 0.2240429162979126,
+          "clip_clipped": 0.8767386555671692
+        },
+        {
+          "correct_tokens": 249.0,
+          "psnr_raw": 19.922459598536875,
+          "lpips_normalized": 0.19288870096206664,
+          "clip_clipped": 0.7589671850204468
+        },
+        {
+          "correct_tokens": 251.0,
+          "psnr_raw": 16.36214760733283,
+          "lpips_normalized": 0.28885203003883364,
+          "clip_clipped": 0.7622478485107422
+        },
+        {
+          "correct_tokens": 249.4,
+          "psnr_raw": 18.444151613338647,
+          "lpips_normalized": 0.13786520957946777,
+          "clip_clipped": 0.8794808983802795
+        },
+        {
+          "correct_tokens": 249.6,
+          "psnr_raw": 18.434835967013125,
+          "lpips_normalized": 0.18207268118858339,
+          "clip_clipped": 0.8780255436897277
+        },
+        {
+          "correct_tokens": 252.0,
+          "psnr_raw": 15.219881550723827,
+          "lpips_normalized": 0.29256431460380555,
+          "clip_clipped": 0.8491703987121582
+        },
+        {
+          "correct_tokens": 250.0,
+          "psnr_raw": 18.24181210631776,
+          "lpips_normalized": 0.2020954370498657,
+          "clip_clipped": 0.8360661625862121
+        },
+        {
+          "correct_tokens": 247.2,
+          "psnr_raw": 18.52100354851515,
+          "lpips_normalized": 0.1586080700159073,
+          "clip_clipped": 0.7931289672851562
+        }
+      ]
+    },
+    {
+      "threshold": 0.9,
+      "replaced": 3,
+      "repaired": 0,
+      "harmed": 3,
+      "correct_tokens": 12532,
+      "image_means": {
+        "correct_tokens": 250.64000000000001,
+        "psnr_raw": 18.811261793159744,
+        "lpips_normalized": 0.20338917136192322,
+        "clip_clipped": 0.8085100030899047
+      },
+      "per_image": [
+        {
+          "correct_tokens": 248.8,
+          "psnr_raw": 21.41995455307036,
+          "lpips_normalized": 0.14761795997619628,
+          "clip_clipped": 0.6652204513549804
+        },
+        {
+          "correct_tokens": 251.2,
+          "psnr_raw": 21.025814275083214,
+          "lpips_normalized": 0.2017646014690399,
+          "clip_clipped": 0.8004099488258362
+        },
+        {
+          "correct_tokens": 250.4,
+          "psnr_raw": 20.74558759175637,
+          "lpips_normalized": 0.22788073420524596,
+          "clip_clipped": 0.8742405295372009
+        },
+        {
+          "correct_tokens": 250.0,
+          "psnr_raw": 19.92498301817299,
+          "lpips_normalized": 0.19359621703624724,
+          "clip_clipped": 0.7513574719429016
+        },
+        {
+          "correct_tokens": 251.4,
+          "psnr_raw": 16.37893904808511,
+          "lpips_normalized": 0.28853626251220704,
+          "clip_clipped": 0.7669839859008789
+        },
+        {
+          "correct_tokens": 251.6,
+          "psnr_raw": 18.48090530585908,
+          "lpips_normalized": 0.13760465979576111,
+          "clip_clipped": 0.8773456931114196
+        },
+        {
+          "correct_tokens": 251.0,
+          "psnr_raw": 18.433423669221746,
+          "lpips_normalized": 0.18209310472011567,
+          "clip_clipped": 0.8766489267349243
+        },
+        {
+          "correct_tokens": 252.0,
+          "psnr_raw": 15.219881550723827,
+          "lpips_normalized": 0.29256431460380555,
+          "clip_clipped": 0.8491703987121582
+        },
+        {
+          "correct_tokens": 251.6,
+          "psnr_raw": 18.243502502290966,
+          "lpips_normalized": 0.2009889602661133,
+          "clip_clipped": 0.8361992835998535
+        },
+        {
+          "correct_tokens": 248.4,
+          "psnr_raw": 18.2396264173338,
+          "lpips_normalized": 0.16124489903450012,
+          "clip_clipped": 0.787523341178894
+        }
+      ]
+    }
+  ]
+}

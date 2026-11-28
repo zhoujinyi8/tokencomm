@@ -1,0 +1,13 @@
+{
+  "passed": 4,
+  "failed": 0,
+  "recorded_utc": "2026-11-25T10:15:04.915392+00:00",
+  "aggregation_script_sha256": "56425f72ab901cfcd51ce681e6fc95ca0f01ca30c286edde25931777cb250103",
+  "test_script_sha256": "b916fa512182dcc7f93d025c9d4edeb0b0337bb31c5724784757d5f7c4f063e5",
+  "checks": [
+    "complete_order_independent_paired_means",
+    "incomplete_pair_rejected",
+    "duplicate_cannot_hide_missing_pair",
+    "missing_path_rejected"
+  ]
+}

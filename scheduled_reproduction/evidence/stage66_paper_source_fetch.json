@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-28T10:42:42.036396+00:00",
+  "sources": [
+    {
+      "version": 4,
+      "url": "https://arxiv.org/src/2502.12096v4",
+      "status": "downloaded_and_tar_verified",
+      "archive_path": "paper_sources\\stage66\\2502.12096v4.tar",
+      "archive_sha256": "ba7ea06d8df451b8e833f3be165747a6450c60698a4afdd9b980d1cce95476ba",
+      "bytes": 2446818,
+      "tex": [
+        {
+          "name": "main_arxiv.tex",
+          "bytes": 54568,
+          "sha256": "53d99716df9011209b0de4533ef6dfcca5b9f4b41d9c8cf8807fe2998656c6a5"
+        }
+      ]
+    },
+    {
+      "version": 5,
+      "url": "https://arxiv.org/src/2502.12096v5",
+      "status": "downloaded_and_tar_verified",
+      "archive_path": "paper_sources\\stage66\\2502.12096v5.tar",
+      "archive_sha256": "9d57b256eaf9f9832a496fb561a6f64359afc911b87b3e101f54b9a61869d838",
+      "bytes": 2446855,
+      "tex": [
+        {
+          "name": "main_arxiv.tex",
+          "bytes": 54658,
+          "sha256": "8a68f70da3cb20858633561efde8df09f4d79b760cce929ffafc3ea3d46edf29"
+        }
+      ]
+    }
+  ],
+  "source_only": true,
+  "archive_members_extracted": false,
+  "journal_equivalence_established": false
+}

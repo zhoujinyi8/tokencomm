@@ -1,0 +1,79 @@
+{
+  "all_checks_passed": true,
+  "audit_script_sha256": "803ecbe8356275efe905cc5f885bfa9f1abd2381117451723c2d7b8238610a61",
+  "source_result_sha256": "b030fbff1bb37c0370cb8cec0235c4e67cff5a0929e94e259802438fdb682e2a",
+  "plan_sha256": "f0e62e99e4da452777a44db1f958c73b3f10f5772de9628f96a677a9fab67ad9",
+  "updates_completed": 100,
+  "expected_updates": 100,
+  "calibration_cases": 10,
+  "fresh_decoder_checks": [
+    {
+      "image_index": 0,
+      "psnr_difference": 1.1191283277867115e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 1,
+      "psnr_difference": 3.3225244777668195e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 2,
+      "psnr_difference": 3.411470679282047e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 3,
+      "psnr_difference": 3.14911051901845e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 4,
+      "psnr_difference": 1.3470302562268444e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 5,
+      "psnr_difference": -9.787044419340418e-08,
+      "encoder_called": false
+    },
+    {
+      "image_index": 6,
+      "psnr_difference": 6.319297085610742e-09,
+      "encoder_called": false
+    },
+    {
+      "image_index": 7,
+      "psnr_difference": -2.206431801710096e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 8,
+      "psnr_difference": -2.569193497947708e-07,
+      "encoder_called": false
+    },
+    {
+      "image_index": 9,
+      "psnr_difference": -8.514234650647268e-08,
+      "encoder_called": false
+    }
+  ],
+  "complete": true,
+  "training_image_identities_verified": 100,
+  "forbidden_evaluation_manifests_verified": 7,
+  "optimizer_step_range": [
+    100,
+    100
+  ],
+  "aux_optimizer_step_range": [
+    100,
+    100
+  ],
+  "mean_entropy_payload_bpp": 0.031396484375,
+  "within_diagnostic_rate_tolerance": false,
+  "checkpoint_sha256": "10eb429de9c5323f5a1b8c0e9e6991d9f63bac100fa2190058b14772539b222a",
+  "stock_weights_unchanged": true,
+  "frozen_evaluation_images_used_for_training": false,
+  "paper_baseline_ready": false,
+  "full_paper_reproduction_complete": false
+}

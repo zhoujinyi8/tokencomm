@@ -1,0 +1,43 @@
+{
+  "stage": 52,
+  "session_start_utc": "2026-11-23T20:56:18.433Z",
+  "initial_recovery_cases": 500,
+  "initial_metric_cases": 185,
+  "previous_published_recovery_cases": 500,
+  "previous_published_metric_cases": 185,
+  "prior_unpublished_recovery_cases": 0,
+  "metric_process_id": 29324,
+  "metric_max_minutes": 50,
+  "metric_stdout": "runs/stage47_resume_20261123_2056.stdout.log",
+  "metric_stderr": "runs/stage47_resume_20261123_2056.stderr.log",
+  "execution_mode": "hidden independent Windows process; frozen metric runner unchanged",
+  "recovery_completed": true,
+  "recovery_audited_cases": 500,
+  "supplemental_evidence": [
+    "paper_tce_reference.py",
+    "runs/stage52_tce_reference_check.json",
+    "runs/stage52_paper_scope_review.json"
+  ],
+  "supplemental_reports": [
+    "TokCom_\u9636\u6bb552\u8bba\u6587TCE\u53e3\u5f84\u4e0e\u540e\u7eed\u8303\u56f4\u6838\u5bf9_2026-11-24.md"
+  ],
+  "metric_window_process_active": false,
+  "metric_window_end_observed_utc": "2026-11-23T21:48:38.921072+00:00",
+  "metric_files_at_window_end": 267,
+  "recorded_utc": "2026-11-23T21:49:24.868402+00:00",
+  "report_timezone": "Asia/Shanghai",
+  "recovery_cases": 500,
+  "new_recovery_cases": 0,
+  "complete_five_trial_images": 100,
+  "metric_cases": 267,
+  "new_metric_cases": 82,
+  "complete_five_trial_metric_images": 53,
+  "recovery_complete": true,
+  "metrics_complete": false,
+  "recovery_change_since_publication": 0,
+  "metric_change_since_publication": 82,
+  "expected_cases": 500,
+  "paths_per_metric_case": 6,
+  "frozen_scientific_settings_changed": false,
+  "model_performance_aggregated": false
+}

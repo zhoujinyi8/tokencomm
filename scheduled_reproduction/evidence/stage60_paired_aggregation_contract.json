@@ -1,0 +1,14 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "model_inference_performed": false,
+  "helper_sha256": "cf1589a716c5d67a5359f205b7c8bc380c145645fa85ad8e8008f3e1cd316f59",
+  "test_script_sha256": "c121160119793e067a3b537b4c8a6d98144d5c0ae0802c4867b781496ab8b52b",
+  "checks": [
+    "complete unordered paired means",
+    "missing reception refused",
+    "duplicate refused",
+    "missing path refused",
+    "SNR mismatch refused"
+  ]
+}

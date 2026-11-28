@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-11-24T02:31:08.078514+00:00",
+  "scope": "post hoc supplementary ideal correct-token VQGAN reference on all 100 frozen images",
+  "primary_protocol_changed": false,
+  "physical_retries_simulated": false,
+  "execution_condition": "after development model exits, only if at least 12 minutes remain in this hourly window",
+  "population": "all 100 frozen images; noiseless transmitted token IDs, one deterministic decode per image",
+  "interpretation": "ideal reference paired with analytic ARQ payload TCE; not an observed retry/feedback protocol",
+  "metrics": "raw PSNR, normalized clamped LPIPS, clipped PIL CLIP; same weights and conventions as primary",
+  "script_sha256": "2bd6af91c0ce4b652808d5b712e6eee567fd3414e7335b5e8f079cfcc8740666",
+  "input_sha256": {
+    "runs/stage44_frozen_protocol.json": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+    "data/imagenette_stage44_holdout/test.jsonl": "dfea5458cd0b98ca0eb88c68bccbada742f5449bbe646d2c50e3dbf103d1a54a",
+    "runs/stage47_metrics_lock.json": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+    "runs/stage45_cache_audit.json": "e555577d3a78251743ca48668c47411cb93e3255aeb194b8c98b69f60a8ce781",
+    "pretrained/official_tokcom/last.ckpt": "e38a3aed8c86e8d47436f611325b3a23888cab70a0cc56c13cd84e8d4aab6e71"
+  },
+  "caveats": [
+    "not one of the six preregistered primary paths",
+    "perfect tokens assumed; residual source quantization remains",
+    "actual control/coding/side-channel/latency costs excluded from analytic TCE"
+  ]
+}

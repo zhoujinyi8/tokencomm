@@ -1,0 +1,12 @@
+{
+  "all_checks_passed": true,
+  "failed_preflight_lock_sha256": "2670d7bc977b73aa5004ad39da5d097d81e3b6fc5b61aa69f19d6c15c5b37ae7",
+  "failed_preflight_source_sha256": "9160b5939a099a9d2af84e5ab99edf2e5976e6c6a5d72bc182093078b4f21788",
+  "corrected_lock_sha256": "a07a69fb51b687ba3c5e245b5dfdb43d10d9decbe8ccf44a48d5925f06c678fd",
+  "repeat_diagnostic_sha256": "77e09ec2cc5657decabffec487d1df5772060b8f87845cbbbe7963c2d8ad39cd",
+  "reason": "Metric preflight used 4 decoder threads while the original child used 2. Three fixed-2 repeats reproduce exact pixels; controlled 4-thread decode differs by at most 1.9669532775878906e-06.",
+  "identity_gate_relaxed": false,
+  "old_lock_preserved": true,
+  "new_decoder_threads": 2,
+  "new_perceptual_threads": 4
+}

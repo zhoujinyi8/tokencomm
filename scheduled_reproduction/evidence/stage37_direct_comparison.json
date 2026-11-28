@@ -1,0 +1,260 @@
+{
+  "images": 10,
+  "pairs": 50,
+  "means": {
+    "direct": {
+      "tokens": 250.7,
+      "psnr_raw": 18.811377432400345,
+      "lpips_normalized": 0.20338946461677548,
+      "clip_clipped": 0.80835076212883
+    },
+    "oracle": {
+      "tokens": 241.11999999999998,
+      "psnr_raw": 19.131139611852767,
+      "lpips_normalized": 0.1990624353289604,
+      "clip_clipped": 0.8226039087772369
+    },
+    "crc": {
+      "tokens": 224.21999999999997,
+      "psnr_raw": 18.605839427594624,
+      "lpips_normalized": 0.21145751506090166,
+      "clip_clipped": 0.815335922241211
+    }
+  },
+  "images_better_than_direct": {
+    "oracle": {
+      "tokens": 0,
+      "psnr_raw": 9,
+      "lpips_normalized": 8,
+      "clip_clipped": 8
+    },
+    "crc": {
+      "tokens": 0,
+      "psnr_raw": 4,
+      "lpips_normalized": 3,
+      "clip_clipped": 5
+    }
+  },
+  "per_image": [
+    {
+      "image_index": 0,
+      "class_name": "tench",
+      "direct": {
+        "tokens": 248.8,
+        "psnr_raw": 21.41995455307036,
+        "lpips_normalized": 0.14761795699596406,
+        "clip_clipped": 0.6652204513549804
+      },
+      "oracle": {
+        "tokens": 239.6,
+        "psnr_raw": 22.16534397537398,
+        "lpips_normalized": 0.13713670670986175,
+        "clip_clipped": 0.7118951916694641
+      },
+      "crc": {
+        "tokens": 224.0,
+        "psnr_raw": 21.588626996329126,
+        "lpips_normalized": 0.14357303082942963,
+        "clip_clipped": 0.7333353161811829
+      }
+    },
+    {
+      "image_index": 1,
+      "class_name": "English springer",
+      "direct": {
+        "tokens": 251.2,
+        "psnr_raw": 21.025814275083214,
+        "lpips_normalized": 0.2017646014690399,
+        "clip_clipped": 0.8004099488258362
+      },
+      "oracle": {
+        "tokens": 241.0,
+        "psnr_raw": 21.38718784003182,
+        "lpips_normalized": 0.1976684719324112,
+        "clip_clipped": 0.7973273754119873
+      },
+      "crc": {
+        "tokens": 226.2,
+        "psnr_raw": 20.832747369081595,
+        "lpips_normalized": 0.207918119430542,
+        "clip_clipped": 0.776716434955597
+      }
+    },
+    {
+      "image_index": 2,
+      "class_name": "cassette player",
+      "direct": {
+        "tokens": 250.6,
+        "psnr_raw": 20.747453686282466,
+        "lpips_normalized": 0.22803458869457244,
+        "clip_clipped": 0.8738763332366943
+      },
+      "oracle": {
+        "tokens": 241.0,
+        "psnr_raw": 20.834146648100404,
+        "lpips_normalized": 0.22078162729740142,
+        "clip_clipped": 0.8841644525527954
+      },
+      "crc": {
+        "tokens": 220.8,
+        "psnr_raw": 19.89627600945296,
+        "lpips_normalized": 0.2310195356607437,
+        "clip_clipped": 0.8752047777175903
+      }
+    },
+    {
+      "image_index": 3,
+      "class_name": "chain saw",
+      "direct": {
+        "tokens": 250.0,
+        "psnr_raw": 19.92498301817299,
+        "lpips_normalized": 0.19359621703624724,
+        "clip_clipped": 0.7513574719429016
+      },
+      "oracle": {
+        "tokens": 242.0,
+        "psnr_raw": 19.85550379901199,
+        "lpips_normalized": 0.19978104829788207,
+        "clip_clipped": 0.8042782306671142
+      },
+      "crc": {
+        "tokens": 226.8,
+        "psnr_raw": 19.06155620857996,
+        "lpips_normalized": 0.21123827993869781,
+        "clip_clipped": 0.7919793725013733
+      }
+    },
+    {
+      "image_index": 4,
+      "class_name": "church",
+      "direct": {
+        "tokens": 251.4,
+        "psnr_raw": 16.37893904808511,
+        "lpips_normalized": 0.2885362684726715,
+        "clip_clipped": 0.7669839859008789
+      },
+      "oracle": {
+        "tokens": 241.2,
+        "psnr_raw": 16.654359764937706,
+        "lpips_normalized": 0.28017285466194153,
+        "clip_clipped": 0.777833890914917
+      },
+      "crc": {
+        "tokens": 223.2,
+        "psnr_raw": 16.20722719959334,
+        "lpips_normalized": 0.29551820158958436,
+        "clip_clipped": 0.7910006999969482
+      }
+    },
+    {
+      "image_index": 5,
+      "class_name": "French horn",
+      "direct": {
+        "tokens": 252.0,
+        "psnr_raw": 18.480195603739,
+        "lpips_normalized": 0.13745372891426086,
+        "clip_clipped": 0.8761174798011779
+      },
+      "oracle": {
+        "tokens": 246.0,
+        "psnr_raw": 18.620650034059576,
+        "lpips_normalized": 0.1334173172712326,
+        "clip_clipped": 0.8727633357048035
+      },
+      "crc": {
+        "tokens": 233.6,
+        "psnr_raw": 18.380268077816623,
+        "lpips_normalized": 0.13323927521705628,
+        "clip_clipped": 0.849016273021698
+      }
+    },
+    {
+      "image_index": 6,
+      "class_name": "garbage truck",
+      "direct": {
+        "tokens": 251.0,
+        "psnr_raw": 18.433423669221746,
+        "lpips_normalized": 0.18209310472011567,
+        "clip_clipped": 0.8766489267349243
+      },
+      "oracle": {
+        "tokens": 240.0,
+        "psnr_raw": 18.748970779191584,
+        "lpips_normalized": 0.18049293756484985,
+        "clip_clipped": 0.8814081907272339
+      },
+      "crc": {
+        "tokens": 223.6,
+        "psnr_raw": 18.483894230288826,
+        "lpips_normalized": 0.19597026705741882,
+        "clip_clipped": 0.8671465754508972
+      }
+    },
+    {
+      "image_index": 7,
+      "class_name": "gas pump",
+      "direct": {
+        "tokens": 252.0,
+        "psnr_raw": 15.219881550723827,
+        "lpips_normalized": 0.29256432056427,
+        "clip_clipped": 0.8491703987121582
+      },
+      "oracle": {
+        "tokens": 243.6,
+        "psnr_raw": 15.333931421878308,
+        "lpips_normalized": 0.29477704763412477,
+        "clip_clipped": 0.8508231520652771
+      },
+      "crc": {
+        "tokens": 223.8,
+        "psnr_raw": 14.942925836149707,
+        "lpips_normalized": 0.32838624715805054,
+        "clip_clipped": 0.8584219574928283
+      }
+    },
+    {
+      "image_index": 8,
+      "class_name": "golf ball",
+      "direct": {
+        "tokens": 251.6,
+        "psnr_raw": 18.243502502290966,
+        "lpips_normalized": 0.20098895728588104,
+        "clip_clipped": 0.8361992835998535
+      },
+      "oracle": {
+        "tokens": 243.0,
+        "psnr_raw": 18.47422881931535,
+        "lpips_normalized": 0.19758054316043855,
+        "clip_clipped": 0.8484060645103455
+      },
+      "crc": {
+        "tokens": 227.6,
+        "psnr_raw": 18.376149026666162,
+        "lpips_normalized": 0.20772192478179932,
+        "clip_clipped": 0.8333794593811035
+      }
+    },
+    {
+      "image_index": 9,
+      "class_name": "parachute",
+      "direct": {
+        "tokens": 248.4,
+        "psnr_raw": 18.2396264173338,
+        "lpips_normalized": 0.16124490201473235,
+        "clip_clipped": 0.787523341178894
+      },
+      "oracle": {
+        "tokens": 233.8,
+        "psnr_raw": 19.23707303662693,
+        "lpips_normalized": 0.14881579875946044,
+        "clip_clipped": 0.7971392035484314
+      },
+      "crc": {
+        "tokens": 212.6,
+        "psnr_raw": 18.28872332198793,
+        "lpips_normalized": 0.15999026894569396,
+        "clip_clipped": 0.7771583557128906
+      }
+    }
+  ]
+}

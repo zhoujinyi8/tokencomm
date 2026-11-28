@@ -1,0 +1,17 @@
+{
+  "all_checks_passed": true,
+  "lock_sha256": "a07a69fb51b687ba3c5e245b5dfdb43d10d9decbe8ccf44a48d5925f06c678fd",
+  "image_index": 3,
+  "trial": 4,
+  "snr_db": 6.0,
+  "received_container_sha256": "b7832de4fcdd6dd1ceba9b27cae115cec56b78fd93a1267eeb52d7d7fe957ec8",
+  "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+  "pixel_sha256": "c8f8d03a266bddbe1c3235d13229615c93c6c1eac054eee4ba9353aa0ab63437",
+  "reconstruction_sha256": "57f9c6780857b94e2725255207665d5d2286af56aff347c0ce40bb68206f9c1c",
+  "psnr_decoded": 8.611568004245228,
+  "lpips_normalized": 0.7254502177238464,
+  "clip_clipped": 0.5120455622673035,
+  "new_native_decoder_forwards": 1,
+  "encoder_called": false,
+  "paper_baseline_ready": false
+}

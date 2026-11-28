@@ -1,0 +1,28 @@
+{
+  "script_sha256": "ebca23f933d0bbc7e4e1dda162af1b752ce7f07fb514d4a985419c4cc11bc9b2",
+  "plan_sha256": "8da44f40101d2fadbee9fa6dc47f1be48a9190734e16c12fc236113b67710fed",
+  "preregistered_plan_sha256": "3b71a6ceb98ff8bddd6b8bd9e8dfc3067c0e3fc13531d2f5336bcf678d90de7a",
+  "baseline_complete_audit_sha256": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+  "helper_sha256": "1c64f425c6325f7b9c4a24cf4af839f694cdda163e3f7a532883834618312f5f",
+  "simulator_sha256": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167",
+  "passed": 2,
+  "failed": 0,
+  "model_inference_performed": false,
+  "diagnostic_phy_simulations": 2,
+  "study_phy_simulations": 0,
+  "method": "high-SNR round trip; not a mathematically noiseless channel",
+  "cases": [
+    {
+      "image_index": 0,
+      "snr_db": 80,
+      "bit_errors": 0,
+      "token_errors": 0
+    },
+    {
+      "image_index": 9,
+      "snr_db": 80,
+      "bit_errors": 0,
+      "token_errors": 0
+    }
+  ]
+}

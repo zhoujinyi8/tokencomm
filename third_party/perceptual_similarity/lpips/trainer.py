@@ -80,7 +80,7 @@ class Trainer():
 
         if(printNet):
             print('---------- Networks initialized -------------')
-            networks.print_network(self.net)
+            lpips.print_network(self.net)
             print('-----------------------------------------------')
 
     def forward(self, in0, in1, retPerLayer=False):

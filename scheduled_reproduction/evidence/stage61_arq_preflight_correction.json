@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-27T09:41:32.741935+00:00",
+  "failure": "QAM Mapper adds a final singleton when last input axis contains one four-bit symbol; expected batch shape required flat 104-bit packet axis",
+  "failure_phase": "first noiseless preflight before any channel sampling",
+  "old_cache_script_sha256": "dc1a183b77ec3682a61aabed3a994beb241f4d8858cddd7ab48866a0e7eafaae",
+  "old_lock": "stage61_packet_arq_lock.json",
+  "new_lock": "stage61_packet_arq_lock_v2.json",
+  "formal_frame_experiments_at_correction": 0,
+  "successful_diagnostic_frames_at_correction": 0,
+  "preregistered_plan_changed": false
+}

@@ -1,0 +1,22 @@
+{
+  "plan_sha256": "38da835f7a0bbe33e7976c7431e07357c5311a2e5b8ffcfb0c592589ab1919f5",
+  "driver_sha256": "a255d94414d0480a708976062a11e6cc97a3435272a63147802c88fe3d2e7170",
+  "case_index": 0,
+  "metrics": {
+    "case_index": 0,
+    "plan_sha256": "38da835f7a0bbe33e7976c7431e07357c5311a2e5b8ffcfb0c592589ab1919f5",
+    "received_sha256": "b7832de4fcdd6dd1ceba9b27cae115cec56b78fd93a1267eeb52d7d7fe957ec8",
+    "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+    "pixel_sha256": "c8f8d03a266bddbe1c3235d13229615c93c6c1eac054eee4ba9353aa0ab63437",
+    "psnr_decoded": 8.611567915805797,
+    "encoder_called": false,
+    "child_sha256": "0361f0af79168ce7aa78d716e733cec84ec5e4606a81b31db672c5ff69a4141a"
+  },
+  "exit_code": 0,
+  "outcome": "decoded_finite_pixels",
+  "child_result_sha256": "968f11a5d7611741e6dbaf6a09cda7a49cf5c16091d88df293516829520746f2",
+  "elapsed_seconds": 17.280999999988126,
+  "all_checks_passed": true,
+  "post_hoc_failure_mechanism_probe": true,
+  "no_cohort_quality_claim": true
+}

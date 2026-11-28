@@ -1,0 +1,70 @@
+"""Report frozen holdout execution coverage without interim performance selection."""
+import hashlib
+import json
+import zipfile
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+import numpy as np
+from pretrained_vq import sha256
+
+root=Path(__file__).resolve().parent
+run=root/'runs';outputs=root.parents[2]/'outputs'
+audit=json.loads((run/'stage45_cache_audit.json').read_text(encoding='utf-8'))
+completed=[]
+for path in sorted((run/'stage46_holdout_recovery').glob('image[0-9][0-9][0-9]_trial[0-4].npz')):
+    image=int(path.stem[5:8]);trial=int(path.stem[-1])
+    with np.load(path) as x:
+        assert all(x[name].shape==(256,) for name in ('direct','oracle','crc','soft_gate_0.05','soft_gate_0.1','soft_gate_0.25'))
+        assert x['recovery_lock_sha256'].item()==sha256(run/'stage46_recovery_lock.json')
+        phy=run/f'stage45_holdout_phy/image{image:03d}_trial{trial}.npz'
+        assert x['source_phy_sha256'].item()==sha256(phy)
+    completed.append({'image_index':image,'trial':trial,'sha256':sha256(path)})
+metric_audit_path=run/'stage47_metric_file_audit.json'
+metric_audit=json.loads(metric_audit_path.read_text(encoding='utf-8')) if metric_audit_path.exists() else {}
+metric_cases=metric_audit.get('metric_receptions_saved',0)
+summary_path=run/'stage47_complete_holdout_summary.json'
+aggregated=summary_path.exists()
+if aggregated:
+    summary=json.loads(summary_path.read_text(encoding='utf-8'))
+    assert metric_cases==len(completed)==summary['complete_receptions']==500
+    assert summary['complete_images']==100 and summary['protocol_sha256']==sha256(run/'stage44_frozen_protocol.json')
+summary_status='完整的六路径图像指标已按图像先平均五轮、再平均 100 图生成，见 stage47_complete_holdout_summary.json' if aggregated else '完整的恢复 PSNR、LPIPS、CLIP 汇总尚未计算'
+next_status='本次冻结留出评估和全量配对汇总已完成，下一步核对论文 TCE、重传对照、CMI 消融及多 SNR 差距。' if aggregated else '继续完成缺失的恢复组和逐组图像指标，再按每张图五轮均值进行全 100 图的配对汇总。'
+progress={'expected_images':100,'expected_receptions':500,'completed_recovery_cases':len(completed),
+          'metric_receptions_saved':metric_cases,
+          'complete_five_trial_images':sum(sum(c['image_index']==i for c in completed)==5 for i in range(100)),
+          'complete':len(completed)==500,'metrics_aggregated':aggregated,'cases':completed}
+(run/'stage46_recovery_progress.json').write_text(json.dumps(progress,indent=2),encoding='utf-8')
+report_date=datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=8))).date().isoformat()
+report=outputs/f'TokCom_第四十五至四十六阶段新留出执行进度_{report_date}.md'
+report.write_text(f'''# TokCom 第四十五至四十六阶段：新留出执行进度
+
+按照第四十四阶段冻结协议，已经完成作者 token 编码 {audit['encoded_images']}/100 张、物理接收缓存 {audit['phy_cases']}/500 组。每个图像 token 文件和每次接收文件均原子保存，并检查图像身份、形状、取值范围、种子和协议哈希。新留出集现在已经进入固定评估流程，不能再作为策略调参数据。
+
+作者恢复完成 {progress['completed_recovery_cases']}/500 组，其中五轮齐全的图像 {progress['complete_five_trial_images']}/100。每组保存直接接收 token、作者真值比较掩码恢复、接收端 CRC 掩码恢复，以及 5%、10%、25% 软路径代价门控输出。没有读取新留出指标来选择分支、比例或模型。若不完整，应续跑缺项，不把已完成部分当作全部 100 图的最终性能。
+
+编码、物理层和恢复入口分别有执行前脚本哈希锁，续跑发现脚本或协议不一致会拒绝继续。作者参数、真实类别、随机种子、掩码、分包和门控定义沿用冻结协议。固定口径的逐组图像指标已保存 {metric_cases}/500 组，每组对应六条路径；{summary_status}。
+
+GitHub 同步目标为已有项目 zhoujinyi8/tokencomm 的独立分支 reproduction/automation-30-20261122，内容放在 scheduled_reproduction，保持与仓库原有阶段编号的区别。同步代码、报告、冻结清单和机器审计，不上传留出原图、预训练权重或大体积生成缓存。实际推送结果以本轮回复提供的提交链接为准。
+
+下一步：{next_status}全量汇总入口在任一组缺失时拒绝生成正式均值。当前仍是单一 8 dB、固定生成种子和作者类别信息假设，论文 TCE 曲线、重传对照、CMI 消融及多 SNR 复现尚未完成。工程反馈控制协议是独立扩展；项目级数据去重不能排除公开预训练重叠。
+''',encoding='utf-8')
+names=['cache_stage45_holdout_tokens.py','cache_stage45_holdout_phy.py','audit_stage45_caches.py',
+       'audit_stage46_outputs.py','record_stage46_provenance.py',
+       'evaluate_stage47_frozen_metrics.py','summarize_stage47_complete_holdout.py','restore_stage44_images.py',
+       'run_stage46_frozen_recovery.py','runs/stage45_encoder_lock.json','runs/stage45_phy_lock.json',
+       'runs/stage45_cache_audit.json','runs/stage46_recovery_progress.json','runs/stage44_frozen_protocol.json']
+if (run/'stage46_recovery_lock.json').exists():names.append('runs/stage46_recovery_lock.json')
+for name in ['stage46_output_audit.json','stage46_environment.json','stage47_metrics_lock.json','stage47_metric_file_audit.json','stage47_complete_holdout_summary.json']:
+    if (run/name).exists():names.append('runs/'+name)
+items=[(name,root) for name in names]+[(report.name,outputs)]
+manifest={name:hashlib.sha256((base/name).read_bytes()).hexdigest() for name,base in items}
+target=outputs/'TokCom_stage45_46_frozen_holdout_progress.zip'
+with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as z:
+    for name,base in items:z.write(base/name,name)
+    z.writestr('SHA256_manifest.json',json.dumps(manifest,indent=2))
+with zipfile.ZipFile(target) as z:
+    assert z.testzip() is None
+    assert all(hashlib.sha256(z.read(name)).hexdigest()==digest for name,digest in manifest.items())
+print(json.dumps({k:v for k,v in progress.items() if k!='cases'},indent=2))
+print(report)

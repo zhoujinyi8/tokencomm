@@ -1,0 +1,26 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "58ef34afaba44e6b63deb07aed9f8d3e93305add74861be0afb1d3dac1797d03",
+  "plan_sha256": "86060600064840b8b018352234038e191a6bde4ad352c47f0cdd0c2e7bdc8f18",
+  "runtime_helper_sha256": "a7ccaeb21501c7f1052e0d2d409af743d61c1e728cd5bfbdc5298bb925263e81",
+  "optimizer_updates": 1,
+  "main_parameter_tensors": 122,
+  "changed_parameter_tensors": 122,
+  "finite_gradient_tensors": 122,
+  "gradient_norm_before_clip": 0.5820720195770264,
+  "training_loss": {
+    "bpp_loss": 0.1338956505060196,
+    "mse_loss": 0.0007494362653233111,
+    "loss": 0.13876886665821075
+  },
+  "aux_loss": 172.016357421875,
+  "checkpoint_path": "pretrained\\cheng_smoke\\anchor_one_update.pt",
+  "checkpoint_sha256": "7f599ab879617f2433d2bd5709a6561d8b700860de171aa9f86af67efb569a30",
+  "reloaded_decode_max_abs_difference": 0.0,
+  "image_sha256": "00ebff9460d5f732b9e6f498aa4ed594e71a0238853237cb884cb3094419d6f9",
+  "stock_weights_unchanged": true,
+  "frozen_evaluation_images_used_for_training": false,
+  "rate_match_established": false,
+  "paper_baseline_ready": false,
+  "full_paper_reproduction_complete": false
+}

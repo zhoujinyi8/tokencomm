@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-28 06:05:30 UTC",
+  "author_repo": "liqiao19/TokenCom_Code",
+  "observed_head_sha": "0422ed32dcde3347e0bb6697f343f7a9ff7b3214",
+  "initial_public_release": {
+    "ref": "640b61ff3380d7906039633cf2b7bf089bf95ce6",
+    "git_blob_sha": "499852d8b6568beb2e2ced6d18130f7847b57018",
+    "config_lines": [
+      "        self.num_images = 40",
+      "        self.class_indices = [503, 498]",
+      "        self.snr_list = [5, 7]"
+    ]
+  },
+  "observed_issue_url": "https://github.com/liqiao19/TokenCom_Code/issues/1",
+  "observed_issue_comments": 0,
+  "source_version": "arXiv:2502.12096v5 (2026-07-03)",
+  "paper_target_bpp": 0.04,
+  "source_version_alignment_established": false,
+  "external_messages_sent": false
+}

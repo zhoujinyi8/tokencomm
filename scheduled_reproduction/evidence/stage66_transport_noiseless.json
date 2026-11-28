@@ -1,0 +1,21 @@
+{
+  "plan_sha256": "ea772f966d429357627a759eff947c550a74b16962cbe5178462dde79a6267ec",
+  "worker_sha256": "4268ed0e372bcbed68e4d17884e20841e92ace2e18b6ce47e64ee4929a3e13d8",
+  "passed": 2,
+  "failed": 0,
+  "cases": [
+    {
+      "image_index": 0,
+      "packets": 42,
+      "observations": 42,
+      "all_policies_exact": true
+    },
+    {
+      "image_index": 9,
+      "packets": 86,
+      "observations": 86,
+      "all_policies_exact": true
+    }
+  ],
+  "added_channel_noise": false
+}

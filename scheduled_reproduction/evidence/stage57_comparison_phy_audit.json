@@ -1,0 +1,1063 @@
+{
+  "plan_sha256": "f52b00b26b41dc7dea7e674679e526487145e47b9d09f425f28e723913e0fe83",
+  "all_checks_passed": true,
+  "complete": true,
+  "complete_pairs": 50,
+  "pipeline_receptions": 100,
+  "new_phy_simulations": 50,
+  "demo_phy_reused": 50,
+  "cases": [
+    {
+      "image_index": 0,
+      "trial": 0,
+      "source_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "acc9ba595c84c3391e899f101d77b03c4152eb8f392197c9451e16167c208552",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 8
+        },
+        "training_code_convention": {
+          "phy_sha256": "4a9d39db56d3f842f894123b71b6aa03a33492dd3161856d8ddf9f1b7b8836c1",
+          "true_error_packets": 3,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 0,
+      "trial": 1,
+      "source_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "ea92bf3acbbc51a0b838d2000c5485621f9ba0fdc7f6e7632d8bb171959f2ca9",
+          "true_error_packets": 9,
+          "wrong_tokens": 10,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "d59c11a963cc6dbf805bb9bb7569569d75fa572a1fac2284bd267092946ed8e2",
+          "true_error_packets": 6,
+          "wrong_tokens": 8,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 0,
+      "trial": 2,
+      "source_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "7cdadb9350f66da714ea2541477c821cf76da8e338ab5659b9b93d3974eedfde",
+          "true_error_packets": 3,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 7,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "78ddee976f9687b0217ecde1a802201aeb746a49bdc7f01a8d8793804a689be5",
+          "true_error_packets": 6,
+          "wrong_tokens": 8,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 5
+        }
+      }
+    },
+    {
+      "image_index": 0,
+      "trial": 3,
+      "source_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "c2e9249a933a4f48c5c6aff43870afcfcce1da47d460f70bb5e80a9233211b77",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "9b3860486decc8654a953d3fac9f2b2cbf2ec39c651964f37aacac69b50b2fb3",
+          "true_error_packets": 4,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 7,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 0,
+      "trial": 4,
+      "source_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "7b6ec8b4caf9a5de6e6bfd751cba7c53ef2346740a4cfd696a817267f49b1985",
+          "true_error_packets": 5,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "1b61850cb205f36ae0fec6793adf2f0f1262372814f4864388256a0a052396e1",
+          "true_error_packets": 5,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 1,
+      "trial": 0,
+      "source_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "608cc7e9a6a44717c718dceccb3b191f63b027afdac10ca93ec07c4b7f5fa74b",
+          "true_error_packets": 7,
+          "wrong_tokens": 8,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 3
+        },
+        "training_code_convention": {
+          "phy_sha256": "97dabbcd2597cd701db3cd53be7e70ed45e3b101bc7a72b51c5145196c65f5fa",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 1,
+      "trial": 1,
+      "source_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "78c2cab6abbd5a1f6903ee8356610c24abcece8c43763c05754e6907df77d09b",
+          "true_error_packets": 5,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "2df1aba98605c393e6ef492b2d870817daffe470f17132fa633bd1bebfc02afa",
+          "true_error_packets": 7,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 14,
+          "crc_failed_data_correct_packets": 7
+        }
+      }
+    },
+    {
+      "image_index": 1,
+      "trial": 2,
+      "source_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "faf1c718d7fdb8f1cafcc685962d7c72275e3b0f6d88ef51d5ea9397c8287f34",
+          "true_error_packets": 7,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "ff4bdc391e39c2bb64e8257918372b93c63a27d8ee63605a6bbf87ab1f967d4c",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 5
+        }
+      }
+    },
+    {
+      "image_index": 1,
+      "trial": 3,
+      "source_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "c0b90e776065ff407f5e957c525e5b65a9332e1fd2d9b0a9db953ba65d1d3221",
+          "true_error_packets": 7,
+          "wrong_tokens": 9,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "57e2583768113e6930cdf795f6ded646815b8746311f8697995bfff3e010e083",
+          "true_error_packets": 5,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 7
+        }
+      }
+    },
+    {
+      "image_index": 1,
+      "trial": 4,
+      "source_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "f656f2052cd4bc20be9e35171fab2e2df49519c9cdc909489ec17bd7a4b5b2d1",
+          "true_error_packets": 3,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "3956047a084f7e6a76611b2540dc54f18f5b13e2d1761382c27235bf44d80da2",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 2,
+      "trial": 0,
+      "source_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "1085abf43101ba6cb12545587cf089100ed29090e7c19c76ac48a756efbbcbe5",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 8
+        },
+        "training_code_convention": {
+          "phy_sha256": "59dfb7633c8ceb061c557b7420ea607851eca998c18d9e4832d2444a43e25a3f",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 6,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 2,
+      "trial": 1,
+      "source_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "f5c2e0a62affa23537238fb0cec2bbc7033771192816858600eb6e755246d7cb",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "b994602aea1888a44bb95a38ca1e47a249238374b26e544dabe9edfcda149927",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 2,
+      "trial": 2,
+      "source_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "95189d188fef953cfe09d840a78a1307365fb8cc19c04353eef8e6259f2bfce5",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "3f6f78a95dc050c887edbe6977508a5ac1bce128dd91fdf7247a4db4e709220f",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 2,
+      "trial": 3,
+      "source_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "31fb1f033f43052e7cc8ad75d374911a1ca4b3d283d4c3478126bd93e7287bb3",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "d885bb0ca2ef4e05f16db8b91229c2e89811d0bbc6feba05bb2271b0594b6ac5",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 2,
+      "trial": 4,
+      "source_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "9c063365de6b8eeacd12d22b994bc5348c3bf653f77c23c4a6fd17eeb15580dd",
+          "true_error_packets": 8,
+          "wrong_tokens": 9,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "c58ae13a4ef8b374bb455c6ce63518d4eb4be2489a88f6cb3f84c5f2bf9e00cd",
+          "true_error_packets": 4,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 3,
+      "trial": 0,
+      "source_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "6df821e28f53d073e8bc16fb5ee8b98992110aa308b8150521a358e8817a90e5",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 4,
+          "crc_failed_data_correct_packets": 2
+        },
+        "training_code_convention": {
+          "phy_sha256": "e8588726d25f99424543b7a232eff163df07648f1cc320074d7a0117fae4fca7",
+          "true_error_packets": 1,
+          "wrong_tokens": 1,
+          "crc_failed_packets": 4,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 3,
+      "trial": 1,
+      "source_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "ee9e6df3e921a40199525fcce987563d0d39dfeaf9d1703248c33add3455c534",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 6,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "4cf5a4db81f0c174f3ba9bb9e0072b90b219b0259d02fb45d67994282a5a76f8",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 3,
+      "trial": 2,
+      "source_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "3853cb36803a14c2662728bf86c82c1148ee8ca0cce7cdbc3848bd2ccdc63486",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "6b274533b7c492220290c80ec1b3d582aa746c9e4bfa06c47d410e0b96816c7c",
+          "true_error_packets": 3,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 9
+        }
+      }
+    },
+    {
+      "image_index": 3,
+      "trial": 3,
+      "source_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "ff50bb44704156feeb8e24dfef9aa93e334e1d5b77d67babf7760ca3f3e16b99",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 10
+        },
+        "training_code_convention": {
+          "phy_sha256": "bf9c78df8463624473d364b71b0e3776ab592a61f143a732bfd0ecbf7dec48a6",
+          "true_error_packets": 6,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 7
+        }
+      }
+    },
+    {
+      "image_index": 3,
+      "trial": 4,
+      "source_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "6032d870e64627c217b82a04c692afa54704b4ec917fb9fe81e7bf06bbdd6754",
+          "true_error_packets": 3,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 7
+        },
+        "training_code_convention": {
+          "phy_sha256": "42e1ba766b34b42bd019713852ac370cbf5730151c7666ffb0882783f42c93ac",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 9
+        }
+      }
+    },
+    {
+      "image_index": 4,
+      "trial": 0,
+      "source_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "24da784852fd1e0c85c0ad56b23eb8bde705b133ff1c8bf82281565e711e0c43",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 8
+        },
+        "training_code_convention": {
+          "phy_sha256": "111df06f363f4f65b0d59b2726ba25878005a6c4c19ca94dc105da982778d886",
+          "true_error_packets": 3,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 4,
+      "trial": 1,
+      "source_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "927a5f3dee2f197adda6cfe3fa2cb4ef268af0a1c27692f325baad57c269b5c2",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 3
+        },
+        "training_code_convention": {
+          "phy_sha256": "c54d0da5c5c81a7b0d1d8a655c1af3251f14ec291dcd0667ef5d2f56b9c24f40",
+          "true_error_packets": 6,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 14,
+          "crc_failed_data_correct_packets": 8
+        }
+      }
+    },
+    {
+      "image_index": 4,
+      "trial": 2,
+      "source_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "3e3b0ec9f50c023af669c724ed7f601bab6d360c2606a6161c6ca48bf732417d",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "5baa149a852e8bcf2ead796d243b67272d17cfe101d5265c4c8fdc555567a122",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 4,
+      "trial": 3,
+      "source_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "8204d559b938ac029c714da0e1a1fcee937395d291eebd92f255f5bb9201f199",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 7
+        },
+        "training_code_convention": {
+          "phy_sha256": "85061101d3d75f1525518a12fd2f9065777d709c5a930d43a454730691a9eb8a",
+          "true_error_packets": 3,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 4,
+      "trial": 4,
+      "source_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "ac6a0104647963b845c7a22aa1148ef4f02cd4f39718158f484041bf01ba5fbc",
+          "true_error_packets": 1,
+          "wrong_tokens": 1,
+          "crc_failed_packets": 7,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "5919efe9a3938e227e6494d23bdc1d9062f7fd627ae5072e7186b9a25d855b42",
+          "true_error_packets": 6,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 5,
+      "trial": 0,
+      "source_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "0e9f0d65ecaade5def0247d245924571139ebb530353f631e36cf7945f6dd1c3",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 6,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "82c0e35927604b15fe1547beb0349f644c85a015a07057cb6c66c90aadb09547",
+          "true_error_packets": 6,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 5,
+      "trial": 1,
+      "source_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "04d799decb53f6e537bd8b7cb7b2e5d482f9b4db97896da496409634892af6f7",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 5,
+          "crc_failed_data_correct_packets": 3
+        },
+        "training_code_convention": {
+          "phy_sha256": "9d35f55abcc3403320a54584b0aac60408f183197a92da13429638abdc8fcc07",
+          "true_error_packets": 7,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 2
+        }
+      }
+    },
+    {
+      "image_index": 5,
+      "trial": 2,
+      "source_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "aa40555ba6f2e90d298632978fbd25f18e8732a6b458f3d886d8af39dcafa4ca",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 7,
+          "crc_failed_data_correct_packets": 2
+        },
+        "training_code_convention": {
+          "phy_sha256": "4d1ea2a384c09196c0305419850583eab2d200ebd6bbd2ccda9c8d1805d36b4a",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 5,
+      "trial": 3,
+      "source_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "b8dc1050bd60e7c3d30b125e534ec8cc5007da5a6bddd2f41dbca5712fef4784",
+          "true_error_packets": 6,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 19,
+          "crc_failed_data_correct_packets": 13
+        },
+        "training_code_convention": {
+          "phy_sha256": "30c6ef5700e24d10bed4ce5849fa97627028ca342f56b085cce91f61cbfdbb38",
+          "true_error_packets": 7,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 15,
+          "crc_failed_data_correct_packets": 8
+        }
+      }
+    },
+    {
+      "image_index": 5,
+      "trial": 4,
+      "source_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "c32816a679916b7e7ffc75d897f2099b8c22201992b83753a198fd256c11fb61",
+          "true_error_packets": 5,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "29b748a88afa01e6bae0597334a7a3fefe34581edda1b235ab6ea9ad30b48c53",
+          "true_error_packets": 5,
+          "wrong_tokens": 9,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 5
+        }
+      }
+    },
+    {
+      "image_index": 6,
+      "trial": 0,
+      "source_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "7c2fb2d6dc1388ecf6aa463661eb5e44c3c9d82d51034aa01fd1a2bfe96c7aa5",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "93c52a1393b22acc22017dead96f4a1998b64b97085702eba2f6ce9483987eee",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 6,
+      "trial": 1,
+      "source_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "a641f1ccb63039693902021ce2350354707e69f17a19bf49fcda74949297c7f0",
+          "true_error_packets": 0,
+          "wrong_tokens": 0,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 8
+        },
+        "training_code_convention": {
+          "phy_sha256": "5621fbc4e18dc3a2366b3fdb50f34db896b1401cf927aeb7191910078df2368c",
+          "true_error_packets": 3,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 6,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 6,
+      "trial": 2,
+      "source_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "b27cf08067d3feeb2d637a34572bbd00378eba0509471be5dc86e717408c5b5c",
+          "true_error_packets": 3,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 7,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "c77b4aa30981234388dd430e3398ab81c877a9db95e29099bc06da49c81544fe",
+          "true_error_packets": 7,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 6,
+      "trial": 3,
+      "source_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "490c3920fb69a231db70437469044815979454a2a216acfb103ba12e66179d99",
+          "true_error_packets": 8,
+          "wrong_tokens": 11,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 2
+        },
+        "training_code_convention": {
+          "phy_sha256": "01df708b219e78c22b5681721873d3e7d3f3965fcc8f76a4a9f6711c0e014a21",
+          "true_error_packets": 1,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 8
+        }
+      }
+    },
+    {
+      "image_index": 6,
+      "trial": 4,
+      "source_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "790a9dcc15b99bf437d13d2bf48e7d51554c018d8f7800351e640fd1c49455ea",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 7
+        },
+        "training_code_convention": {
+          "phy_sha256": "6b568ca2a4393848ad618b30c2ed1d3a63b08c2d41ea29a8d784699681a528c3",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 6,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 7,
+      "trial": 0,
+      "source_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "398317979a06e6089539f810abbb3f51a0b7728621a13bc8d5cb878df6931d49",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 8
+        },
+        "training_code_convention": {
+          "phy_sha256": "69a3106e77aca2aaab4ffc508a1e49b56c7b160f89c96970082a90c2026a7b38",
+          "true_error_packets": 3,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 4,
+          "crc_failed_data_correct_packets": 1
+        }
+      }
+    },
+    {
+      "image_index": 7,
+      "trial": 1,
+      "source_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "7daa9ac2dab92ecb049dc3284c32342e22663f2e2ff18fabaff4dd50d9118df5",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 15,
+          "crc_failed_data_correct_packets": 10
+        },
+        "training_code_convention": {
+          "phy_sha256": "7f7322003ae0cc34db2fcfcad9746acb6b3ef6e122fe10fc382be3cf72727d97",
+          "true_error_packets": 7,
+          "wrong_tokens": 8,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 1
+        }
+      }
+    },
+    {
+      "image_index": 7,
+      "trial": 2,
+      "source_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "32cd3563ac5d5baee71033525bdf714aa088f3d157ff72a135a71aec20bc736f",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 8
+        },
+        "training_code_convention": {
+          "phy_sha256": "1f6407a3a65ab8e1377b3e712a5a27b7928acf693650852219fd3059ddbabc8f",
+          "true_error_packets": 5,
+          "wrong_tokens": 6,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 3
+        }
+      }
+    },
+    {
+      "image_index": 7,
+      "trial": 3,
+      "source_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "5c814e993503ceda7daaa8aa4ecbc703e0c2578600c744d3f441640ddc0a424e",
+          "true_error_packets": 3,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 9
+        },
+        "training_code_convention": {
+          "phy_sha256": "3068deaf5e3f527c94ff932524045b94c989add30c22d5c161ee457ed9fa28a8",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 7,
+      "trial": 4,
+      "source_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "078279a145bbe7e2ebe4b9dbc07038a421244fc5429c6007bd874607524c9bf1",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "45b4ff54cd2a1c8769a75962d5c9060ef0eaad9309430fbae66072e5c2b64466",
+          "true_error_packets": 4,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 8,
+      "trial": 0,
+      "source_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "17e9bcc87e9afa74bbc70207c4949793a51af161dec5ba2510b8e5fd50c5fa2f",
+          "true_error_packets": 9,
+          "wrong_tokens": 10,
+          "crc_failed_packets": 16,
+          "crc_failed_data_correct_packets": 7
+        },
+        "training_code_convention": {
+          "phy_sha256": "3cbd486996aaeceee6775d0a949ed9be16ba29aa0571f654eb5e92ca228acc60",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 7
+        }
+      }
+    },
+    {
+      "image_index": 8,
+      "trial": 1,
+      "source_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "61155cafac8d2390c2c8377761661f2974253b12497517c074835b35f3af8470",
+          "true_error_packets": 1,
+          "wrong_tokens": 1,
+          "crc_failed_packets": 7,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "d74f141287efa40854091586b8b5f375776878917fb8ffce0fdf83b66a2619c0",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 10
+        }
+      }
+    },
+    {
+      "image_index": 8,
+      "trial": 2,
+      "source_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "426a2f3c10a5c288b9cd56fa4ae55364d96d670b62697f90f1bc483f75fcc824",
+          "true_error_packets": 1,
+          "wrong_tokens": 1,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 9
+        },
+        "training_code_convention": {
+          "phy_sha256": "9aad40e2279b51e623e3fec9550cc8ca84ed19c30007e747cc72cbf7c56d224d",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 8,
+      "trial": 3,
+      "source_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "4ae06ae260b32c28ac3217cdfb3cd86f42151c311de7d1b4fe4e41a46914967c",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "b8e4c88fd31e2b6fd86e6a01f275948e129c1f8bb2d2f580f1e79a444522f6f9",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 5
+        }
+      }
+    },
+    {
+      "image_index": 8,
+      "trial": 4,
+      "source_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "970219937cf7a7c2967b805d10ae2577f8ed71510f577d25750d26273d019e3a",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "15765f6e496862f93372a1fffe385fae7fc633583014ad8c8c8f547f90cd1d89",
+          "true_error_packets": 2,
+          "wrong_tokens": 2,
+          "crc_failed_packets": 6,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 9,
+      "trial": 0,
+      "source_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "1f23330be4be031a0f28b7152be0028a314825cd9931c933663dab40f4cc074c",
+          "true_error_packets": 8,
+          "wrong_tokens": 11,
+          "crc_failed_packets": 17,
+          "crc_failed_data_correct_packets": 9
+        },
+        "training_code_convention": {
+          "phy_sha256": "767816b31d00d24e88cd58ec0f2d66c13fc7edc3c81408107a3aa7e4384517c5",
+          "true_error_packets": 2,
+          "wrong_tokens": 3,
+          "crc_failed_packets": 8,
+          "crc_failed_data_correct_packets": 6
+        }
+      }
+    },
+    {
+      "image_index": 9,
+      "trial": 1,
+      "source_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "0c93b5be0d7614250f4d7c6bcaaa4446158ae6c09193371b98148706de012836",
+          "true_error_packets": 6,
+          "wrong_tokens": 8,
+          "crc_failed_packets": 11,
+          "crc_failed_data_correct_packets": 5
+        },
+        "training_code_convention": {
+          "phy_sha256": "47357996ab10f2efd334a1caea707430baaf03b5865b38e14bd41615692cc973",
+          "true_error_packets": 5,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 9,
+          "crc_failed_data_correct_packets": 4
+        }
+      }
+    },
+    {
+      "image_index": 9,
+      "trial": 2,
+      "source_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "f80728fdf2a188095236634aa8d2f84f96426bf9bf136ee980ea7d3d02be3c39",
+          "true_error_packets": 6,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 7
+        },
+        "training_code_convention": {
+          "phy_sha256": "edaaa2da164e7a296fd284177007a86386cb8b61d71e9cac731416e13ea33b7a",
+          "true_error_packets": 4,
+          "wrong_tokens": 4,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 8
+        }
+      }
+    },
+    {
+      "image_index": 9,
+      "trial": 3,
+      "source_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "4f880f6cebb36571ccb08ccf6ba47cf91d7e5927af5cf35a968f99c71b77d532",
+          "true_error_packets": 7,
+          "wrong_tokens": 8,
+          "crc_failed_packets": 13,
+          "crc_failed_data_correct_packets": 6
+        },
+        "training_code_convention": {
+          "phy_sha256": "7a7b393dff6e5579e9e55ae3eedda19ec21ef811237a2ee293914bc5518efcbd",
+          "true_error_packets": 6,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 14,
+          "crc_failed_data_correct_packets": 8
+        }
+      }
+    },
+    {
+      "image_index": 9,
+      "trial": 4,
+      "source_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "pipelines": {
+        "demo": {
+          "phy_sha256": "f4a26d9394f5c0d1868579b3905eb18ae5b3c275e38738a644ec6c43b237bcdd",
+          "true_error_packets": 6,
+          "wrong_tokens": 7,
+          "crc_failed_packets": 10,
+          "crc_failed_data_correct_packets": 4
+        },
+        "training_code_convention": {
+          "phy_sha256": "e8491b9301f15da0646d3a06b50cfd5209e444c5a35e988fc3dcc6cba15cabe8",
+          "true_error_packets": 4,
+          "wrong_tokens": 5,
+          "crc_failed_packets": 12,
+          "crc_failed_data_correct_packets": 8
+        }
+      }
+    }
+  ],
+  "primary_holdout_changed": false,
+  "model_quality_aggregated": false
+}

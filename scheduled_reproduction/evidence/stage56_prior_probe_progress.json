@@ -1,0 +1,20 @@
+{
+  "plan_sha256": "510434602dc53b591c1509f48535f7847608b9b19cc1618a0cb229226864db14",
+  "lock_sha256": "6286948f419b0c689514a9aebdcfbf7db0e240854e408048fb4f055637cc1437",
+  "complete_images": 10,
+  "complete": true,
+  "case_sha256": {
+    "image00.json": "87844d1fdb26d28738aa60bc3486dc00fc2f9fb14410bb5ede13c8c94811b356",
+    "image01.json": "d7b253858570393b299adf6bd887d7b05021436b156f7f7660cfe900164e8594",
+    "image02.json": "6c85d526e513b7482d74ed2097aa8acc7fddda234469049faaf381e76140fa61",
+    "image03.json": "af36b3bdfab27c18b6be13a75823cc139f98a89a80990be13d39f58f412850ec",
+    "image04.json": "0a09f0412766d37ea37a827019c97f082a7cf26faab75b48c6c97db13e9b8588",
+    "image05.json": "bc8fc6c4d87943cfadd66de1da9eb48576901625627f404b7580fbc6ec5f34be",
+    "image06.json": "018ed17756bbc97f6e1440cc9cda14beb8b6df41d0e61376ebbf1c2ddc20601a",
+    "image07.json": "8643fd31df71cc7fe493ff3cfb4db87442615f28dfb155052e776e3d25bc880c",
+    "image08.json": "bf294895cde3b49f98c907af3fbfd6d52b8af6b622ad27b16f468b98708fed11",
+    "image09.json": "a162f309b4084caf12694342b89f485059421e01a2101bf4670dbe9ad437eca4"
+  },
+  "primary_holdout_changed": false,
+  "multisnr_plan_changed": false
+}

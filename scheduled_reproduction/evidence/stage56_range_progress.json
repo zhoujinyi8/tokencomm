@@ -1,0 +1,22 @@
+{
+  "plan_sha256": "88a83275dccf7cc0575ed86b216831ce97a25206f27eaeadb4056aefb3ae4858",
+  "lock_sha256": "f289c22277f1ad7fd9973366747f76d66fae5048980986adf8201383d539cb7b",
+  "completed_images": 10,
+  "expected_images": 10,
+  "complete": true,
+  "budget_reached": false,
+  "case_sha256": {
+    "image00.json": "eb0be8980874bb12b55dae5975ceab2039f830ce907f47fecef085f2e8f957b0",
+    "image01.json": "3625c9e2a13bf07b637e50e2e1fffc10427c5175bfc176b788a2fbc4132ab951",
+    "image02.json": "a73b2e785de9e6d00ae25e625a4ff2d53431260836583ed9587fb4937eace903",
+    "image03.json": "b04132e905823842499491d375c369c56ca2af1d86c2c98f005264fd30c12131",
+    "image04.json": "efe40ade578b3f6bbe9004500a4c886025f465a1104ed822767b262c45769584",
+    "image05.json": "3068528beeba4b4525d8f553ac5a3c58c7dfda25413fcd72229c05340d669f71",
+    "image06.json": "8cc5b10c36a56abb4abe9e2336a88830f0f5aa28dc7952173f44a35f0e374d50",
+    "image07.json": "014e7e7694ff98463638e40f4464993410632d09b5504b6d9ba8768893722a38",
+    "image08.json": "6884700fe21a0d86f05cf9a3a2f1e83903c9ad52e71c31cdf9191d88ecf44ae6",
+    "image09.json": "d9f18212fb94c27f26e18aa3ed9a98527baea5f69c02bfeaf45a08770f480367"
+  },
+  "primary_holdout_changed": false,
+  "multisnr_plan_changed": false
+}

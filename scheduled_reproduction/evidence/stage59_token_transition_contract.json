@@ -1,0 +1,15 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "network_used": false,
+  "model_inference_performed": false,
+  "script_sha256": "c1f568ca212f14e8516917055d306ba7b2f65a403e4cf9b8a9532a8833b17585",
+  "test_script_sha256": "fd871657303734f238d6c44581e87c29bee5dbf94e2bad4efa27cdf4df65c1df",
+  "checks": [
+    "identity",
+    "one repair",
+    "repair cancelled by damage",
+    "different wrong token and damage",
+    "unmasked modification rejected"
+  ]
+}

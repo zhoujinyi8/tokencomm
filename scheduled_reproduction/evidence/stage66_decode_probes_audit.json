@@ -1,0 +1,35 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "c024d6253b26d05ecc67defb98165e6b64629256f81b654ff68447172d22ee6e",
+  "probes": [
+    {
+      "probe": "stage66_decode_probe",
+      "cases": 6,
+      "outcomes": {
+        "header_rejected": 5,
+        "timeout": 0,
+        "native_process_failure": 0,
+        "decoded_finite_pixels": 1
+      },
+      "plan_sha256": "5da824176afd37c6a8c6d6a4a66db9919b27093eef8e8a165b7eb79fcffbfc13",
+      "result_sha256": "d7aca09d23f1377f2bf8797c4298a26373912ccc6b39fb78f6fbf5416cd37e23"
+    },
+    {
+      "probe": "stage66_crc_miss_probe",
+      "cases": 1,
+      "outcomes": {
+        "header_rejected": 0,
+        "timeout": 0,
+        "native_process_failure": 0,
+        "decoded_finite_pixels": 1
+      },
+      "plan_sha256": "38da835f7a0bbe33e7976c7431e07357c5311a2e5b8ffcfb0c592589ab1919f5",
+      "result_sha256": "0f306d71c8efb8fcd6de904f366c70b79526323c28f5c4f82a5be3f739712cca"
+    }
+  ],
+  "received_header_summary_sha256": "f483385c9442e2f36dc0a22551cb445f3f6e7472628b7cf36972edc6934eedfe",
+  "total_diagnostic_coordinates": 7,
+  "no_quality_imputation": true,
+  "no_whole_cohort_noisy_quality_claim": true,
+  "paper_baseline_ready": false
+}

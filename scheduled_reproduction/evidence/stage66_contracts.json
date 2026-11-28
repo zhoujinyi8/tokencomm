@@ -1,0 +1,40 @@
+{
+  "passed": 9,
+  "failed": 0,
+  "checks": [
+    "closest accepted entropy rate",
+    "partial grid refused",
+    "partial optimizer budget refused",
+    "duplicate calibration identity refused",
+    "nonfinite rate refused",
+    "invalid container ledger refused",
+    "no passing candidate means no selection",
+    "frozen tie order and development-only scope",
+    "container overhead cannot qualify entropy rate"
+  ],
+  "script_sha256": "f1f01f97d37e2beac0e1c64d1e0769765a366882788fe06d8cd6cd42b3313cf6",
+  "helper_sha256": "1b0ebb1cde4c9ecbf67819f03635c1726083ee21e63c34cc8ec1d60e57f27ac1",
+  "test_sha256": "0fb5c3bc8450dbe389e135285d212895e9572c18a21479184648a5df70c2a232",
+  "byte_transport_checks": {
+    "passed": 8,
+    "failed": 0,
+    "checks": [
+      "byte roundtrip including variable packet counts above 64",
+      "explicit big-endian bit ordering",
+      "wrong trailing length refused",
+      "out-of-range or malformed chunks refused",
+      "policy and packet batching order invariance",
+      "attempt noise independence",
+      "unambiguous variable-packet seed coordinates",
+      "actual replay supports non-64 packet count"
+    ]
+  },
+  "transport_source_sha256": {
+    "cheng_byte_transport.py": "a6942c03ba5de217a47a197dae92ace1142e0ca249f101485fc3caa418d06630",
+    "test_cheng_byte_transport.py": "a302c788536bdb62441c1c5c0bf01f5165adce8873a433e79ac9de51b2bb9a28"
+  },
+  "new_pure_checks": 17,
+  "prior_pure_ci_checks": 43,
+  "total_pure_ci_checks": 60,
+  "model_inference_performed": false
+}
