@@ -1,0 +1,158 @@
+{
+  "created_utc": "2026-11-28T10:56:19.577310+00:00",
+  "scope": "Independent clean-codec-container physical transport on ten development images, not paper baseline quality reproduction",
+  "selected_arm_id": "lambda_00015",
+  "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+  "grid_audit_sha256": "6800ac6762581e813acd35176ebcbbd7958d67e34728f7c170680e123dba8edf",
+  "streams": [
+    {
+      "image_index": 0,
+      "image_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image00.ch65",
+      "container_sha256": "1a16d56f119f4e62c5da33fbc6e0602f84cae3b5e7acdd2229aae7bc149eb96b"
+    },
+    {
+      "image_index": 1,
+      "image_sha256": "6913c4f1b79b7720e982063b379c808892e7aa4107035421ead12d9b630bcf8d",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image01.ch65",
+      "container_sha256": "94f36c533a2fceeaf8214e7e1d88b98e5cc7e3aa068d63d74692b6dd549de844"
+    },
+    {
+      "image_index": 2,
+      "image_sha256": "fb07b49d15c99822d14b1c443634934fb79e5a04b3183fa4d144afbccd5f0a45",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image02.ch65",
+      "container_sha256": "f441269d6ae2f14e512389000364b7d5e82b8528851585ee26741563f6e83302"
+    },
+    {
+      "image_index": 3,
+      "image_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image03.ch65",
+      "container_sha256": "8a0f3d64a4ca3a330aa29d80b42e3795007cea692cdb9f4591e2e4f2455e396d"
+    },
+    {
+      "image_index": 4,
+      "image_sha256": "0ffe7281ccd326fd131e322168694d06f7f6e5042c7b7e24fb35e822bccce313",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image04.ch65",
+      "container_sha256": "1a972cb3d042e973845e4a332276554fbc4978e974d74b9eda44bee760285d90"
+    },
+    {
+      "image_index": 5,
+      "image_sha256": "c5dde2c2b76cbc97918c1e2d57aa4c4a31a083b6d47b25aedc6ce44c73c81ea6",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image05.ch65",
+      "container_sha256": "1047b6a1701623eaca6a4946533e8fb2e93e14313547baef70bca79ea41af643"
+    },
+    {
+      "image_index": 6,
+      "image_sha256": "c3ac20e484b5d42e23cb915d2eb49a918f9aff61d0cd294f6b56eb3e4f496a99",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image06.ch65",
+      "container_sha256": "6fc9cee557fff0ed557cad1f7380b37325aa13efa676447495bb7b2ac3c77901"
+    },
+    {
+      "image_index": 7,
+      "image_sha256": "85f0be6820089f3a60a2ca500712122a4b02d4d413391a828ec5370b8f89ea84",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image07.ch65",
+      "container_sha256": "ed9de7e98a425aefb4104dc2cddf0ccd8b875bb8ab8edbab0b477d37e6d57a25"
+    },
+    {
+      "image_index": 8,
+      "image_sha256": "35280163ea51b6efe6e755a2355926f2755c5e8de2d93e9e24d108929c074712",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image08.ch65",
+      "container_sha256": "da507accbab1187b039729e763b2a13dea40c90e02eab235ccf419a94c8596b7"
+    },
+    {
+      "image_index": 9,
+      "image_sha256": "5dba9090d46479f8994d9018cc85741b93c008f830351adc40ff4cfd24a02149",
+      "container_path": "runs\\stage66_rate_calibration\\lambda_00015_image09.ch65",
+      "container_sha256": "4f31885fc199e489133006669e5f64f1931d82229d24ff2483cab2c716fadb5a"
+    }
+  ],
+  "trials_per_image": 5,
+  "snr_db": [
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    9.0
+  ],
+  "expected_frames": 300,
+  "maximum_attempts": 32,
+  "pilot_coordinates": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      9,
+      0
+    ],
+    [
+      9,
+      1
+    ]
+  ],
+  "pilot_expected_frames": 24,
+  "noise_seed_base": 2026112804,
+  "noise": "PCG64(SeedSequence([base,image,trial,snr_index,packet,attempt])); complex float32 AWGN variance=10**(-snr/10)",
+  "framing": "Contiguous bytes, zero pad last 5-byte packet, 40 payload bits + CRC11, conv [101,111] unterminated 102 bits +2 zeros ->26 16QAM symbols",
+  "stopping_rules": "single pass; first valid receiver CRC (including undetected wrong acceptances); first exact sender payload (ideal oracle only)",
+  "corruption_accounting": "Compare final reassembled container bytes only AFTER each stopping rule; never use truth to extend receiver CRC ARQ. Wrong/censored receptions remain in results.",
+  "decoder_policy": "Do not call native entropy decoder on corrupted streams. This study measures byte delivery and resources only; no noisy-image quality or channel-codec performance claim.",
+  "diagnostic_noiseless_images": [
+    0,
+    9
+  ],
+  "tensorflow_threads": 2,
+  "contract_sha256": "e6d18f86fed4c201c5603c1e16224eefb0e7a4f6f979514ac242f5a670429621",
+  "source_sha256": {
+    "cache_stage66_transport.py": "4268ed0e372bcbed68e4d17884e20841e92ace2e18b6ce47e64ee4929a3e13d8",
+    "audit_stage66_transport.py": "c7f610b69eabab84f4308735d85e54d75dd5011f509cfc42389fb80cbb9cb95a",
+    "cheng_byte_transport.py": "a6942c03ba5de217a47a197dae92ace1142e0ca249f101485fc3caa418d06630",
+    "packet_arq_accounting.py": "c271898601e187ca8d249caf4bdf359514fd9a46939c59815d0a1be8e53af391",
+    "smoke_stage25_sionna_link.py": "82b6cb1ae92020aea6ebbccdb59f487890ec4fa87808dc1aeaf92f4ff2592167"
+  },
+  "prior_frozen_artifacts": {
+    "stage44_frozen_protocol.json": "e71782b05620880888cdf898cfeab3ceb2cca6878f88dc76f4afe9327c698cc1",
+    "stage47_complete_holdout_summary.json": "c1590aef6aec5e4257a46ed79174dc8ce0f11b21d2bf7ee314a0804053d96979",
+    "stage59_development_recovery_audit.json": "b3810a4889c98108e18b88f421a8d817e1467a7d6c04bb096967683478e48436",
+    "stage58_session_comparison_audit.json": "3f3e50c51bb7d504bdc943d42d720185cff04b1f3121e196eec4f6b35096b273",
+    "stage64_session_audit.json": "c43928646826dad4a0a564dbdb6ac633272cf0607a6fc820d94d3273b12781ed",
+    "stage64_matched_arq_comparison.json": "63e196dc81622176d3f3d0c4f83968a9b1c7349d6b751273bbf199fc5349b5e4",
+    "stage65_attn_download_verification.json": "cbb303988fb020b8c74d5c0b607fe6a23dae8e68fd5e365fa82c2d561a419bc7",
+    "stage65_backend_smoke.json": "c88a3a2ad1f2fb810cc76c6d6f553f27f2c99ea4c5750a7bf6b800ddcc13f554",
+    "stage65_cheng_audit.json": "fdc0ca674aeba7eebb3109f1fa547d4b64002a1b1d22b4b014875144b9b28844",
+    "stage65_cheng_diagnostic_lock.json": "af83db3fa1f7312e664e1e1a0539891df741316fdb5d70e39071c30d18164994",
+    "stage65_cheng_diagnostic_plan.json": "7be91f30f55c89917f36cd33e5408da03b4b1bf8d1a1a7d4a93190da423a4bd0",
+    "stage65_cheng_packet_budget.json": "8207acd0b8d5cf0a5b6b4340ae03fd42905179172e775fe581733158ca8dc3fc",
+    "stage65_cheng_progress.json": "8193e20c7bc210c43bb9265c478a63fe36cdbf05b6cc508a4fd8b555053fdc46",
+    "stage65_container_contract.json": "582697c0f4e3e78f41136859e02a3962c309e3acaa5f61dc665fe7e2c0b18810",
+    "stage65_contracts.json": "77d2de55360c6e6a5db4d59b8f24cc449e4c71ba222bdc366556e9e9f3d66fa9",
+    "stage65_dependency_wheels.json": "cd4949fd603baf8590360249957d7af42243edbc7bca620b738fa73f7de1c56f",
+    "stage65_fresh_model0.json": "0c7829d6c8754a1aceec9da364b3d214615a11d945eabca97f2db5e947b927b5",
+    "stage65_fresh_model1.json": "83968b6e85058c3893135cf9d8a0fdf1ca0d9075bde3b0c04275d34fd9853841",
+    "stage65_gradient_smoke.json": "00535e58713dce7ca41d8d7ade892f390b834688a563c078f8ff915fe1204e84",
+    "stage65_gradient_smoke_audit.json": "5f5f65bfb86c22957adf1767767c5b49767b8005e082ff1e70cbfc6cac209360",
+    "stage65_gradient_smoke_plan.json": "86060600064840b8b018352234038e191a6bde4ad352c47f0cdd0c2e7bdc8f18",
+    "stage65_native_bootstrap.json": "161ff1c21b36b85a0134b9620825f1a237947cb1f88a88a819ba2b98f082dcc2",
+    "stage65_native_build.json": "a8bf0352611244fd6dffd092881503bb907c1fc4c30bf64e2964654ac043cf0b",
+    "stage65_protocol_gaps.json": "7c83cb360ea03609948a804f276b28e2b4122f7e86cf409a11f154844b7b7efc",
+    "stage65_rate_pilot.json": "b030fbff1bb37c0370cb8cec0235c4e67cff5a0929e94e259802438fdb682e2a",
+    "stage65_rate_pilot_audit.json": "520e02a2d8c77b6756552a292dd53486880d7494ba0b0e6e909da0bbe3e990ac",
+    "stage65_rate_pilot_plan.json": "f0e62e99e4da452777a44db1f958c73b3f10f5772de9628f96a677a9fab67ad9",
+    "stage65_remote_source_check.json": "4f206e53235f1e5e7284151bd9683165e953b9919af2c871d9e50298438b7264",
+    "stage65_stock_weights.json": "d3d62e2f1c046dc41f049c36e35738e0ae510eda4848c40f9fcf065a74f660fe",
+    "stage65_weight_download_deviation.json": "8de0b79c383026ca2bf52ff56a9e6d5212216ad9f754cd596774e4e60b6f1bfa"
+  },
+  "summary_gate": "Only complete 50-frame SNR groups receive rate/delivery means; otherwise coverage and exact aggregate counts only",
+  "custom_header_transmitted": true,
+  "shape_and_checkpoint_metadata_assumptions": "CH65 shape header is transmitted; checkpoint identity and original container size shared externally by the frozen plan",
+  "feedback_airtime_included": false,
+  "cmi_airtime_included": false,
+  "channel_header_identified": false,
+  "paper_baseline_ready": false,
+  "full_paper_reproduction_complete": false
+}

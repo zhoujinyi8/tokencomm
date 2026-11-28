@@ -1,0 +1,276 @@
+{
+  "all_checks_passed": true,
+  "complete": true,
+  "audit_script_sha256": "9c0d95b31de19ad4f729d0eab1aeb6acbc3e90389a457f1703b5dcda561f11d6",
+  "plan_sha256": "86d33f1fa2331aef9a5a14ecf207a345484ccba630e31613d1282e164787f845",
+  "source_result_sha256": "e58285dd135b8170f7dc8ec9688a489d9e9fe8dcc8525dcf978e4ebbbed85f92",
+  "arms": [
+    {
+      "arm_id": "lambda_00015",
+      "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+      "updates_completed": 100,
+      "calibration_cases": 10,
+      "fresh_decoder_checks": [
+        {
+          "image_index": 0,
+          "pixel_hash_equal": true,
+          "psnr_difference": 1.9352557245611024e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 1,
+          "pixel_hash_equal": true,
+          "psnr_difference": -3.6815847082039e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 2,
+          "pixel_hash_equal": true,
+          "psnr_difference": -3.374585766380278e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 3,
+          "pixel_hash_equal": true,
+          "psnr_difference": 3.9808266905083656e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 4,
+          "pixel_hash_equal": true,
+          "psnr_difference": -2.7796368939903005e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 5,
+          "pixel_hash_equal": true,
+          "psnr_difference": -2.0748337803411232e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 6,
+          "pixel_hash_equal": true,
+          "psnr_difference": -2.9166617565579145e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 7,
+          "pixel_hash_equal": true,
+          "psnr_difference": -2.6049519874504767e-08,
+          "encoder_called": false
+        },
+        {
+          "image_index": 8,
+          "pixel_hash_equal": true,
+          "psnr_difference": 2.0236671360862601e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 9,
+          "pixel_hash_equal": true,
+          "psnr_difference": -2.229921136631674e-07,
+          "encoder_called": false
+        }
+      ],
+      "optimizer_step_range": [
+        100,
+        100
+      ],
+      "aux_optimizer_step_range": [
+        100,
+        100
+      ]
+    },
+    {
+      "arm_id": "lambda_00025",
+      "checkpoint_sha256": "d793af364b04a7acb5680ae186b3155d8c76cf72ccba88acb182a39e9211d5ca",
+      "updates_completed": 100,
+      "calibration_cases": 10,
+      "fresh_decoder_checks": [
+        {
+          "image_index": 0,
+          "pixel_hash_equal": true,
+          "psnr_difference": 4.252989214137415e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 1,
+          "pixel_hash_equal": true,
+          "psnr_difference": 6.676254216131383e-08,
+          "encoder_called": false
+        },
+        {
+          "image_index": 2,
+          "pixel_hash_equal": true,
+          "psnr_difference": -1.585071949250505e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 3,
+          "pixel_hash_equal": true,
+          "psnr_difference": 2.7374539612878834e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 4,
+          "pixel_hash_equal": true,
+          "psnr_difference": 6.530786933467425e-08,
+          "encoder_called": false
+        },
+        {
+          "image_index": 5,
+          "pixel_hash_equal": true,
+          "psnr_difference": -1.493820036557736e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 6,
+          "pixel_hash_equal": true,
+          "psnr_difference": -3.354695152779641e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 7,
+          "pixel_hash_equal": true,
+          "psnr_difference": -4.206833281727995e-08,
+          "encoder_called": false
+        },
+        {
+          "image_index": 8,
+          "pixel_hash_equal": true,
+          "psnr_difference": 1.0236565373133999e-08,
+          "encoder_called": false
+        },
+        {
+          "image_index": 9,
+          "pixel_hash_equal": true,
+          "psnr_difference": 4.389174605989865e-07,
+          "encoder_called": false
+        }
+      ],
+      "optimizer_step_range": [
+        100,
+        100
+      ],
+      "aux_optimizer_step_range": [
+        100,
+        100
+      ]
+    },
+    {
+      "arm_id": "lambda_00040",
+      "checkpoint_sha256": "8353e2f05d71f580ed30b30e8efab400fdc72ef18ba0bb5dcc2f29ce76a1ec4f",
+      "updates_completed": 100,
+      "calibration_cases": 10,
+      "fresh_decoder_checks": [
+        {
+          "image_index": 0,
+          "pixel_hash_equal": true,
+          "psnr_difference": 4.379767730711137e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 1,
+          "pixel_hash_equal": true,
+          "psnr_difference": -4.4891838157923303e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 2,
+          "pixel_hash_equal": true,
+          "psnr_difference": -1.881675579795683e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 3,
+          "pixel_hash_equal": true,
+          "psnr_difference": -3.7355131965455257e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 4,
+          "pixel_hash_equal": true,
+          "psnr_difference": -2.277150912277648e-09,
+          "encoder_called": false
+        },
+        {
+          "image_index": 5,
+          "pixel_hash_equal": true,
+          "psnr_difference": 1.4713659624021602e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 6,
+          "pixel_hash_equal": true,
+          "psnr_difference": -1.5707733780345734e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 7,
+          "pixel_hash_equal": true,
+          "psnr_difference": -4.157764479373327e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 8,
+          "pixel_hash_equal": true,
+          "psnr_difference": -1.9331354295104575e-07,
+          "encoder_called": false
+        },
+        {
+          "image_index": 9,
+          "pixel_hash_equal": true,
+          "psnr_difference": 3.8749362119006037e-07,
+          "encoder_called": false
+        }
+      ],
+      "optimizer_step_range": [
+        100,
+        100
+      ],
+      "aux_optimizer_step_range": [
+        100,
+        100
+      ]
+    }
+  ],
+  "selection": {
+    "rows": [
+      {
+        "arm_id": "lambda_00015",
+        "mean_entropy_payload_bpp": 0.037451171875,
+        "mean_total_stored_bpp": 0.0416015625,
+        "mean_psnr": 24.046000792166197,
+        "within_rate_window": true
+      },
+      {
+        "arm_id": "lambda_00025",
+        "mean_entropy_payload_bpp": 0.04736328125,
+        "mean_total_stored_bpp": 0.051513671875,
+        "mean_psnr": 24.950595914666003,
+        "within_rate_window": false
+      },
+      {
+        "arm_id": "lambda_00040",
+        "mean_entropy_payload_bpp": 0.06083984375,
+        "mean_total_stored_bpp": 0.064990234375,
+        "mean_psnr": 26.058479474390964,
+        "within_rate_window": false
+      }
+    ],
+    "selected_arm_id": "lambda_00015",
+    "selection_scope": "development calibration only",
+    "paper_baseline_ready": false,
+    "lower_rate_bound": 0.036000000000000004,
+    "upper_rate_bound": 0.044000000000000004
+  },
+  "training_image_identities_verified": 100,
+  "forbidden_evaluation_manifests_verified": 7,
+  "historical_artifacts_unchanged": 30,
+  "prior_checkpoint_unchanged": true,
+  "stock_weights_unchanged": true,
+  "frozen_evaluation_images_used_for_training": false,
+  "paper_baseline_ready": false,
+  "paper_dataset_identity_established": false,
+  "full_paper_reproduction_complete": false
+}

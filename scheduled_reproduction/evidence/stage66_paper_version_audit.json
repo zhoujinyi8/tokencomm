@@ -1,0 +1,28 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "e083c94f05c6e2c0ed36d6cb6504f3a11a066fde053f230b9e483e0411809a12",
+  "fetch_receipt_sha256": "994d22e2fb679d558bd6eafc3ea74dca4bd03ca35e6a02965cb740032b257918",
+  "versions": [
+    4,
+    5
+  ],
+  "sole_manuscript_change": "Abstract adds the public source-code repository URL",
+  "inserted_characters": 90,
+  "manuscript_identical_after_removing_code_link": true,
+  "case_study_section_identical": true,
+  "case_study_section_sha256": "9a434ea56875a029b41c82902ff43c5ba5e80e398e5975dbf1046a552cf009d9",
+  "changed_archive_members": [
+    "00README.json",
+    "main_arxiv.tex"
+  ],
+  "added_build_metadata": {
+    "texlive_version": "2025",
+    "spec_version": 1
+  },
+  "unchanged_archive_members": 5,
+  "journal_pdf_equivalence_established": false,
+  "author_code_numerical_equivalence_established": false,
+  "exact_dataset_manifest_established": false,
+  "cheng_finetune_recipe_established": false,
+  "interpretation": "arXiv v4/v5 case-study text and figures agree; build metadata adds spec/TeX Live versions. No equivalence to journal PDF or execution/checkpoint is inferred"
+}

@@ -30,6 +30,7 @@ for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*随机交织对照_*_填充包ARQ.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段64匹配填充帧续跑_*_完整对照.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段65Cheng码流与低码率准备_*_实际码率.svg'):shutil.copy2(path,reports/path.name)
+for path in (root.parents[2]/'outputs').glob('TokCom_阶段66Cheng低码率校准与留出验证_*.svg'):shutil.copy2(path,reports/path.name)
 for path in (root.parents[2]/'outputs').glob('TokCom_阶段*完整链路输入约定对照_*_配对差值.svg'):shutil.copy2(path,reports/path.name)
 evidence=target/'evidence';evidence.mkdir(exist_ok=True)
 for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5trials.json',
@@ -108,7 +109,15 @@ for name in ['stage30_multitrial_progress.json','stage33_author_psnr_10images_5t
              'stage65_cheng_diagnostic_plan.json','stage65_cheng_diagnostic_lock.json','stage65_cheng_progress.json','stage65_cheng_audit.json',
              'stage65_fresh_model0.json','stage65_fresh_model1.json','stage65_cheng_packet_budget.json','stage65_gradient_smoke_plan.json',
              'stage65_gradient_smoke.json','stage65_gradient_smoke_audit.json','stage65_rate_pilot_plan.json','stage65_rate_pilot.json',
-             'stage65_rate_pilot_audit.json','stage65_remote_source_check.json','stage65_protocol_gaps.json','stage65_contracts.json']:
+             'stage65_rate_pilot_audit.json','stage65_remote_source_check.json','stage65_protocol_gaps.json','stage65_contracts.json',
+             'stage66_rate_grid_plan.json','stage66_rate_grid.json','stage66_rate_grid_audit.json','stage66_perceptual_lock.json','stage66_perceptual.json',
+             'stage66_holdout_plan.json','stage66_holdout_progress.json','stage66_holdout_audit.json','stage66_resource_budget.json','stage66_contracts.json',
+             'stage66_paper_source_fetch.json','stage66_paper_version_audit.json','stage66_journal_extract_audit.json','stage66_remote_source_check.json',
+             'stage66_transport_contract.json','stage66_transport_plan.json','stage66_transport_noiseless.json','stage66_transport_progress.json',
+             'stage66_transport_audit.json','stage66_transport_pilot_progress.json','stage66_transport_pilot_audit.json','stage66_transport_endpoints_summary.json',
+             'stage66_received_headers_summary.json','stage66_decode_probe_plan.json','stage66_decode_probe.json','stage66_crc_miss_probe_plan.json',
+             'stage66_crc_miss_probe.json','stage66_decode_probes_audit.json','stage66_crc_repeat_diagnostic.json','stage66_crc_miss_metrics_lock.json',
+             'stage66_crc_miss_metrics_lock_v2.json','stage66_crc_miss_metrics.json','stage66_crc_metric_preflight_deviation.json','stage66_crc_endpoint_completion.json','stage66_session_audit.json']:
     if (root/'runs'/name).exists():shutil.copy2(root/'runs'/name,evidence/name)
 holdout=evidence/'stage44_holdout';holdout.mkdir(exist_ok=True)
 for name in ('manifest.json','test.jsonl'):shutil.copy2(root/'data/imagenette_stage44_holdout'/name,holdout/name)
@@ -224,6 +233,10 @@ if (root/'runs/stage64_session_audit.json').exists():
 if (root/'runs/stage65_cheng_audit.json').exists():
     codec=json.loads((root/'runs/stage65_cheng_audit.json').read_text(encoding='utf-8'))
     readme+=f"\n## Cheng byte-stream preparation (stage 65)\n\nAudited {codec['completed_cases']}/20 clean stock-codec cases across anchor/attention quality 1 and the same ten old development images, with two fresh-process decoding checks. Actual entropy bpp and custom 34-byte CH65 header costs are distinct from likelihood estimates. Stock rates are about 3.2 times the paper's stated ~0.04 bpp target; these are not paper-rate-matched baselines. Native upstream rANS/CDF extensions were built in a separate Windows environment from hash-pinned source/toolchain archives. No native binaries, checkpoints, image arrays or compressed image streams are exported in this Git snapshot.\n\nA separately planned one-update training smoke and fixed 100-update balanced proxy pilot exercise optimization and checkpoint/RNG state. They use existing training images with frozen evaluation identities excluded, and do not establish paper checkpoint/data provenance. See the pilot audit for actual update/calibration coverage. `verify_imagenet100_manifest.py` checks a supplied 100-class manifest and file hashes; structural validity is explicitly separate from author provenance. Full paper reproduction remains incomplete.\n"
+if (root/'runs/stage66_session_audit.json').exists():
+    current=json.loads((root/'runs/stage66_session_audit.json').read_text(encoding='utf-8'))
+    h=current['holdout_means']
+    readme+=f"\n## Fixed-budget Cheng calibration and frozen endpoint (stage 66)\n\nAll three independent 100-update Anchor arms complete on the same disjoint training images/order/seed. The preregistered rate-only selector chooses `{current['selected_arm_id']}` from all ten development images; all 30 fresh-decoder pixel hashes agree. It is frozen before the independent existing ten-class 100-image clean holdout. Held-out actual entropy rate is {h['entropy_payload_bpp']:.6f} bpp, container rate {h['total_stored_bpp']:.6f}, PSNR {h['psnr_decoded']:.3f} dB, LPIPS {h['lpips_normalized']:.6f}, CLIP {h['clip_clipped']:.6f}. Five preregistered independent held-out decodes reproduce pixels exactly. No held-out training/reselection occurs.\n\nActual custom-container first-pass cost is {h['forward_qam_symbols']:.2f} QAM symbols versus the earlier 1664-symbol TokCom framing reference, so this is not complete resource matching. A separate physical variable-packet byte study covers {current['transport_frames']}/300 frames with CRC, single-pass and oracle stopping traces; {current['transport_complete_snr_groups']}/6 SNR groups are complete. Engineering CRC endpoint quality is complete for all 300 frames: 299 exact-byte clean references and one actually decoded corrupt frame (PSNR 8.612 dB). All outcomes are retained. Corrupt single-pass endpoint quality remains incomplete, with no failure imputation. This is not a complete noisy Cheng paper benchmark.\n\nThe arXiv v4/v5 case-study source is identical; v5 adds a code URL in the abstract and build metadata. Focused TER/config facts also match the original journal text cache, without re-verifying the journal PDF. Exact paper ImageNet100 identities, Cheng recipe/checkpoint and complete feedback/control/CMI airtime remain open. 17 new pure checks bring the CI protocol total to 60. See stage66 session and source receipts. Full paper reproduction is incomplete.\n"
 (target/'README.md').write_text(readme,encoding='utf-8')
 files={}
 for path in target.rglob('*'):

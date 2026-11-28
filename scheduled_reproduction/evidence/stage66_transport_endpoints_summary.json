@@ -1,0 +1,181 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "a83f2545710715e1217876825da9a22dc02abc789bc65187592e96b95e143d53",
+  "transport_audit_sha256": "f2858a71db1b2add83e8cbb31956d3fb6da80ea7da97e662e0ee155d3ba29fdf",
+  "perceptual_result_sha256": "1efd21f309cb2ed2efd4ab64f1f815e4c5944557ae3c7ae9b4d6494551fdeab3",
+  "grid_audit_sha256": "6800ac6762581e813acd35176ebcbbd7958d67e34728f7c170680e123dba8edf",
+  "reference_rows": 607,
+  "unresolved_rows": 293,
+  "new_decoder_forwards": 0,
+  "received_corrupt_streams_decoded": 0,
+  "per_snr": {
+    "6.0": {
+      "single_pass_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 0,
+        "unresolved_rows": 50,
+        "means": null
+      },
+      "receiver_crc_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 49,
+        "unresolved_rows": 1,
+        "means": null
+      },
+      "sender_oracle_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      }
+    },
+    "6.5": {
+      "single_pass_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 0,
+        "unresolved_rows": 50,
+        "means": null
+      },
+      "receiver_crc_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      },
+      "sender_oracle_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      }
+    },
+    "7.0": {
+      "single_pass_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 0,
+        "unresolved_rows": 50,
+        "means": null
+      },
+      "receiver_crc_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      },
+      "sender_oracle_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      }
+    },
+    "7.5": {
+      "single_pass_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 0,
+        "unresolved_rows": 50,
+        "means": null
+      },
+      "receiver_crc_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      },
+      "sender_oracle_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      }
+    },
+    "8.0": {
+      "single_pass_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 0,
+        "unresolved_rows": 50,
+        "means": null
+      },
+      "receiver_crc_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      },
+      "sender_oracle_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      }
+    },
+    "9.0": {
+      "single_pass_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 8,
+        "unresolved_rows": 42,
+        "means": null
+      },
+      "receiver_crc_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      },
+      "sender_oracle_arq_padded": {
+        "frames": 50,
+        "exact_byte_reference_rows": 50,
+        "unresolved_rows": 0,
+        "means": {
+          "psnr_decoded": 24.046000792166197,
+          "lpips_normalized": 0.4392991825938225,
+          "clip_clipped": 0.6544650495052338
+        }
+      }
+    }
+  },
+  "interpretation": "Exact byte equality and uncensored stopping justify reusing the same frozen clean decode. No metrics are imputed for other streams and no conditional-only mean is labeled a full-cohort result.",
+  "paper_baseline_ready": false,
+  "full_paper_reproduction_complete": false,
+  "detailed_rows_sha256": "10be1014851c820d379a260f5e618bfb1e5f81a2deb697ed95ae40d6e5117750"
+}

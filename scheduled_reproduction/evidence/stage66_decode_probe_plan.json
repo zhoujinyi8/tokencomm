@@ -1,0 +1,109 @@
+{
+  "created_utc": "2026-11-28T11:09:29.381719+00:00",
+  "scope": "Six fixed first-image/first-trial SNR coordinates, exploratory bounded received-stream decoding, not performance curves",
+  "cases": [
+    {
+      "case_index": 0,
+      "snr_db": 6.0,
+      "image_index": 0,
+      "trial": 0,
+      "policy": "single_pass_padded",
+      "received_path": "runs\\stage66_decode_probe\\case0.ch65",
+      "received_sha256": "c3fa8f47fd47ec9689986f667725ef4b435acf43fc62a024dc72ffd05e932161",
+      "child_result_path": "runs\\stage66_decode_probe\\case0_child.json",
+      "source_frame_sha256": "17b02dfec3c822a1f6bb8022b30d1a8be67d64826347adce5b8bb5e2c7d0b684",
+      "source_trace_sha256": "ac5735ec7654e1bdb4368a5d18acf6255aaf0140711fedf4c32190126d1ff2cf",
+      "sender_truth_container_exact": false
+    },
+    {
+      "case_index": 1,
+      "snr_db": 6.5,
+      "image_index": 0,
+      "trial": 0,
+      "policy": "single_pass_padded",
+      "received_path": "runs\\stage66_decode_probe\\case1.ch65",
+      "received_sha256": "0387de466798e525d3b46bb1225920f286ebe10a056b964a98a6a95bdac7c285",
+      "child_result_path": "runs\\stage66_decode_probe\\case1_child.json",
+      "source_frame_sha256": "4390cb5011a7630a8277221c6dd7eed81f4dc39ab76c3922cde93e2231caf169",
+      "source_trace_sha256": "99ed8baedcbe23ef3073ef5f56c4cd3575b8e2a8e6915f13602467adb85f50ab",
+      "sender_truth_container_exact": false
+    },
+    {
+      "case_index": 2,
+      "snr_db": 7.0,
+      "image_index": 0,
+      "trial": 0,
+      "policy": "single_pass_padded",
+      "received_path": "runs\\stage66_decode_probe\\case2.ch65",
+      "received_sha256": "90aff3bcc4e0a0818a25f34e4a1aec968a0c5cb4b5c236994c8a14e98e650963",
+      "child_result_path": "runs\\stage66_decode_probe\\case2_child.json",
+      "source_frame_sha256": "560a4d4e5d549542a3917e9b269c9d44b2f7175b7ba0d8be9e38e4679ca18771",
+      "source_trace_sha256": "5bfcc20188baea37c7a61ebf0eefd38bd8a514f2cc9ff881c093d60842e1e8b1",
+      "sender_truth_container_exact": false
+    },
+    {
+      "case_index": 3,
+      "snr_db": 7.5,
+      "image_index": 0,
+      "trial": 0,
+      "policy": "single_pass_padded",
+      "received_path": "runs\\stage66_decode_probe\\case3.ch65",
+      "received_sha256": "e93d082ac09580843d7a465fde669f06aa3459b89933b04a4618d553b1ad7b26",
+      "child_result_path": "runs\\stage66_decode_probe\\case3_child.json",
+      "source_frame_sha256": "c097a19cd125774dcfbc0a24c9514f3fd2b988a90826b65a8938b5107fb1590f",
+      "source_trace_sha256": "2e25584ade026a43d9d455c555e9d5eef7bbb525c853939e824832d38cf48701",
+      "sender_truth_container_exact": false
+    },
+    {
+      "case_index": 4,
+      "snr_db": 8.0,
+      "image_index": 0,
+      "trial": 0,
+      "policy": "single_pass_padded",
+      "received_path": "runs\\stage66_decode_probe\\case4.ch65",
+      "received_sha256": "1e63d66c0e845a0e50f65cac2d998f7ea5d045c2d55689a120f15d941c627427",
+      "child_result_path": "runs\\stage66_decode_probe\\case4_child.json",
+      "source_frame_sha256": "f388ca1613a38d305043ba71e97fe9b806b9f0a71bce6a7a5beee2623f3f933d",
+      "source_trace_sha256": "c85bc1befb0a54284ee5e5a114eb9f803dc69e2d863c6fc6e7a6856e3d8d28d6",
+      "sender_truth_container_exact": false
+    },
+    {
+      "case_index": 5,
+      "snr_db": 9.0,
+      "image_index": 0,
+      "trial": 0,
+      "policy": "single_pass_padded",
+      "received_path": "runs\\stage66_decode_probe\\case5.ch65",
+      "received_sha256": "13b9ad3fff99c11151c6a28611119da6b3d79c44e96319315322788ce4a14bae",
+      "child_result_path": "runs\\stage66_decode_probe\\case5_child.json",
+      "source_frame_sha256": "6846d80901c34701c0337645eaca9c7f05c3fc4a37c658b8de9ff8c951111010",
+      "source_trace_sha256": "3b534768062f99ff8434854982c4cea7280dd5e0a288d6a119815fa1e9de24aa",
+      "sender_truth_container_exact": false
+    }
+  ],
+  "selection": "image=0, trial=0, all six frozen SNRs, without filtering by byte errors or parser outcomes",
+  "checkpoint_path": "pretrained\\cheng_rate_grid66\\lambda_00015.pt",
+  "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+  "original_image_path": "data\\imagenette_stage5\\images\\val\\0\\6a58c6b938bf7481b2f8.jpg",
+  "original_image_sha256": "6a58c6b938bf7481b2f859e2506f07f764693022ad026b756643fd983d39b05b",
+  "transport_audit_sha256": "f2858a71db1b2add83e8cbb31956d3fb6da80ea7da97e662e0ee155d3ba29fdf",
+  "child_sha256": "0361f0af79168ce7aa78d716e733cec84ec5e4606a81b31db672c5ff69a4141a",
+  "driver_sha256": "b14e622fbcf353994328b836e42dac0dfba5497a7be7fa2f91380c9f523b681c",
+  "source_sha256": {
+    "cheng_runtime.py": "a7ccaeb21501c7f1052e0d2d409af743d61c1e728cd5bfbdc5298bb925263e81",
+    "cheng_stream_container.py": "8a5ebdbe708e3c1d299d1affcb5cafe04b9c0904e5b09ce998ffec8491f2bfbe"
+  },
+  "guards": "At most 65536 input bytes, anchor q1 identifier, 256x256 pixels, latent shape 4x4; validated before spawning native child",
+  "child_timeout_seconds": 60,
+  "timeout_action": "Terminate the owned Windows child process tree; retain failure classification",
+  "containment": "Separate process and fixed geometry/time bound, not a memory sandbox",
+  "failure_categories": [
+    "header_rejected",
+    "timeout",
+    "native_process_failure",
+    "decoded_finite_pixels"
+  ],
+  "failure_imputation": "none; no aggregate quality over successful-only subset",
+  "full_paper_reproduction_complete": false,
+  "paper_baseline_ready": false
+}

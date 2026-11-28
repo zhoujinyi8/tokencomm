@@ -1,0 +1,43 @@
+{
+  "all_runs_completed": true,
+  "script_sha256": "7706b923b03499407d7b1489b375a9dcf6afc817909eb36c1c6d9709bccbcab4",
+  "probe_plan_sha256": "38da835f7a0bbe33e7976c7431e07357c5311a2e5b8ffcfb0c592589ab1919f5",
+  "received_sha256": "b7832de4fcdd6dd1ceba9b27cae115cec56b78fd93a1267eeb52d7d7fe957ec8",
+  "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+  "rows": [
+    {
+      "repetition": 0,
+      "torch_threads": 2,
+      "pixel_sha256": "c8f8d03a266bddbe1c3235d13229615c93c6c1eac054eee4ba9353aa0ab63437",
+      "equals_original_child_hash": true,
+      "max_abs_pixel_difference_from_first": 0.0,
+      "psnr_decoded": 8.611567915805797
+    },
+    {
+      "repetition": 1,
+      "torch_threads": 2,
+      "pixel_sha256": "c8f8d03a266bddbe1c3235d13229615c93c6c1eac054eee4ba9353aa0ab63437",
+      "equals_original_child_hash": true,
+      "max_abs_pixel_difference_from_first": 0.0,
+      "psnr_decoded": 8.611567915805797
+    },
+    {
+      "repetition": 2,
+      "torch_threads": 4,
+      "pixel_sha256": "c72f30c1a24041088a8877fceff01d4d20fce5d8ea6db9071c5627f6366f449d",
+      "equals_original_child_hash": false,
+      "max_abs_pixel_difference_from_first": 1.9669532775878906e-06,
+      "psnr_decoded": 8.611568438781571
+    },
+    {
+      "repetition": 3,
+      "torch_threads": 2,
+      "pixel_sha256": "c8f8d03a266bddbe1c3235d13229615c93c6c1eac054eee4ba9353aa0ab63437",
+      "equals_original_child_hash": true,
+      "max_abs_pixel_difference_from_first": 0.0,
+      "psnr_decoded": 8.611567915805797
+    }
+  ],
+  "identity_gate_relaxed": false,
+  "cohort_quality_published": false
+}

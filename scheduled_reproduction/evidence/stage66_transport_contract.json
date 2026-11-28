@@ -1,0 +1,19 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "checks": [
+    "byte roundtrip including variable packet counts above 64",
+    "explicit big-endian bit ordering",
+    "wrong trailing length refused",
+    "out-of-range or malformed chunks refused",
+    "policy and packet batching order invariance",
+    "attempt noise independence",
+    "unambiguous variable-packet seed coordinates",
+    "actual replay supports non-64 packet count"
+  ],
+  "source_sha256": {
+    "cheng_byte_transport.py": "a6942c03ba5de217a47a197dae92ace1142e0ca249f101485fc3caa418d06630",
+    "test_cheng_byte_transport.py": "a302c788536bdb62441c1c5c0bf01f5165adce8873a433e79ac9de51b2bb9a28",
+    "packet_arq_accounting.py": "c271898601e187ca8d249caf4bdf359514fd9a46939c59815d0a1be8e53af391"
+  }
+}

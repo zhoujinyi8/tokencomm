@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-11-28T11:11:29.288340+00:00",
+  "scope": "Post-hoc mechanism diagnosis of ALL observed corrupted CRC-accepted frames (one frame); no performance estimation",
+  "cases": [
+    {
+      "case_index": 0,
+      "snr_db": 6.0,
+      "image_index": 3,
+      "trial": 4,
+      "policy": "receiver_crc_arq_padded",
+      "received_path": "runs\\stage66_crc_miss_probe\\case0.ch65",
+      "received_sha256": "b7832de4fcdd6dd1ceba9b27cae115cec56b78fd93a1267eeb52d7d7fe957ec8",
+      "child_result_path": "runs\\stage66_crc_miss_probe\\case0_child.json",
+      "source_frame_path": "runs\\stage66_transport_cases\\snr0_image03_trial4.json",
+      "source_frame_sha256": "d1d3ac32b2bb8aaeb631543b6180f539b0c32d54d0a9a7ed11b9bb3b67de3ac8",
+      "source_trace_sha256": "2c10676fbb8fea4ea910643ec35bdfde1afc5904f6502ae43ce9a120f3f310b1",
+      "sender_truth_container_exact": false
+    }
+  ],
+  "checkpoint_path": "pretrained\\cheng_rate_grid66\\lambda_00015.pt",
+  "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+  "original_image_path": "data\\imagenette_stage5\\images\\val\\3\\e79acd48ab5aad34cdaf.jpg",
+  "original_image_sha256": "e79acd48ab5aad34cdaf070697da19e0c58df4a7519e508111cc2c6392c916d7",
+  "child_sha256": "0361f0af79168ce7aa78d716e733cec84ec5e4606a81b31db672c5ff69a4141a",
+  "driver_sha256": "a255d94414d0480a708976062a11e6cc97a3435272a63147802c88fe3d2e7170",
+  "transport_audit_sha256": "f2858a71db1b2add83e8cbb31956d3fb6da80ea7da97e662e0ee155d3ba29fdf",
+  "child_timeout_seconds": 60,
+  "no_failure_imputation": true,
+  "paper_baseline_ready": false
+}

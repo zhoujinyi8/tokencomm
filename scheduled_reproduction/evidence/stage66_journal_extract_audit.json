@@ -1,0 +1,58 @@
+{
+  "all_checks_passed": true,
+  "script_sha256": "19b2d2257f26723877cb2e0b5d3f151b508aeed6e80958f304ac1a16c34e6510",
+  "journal_text_cache_filename": "Token_Communications_A_Large_Model-Driven_Framework_for_Cross-Modal_Context-Aware_Semantic_Communications.txt",
+  "journal_text_cache_sha256": "9ba17f7510bf7f614a1f0d07ddefdca486bea4ce82976603e6ed566bba88865a",
+  "evidence_scope": "User-provided journal text extraction cache; original PDF not re-rendered or re-hashed in this check",
+  "verified_journal_case_study_facts": {
+    "dataset": "ImageNet100",
+    "tokens_per_image": 256,
+    "codebook_size": 1024,
+    "tokens_per_packet": 4,
+    "payload_bpp": 0.039,
+    "cheng_finetuned_target_bpp": 0.04,
+    "modulation": "16-QAM",
+    "bandwidth_mhz": 0.05,
+    "cmi_class_bits": 7
+  },
+  "ter_before": [
+    0.15,
+    0.1,
+    0.065,
+    0.038,
+    0.02,
+    0.005
+  ],
+  "ter_after": [
+    0.03,
+    0.025,
+    0.019,
+    0.0126,
+    0.00764,
+    0.0021
+  ],
+  "snr_db": [
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    9.0
+  ],
+  "arxiv_agreement": [
+    {
+      "version": 4,
+      "ter_snr_arrays_equal": true
+    },
+    {
+      "version": 5,
+      "ter_snr_arrays_equal": true
+    }
+  ],
+  "focused_numerical_agreement_established": true,
+  "full_journal_source_equivalence_established": false,
+  "original_pdf_identity_reverified": false,
+  "author_code_numerical_equivalence_established": false,
+  "exact_100_class_manifest_established": false,
+  "cheng_recipe_or_checkpoint_identified": false
+}

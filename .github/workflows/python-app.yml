@@ -45,3 +45,5 @@ jobs:
         python -c "from test_cheng_stream_container import verify; result = verify(); assert result['passed'] == 8 and result['failed'] == 0; print(result)"
         python -c "from test_cheng_packet_budget import verify; result = verify(); assert result['passed'] == 6 and result['failed'] == 0; print(result)"
         python -c "from test_imagenet100_manifest import verify; result = verify(); assert result['passed'] == 9 and result['failed'] == 0; print(result)"
+        python -c "from test_cheng_rate_selection import verify; result = verify(); assert result['passed'] == 9 and result['failed'] == 0; print(result)"
+        python -c "from test_cheng_byte_transport import verify; result = verify(); assert result['passed'] == 8 and result['failed'] == 0; print(result)"

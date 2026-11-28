@@ -1,0 +1,10 @@
+{
+  "script_sha256": "0076e8e209d9f2e259bc423c1812bf78e17f36c7d3135ab618aa4f018c1c2d17",
+  "probe_result_sha256": "0f306d71c8efb8fcd6de904f366c70b79526323c28f5c4f82a5be3f739712cca",
+  "probe_plan_sha256": "38da835f7a0bbe33e7976c7431e07357c5311a2e5b8ffcfb0c592589ab1919f5",
+  "metric_lock_sha256": "9cbde3826b7f4516919a1f8851f1a87d2bda3094dca8d49fdbf82424e02847fd",
+  "checkpoint_sha256": "9d06fe8d363b12b18916997469a3076858cab1c73a5d9e7edf00e9107d90c2d7",
+  "runtime_helper_sha256": "a7ccaeb21501c7f1052e0d2d409af743d61c1e728cd5bfbdc5298bb925263e81",
+  "decoder_threads": 2,
+  "perceptual_threads": 4
+}
